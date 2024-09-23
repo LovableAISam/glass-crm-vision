@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Bank Management",
+  
+  "pageActionAdd": "Tambah Bank",
+
+  "tableHeaderName": "Nama Bank",
+  "tableHeaderFullname": "Nama Lengkap Bank",
+  "tableHeaderStatus": "Status",
+
+  "modalCreateTitle": "Detail Bank",
+  "modalUpdateTitle": "Tambah Bank",
+  "modalActionActivate": "Mengaktifkan Bank",
+  "modalActionDeactivate": "Menonaktifkan Bank",
+
+  "formName": "Nama Bank",
+  "formFullname": "Nama Lengkap Bank",
+  "formColorCode": "Kode Warna Bank",
+  "formLogo": "Logo Bank",
+  "formBackgroudCard": "Background Kartu",
+  "formStatus": "Status"
+}

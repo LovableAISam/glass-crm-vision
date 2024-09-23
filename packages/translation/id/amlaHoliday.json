@@ -1,0 +1,19 @@
+{
+  "pageTitle": "AMLA Holiday",
+  "pageActionAdd": "Tambah Hari Libur Baru",
+
+  "filterYear": "Tahun",
+  "placeholderYear": "tahun",
+
+  "confirmTitle": "Hari Libur",
+  "confirmDescription": "hari libur",
+
+  "tableHeaderDate": "Date",
+  "tableHeaderHolidayName": "Nama Hari Libur",
+  "tableHeaderAction": "Aksi",
+  "tableAction": "Hapus",
+
+  "modalCreateTitle": "Buat Hari Libur",
+  "formDate": "Tanggal",
+  "formHolidayName": "Nama Hari Libur"
+}

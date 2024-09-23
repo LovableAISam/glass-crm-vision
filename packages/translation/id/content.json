@@ -1,0 +1,25 @@
+{
+  "pageTitle": "Content Management",
+
+  "actionAddField": "Tambah Field",
+
+  "filterContentName": "Nama Konten",
+  "filterModifiedDate": "Tanggal Perubahan",
+
+  "tableHeaderContentName": "Nama Konten",
+  "tableHeaderModifiedDate": "Tanggal Perubahan",
+
+  "modalCreateTitle": "Tambah Konten",
+  "modalUpdateTitle": "Detail",
+
+  "formContentType": "Tipe Konten",
+  "formContentName": "Nama Konten",
+  "formModifiedDate": "Tanggal Perubahan",
+  "formTitle": "Judul",
+  "formDescription": "Deskripsi",
+
+  "textContentField": "Field Konten",
+
+  "placeholderContentType": "Tipe Konten harus diisi.",
+  "placeholderContentDescription": "Ketik deskripsi konten"
+}

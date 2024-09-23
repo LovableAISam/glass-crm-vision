@@ -1,0 +1,45 @@
+{
+  "pageTitle": "User Management",
+
+  "pageActionAdd": "Add New User",
+  "actionGeneratePassword": "Generate Password",
+
+  "statusActive": "Active",
+  "statusInactive": "Inactive",
+  "statusLocked": "Locked",
+
+  "actionActivate": "Activate",
+  "actionDeactivate": "Deactivate",
+  "actionUnlock": "Unlock User",
+  "actionLock": "Lock User",
+
+  "filterUsername": "Username",
+  "filterDate": "Filter Date",
+  "filterRole": "Role",
+  "filterStatus": "Status",
+
+  "tableHeaderEmail": "Email",
+  "tableHeaderUsername": "Username",
+  "tableHeaderRole": "Role",
+  "tableHeaderStatus": "Status",
+  "tableHeaderRegisteredDate": "Registered Date",
+  "tableHeaderDescription": "Description",
+  "tableHeaderPassword": "Password",
+
+  "modalCreateTitle": "User Details",
+  "modalUpdateTitle": "Add New User",
+
+  "detailEmail": "Email",
+  "detailUsername": "Username",
+  "detailUserStatus": "User Status",
+  "detailAccountStatus": "Account Status",
+
+  "formEmail": "Email",
+  "formUsername": "Username",
+  "formPassword": "Password",
+  "formConfirmPassword": "Confirm Password",
+  "formRole": "Role",
+  "formDescription": "Description",
+  "formName": "Name",
+  "formEffectiveDate": "Effective Date"
+}

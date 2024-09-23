@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/activity-history/__tests__/ActivityHistoryList.test.tsx">
+    <testCase name="activity history show table renders empty state" duration="247"/>
+    <testCase name="activity history show table renders useActivityHistoryList without error" duration="13"/>
+    <testCase name="activity history show table handles filter form changes" duration="10"/>
+    <testCase name="activity history show table handles sorting" duration="9"/>
+    <testCase name="activity history show table success fetches activity history list without error" duration="5"/>
+    <testCase name="activity history show table success handles export without error" duration="3"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/email-management/__tests__/EmailManagementList.test.tsx">
+    <testCase name="page email content management renders a loading state" duration="168"/>
+    <testCase name="page email content management renders empty state" duration="58"/>
+    <testCase name="page email content management should render the component table and value without crashing" duration="480"/>
+    <testCase name="page email content management handle change pagination" duration="310"/>
+    <testCase name="hook email content management success renders useEmailContentList without error" duration="8"/>
+    <testCase name="hook email content management handle getSortPayload" duration="14"/>
+    <testCase name="hook email content management handles refetch detail data" duration="2"/>
+    <testCase name="hook email content management handles sorting" duration="3"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/member-management/__tests__/MemberManagementList.test.tsx">
+    <testCase name="page layering approval renders a loading state" duration="382"/>
+    <testCase name="page layering approval renders empty state" duration="168"/>
+    <testCase name="page layering approval should render the component table and value without crashing" duration="785"/>
+    <testCase name="page layering approval should render the component table with other data condition" duration="340"/>
+    <testCase name="page layering approval should render the component table with other data condition" duration="414"/>
+    <testCase name="page layering approval should render the component table with other data condition" duration="222"/>
+    <testCase name="page layering approval handle filter phone number" duration="387"/>
+    <testCase name="page layering approval handle filter rm number" duration="387"/>
+    <testCase name="page layering approval handle filter member name" duration="361"/>
+    <testCase name="page layering approval handle change pagination" duration="334"/>
+    <testCase name="page layering approval handle sort" duration="325"/>
+    <testCase name="hook layering approval success renders useMemberList without error" duration="25"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/change-password/__tests__/ChangePassword.test.tsx">
+    <testCase name="page change password should render the component without crashing" duration="405"/>
+    <testCase name="page change password will display an error when password is not filled" duration="159"/>
+    <testCase name="page change password will display an error if the password confirmation is not filled" duration="175"/>
+    <testCase name="page change password will display an error if the entered password characters exceed 20" duration="199"/>
+    <testCase name="page change password will display an error if the new password and confirmation password do not match" duration="238"/>
+    <testCase name="page change password will display an error if the password is less than 8 characters" duration="232"/>
+    <testCase name="page change password will display an error if the password does not contain uppercase letters" duration="150"/>
+    <testCase name="page change password will display an error if the password does not contain special characters" duration="209"/>
+    <testCase name="page change password will display an error if the password does not contain numeric characters" duration="189"/>
+    <testCase name="page change password will not display any errors if all password conditions are met" duration="680"/>
+    <testCase name="page change password display enqueueSnackbar success when password change is successful" duration="736"/>
+    <testCase name="page change password display enqueueSnackbar failure when password change fails" duration="430"/>
+    <testCase name="page change password display cancellation confirmation dialog when cancel button is pressed" duration="345"/>
+    <testCase name="useChangePassword renders useChangePassword without error" duration="24"/>
+    <testCase name="useChangePassword function handleChangePassword" duration="8"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/layering-approval/__tests__/CreateLayeringApprovalModal.test.tsx">
+    <testCase name="CreateEmailManagementModal component renders component correctly" duration="742"/>
+    <testCase name="CreateEmailManagementModal component handles save success response" duration="2609"/>
+    <testCase name="CreateEmailManagementModal component handles save failed response" duration="686"/>
+    <testCase name="CreateEmailManagementModal component handles save failed with no role" duration="204"/>
+    <testCase name="CreateEmailManagementModal component renders component as update" duration="322"/>
+    <testCase name="CreateEmailManagementModal component handle delete success response" duration="757"/>
+    <testCase name="CreateEmailManagementModal component handle delete failed response" duration="1031"/>
+    <testCase name="hook layering approval upsert success renders useLayeringApprovalUpsert without error" duration="16"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/co-transaction-summary/__tests__/CoTransactionSummary.test.tsx">
+    <testCase name="CO Transaction Summary With Loading renders a loading state" duration="239"/>
+    <testCase name="CO Transaction Summary With Table should render successfully when data exists, the table and download button are shown" duration="766"/>
+    <testCase name="CO Transaction Summary With Table renders useMemberSummaryList without error and give the same value" duration="11"/>
+    <testCase name="CO Transaction Summary With Table handles filter form changes" duration="3"/>
+    <testCase name="CO Transaction Summary With Table handles pagination" duration="4"/>
+    <testCase name="CO Transaction Summary With Table handles sorting" duration="3"/>
+    <testCase name="CO Transaction Summary With Table success fetches transaction summary list without error" duration="5"/>
+    <testCase name="CO Transaction Summary With Table handleExport is called when tableActionDetail button is clicked" duration="719"/>
+    <testCase name="CO Transaction Summary With Table the modal detail should render successfully when data exists, and the user clicks the transaction detail button. in this scenario, the modal displays the detailed transaction data" duration="789"/>
+    <testCase name="CO Transaction Summary With Table renders useMemberSummaryDetail without error and give the same value" duration="14"/>
+    <testCase name="CO Transaction Summary With Table success fetches transaction summary transaction list without error" duration="3"/>
+    <testCase name="CO Transaction Summary With Table handles sorting detail table transaction list" duration="5"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/daily-channel-reliability/__tests__/DailyChannelReliabilityList.test.tsx">
+    <testCase name="page daily channel reliability renders a loading state" duration="153"/>
+    <testCase name="page daily channel reliability renders empty state" duration="60"/>
+    <testCase name="page daily channel reliability should render the component table and value without crashing" duration="206"/>
+    <testCase name="hook daily channel reliability success renders useDailyChannelReliabilityList without error" duration="4"/>
+    <testCase name="hook daily channel reliability handles filter form changes" duration="23"/>
+    <testCase name="hook daily channel reliability handles refetch data" duration="3"/>
+    <testCase name="hook daily channel reliability success handles function change date range &lt; 730" duration="3"/>
+    <testCase name="hook daily channel reliability failed handles function change date range &gt; 730" duration="4"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/member-management/__tests__/AccountInformation.test.tsx">
+    <testCase name="page account information renders a loading state" duration="739"/>
+    <testCase name="page account information renders with data table with 0 amount" duration="140"/>
+    <testCase name="page account information renders with data table with amount null" duration="127"/>
+    <testCase name="page account information handle pagination" duration="266"/>
+    <testCase name="page account information handle change download data type &amp; success" duration="354"/>
+    <testCase name="page account information handle  download &amp; failed" duration="203"/>
+    <testCase name="page account information handle get sort data" duration="215"/>
+    <testCase name="hook account information success renders useActivityMemberHistoryList without error" duration="17"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/member-management/__tests__/PersonalData.test.tsx">
+    <testCase name="page personal data success render detail data" duration="107"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/co-va-member-summary/__tests__/COVAMemberSummaryList.test.tsx">
+    <testCase name="CO VA Member Summary With Loading renders a loading state" duration="416"/>
+    <testCase name="CO VA Member Summary With Table should render successfully when data exists, the table and download button are shown" duration="1564"/>
+    <testCase name="CO VA Member Summary With Table should render successfully when data exists, the table and download button are shown" duration="403"/>
+    <testCase name="CO VA Member Summary With Table renders useMemberSummaryList without error" duration="7"/>
+    <testCase name="CO VA Member Summary With Table renders useMemberSummaryDetail without error" duration="10"/>
+    <testCase name="CO VA Member Summary With Table handles filter form changes" duration="3"/>
+    <testCase name="CO VA Member Summary With Table handles sorting" duration="3"/>
+    <testCase name="CO VA Member Summary With Table success fetches member summary list without error" duration="5"/>
+    <testCase name="CO VA Member Summary With Table success fetches member summary transaction list without error" duration="4"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/member-management/__tests__/ViewManageMemberTab.test.tsx">
+    <testCase name="ViewManageMemberTab component renders component with activeTab 0" duration="3640"/>
+    <testCase name="ViewManageMemberTab component renders component with activeTab 1" duration="7"/>
+    <testCase name="ViewManageMemberTab component renders component with default null" duration="1"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/user-fund-balance/__tests__/UserFundBalanceList.test.tsx">
+    <testCase name="user fund balance list renders a loading state" duration="225"/>
+    <testCase name="user fund balance list renders empty state" duration="100"/>
+    <testCase name="user fund balance list should render successfully when data exists, the table and download button are shown" duration="1185"/>
+    <testCase name="user fund balance list handle change pagination" duration="948"/>
+    <testCase name="user fund balance list handle filter" duration="1028"/>
+    <testCase name="user fund balance list handle sort" duration="667"/>
+    <testCase name="user fund balance list renders useMemberSummaryList without error" duration="27"/>
+    <testCase name="user fund balance list handle delete filter" duration="31"/>
+    <testCase name="user fund balance list handle fetch" duration="8"/>
+    <testCase name="user fund balance list success handles function change date range &lt; 730" duration="7"/>
+    <testCase name="user fund balance list failed handles function change date range &gt; 730" duration="7"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/activity-member-history/__tests__/ActivityMemberHistoryList.test.tsx">
+    <testCase name="activity member history renders a loading state" duration="400"/>
+    <testCase name="activity member history show table should render successfully when data exists, the table and download button are shown" duration="597"/>
+    <testCase name="activity member history show table renders useActivityMemberHistoryList without error" duration="4"/>
+    <testCase name="activity member history show table handles filter form changes" duration="4"/>
+    <testCase name="activity member history show table handles sorting" duration="7"/>
+    <testCase name="activity member history show table success fetches activity member history list without error" duration="4"/>
+    <testCase name="activity member history show table success handles export without error" duration="2"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/member-management/__tests__/ViewManageMemberModal.test.tsx">
+    <testCase name="ViewManageMemberModal component renders component correctly with status unregistered" duration="422"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/bank-account-summary/__tests__/BankAccountSummaryList.test.tsx">
+    <testCase name="Bank Account Summary With Loading renders a loading state" duration="173"/>
+    <testCase name="Bank Account Summary With Table should render successfully when data exists, the table and download button are shown" duration="398"/>
+    <testCase name="Bank Account Summary With Table renders useBankAccountSummaryList without error" duration="2"/>
+    <testCase name="Bank Account Summary With Table handles filter form changes" duration="3"/>
+    <testCase name="Bank Account Summary With Table handles sorting" duration="3"/>
+    <testCase name="Bank Account Summary With Table success fetches fee summary list without error" duration="5"/>
+    <testCase name="Bank Account Summary With Table success handles export without error" duration="3"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/co-fee-summary/__tests__/COFeeSummaryList.test.tsx">
+    <testCase name="CO Fee Summary With Loading renders a loading state" duration="393"/>
+    <testCase name="CO Fee Summary With Table should render successfully when data exists, the table and download button are shown" duration="687"/>
+    <testCase name="CO Fee Summary With Table renders useFeeSummaryList without error" duration="17"/>
+    <testCase name="CO Fee Summary With Table handles filter form changes" duration="4"/>
+    <testCase name="CO Fee Summary With Table handles sorting" duration="3"/>
+    <testCase name="CO Fee Summary With Table success fetches fee summary list without error" duration="15"/>
+    <testCase name="CO Fee Summary With Table success handles export without error" duration="10"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/role-management/__tests__/RoleManagementList.test.tsx">
+    <testCase name="page content management renders a loading state" duration="207"/>
+    <testCase name="page content management renders empty state" duration="44"/>
+    <testCase name="page content management should render the component table and value without crashing" duration="298"/>
+    <testCase name="page content management handle detail" duration="191"/>
+    <testCase name="page content management handle add data" duration="201"/>
+    <testCase name="page content management handle change pagination" duration="343"/>
+    <testCase name="page content management handle filter role name" duration="692"/>
+    <testCase name="page content management handle sort" duration="575"/>
+    <testCase name="hook content management success renders useRoleList without error" duration="21"/>
+    <testCase name="hook content management handles refetch data" duration="8"/>
+  </file>
+  <file path="/Users/rizkysam/Documents/Indivara/woi-app/web/apps/co-dashboard/src/packages/daily-report/__tests__/DailyReport.test.tsx">
+    <testCase name="page daily report renders a loading state" duration="83"/>
+    <testCase name="page daily report renders empty state" duration="32"/>
+    <testCase name="page daily report should render the component table and value without crashing" duration="143"/>
+    <testCase name="page daily report should call api export fetcher when click download button" duration="73"/>
+    <testCase name="page daily report handle change pagination" duration="90"/>
+    <testCase name="hook daily report success renders useDailyChannelReliabilityList without error" duration="8"/>
+    <testCase name="hook daily report handles filter form changes" duration="3"/>
+    <testCase name="hook daily report handles pagination" duration="3"/>
+    <testCase name="hook daily report handles refetch data" duration="3"/>
+    <testCase name="hook daily report success handles function change date range &lt; 730" duration="2"/>
+    <testCase name="hook daily report failed handles function change date range &gt; 730" duration="2"/>
+    <testCase name="hook daily report handle getSortPayload" duration="1"/>
+    <testCase name="hook daily report show error failed export fetching" duration="2"/>
+    <testCase name="hook daily report handles sorting" duration="3"/>
+  </file>
+</testExecutions>

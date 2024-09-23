@@ -1,0 +1,32 @@
+{
+  "usernameFieldLabel": "Email",
+  "usernameFieldPlaceholder": "ketik email",
+
+  "passwordFieldLabel": "Kata Sandi",
+  "passwordFieldPlaceholder": "masukan kata sandi disini",
+
+  "emailFieldLabel": "Alamat Email",
+  "emailFieldPlaceholder": "ketik alamat email terdaftar Anda",
+
+  "newPasswordFieldLabel": "Kata Sandi Baru",
+  "newPasswordFieldPlaceholder": "ketik kata sandi baru",
+
+  "confirmNewPasswordFieldLabel": "Konfirmasi Kata Sandi Baru",
+  "confirmNewPasswordFieldPlaceholder": "ketik kata sandi baru",
+
+  "generalErrorRequired": "{{fieldName}} harus diisi.",
+  "generalErrorMinChar": "Min. {{number}} karakter.",
+  "generalErrorMaxChar": "Max. {{number}} karakter.",
+  "generalErrorEmail": "Format email tidak sesuai.",
+  "generalErrorEmailDisposible": "Email disposible tidak diizinkan.",
+  "generalErrorContainsUppercase": "Minimal 1 huruf kapital.",
+  "generalErrorContainsSpecialChars": "Minimal 1 simbol.",
+  "generalErrorContainsNumber": "Minimal 1 nomor.",
+  "generalErrorMissMatching": "{{fieldName}} tidak cocok. Harap periksa kembali",
+  "generalErrorFormat": "Format {{fieldName}} tidak sesuai.",
+
+  "errorEmpty": "{{fieldName}} harus diisi minimal 1",
+
+  "placeholderType": "ketik {{fieldName}}",
+  "placeholderSelect": "pilih {{fieldName}}"
+}

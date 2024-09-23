@@ -1,0 +1,29 @@
+{
+  "pageTitle": "Account Rule Value Management",
+
+  "pageActionAdd": "Tambah Account Rule Value",
+  "actionDelete": "Hapus Account Rule Value",
+
+  "filterRuleName": "Nama Rule",
+  "filterTransactionType": "Tipe Transaksi",
+  "filterDate": "Filter Tanggal",
+
+  "tableHeaderAccountRuleValueName": "Nama Acc. Rule Value",
+  "tableHeadeTransactionType": "Tipe Transaksi",
+  "tableHeaderCurrency": "Mata Uang",
+  "tableHeaderEffectiveDate": "Tanggal Berlaku",
+
+  "modalCreateTitle": "Tambah Account Rule Value",
+  "modalUpdateTitle": "Detail Account Rule Value",
+
+  "formAccountRuleName": "Nama Account Rule",
+  "formTransactionType": "Tipe Transaksi",
+  "formValue": "Nilai",
+  "formForRegisteredMember": "Untuk Anggota Terdaftar",
+  "formForUnregisteredMember": "Untuk Anggota Tidak Terdaftar",
+  "formForLiteMember": "Untuk Anggota Lite",
+  "formForRegularMember": "Untuk Anggota Regular",
+  "formForProMember": "Untuk Anggota Pro",
+  "formCurrency": "Mata Uang",
+  "formEffectiveDate": "Tanggal Berlaku"
+}

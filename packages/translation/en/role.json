@@ -1,0 +1,33 @@
+{
+  "pageTitle": "Role Management",
+
+  "pageActionAdd": "Add Role",
+  "actionDelete": "Delete Role",
+  "actionDeleteDescription": "You can only delete this role when there’s no user.",
+  "actionActivate": "Activate Role",
+  "actionDectivate": "Deactivate Role",
+
+  "filterRoleName": "Role Name",
+
+  "tableHeaderRoleName": "Role Name",
+  "tableHeaderNumberOfUsers": "Number of Users",
+
+  "tableHeaderMenu": "Menu",
+  "tableHeaderPrivilege": "Privilege",
+  "tableHeaderViewOnly": "View Only",
+  "tableHeaderAddAndEdit": "Add and Edit",
+  "tableHeaderAddEditAndDelete": "Add, Edit, and Delete",
+
+  "modalCreateTitle": "Role Details",
+  "modalUpdateTitle": "Add New Role",
+
+  "formRoleName": "Role Name",
+  "formRoleDescription": "Role Description",
+  "formAssignPrivilege": "Assign Privilege",
+
+  "listOfUser": "List of Users ({{number}})",
+
+  "errorEmptyUser": "Users not found",
+  "errorEmptyPrivilege": "Menu privilege must be filled at least 1",
+  "errorEmptySelected": "Privilege must be filled if menu checked"
+}

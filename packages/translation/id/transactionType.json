@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Transaction Type Management",
+
+  "pageActionAdd": "Tambah Tipe Transaksi",
+  "actionActivate": "Mengaktifkan Tipe Transaksi",
+  "actionDectivate": "Menonaktifkan Tipe Transaksi",
+
+  "filterTransactionTypeCode": "Kode Tipe Transaksi",
+  "filterTransactionTypeName": "Nama Tipe Transaksi",
+
+  "tableHeaderTransactionTypeCode": "Kode Tipe Transaksi",
+  "tableHeaderTransactionTypeName": "Name Tipe Transaksi",
+  "tableHeaderTransactionTypeDescription": "Deskripsi Tipe Transaksi",
+
+  "modalCreateTitle": "Detail Tipe Transaksi",
+  "modalUpdateTitle": "Tambah Tipe Transaksi",
+
+  "formTransactionTypeCode": "Kode Tipe Transaksi",
+  "formTransactionTypeName": "Nama Tipe Transaksi",
+  "formTransactionTypeDescription": "Deskripsi Tipe Transaksi"
+}

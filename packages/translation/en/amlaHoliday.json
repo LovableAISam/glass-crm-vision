@@ -1,0 +1,19 @@
+{
+  "pageTitle": "AMLA Holiday",
+  "pageActionAdd": "Add New Holiday",
+
+  "filterYear": "Year",
+  "placeholderYear": "year",
+
+  "confirmTitle": "Holiday",
+  "confirmDescription": "holiday",
+
+  "tableHeaderDate": "Date",
+  "tableHeaderHolidayName": "Holiday Name",
+  "tableHeaderAction": "Action",
+  "tableAction": "Delete",
+
+  "modalCreateTitle": "Create Holiday",
+  "formDate": "Date",
+  "formHolidayName": "Holiday Name"
+}

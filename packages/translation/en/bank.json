@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Bank Management",
+
+  "pageActionAdd": "Add Bank",
+
+  "tableHeaderName": "Bank Name",
+  "tableHeaderFullname": "Bank Full Name",
+  "tableHeaderStatus": "Status",
+
+  "modalCreateTitle": "Bank Details",
+  "modalUpdateTitle": "Add Bank",
+  "modalActionActivate": "Activate Bank",
+  "modalActionDeactivate": "Deactivate Bank",
+
+  "formName": "Bank Name",
+  "formFullname": "Bank Full Name",
+  "formColorCode": "Bank Color Code",
+  "formLogo": "Bank Logo",
+  "formBackgroudCard": "Background Card",
+  "formStatus": "Status"
+}

@@ -1,0 +1,28 @@
+import React from 'react';
+import Image from 'next/legacy/image';
+import LogoImg from '@public/logo.png';
+import { Avatar } from '@mui/material';
+
+type LogoProps = {
+  width?: string | number;
+  height?: string | number;
+};
+
+const Logo = (props: LogoProps) => {
+  const { width = '100%', height = 150 } = props;
+
+  return (
+    <Avatar variant="rounded" sx={{ width, height, background: 'transparent' }}>
+      <Image
+        src={LogoImg}
+        layout="fill"
+        alt="logo"
+        // style={{
+        //   objectFit: 'contain',
+        // }}
+      />
+    </Avatar>
+  );
+};
+
+export default Logo;

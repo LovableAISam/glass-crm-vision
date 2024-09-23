@@ -1,0 +1,23 @@
+{
+  "pageTitle": "Bank FAQ Screen",
+
+  "pageActionAdd": "Add Bank FAQ Screen",
+  "actionActivate": "Activate Bank FAQ",
+  "actionDectivate": "Deactivate Bank FAQ",
+  "actionDelete": "Delete Bank FAQ",
+
+  "filterBankFAQHeader": "Bank FAQ Header",
+  "filterBankFAQContent": "Bank FAQ Content",
+  "filterBankName": "Bank Name",
+
+  "tableHeaderHeader": "Header",
+  "tableHeaderContent": "Content",
+  "tableHeaderBankName": "Bank Name",
+
+  "modalCreateTitle": "Add Bank FAQ Content",
+  "modalUpdateTitle": "Details",
+
+  "formBankFAQHeader": "Bank FAQ Header",
+  "formBankFAQContent": "Bank FAQ Content",
+  "formBankName": "Bank Name"
+}

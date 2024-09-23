@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Transaction Type Management",
+
+  "pageActionAdd": "Add Transaction Type",
+  "actionActivate": "Activate Transaction Type",
+  "actionDectivate": "Deactivate Transaction Type",
+
+  "filterTransactionTypeCode": "Transaction Type Code",
+  "filterTransactionTypeName": "Transaction Type Name",
+
+  "tableHeaderTransactionTypeCode": "Transaction Type Code",
+  "tableHeaderTransactionTypeName": "Transaction Type Name",
+  "tableHeaderTransactionTypeDescription": "Transaction Type Description",
+
+  "modalCreateTitle": "Transaction Type Details",
+  "modalUpdateTitle": "Add Transaction Type",
+
+  "formTransactionTypeCode": "Transaction Type Code",
+  "formTransactionTypeName": "Transaction Type Name",
+  "formTransactionTypeDescription": "Transaction Type Description"
+}

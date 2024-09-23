@@ -1,0 +1,64 @@
+{
+  "pageListTitle": "App Customization List",
+  "pageTitle": "App Customization",
+
+  "pageActionAdd": "Tambah App Customization",
+  "actionCreate": "Mulai Sesuaikan CO Ini",
+  "actionBackToList": "Kembali ke Daftar App Customization",
+
+  "tabTitleAppIcon": "Ikon Aplikasi", 
+  "tabTitleColorTheme": "Tema Warna", 
+  "tabTitleSplashScreen": "Splash Screen", 
+  "tabTitleOnboardingScreens": "Onboarding Screens", 
+  "tabTitleConfirmation": "Konfirmasi",
+
+  "statusProgressTitle": "Status",
+  "statusProgressInactive": "Tidak Aktif",
+  "statusProgressPending": "Tertunda",
+  "statusProgressActive": "Aktif",
+  "statusProgressSuccess": "Berhasil",
+  "statusProgressError": "Eror",
+  "statusProgressActionRetry": "Ulangi",
+
+  "filterCOName": "Nama CO",
+  "filterStatus": "Status",
+  "filterDate": "Filter Tanggal",
+
+  "tableHeaderCOName": "Nama CO",
+  "tableHeaderCustomizationDate": "Tanggal Customization",
+  "tableHeaderStatus": "Status",
+
+  "modalCreateTitle": "Tambah App Customization",
+
+  "formCO": "CO",
+
+  "infoCreate": "Anda hanya dapat memilih CO yang telah terdaftar di Menu CO Management.",
+
+  "appIconTitle": "Ikon Aplikasi",
+  "appIconInfo": "<ul><li>Ikon aplikasi akan ditampilkan pada antarmuka telepon.</li><li>Warna latar putih</li><li>Format gambar transparan .png dan ukuran minimum 1024 x 1024.</ li><li>Harap ganti logo default berdasarkan merek Anda.</li></ul>",
+  "appIconFormAppName": "Nama Aplikasi",
+  "appIconPreview": "Preview Ikon Aplikasi",
+
+  "colorThemeTitle": "Tema Warna",
+  "colorThemeInfo": "<ul><li>Sesuaikan tema aplikasi Anda sendiri berdasarkan merek Anda.</li><li>Warna akan ditampilkan di aplikasi, termasuk latar belakang, ikon, tombol, dll.</li><li>Silakan masukan warna hex untuk menyesuaikan.</li></ul>",
+  "colorThemeFormHexColor": "Warna Hex",
+  "colorThemePreview": "Preview Tema Warna",
+
+  "onboardingTitle": "Layar Onboarding",
+  "onboardingInfo": "<ul><li>Layar Onboarding akan menampilkan gambar dan teks Anda pada template yang disediakan.</li><li>Latar belakang dan warna tombol didasarkan pada tema warna Anda</li><li>Silakan periksa pratinjau di samping setelahnya Anda mengupload gambar dan teks Anda.</li><li>Format image .jpg .jpeg .png dan ukuran minimum adalah 1024 x 1024px.</li></ul>",
+  "onboardingFormHowMany": "Jumlah Layar Onboarding?",
+  "onboardingScreen": "Layar {{number}}",
+  "onboardingText": "Teks",
+  "onboardingFormHeadline": "Judul",
+  "onboardingFormDescription": "Deskripsi",
+  "onboardingPreview": "Preview Halaman ke-{{number}}",
+  "onboardingPlaceholderSkipButton": "Tombol Skip",
+  "onboardingPlaceholderNextButton": "Tombol Next",
+
+  "splashScreenTitle": "Splash Screen",
+  "splashScreenInfo": "<ul><li>Splash Screen akan menampilkan logo merek utama Anda</li><li>Format gambar .jpg .jpeg .png dan ukuran minimum 1080 x 2280 px.</li></ul>",
+  "splashScreenPreview": "Preview Splash",
+
+  "confirmationTitle": "Konfirmasi App Customization",
+  "confirmationInfo": "<ul><li>Harap periksa kembali semua penyesuaian untuk tema, Slash Screen, dan Layar Onboarding.</li><li>Perlu diingat bahwa konten harus sesuai dan benar, karena akan ditampilkan di Aplikasi. </li><li>Anda dapat kembali untuk perubahan dengan mengeklik tombol edit di pojok.</li></ul>"
+}

@@ -1,0 +1,29 @@
+{
+  "pageTitle": "Account Rule Value Management",
+
+  "pageActionAdd": "Add Account Rule Value",
+  "actionDelete": "Delete Account Rule Value",
+
+  "filterRuleName": "Rule Name",
+  "filterTransactionType": "Transaction Type",
+  "filterDate": "Filter Date",
+
+  "tableHeaderAccountRuleValueName": "Acc. Rule Value Name",
+  "tableHeadeTransactionType": "Transaction Type",
+  "tableHeaderCurrency": "Currency",
+  "tableHeaderEffectiveDate": "Effective Date",
+
+  "modalCreateTitle": "Add Account Rule Value",
+  "modalUpdateTitle": "Account Rule Value Details",
+
+  "formAccountRuleName": "Account Rule Name",
+  "formTransactionType": "Transaction Type",
+  "formValue": "Value",
+  "formForRegisteredMember": "For Registered Member",
+  "formForUnregisteredMember": "For Unregistered Member",
+  "formForLiteMember": "For Lite Member",
+  "formForRegularMember": "For Regular Member",
+  "formForProMember": "For Pro Member",
+  "formCurrency": "Currency",
+  "formEffectiveDate": "Effective Date"
+}

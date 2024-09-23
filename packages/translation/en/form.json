@@ -1,0 +1,32 @@
+{
+  "usernameFieldLabel": "Email",
+  "usernameFieldPlaceholder": "type email",
+
+  "passwordFieldLabel": "Password",
+  "passwordFieldPlaceholder": "input password",
+
+  "emailFieldLabel": "Email Address",
+  "emailFieldPlaceholder": "type your registered email address",
+
+  "newPasswordFieldLabel": "New Password",
+  "newPasswordFieldPlaceholder": "input password",
+
+  "confirmNewPasswordFieldLabel": "Confirm New Password",
+  "confirmNewPasswordFieldPlaceholder": "input password",
+
+  "generalErrorRequired": "{{fieldName}} must be filled.",
+  "generalErrorMinChar": "Min. {{number}} characters.",
+  "generalErrorMaxChar": "Max. {{number}} characters.",
+  "generalErrorEmail": "Incorrect e-mail format.",
+  "generalErrorEmailDisposible": "Disposable email addresses are not allowed.",
+  "generalErrorContainsUppercase": "At least 1 uppercase letter.",
+  "generalErrorContainsSpecialChars": "At least 1 symbols.",
+  "generalErrorContainsNumber": "At least 1 number.",
+  "generalErrorMissMatching": "{{fieldName}} doesn’t match. Please re-check",
+  "generalErrorFormat": "Format {{fieldName}} tidak sesuai.",
+
+  "errorEmpty": "{{fieldName}} must be filled at least 1",
+
+  "placeholderType": "type {{fieldName}}",
+  "placeholderSelect": "select {{fieldName}}"
+}

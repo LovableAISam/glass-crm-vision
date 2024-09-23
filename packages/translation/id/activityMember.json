@@ -1,0 +1,18 @@
+{
+  "pageTitle": "Activity Member History",
+
+  "actionDownloadAllData": "Unduh Semua Data",
+
+  "filterPhoneNumber": "Nomor Telepon",
+  "filterType": "Tipe",
+  "filterDate": "Filter Tanggal",
+  "filterAccountNumber": "Nomor Akun",
+
+  "tableHeaderCreatedDate": "Tanggal Dibuat",
+  "tableHeaderRmNumber": "Nomor RM",
+  "tableHeaderRefID": "ID Referensi",
+  "tableHeaderActivityID": "ID Aktivitas",
+  "tableHeaderAccount": "Akun",
+  "tableHeaderType": "Tipe",
+  "tableHeaderDescription": "Deskripsi"
+}

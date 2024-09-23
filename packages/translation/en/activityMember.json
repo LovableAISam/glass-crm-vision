@@ -1,0 +1,18 @@
+{
+  "pageTitle": "Activity Member History",
+
+  "actionDownloadAllData": "Download All Data",
+
+  "filterPhoneNumber": "Phone Number",
+  "filterType": "Type",
+  "filterDate": "Filter Date",
+  "filterAccount": "Account",
+
+  "tableHeaderCreatedDate": "Created Date",
+  "tableHeaderRmNumber": "RM Number",
+  "tableHeaderRefID": "Ref ID",
+  "tableHeaderActivityID": "Activity ID",
+  "tableHeaderAccountNumber": "Account Number",
+  "tableHeaderType": "Type",
+  "tableHeaderDescription": "Description"
+}

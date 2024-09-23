@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Account Rule Management",
+
+  "pageActionAdd": "Add Account Rule",
+  "actionActivate": "Activate Account Rule",
+  "actionDectivate": "Deactivate Account Rule",
+  "actionDelete": "Delete Account Rule",
+
+  "filterAccountRuleCode": "Account Rule Code",
+  "filterAccountRuleName": "Account Rule Name",
+
+  "tableHeaderAccountRuleCode": "Account Rule Code",
+  "tableHeaderAccountRuleName": "Account Rule Name",
+  "tableHeaderDescription": "Description",
+
+  "modalCreateTitle": "Add Account Rule",
+  "modalUpdateTitle": "Account Rule Details",
+
+  "formAccountRuleCode": "Account Rule Code",
+  "formAccountRuleName": "Account Rule Name",
+  "formDescription": "Description"
+}

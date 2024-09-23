@@ -1,0 +1,25 @@
+{
+  "pageTitle": "Content Management",
+
+  "actionAddField": "Add Field",
+
+  "filterContentName": "Content Name",
+  "filterModifiedDate": "Modified Date",
+
+  "tableHeaderContentName": "Content Name",
+  "tableHeaderModifiedDate": "Modified Date",
+
+  "modalCreateTitle": "Add Content",
+  "modalUpdateTitle": "Details",
+
+  "formContentType": "Content Type",
+  "formContentName": "Content Name",
+  "formModifiedDate": "Modified Date",
+  "formTitle": "Title",
+  "formDescription": "Description",
+
+  "textContentField": "Content Field",
+
+  "placeholderContentType": "Content Type must be filled.",
+  "placeholderContentDescription": "Type content description"
+}

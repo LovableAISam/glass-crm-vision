@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account rule management renders a text description text 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-body1 MuiTypography-alignCenter css-dsge4b-MuiTypography-root"
+>
+  Hi, This page not found. please contact our CS!
+</p>
+`;
+
+exports[`Account rule management renders a text title text 1`] = `
+<h3
+  class="MuiTypography-root MuiTypography-h3 MuiTypography-alignCenter css-1nt9rxw-MuiTypography-root"
+>
+  404. Not Found!
+</h3>
+`;

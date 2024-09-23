@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Account Rule Management",
+
+  "pageActionAdd": "Tambah Account Rule",
+  "actionActivate": "Mengaktifkan Account Rule",
+  "actionDectivate": "Menonaktifkan Account Rule",
+  "actionDelete": "Hapus Account Rule",
+
+  "filterAccountRuleCode": "Kode Account Rule",
+  "filterAccountRuleName": "Nama Account Rule",
+
+  "tableHeaderAccountRuleCode": "Kode Account Rule",
+  "tableHeaderAccountRuleName": "Nama Account Rule",
+  "tableHeaderDescription": "Deskripsi",
+
+  "modalCreateTitle": "Tambah Account Rule",
+  "modalUpdateTitle": "Detail Account Rule",
+
+  "formAccountRuleCode": "Kode Account Rule",
+  "formAccountRuleName": "Nama Account Rule",
+  "formDescription": "Deskripsi"
+}

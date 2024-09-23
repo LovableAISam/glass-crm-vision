@@ -1,0 +1,64 @@
+{
+  "pageListTitle": "App Customization List",
+  "pageTitle": "App Customization",
+
+  "pageActionAdd": "Add App Customization",
+  "actionCreate": "Start Customizing This CO",
+  "actionBackToList": "Back to CO App Customization List",
+
+  "tabTitleAppIcon": "App Icon", 
+  "tabTitleColorTheme": "Color Theme", 
+  "tabTitleSplashScreen": "Splash Screen", 
+  "tabTitleOnboardingScreens": "Onboarding Screens", 
+  "tabTitleConfirmation": "Confirmation",
+
+  "statusProgressTitle": "Status",
+  "statusProgressInactive": "Inactive",
+  "statusProgressPending": "Pending",
+  "statusProgressActive": "Active",
+  "statusProgressSuccess": "Success",
+  "statusProgressError": "Error",
+  "statusProgressActionRetry": "Retry",
+
+  "filterCOName": "CO Name",
+  "filterStatus": "Status",
+  "filterDate": "Filter Date",
+
+  "tableHeaderCOName": "CO Name",
+  "tableHeaderCustomizationDate": "Customization Date",
+  "tableHeaderStatus": "Status",
+
+  "modalCreateTitle": "Add App Customization",
+
+  "formCO": "CO",
+
+  "infoCreate": "You can only select CO that has been registered in CO Management Menu.",
+
+  "appIconTitle": "App Icon",
+  "appIconInfo": "<ul><li>App icon will be displayed on the phone interface.</li><li>Background color is white</li><li>Format image is transparent .png and minimum size is 1024 x 1024.</li><li>Please replace the default logo based on your brand.</li></ul>",
+  "appIconFormAppName": "App Name",
+  "appIconPreview": "App Icon Preview",
+
+  "colorThemeTitle": "Color Theme",
+  "colorThemeInfo": "<ul><li>Customize your own application theme based on your branding.</li><li>The color will be displayed in the apps, including the background, icons, buttons, etc.</li><li>Please input the hex color to customize.</li></ul>",
+  "colorThemeFormHexColor": "Hex Color",
+  "colorThemePreview": "Color theme Preview",
+
+  "onboardingTitle": "Onboarding Screen(s)",
+  "onboardingInfo": "<ul><li>Onboarding screen will display your images  and text in the template provided.</li><li>Background and button color is based on your color theme</li><li>Please check on the preview beside after you uploaded your images and text.</li><li>Format image .jpg .jpeg .png and minimum size is 1024 x 1024px.</li></ul>",
+  "onboardingFormHowMany": "How Many Onboarding Screen(s)?",
+  "onboardingScreen": "Screen {{number}}",
+  "onboardingText": "Text",
+  "onboardingFormHeadline": "Headline",
+  "onboardingFormDescription": "Description",
+  "onboardingPreview": "Page {{number}} Preview",
+  "onboardingPlaceholderSkipButton": "Skip Button",
+  "onboardingPlaceholderNextButton": "Next Button",
+
+  "splashScreenTitle": "Splash Screen",
+  "splashScreenInfo": "<ul><li>Splash screen will display your main brand logo</li><li>Format image .jpg .jpeg .png and minimum size is 1080 x 2280 px.</li></ul>",
+  "splashScreenPreview": "Splash Preview",
+
+  "confirmationTitle": "App Customization Confirmation",
+  "confirmationInfo": "<ul><li>Please re-check all the customization for theme, splash screen, and onboarding screens.</li><li>Keep in mind that content should be appropriate and correct, for it will be displayed on the App.</li><li>You can go back for changes by clicking the edit button in the corner.</li></ul>"
+}

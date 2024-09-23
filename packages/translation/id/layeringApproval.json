@@ -1,0 +1,23 @@
+{
+  "pageTitle": "Layering Approval",
+
+  "pageActionAdd": "Tambah Layering Approval",
+  "actionAddLayer": "Tambah Layer",
+  "actionDelete": "Hapus Layering Approval",
+
+  "filterMenu": "Menu",
+
+  "tableHeaderMenu": "Menu",
+  "tableHeaderLayeringApprovalAmount": "Jumlah Layering Approval",
+  "tableHeaderRole": "Role",
+
+  "modalCreateTitle": "Tambah Layering Approval",
+  "modalUpdateTitle": "Detail Layering Approval",
+
+  "formMenu": "Menu",
+  "formRoleOfLayer": "Role dari Layer {{number}}",
+
+  "textSetLayerRole": "Tetapkan Layer & Role",
+
+  "layerEmpty": "Lapisan & role harus diisi jika menu dicentang"
+}

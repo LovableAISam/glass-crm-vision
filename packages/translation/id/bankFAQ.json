@@ -1,0 +1,23 @@
+{
+  "pageTitle": "Bank FAQ Screen",
+
+  "pageActionAdd": "Tambah Halaman Bank FAQ",
+  "actionActivate": "Mengaktifkan Bank FAQ",
+  "actionDectivate": "Menonaktifkan Bank FAQ",
+  "actionDelete": "Hapus Bank FAQ",
+
+  "filterBankFAQHeader": "Header Bank FAQ",
+  "filterBankFAQContent": "Konten Bank FAQ",
+  "filterBankName": "Nama Bank",
+
+  "tableHeaderHeader": "Header",
+  "tableHeaderContent": "Kontent",
+  "tableHeaderBankName": "Nama Bank",
+
+  "modalCreateTitle": "Tambah Konten Bank FAQ",
+  "modalUpdateTitle": "Detail",
+
+  "formBankFAQHeader": "Header Bank FAQ",
+  "formBankFAQContent": "Konten Bank FAQ",
+  "formBankName": "Nama Bank"
+}

@@ -1,0 +1,33 @@
+{
+  "pageTitle": "Role Management",
+
+  "pageActionAdd": "Tambah Role",
+  "actionDelete": "Hapus Role",
+  "actionDeleteDescription": "Anda hanya dapat menghapus role ini jika tidak ada pengguna.",
+  "actionActivate": "Mengaktifkan Role",
+  "actionDectivate": "Menonaktifkan Role",
+
+  "filterRoleName": "Nama Role",
+
+  "tableHeaderRoleName": "Nama Role",
+  "tableHeaderNumberOfUsers": "Jumlah User",
+
+  "tableHeaderMenu": "Menu",
+  "tableHeaderPrivilege": "Privilege",
+  "tableHeaderViewOnly": "Hanya Melihat",
+  "tableHeaderAddAndEdit": "Tambah and Edit",
+  "tableHeaderAddEditAndDelete": "Tambah, Edit, dan Hapus",
+
+  "modalCreateTitle": "Detail Role",
+  "modalUpdateTitle": "Tambah Role Baru",
+
+  "formRoleName": "Nama Role",
+  "formRoleDescription": "Deskripsi Role",
+  "formAssignPrivilege": "Tetapkan Privilege",
+
+  "listOfUser": "Jumlah User ({{number}})",
+
+  "errorEmptyUser": "User tidak ditemukan",
+  "errorEmptyPrivilege": "Menu privilege harus diisi minimal 1",
+  "errorEmptySelected": "Privilege harus diisi jika menu dicentang"
+}

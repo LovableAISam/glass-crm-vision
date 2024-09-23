@@ -1,0 +1,45 @@
+{
+  "pageTitle": "User Management",
+
+  "pageActionAdd": "Tambah User Baru",
+  "actionGeneratePassword": "Buat Password",
+
+  "statusActive": "Aktif",
+  "statusInactive": "Tidak Aktif",
+  "statusLocked": "Terkunci",
+
+  "actionActivate": "Mengaktifkan",
+  "actionDeactivate": "Menonaktifkan",
+  "actionUnlock": "Buka Kunci User",
+  "actionLock": "Kunci User",
+
+  "filterUsername": "Username",
+  "filterDate": "Filter Tanggal",
+  "filterRole": "Role",
+  "filterStatus": "Status",
+
+  "tableHeaderEmail": "Email",
+  "tableHeaderUsername": "Username",
+  "tableHeaderRole": "Role",
+  "tableHeaderStatus": "Status",
+  "tableHeaderRegisteredDate": "Tanggal Registrasi",
+  "tableHeaderDescription": "Description",
+  "tableHeaderPassword": "Password",
+
+  "modalCreateTitle": "Detail User",
+  "modalUpdateTitle": "Tambah User Baru",
+
+  "detailEmail": "Email",
+  "detailUsername": "Username",
+  "detailUserStatus": "Status User",
+  "detailAccountStatus": "Status Akun",
+
+  "formEmail": "Email",
+  "formUsername": "Username",
+  "formPassword": "Password",
+  "formConfirmPassword": "Konfirmasi Password",
+  "formRole": "Role",
+  "formDescription": "Deskripsi",
+  "formName": "Nama",
+  "formEffectiveDate": "Tanggal Efektif"
+}

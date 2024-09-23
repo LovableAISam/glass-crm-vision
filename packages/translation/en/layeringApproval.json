@@ -1,0 +1,23 @@
+{
+  "pageTitle": "Layering Approval",
+
+  "pageActionAdd": "Add Layering Approval",
+  "actionAddLayer": "Add Layer",
+  "actionDelete": "Delete Layering Approval",
+
+  "filterMenu": "Menu",
+
+  "tableHeaderMenu": "Menu",
+  "tableHeaderLayeringApprovalAmount": "Layering Approval Amount",
+  "tableHeaderRole": "Role",
+
+  "modalCreateTitle": "Add Layering Approval",
+  "modalUpdateTitle": "Layering Approval Details",
+
+  "formMenu": "Menu",
+  "formRoleOfLayer": "Role of Layer {{number}}",
+
+  "textSetLayerRole": "Set Layer & Role",
+
+  "layerEmpty": "Layer & role must be filled if menu checked"
+}
