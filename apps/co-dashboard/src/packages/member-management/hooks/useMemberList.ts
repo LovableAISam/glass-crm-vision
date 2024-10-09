@@ -12,27 +12,23 @@ import { batch, reverseDirection } from "@woi/core";
 
 // Types & Consts
 import { PaginationData } from "@woi/core/api";
-import { MemberData, MemberListRequest, MemberStatus, MemberVybeStatus, UpgradeStatus } from "@woi/service/co/idp/member/memberList";
+import { MemberData, MemberListRequest, MemberStatus, UpgradeStatus } from "@woi/service/co/idp/member/memberList";
 import { OptionMap } from "@woi/option";
 import { DatePeriod } from "@woi/core/utils/date/types";
 import { MemberStatusType } from "@woi/service/co/idp/member/memberStatusList";
 
 type FilterForm = {
   phoneNumber: string;
-  rmNumber: string;
   name: string;
   status: OptionMap<MemberStatusType>[];
-  vybeMember: OptionMap<MemberVybeStatus>[];
   upgradeStatus: OptionMap<UpgradeStatus>[];
   activeDate: DatePeriod;
 };
 
 const initialFilterForm: FilterForm = {
   phoneNumber: '',
-  rmNumber: '',
   name: '',
   status: [],
-  vybeMember: [],
   upgradeStatus: [],
   activeDate: {
     startDate: null,
@@ -53,21 +49,6 @@ function useMemberList() {
   const { baseUrl } = useBaseUrl();
   const debouncedFilter = useDebounce(filterForm, 300);
   const { t: tMember } = useTranslation('member');
-
-  const vybeMemberOptions = <OptionMap<MemberVybeStatus>[]>([
-    {
-      label: tMember('vybeStatusLite'),
-      value: 'LITE',
-    },
-    {
-      label: tMember('vybeStatusRegular'),
-      value: 'REGULAR',
-    },
-    {
-      label: tMember('vybeStatusPro'),
-      value: 'PRO',
-    }
-  ]);
 
   const upgrageStatusOptions = <OptionMap<UpgradeStatus>[]>([
     {
@@ -97,9 +78,7 @@ function useMemberList() {
     sort: sortBy ? `${sortBy}:${direction}` : '',
     name: debouncedFilter.name || '',
     phoneNumber: debouncedFilter.phoneNumber,
-    rmNumber: debouncedFilter.rmNumber,
     status: debouncedFilter.status.map(data => data.value),
-    vybeMember: debouncedFilter.vybeMember.map(data => data.value),
     upgradeStatus: debouncedFilter.upgradeStatus.map(data => data.value),
     'active-date': stringToDateFormat(debouncedFilter.activeDate.startDate),
     'inactive-date': stringToDateFormat(debouncedFilter.activeDate.endDate),
@@ -158,7 +137,6 @@ function useMemberList() {
   };
 
   return {
-    vybeMemberOptions,
     upgrageStatusOptions,
     statusOptions,
     filterForm,

@@ -34,7 +34,6 @@ import { useTranslation } from 'react-i18next';
 import { Column } from 'react-table';
 import {
   MemberData,
-  MemberVybeStatus,
   UpgradeStatus,
 } from '@woi/service/co/idp/member/memberList';
 import { LONG_DATE_TIME_FORMAT } from '@woi/core/utils/date/constants';
@@ -47,7 +46,6 @@ import { stringToDateFormat } from '@woi/core/utils/date/dateConvert';
 
 const MemberManagementList = () => {
   const {
-    vybeMemberOptions,
     upgrageStatusOptions,
     statusOptions,
     filterForm,
@@ -116,11 +114,6 @@ const MemberManagementList = () => {
         ),
       },
       {
-        Header: tMember('tableHeaderRMNumber'),
-        accessor: 'rmNumber',
-        Cell: ({ value, row }) => renderCell({ value, row }),
-      },
-      {
         Header: tMember('tableHeaderMemberName'),
         accessor: 'name',
         Cell: ({ value, row }) => renderCell({ value, row }),
@@ -138,31 +131,6 @@ const MemberManagementList = () => {
           if (value === 'LOCK')
             return (
               <Typography variant="inherit">{tMember('statusLock')}</Typography>
-            );
-          return <Typography variant="inherit">-</Typography>;
-        },
-      },
-      {
-        Header: tMember('tableHeaderVybeMember'),
-        accessor: 'vybeMember',
-        Cell: ({ value }) => {
-          if (value === 'LITE')
-            return (
-              <Typography variant="inherit">
-                {tMember('vybeStatusLite')}
-              </Typography>
-            );
-          if (value === 'REGULAR')
-            return (
-              <Typography variant="inherit">
-                {tMember('vybeStatusRegular')}
-              </Typography>
-            );
-          if (value === 'PRO')
-            return (
-              <Typography variant="inherit">
-                {tMember('vybeStatusPro')}
-              </Typography>
             );
           return <Typography variant="inherit">-</Typography>;
         },
@@ -233,7 +201,6 @@ const MemberManagementList = () => {
     return Object.entries(filterForm).map(([key, value]) => {
       switch (key as keyof typeof filterForm) {
         case 'phoneNumber':
-        case 'rmNumber':
         case 'name': {
           const filterValue = value as string;
           if (!filterValue) return null;
@@ -253,7 +220,6 @@ const MemberManagementList = () => {
           );
         }
         case 'status':
-        case 'vybeMember':
         case 'upgradeStatus': {
           const filterValue = value as typeof statusOptions;
           if (filterValue.length === 0) return null;
@@ -346,39 +312,6 @@ const MemberManagementList = () => {
             <Grid item xl={3} md={6} xs={12}>
               <Stack direction="column" spacing={1}>
                 <Typography variant="subtitle2">
-                  {tMember('filterRMNumber')}
-                </Typography>
-                <TextField
-                  value={filterForm.rmNumber}
-                  onChange={e => {
-                    batch(() => {
-                      setPagination(oldPagination => ({
-                        ...oldPagination,
-                        currentPage: 0,
-                      }));
-                      setFilterForm(oldForm => ({
-                        ...oldForm,
-                        rmNumber: e.target.value,
-                      }));
-                    });
-                  }}
-                  fullWidth
-                  type="search"
-                  placeholder={tForm('placeholderType', {
-                    fieldName: 'rm number',
-                  })}
-                  sx={{
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: 3,
-                    },
-                  }}
-                  size="small"
-                />
-              </Stack>
-            </Grid>
-            <Grid item xl={3} md={6} xs={12}>
-              <Stack direction="column" spacing={1}>
-                <Typography variant="subtitle2">
                   {tMember('filterMemberName')}
                 </Typography>
                 <TextField
@@ -451,49 +384,7 @@ const MemberManagementList = () => {
                 />
               </Stack>
             </Grid>
-            <Grid item xl={4} md={6} xs={12}>
-              <Stack direction="column" spacing={1}>
-                <Typography variant="subtitle2">
-                  {tMember('filterVybeMember')}
-                </Typography>
-                <Autocomplete
-                  value={vybeMemberOptions.filter(data =>
-                    filterForm.vybeMember.some(
-                      filter => filter.value === data.value,
-                    ),
-                  )}
-                  onChange={(_, value) => {
-                    batch(() => {
-                      setPagination(oldPagination => ({
-                        ...oldPagination,
-                        currentPage: 0,
-                      }));
-                      setFilterForm(oldForm => ({
-                        ...oldForm,
-                        vybeMember: value as OptionMap<MemberVybeStatus>[],
-                      }));
-                    });
-                  }}
-                  options={vybeMemberOptions}
-                  fullWidth
-                  size="small"
-                  renderInput={params =>
-                    renderInput(
-                      params,
-                      tForm('placeholderSelect', {
-                        fieldName: 'vybe member',
-                      }),
-                    )
-                  }
-                  multiple
-                  limitTags={1}
-                  disableCloseOnSelect
-                  getOptionLabel={option => option.label}
-                  renderOption={renderOptionCheckbox}
-                />
-              </Stack>
-            </Grid>
-            <Grid item xl={4} md={6} xs={12}>
+            <Grid item xl={3} md={6} xs={12}>
               <Stack direction="column" spacing={1}>
                 <Typography variant="subtitle2">
                   {tMember('filterUpgradeStatus')}
@@ -535,7 +426,7 @@ const MemberManagementList = () => {
                 />
               </Stack>
             </Grid>
-            <Grid item xl={4} md={6} xs={12}>
+            <Grid item xl={12} md={6} xs={12}>
               <FormDatePicker
                 value={filterForm.activeDate}
                 onChange={value => {
