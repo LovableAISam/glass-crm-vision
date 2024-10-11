@@ -73,32 +73,22 @@ const CreateAccountRuleValueModal = (
     },
   });
 
-  const { field: fieldValueUnregisterMember } = useController({
-    name: 'valueUnregisterMember',
+  const { field: fieldValueBasicMember } = useController({
+    name: 'valueBasicMember',
     control,
     rules: {
       required: tForm('generalErrorRequired', {
-        fieldName: 'value lite member',
+        fieldName: 'value basic member',
       }),
     },
   });
 
-  const { field: fieldValueRegisterMember } = useController({
-    name: 'valueRegisterMember',
+  const { field: fieldValueVerifiedMember } = useController({
+    name: 'valueVerifiedMember',
     control,
     rules: {
       required: tForm('generalErrorRequired', {
-        fieldName: 'value regular member',
-      }),
-    },
-  });
-
-  const { field: fieldValueProMember } = useController({
-    name: 'valueProMember',
-    control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'value pro member',
+        fieldName: 'value verified member',
       }),
     },
   });
@@ -214,13 +204,13 @@ const CreateAccountRuleValueModal = (
           </Grid>
           <Grid item md={6} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
-              {tAccountRuleValue('formForLiteMember')}
+              {tAccountRuleValue('formForBasicMember')}
             </Typography>
             <TextField
-              {...fieldValueUnregisterMember}
+              {...fieldValueBasicMember}
               fullWidth
               placeholder={tForm('placeholderType', {
-                fieldName: 'for lite member',
+                fieldName: 'for basic member',
               })}
               sx={{
                 '& .MuiOutlinedInput-root': {
@@ -228,19 +218,19 @@ const CreateAccountRuleValueModal = (
                 },
               }}
               InputProps={{ inputComponent: NumberFormat as any }}
-              error={Boolean(errors.valueUnregisterMember)}
-              helperText={errors.valueUnregisterMember?.message}
+              error={Boolean(errors.valueBasicMember)}
+              helperText={errors.valueBasicMember?.message}
             />
           </Grid>
           <Grid item md={6} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
-              {tAccountRuleValue('formForRegularMember')}
+              {tAccountRuleValue('formForVerifiedMember')}
             </Typography>
             <TextField
-              {...fieldValueRegisterMember}
+              {...fieldValueVerifiedMember}
               fullWidth
               placeholder={tForm('placeholderType', {
-                fieldName: 'for regular member',
+                fieldName: 'for verified member',
               })}
               sx={{
                 '& .MuiOutlinedInput-root': {
@@ -248,28 +238,8 @@ const CreateAccountRuleValueModal = (
                 },
               }}
               InputProps={{ inputComponent: NumberFormat as any }}
-              error={Boolean(errors.valueRegisterMember)}
-              helperText={errors.valueRegisterMember?.message}
-            />
-          </Grid>
-          <Grid item md={6} xs={12}>
-            <Typography variant="subtitle2" gutterBottom>
-              {tAccountRuleValue('formForProMember')}
-            </Typography>
-            <TextField
-              {...fieldValueProMember}
-              fullWidth
-              placeholder={tForm('placeholderType', {
-                fieldName: 'for pro member',
-              })}
-              sx={{
-                '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                },
-              }}
-              InputProps={{ inputComponent: NumberFormat as any }}
-              error={Boolean(errors.valueProMember)}
-              helperText={errors.valueProMember?.message}
+              error={Boolean(errors.valueVerifiedMember)}
+              helperText={errors.valueVerifiedMember?.message}
             />
           </Grid>
           <Grid item md={12} xs={12}>
