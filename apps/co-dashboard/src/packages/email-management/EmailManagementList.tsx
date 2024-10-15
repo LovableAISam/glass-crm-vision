@@ -128,7 +128,7 @@ const EmailManagementList = () => {
                 sortBy={sortBy}
                 direction={direction}
                 onSort={handleSort}
-                hideHeaderSort={['action', 'content']}
+                hideHeaderSort={['action']}
               />
               <Stack
                 direction={{ xs: 'column', sm: 'row' }}
