@@ -48,6 +48,15 @@ const EmailManagementList = () => {
         accessor: 'subject',
       },
       {
+        Header: tEmailContent('tableHeaderContent'),
+        accessor: 'content',
+        Cell: ({ value }) => (
+            <div
+            dangerouslySetInnerHTML={{ __html: value }}
+            />
+        ),
+      },
+      {
         Header: tEmailContent('tableHeaderType'),
         accessor: 'transactionType',
         Cell: ({ value }) => (
@@ -112,7 +121,7 @@ const EmailManagementList = () => {
         )}
         {emailContentStatus === 'success' && emailContentData.length > 0 && (
           <Card variant="outlined" sx={{ p: 3, borderRadius: 4 }}>
-            <Stack direction="column" spacing={2}>
+            <Stack direction="column" spacing={2}>  
               <Datatable
                 columns={columns as Column<object>[]}
                 data={emailContentData}
