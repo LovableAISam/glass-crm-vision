@@ -127,10 +127,6 @@ const ActivityMemberHistoryList = () => {
         },
       },
       {
-        Header: tActivityMember('tableHeaderRmNumber'),
-        accessor: 'rmNumber',
-      },
-      {
         Header: tActivityMember('tableHeaderType'),
         accessor: 'type',
         Cell: ({ value }) => (
