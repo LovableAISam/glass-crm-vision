@@ -99,10 +99,6 @@ const ActivityMemberHistoryList = () => {
   const columns: Array<Column<MemberActivityData>> = useMemo(
     () => [
       {
-        Header: tActivityMember('tableHeaderActivityID'),
-        accessor: 'activityId',
-      },
-      {
         Header: tActivityMember('tableHeaderCreatedDate'),
         accessor: 'createdDate',
         Cell: ({ row }) => (
