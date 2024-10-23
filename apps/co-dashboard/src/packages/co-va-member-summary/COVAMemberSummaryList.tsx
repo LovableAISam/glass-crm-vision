@@ -73,15 +73,11 @@ const COVAMemberSummaryList = () => {
         accessor: 'phoneNumber',
       },
       {
-        Header: tReport('tableHeaderRMNumber'),
-        accessor: 'rmNumber',
-      },
-      {
         Header: tReport('tableHeaderCOName'),
         accessor: 'loyaltyStatus',
         Cell: () => (
-          <Typography variant="inherit" key="vybe">
-            VYBE
+          <Typography variant="inherit" key="cartera">
+            CARTERA
           </Typography>
         ),
       },
