@@ -21,8 +21,8 @@
   "formValue": "Value",
   "formForRegisteredMember": "For Registered Member",
   "formForUnregisteredMember": "For Unregistered Member",
-  "formForBasicMember": "For Basic Member",
-  "formForVerifiedMember": "For Verified Member",
+  "formForUnregisterMember": "For Basic Member",
+  "formForRegisterMember": "For Verified Member",
   "formCurrency": "Currency",
   "formEffectiveDate": "Effective Date"
 }

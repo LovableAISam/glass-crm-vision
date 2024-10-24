@@ -204,7 +204,7 @@ const CreateAccountRuleValueModal = (
           </Grid>
           <Grid item md={6} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
-              {tAccountRuleValue('formForBasicMember')}
+              {tAccountRuleValue('formForUnregisterMember')}
             </Typography>
             <TextField
               {...fieldValueUnregisterMember}
@@ -224,7 +224,7 @@ const CreateAccountRuleValueModal = (
           </Grid>
           <Grid item md={6} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
-              {tAccountRuleValue('formForVerifiedMember')}
+              {tAccountRuleValue('formForRegisterMember')}
             </Typography>
             <TextField
               {...fieldValueRegisterMember}
