@@ -153,15 +153,6 @@ const COTransactionSummaryList = () => {
           ),
         },
         {
-          Header: tReport('tableHeaderRMNumber'),
-          accessor: 'rmNumber',
-          Cell: ({ value }) => (
-            <Typography variant="inherit" key="rmNumber">
-              {value || '-'}
-            </Typography>
-          ),
-        },
-        {
           Header: tReport('tableHeaderTo'),
           accessor: 'receiverNumber',
           Cell: ({ value }) => (
