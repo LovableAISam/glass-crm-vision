@@ -29,8 +29,8 @@ import { AccountRuleValueCreateRequest } from "@woi/service/co/admin/accountRule
 export interface AccountRuleValueForm {
   accountRuleId: OptionMap<string> | null;
   transactionType: OptionMap<string> | null;
-  valueVerifiedMember: number | null;
-  valueBasicMember: number | null;
+  valueRegisterMember: number | null;
+  valueUnregisterMember: number | null;
   currency: OptionMap<string> | null;
   effectiveDate: DatePeriod;
 }
@@ -38,8 +38,8 @@ export interface AccountRuleValueForm {
 const initialAccountRuleValueForm: AccountRuleValueForm = {
   accountRuleId: null,
   transactionType: null,
-  valueVerifiedMember: null,
-  valueBasicMember: null,
+  valueRegisterMember: null,
+  valueUnregisterMember: null,
   currency: null,
   effectiveDate: {
     startDate: null,
@@ -184,8 +184,8 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
           currencyName: TextGetter.getterString(form.currency?.label),
           transactionTypeId: TextGetter.getterString(form.transactionType?.value),
           transactionTypeName: TextGetter.getterString(form.transactionType?.label),
-          valueVerifiedMember: TextGetter.getterNumber(form.valueVerifiedMember),
-          valueBasicMember: TextGetter.getterNumber(form.valueBasicMember),
+          valueRegisterMember: TextGetter.getterNumber(form.valueRegisterMember),
+          valueUnregisterMember: TextGetter.getterNumber(form.valueUnregisterMember),
           startDate: stringToDateFormat(form.effectiveDate.startDate),
           endDate: stringToDateFormat(form.effectiveDate.endDate),
         });
@@ -205,8 +205,8 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
           currencyName: TextGetter.getterString(form.currency?.label),
           transactionTypeId: TextGetter.getterString(form.transactionType?.value),
           transactionTypeName: TextGetter.getterString(form.transactionType?.label),
-          valueVerifiedMember: TextGetter.getterNumber(form.valueVerifiedMember),
-          valueBasicMember: TextGetter.getterNumber(form.valueBasicMember),
+          valueRegisterMember: TextGetter.getterNumber(form.valueRegisterMember),
+          valueUnregisterMember: TextGetter.getterNumber(form.valueUnregisterMember),
           startDate: stringToDateFormat(form.effectiveDate.startDate),
           endDate: stringToDateFormat(form.effectiveDate.endDate),
         });
@@ -224,8 +224,8 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
         const { result, error } = response;
         if (result && !error) {
           setValue('accountRuleId', { label: result.accountRuleName, value: result.accountRuleSecureId });
-          setValue('valueVerifiedMember', result.valueVerifiedMember);
-          setValue('valueBasicMember', result.valueBasicMember);
+          setValue('valueRegisterMember', result.valueRegisterMember);
+          setValue('valueUnregisterMember', result.valueUnregisterMember);
           setValue('transactionType', { label: result.transactionTypeName, value: result.transactionTypeSecureId });
           setValue('currency', { label: result.currencyName, value: result.currencySecureId });
           setValue('effectiveDate', {

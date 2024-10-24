@@ -73,8 +73,8 @@ const CreateAccountRuleValueModal = (
     },
   });
 
-  const { field: fieldValueBasicMember } = useController({
-    name: 'valueBasicMember',
+  const { field: fieldValueUnregisterMember } = useController({
+    name: 'valueUnregisterMember',
     control,
     rules: {
       required: tForm('generalErrorRequired', {
@@ -83,8 +83,8 @@ const CreateAccountRuleValueModal = (
     },
   });
 
-  const { field: fieldValueVerifiedMember } = useController({
-    name: 'valueVerifiedMember',
+  const { field: fieldValueRegisterMember } = useController({
+    name: 'valueRegisterMember',
     control,
     rules: {
       required: tForm('generalErrorRequired', {
@@ -207,7 +207,7 @@ const CreateAccountRuleValueModal = (
               {tAccountRuleValue('formForBasicMember')}
             </Typography>
             <TextField
-              {...fieldValueBasicMember}
+              {...fieldValueUnregisterMember}
               fullWidth
               placeholder={tForm('placeholderType', {
                 fieldName: 'for basic member',
@@ -218,8 +218,8 @@ const CreateAccountRuleValueModal = (
                 },
               }}
               InputProps={{ inputComponent: NumberFormat as any }}
-              error={Boolean(errors.valueBasicMember)}
-              helperText={errors.valueBasicMember?.message}
+              error={Boolean(errors.valueUnregisterMember)}
+              helperText={errors.valueUnregisterMember?.message}
             />
           </Grid>
           <Grid item md={6} xs={12}>
@@ -227,7 +227,7 @@ const CreateAccountRuleValueModal = (
               {tAccountRuleValue('formForVerifiedMember')}
             </Typography>
             <TextField
-              {...fieldValueVerifiedMember}
+              {...fieldValueRegisterMember}
               fullWidth
               placeholder={tForm('placeholderType', {
                 fieldName: 'for verified member',
@@ -238,8 +238,8 @@ const CreateAccountRuleValueModal = (
                 },
               }}
               InputProps={{ inputComponent: NumberFormat as any }}
-              error={Boolean(errors.valueVerifiedMember)}
-              helperText={errors.valueVerifiedMember?.message}
+              error={Boolean(errors.valueRegisterMember)}
+              helperText={errors.valueRegisterMember?.message}
             />
           </Grid>
           <Grid item md={12} xs={12}>

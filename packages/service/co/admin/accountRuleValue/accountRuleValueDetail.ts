@@ -5,8 +5,8 @@ import { ResponseData } from '@woi/core/api';
 export interface AccountRuleValueDetailData extends ResponseData {
   transactionTypeName: string;
   transactionTypeSecureId: string;
-  valueVerifiedMember: number;
-  valueBasicMember: number;
+  valueRegisterMember: number;
+  valueUnregisterMember: number;
   startDate: string;
   endDate: string;
   accountRuleName: string;

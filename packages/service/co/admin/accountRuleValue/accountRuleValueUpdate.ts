@@ -9,8 +9,8 @@ export interface AccountRuleValueUpdateRequest extends DefaultRequest {
   accountRuleName: string;
   transactionTypeId: string;
   transactionTypeName: string;
-  valueVerifiedMember: number;
-  valueBasicMember: number;
+  valueRegisterMember: number;
+  valueUnregisterMember: number;
   currencyId: string;
   currencyName: string;
   startDate: string;
