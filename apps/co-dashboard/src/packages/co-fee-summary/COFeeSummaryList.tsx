@@ -126,10 +126,6 @@ const COFeeSummaryList = () => {
           accessor: 'vaSource',
         },
         {
-          Header: tReport('tableHeaderRMNumber'),
-          accessor: 'rmNumber',
-        },
-        {
           Header: tReport('tableHeaderVADestination'),
           accessor: 'vaDestination',
         },

@@ -146,10 +146,6 @@ const ViewMemberSummaryModal = (props: ViewMemberSummaryModalProps) => {
         ),
       },
       {
-        Header: tReport('tableHeaderRMNumber'),
-        accessor: 'rmNumber',
-      },
-      {
         Header: tReport('tableHeaderVADest'),
         accessor: 'vaDest',
       },

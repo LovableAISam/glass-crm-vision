@@ -139,15 +139,6 @@ const P2PTransactionSummaryList = () => {
           ),
         },
         {
-          Header: tReport('tableHeaderRMNumber'),
-          accessor: 'rmNumber',
-          Cell: ({ value }) => (
-            <Typography variant="inherit" key="rmNumber">
-              {value || '-'}
-            </Typography>
-          ),
-        },
-        {
           Header: tReport('tableHeaderDestinationBank'),
           accessor: 'destinationBank',
           Cell: ({ value }) => (

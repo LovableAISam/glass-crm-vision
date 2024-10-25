@@ -334,20 +334,6 @@ const ViewTransactionSummaryModal = (
                 variant="body2"
                 color={Token.color.greyscaleGreyDarkest}
               >
-                {tReport('detailSourceRM')}
-              </Typography>
-              <Typography variant="subtitle2">
-                {transactionSummaryDetail?.sourceRm || '-'}
-              </Typography>
-              <Divider />
-            </Stack>
-          </Grid>
-          <Grid item md={4} xs={12}>
-            <Stack direction="column" spacing={1}>
-              <Typography
-                variant="body2"
-                color={Token.color.greyscaleGreyDarkest}
-              >
                 {tReport('detailPrimaryIdentifier')}
               </Typography>
               <Typography variant="subtitle2">
