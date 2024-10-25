@@ -134,6 +134,8 @@ function useMemberSummaryDetail(props: ActivityMemberHistoryListProps) {
             totalPages: Math.ceil(result.reports.totalElements / pagination.limit),
             totalElements: result.reports.totalElements,
           }));
+        } else {
+          enqueueSnackbar(response?.displayMessage, { variant: 'error' });
         }
       },
       onError: () => {
