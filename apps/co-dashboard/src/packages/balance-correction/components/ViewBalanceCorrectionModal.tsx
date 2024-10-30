@@ -228,7 +228,7 @@ const ViewBalanceCorrectionModal = (props: ViewBalanceCorrectionModalProps) => {
             </Typography>
             <Autocomplete
               {...fieldAction}
-              disabled={privilegeType === 'APPROVER 2'}
+              disabled={privilegeType !== 'REQUESTER'}
               onChange={(_, value) => fieldAction.onChange(value)}
               options={actionOptions}
               fullWidth
@@ -256,7 +256,7 @@ const ViewBalanceCorrectionModal = (props: ViewBalanceCorrectionModalProps) => {
             </Typography>
             <TextField
               {...fieldAmount}
-              disabled={privilegeType === 'APPROVER 2'}
+              disabled={privilegeType !== 'REQUESTER'}
               fullWidth
               placeholder={tForm('placeholderType', {
                 fieldName: 'amount',
