@@ -363,6 +363,7 @@ const ViewBalanceCorrectionModal = (props: ViewBalanceCorrectionModalProps) => {
                   py: 1,
                   px: 5,
                   borderRadius: 2,
+                  display: privilegeType !== 'REQUESTER' ? 'none' : 'inherit',
                 }}
               >
                 {tCommon('actionApprove')}
@@ -377,7 +378,7 @@ const ViewBalanceCorrectionModal = (props: ViewBalanceCorrectionModalProps) => {
                   py: 1,
                   px: 5,
                   borderRadius: 2,
-                  display: privilegeType === 'APPROVER 1' ? 'none' : 'inherit',
+                  display: privilegeType !== 'REQUESTER' ? 'none' : 'inherit',
                 }}
               >
                 {tCommon('actionReject')}
