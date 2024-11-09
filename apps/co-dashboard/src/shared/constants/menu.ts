@@ -126,6 +126,25 @@ const adminMenu: MenuType[] = [
   },
   {
     menuType: 'Menu',
+    menuName: 'KYC Management',
+    menuIcon: 'StarOutline',
+    children: [
+      {
+        menuType: 'Submenu',
+        menuName: 'KYC Request',
+        menuLink: '/kyc-request',
+        privilege: 'default',
+      },
+      {
+        menuType: 'Submenu',
+        menuName: 'KYC Request History',
+        menuLink: '/kyc-request-history',
+        privilege: 'default',
+      },
+    ],
+  },
+  {
+    menuType: 'Menu',
     menuName: 'Balance Correction',
     menuIcon: 'StarOutline',
     children: [

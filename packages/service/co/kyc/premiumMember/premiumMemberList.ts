@@ -2,7 +2,7 @@ import { constructUrlSearchParams, DefaultQueryPageRequest, ResponseData, Result
 import { apiKycPremiumMember } from '@woi/common/meta/apiPaths/coApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 
-export type KycPremiumMemberStatus = 'NONE' | 'PREMIUM' | 'UNREGISTERED' | 'REJECTED' | 'WAITING_TO_REVIEW';
+export type KycPremiumMemberStatus = 'STARTED' | 'WAITING_TO_REVIEW' | 'REGISTERED' | 'UNREGISTER' | 'REJECTED';
 
 export interface KycPremiumMemberData extends ResponseData {
   identityNumber: number;
@@ -25,10 +25,16 @@ export interface KycPremiumMemberListRequest extends DefaultQueryPageRequest {
 }
 
 function useKycPremiumMemberListFetcher(baseUrl: string, payload: KycPremiumMemberListRequest) {
+  const request: Record<string, any> = {};
+  for (const [key, value] of Object.entries(payload)) {
+    if (value !== "" && value.length !== 0) {
+      request[key] = value;
+    }
+  }
   return apiGet<KycPremiumMemberListResponse>({
     baseUrl,
     path: `${apiKycPremiumMember}`,
-    config: { params: constructUrlSearchParams(payload) },
+    config: { params: constructUrlSearchParams(request) },
   });
 }
 

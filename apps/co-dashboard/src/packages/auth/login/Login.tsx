@@ -31,8 +31,6 @@ const Login = () => {
   const { generateRoute } = useRouteRedirection();
   const siteKey = process.env.NEXT_PUBLIC_SITE_KEY;
 
-  console.log('Isi siteKey : ', siteKey);
-
   const {
     control,
     formState: { errors },
@@ -129,24 +127,11 @@ const Login = () => {
         color="primary"
         sx={{ py: 1, px: 5, borderRadius: 2 }}
         loading={loadingSubmit}
-        disabled={!isVerified}
+        // disabled={!isVerified}
         onClick={onSubmit}
       >
         <Typography variant="subtitle2">{tAuth('loginCTA')}</Typography>
       </Button>
-
-      <Typography
-        variant="body1"
-        sx={{
-          position: 'absolute',
-          bottom: '0px',
-          left: '0px',
-          p: 2,
-          color: 'gray',
-        }}
-      >
-        V.7
-      </Typography>
     </Stack>
   );
 };

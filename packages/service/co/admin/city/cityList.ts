@@ -6,7 +6,7 @@ export interface CityData extends ResponseData {
   name: string;
 }
 
-interface CityListResponse extends ResultData<CityData[]> {}
+export interface CityListResponse extends ResultData<CityData[]> {}
 
 export interface CityListRequest extends DefaultQueryPageRequest {
   search?: string;

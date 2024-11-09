@@ -117,5 +117,14 @@
   "confirmationVerifyMemberYes": "Yes, verify",
   "confirmationVerifyMemberNo": "No",
   "successVerifyMember": "Member successfully verified!",
-  "failedVerifyMember": "Verify member failed!"
+  "failedVerifyMember": "Verify member failed!",
+
+  "statusStarted": "Started",
+  "statusWaitingToReview": "Waiting To Review",
+  "statusUnregister": "Unregister",
+  "statusRegistered": "Registered",
+  "statusUnknown": "Unknown Status",
+  "personalDataSIMType": "SIM Type",
+  "personalDataBloodType": "Blood Type",
+  "personalDataDomicileAddress": "Domicile Address"
 }

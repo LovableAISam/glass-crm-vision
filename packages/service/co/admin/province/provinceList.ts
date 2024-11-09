@@ -6,7 +6,7 @@ export interface ProvinceData extends ResponseData {
   name: string;
 }
 
-interface ProvinceListResponse extends ResultData<ProvinceData[]> {}
+export interface ProvinceListResponse extends ResultData<ProvinceData[]> {}
 
 export interface ProvinceListRequest extends DefaultQueryPageRequest {
   search?: string;

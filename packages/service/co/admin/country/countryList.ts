@@ -6,7 +6,7 @@ export interface CountryData extends ResponseData {
   name: string;
 }
 
-interface CountryListResponse extends ResultData<CountryData[]> {}
+export interface CountryListResponse extends ResultData<CountryData[]> {}
 
 export interface CountryListRequest extends DefaultQueryPageRequest {
   search?: string;

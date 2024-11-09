@@ -1,47 +1,88 @@
 import { apiKycPremiumMember } from '@woi/common/meta/apiPaths/coApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 import { ResponseData } from '@woi/core/api';
-import { KycPremiumMemberStatus } from './premiumMemberList';
+import { KycPremiumMemberStatus } from "./premiumMemberList";
 
-interface KycPremiumMemberDetailDataOccupation extends ResponseData {
+interface KycPermiumOccupation extends ResponseData {
+  createdBy: string;
+  modifiedBy: string;
   name: string;
   secureId: string;
 }
-
-interface KycPremiumMemberDetailDataCountry extends ResponseData {
+export interface KycPermiumAccountInformation extends ResponseData {
+  activationStatus: string;
+  balance: number;
+  createdBy: string;
+  dateOfBirth: string;
+  email: string;
+  gcmId: string;
+  isAccountNonExpired: boolean;
+  isAccountNonLocked: boolean;
+  isCredentialsNonExpired: boolean;
+  isEnable: boolean;
+  isTemporaryPassword: boolean;
+  loyaltyStatus: string;
   name: string;
+  phoneNumber: string;
+  pictureFileName: string;
+  rmNumber: string;
+  secretId: string;
+  upgradeStatus: string;
+  username: string;
 }
 
-interface KycPremiumMemberDetailDataProvince extends ResponseData {
-  name: string;
-  secureId: string;
-  country: KycPremiumMemberDetailDataCountry | null;
-}
-
-interface KycPremiumMemberDetailDataCity extends ResponseData {
-  name: string;
-  secureId: string;
-}
-
-export interface KycPremiumMemberDetailData extends ResponseData {
+export interface KycPermiumIdentityCard extends ResponseData {
   address: string;
-  city: KycPremiumMemberDetailDataCity | null;
+  cityId: string;
+  expiryDate: string;
+  identityCardUrl: string;
+  kecamatanId: string;
+  kelurahanId: string;
+  memberId: string;
+  number: string;
+  postalCode: string;
+  provinceId: string;
+  type: string;
+  licenseType: string;
+}
+
+export interface KycPermiumMemberResidence extends ResponseData {
+  address: string;
+  cityId: string;
+  kecamatanId: string;
+  kelurahanId: string;
+  memberId: string;
+  postalCode: string;
+  provinceId: string;
+}
+
+export interface KycPermiumMember extends ResponseData {
+  bloodType: string;
+  createdBy: string;
   dateOfBirth: string;
   fullName: string;
   gender: string;
-  isDttot: boolean | null;
-  identityCardUrl: string;
-  identityNumber: number;
-  identityType: string;
-  email: string;
-  occupation: KycPremiumMemberDetailDataOccupation | null;
+  isDttot: boolean;
+  isResidenceSameWithIdentityCard: boolean;
+  maritalStatus: string;
+  memberId: string;
+  modifiedBy: string;
+  nationalityId: string;
+  occupation: KycPermiumOccupation;
   phoneNumber: string;
   placeOfBirth: string;
-  province: KycPremiumMemberDetailDataProvince | null;
+  religionId: string;
+  secureId: string;
   selfieUrl: string;
   signatureUrl: string;
   status: KycPremiumMemberStatus | null;
-  zipCode: number;
+}
+
+export interface KycPremiumMemberDetailData {
+  accountInformation: KycPermiumAccountInformation;
+  identityCard: KycPermiumIdentityCard;
+  memberResidence: KycPermiumMemberResidence;
+  premiumMember: KycPermiumMember;
 }
 
 function useKycPremiumMemberDetailFetcher(baseUrl: string, id: string) {

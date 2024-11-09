@@ -9,6 +9,8 @@ export interface KycPremiumMemberVerifictionRequest extends DefaultRequest {
   id: string;
   reason: string;
   status: KycPremiumMemberStatus;
+  createdDate: string;
+  modifiedDate: string;
 }
 
 function useKycPremiumMemberVerifictionFetcher(baseUrl: string, id: string, payload: KycPremiumMemberVerifictionRequest) {

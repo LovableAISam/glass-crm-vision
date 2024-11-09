@@ -117,5 +117,14 @@
   "confirmationVerifyMemberYes": "Ya, verifikasi",
   "confirmationVerifyMemberNo": "Tidak",
   "successVerifyMember": "Member berhasil diverifikasi!",
-  "failedVerifyMember": "Gagal memverifikasi member!"
+  "failedVerifyMember": "Gagal memverifikasi member!",
+
+  "statusStarted": "Dimulai",
+  "statusWaitingToReview": "Menunggu Untuk Ditinjau",
+  "statusUnregister": "Batalkan pendaftaran",
+  "statusRegistered": "Terdaftar",
+  "statusUnknown": "Unknown Status",
+  "personalDataSIMType": "SIM Type",
+  "personalDataBloodType": "Tipe Darah",
+  "personalDataDomicileAddress": "Domicile Address"
 }

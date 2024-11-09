@@ -365,6 +365,14 @@ export const apiKycPremiumMemberHistoryExportToXLS = '/kyc/api/v1/premium-member
 export const apiKycPremiumMemberSetDttot = '/kyc/api/v1/premium-member/set-dttot';
 
 /**
+ * CRUD Premium Member History Detail
+ * usage for CRUD Premium Member History Detail
+ * Contract: kyc/apiKycPremiumMemberHistoryDetail/*
+ */
+export const apiKycPremiumMemberHistoryDetail =
+  '/kyc/api/v1/premium-member-history/detail';
+
+/**
  * CRUD Approval Layer 
  * usage for CRUD Approval Layer
  * Contract: admin/approvalLayer/*

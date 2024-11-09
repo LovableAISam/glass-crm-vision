@@ -152,3 +152,4 @@ export { default as useSystemParameterCreateFetcher } from './admin/systemParame
 export { default as useSystemParameterListFetcher } from './admin/systemParameter/systemParameterList';
 export { default as useSystemParameterUpdateFetcher } from './admin/systemParameter/systemParameterUpdate';
 export { default as useSystemParameterDetailFetcher } from './admin/systemParameter/systemParamterDetail';
+export { default as useKycPremiumMemberHistoryDetailFetcher } from './kyc/premiumMember/premiumMemberHistoryDetail';
