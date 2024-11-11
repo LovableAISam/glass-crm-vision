@@ -1,20 +1,19 @@
-import { useEffect, useState } from "react";
-import { useKycPremiumMemberDetailFetcher, useKycPremiumMemberDttotUpdateFetcher, useKycPremiumMemberHistoryDetailFetcher, useKycPremiumMemberVerificationFetcher, useMemberDetailFetcher, useProvinceListFetcher } from "@woi/service/co";
-import { useSnackbar } from "notistack";
-import { KycPremiumMemberDetailData } from "@woi/service/co/kyc/premiumMember/premiumMemberDetail";
 import useBaseUrl from "@src/shared/hooks/useBaseUrl";
-import { useConfirmationDialog } from "@woi/web-component";
 import useModal from "@woi/common/hooks/useModal";
-import { UploadDocumentData } from "@woi/uploadDocument";
-import { VerifyForm } from "../components/ViewKYCRequestVerifyModal";
-import { MemberDetailData, MemberDetailPremium } from "@woi/service/co/idp/member/memberDetail";
-import { useTranslation } from "react-i18next";
-import { KycPremiumMemberHistoryDetailData } from "@woi/service/co/kyc/premiumMember/premiumMemberHistoryDetail";
-import { ProvinceListResponse } from "@woi/service/co/admin/province/provinceList";
-import { CityListResponse } from "@woi/service/co/admin/city/cityList";
-import { useCityListFetcher } from "@woi/service/principal";
-import useCountryListFetcher, { CountryListResponse } from "@woi/service/co/admin/country/countryList";
 import { TextGetter } from "@woi/core";
+import { useAllCountryListFetcher, useCityListByProvinceCodeFetcher, useCustomerProfileFetcher, useKycPremiumMemberDetailFetcher, useKycPremiumMemberDttotUpdateFetcher, useKycPremiumMemberHistoryDetailFetcher, useKycPremiumMemberVerificationFetcher, useMemberDetailFetcher } from "@woi/service/co";
+import { CityData } from "@woi/service/co/admin/city/cityListByProvinceCode";
+import { AllCountryData } from "@woi/service/co/admin/country/allCountryList";
+import { CustomerProfile } from "@woi/service/co/admin/customerProfile/customerProfile";
+import { MemberDetailData, MemberDetailPremium } from "@woi/service/co/idp/member/memberDetail";
+import { KycPremiumMemberDetailData } from "@woi/service/co/kyc/premiumMember/premiumMemberDetail";
+import { KycPremiumMemberHistoryDetailData } from "@woi/service/co/kyc/premiumMember/premiumMemberHistoryDetail";
+import { UploadDocumentData } from "@woi/uploadDocument";
+import { useConfirmationDialog } from "@woi/web-component";
+import { useSnackbar } from "notistack";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { VerifyForm } from "../components/ViewKYCRequestVerifyModal";
 
 export interface KycPremiumMemberDetailForm extends KycPremiumMemberDetailData {
   identityCardUpload: UploadDocumentData;
@@ -55,12 +54,9 @@ function useKycRequestUpsert(props: useKycRequestUpsertProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [kycDetail, setKycDetail] = useState<KycPremiumMemberDetailForm | null>(null);
   const [kycDetailHistory, setKycDetailHistory] = useState<KycPremiumMemberDetailHistoryForm | null>(null);
-  const [listCountryResidence, setListCountryResidence] = useState<CountryListResponse | null>(null);
-  const [listCountryDomicile, setListCountryDomicile] = useState<CountryListResponse | null>(null);
-  const [listProvinceResidence, setListProvinceResidence] = useState<ProvinceListResponse | null>(null);
-  const [listProvinceDomicile, setListProvinceDomicile] = useState<ProvinceListResponse | null>(null);
-  const [listCityResidence, setListCityResidence] = useState<CityListResponse | null>(null);
-  const [listCityDomicile, setListCityDomicile] = useState<CityListResponse | null>(null);
+  const [listCountryResidence, setListCountryResidence] = useState<AllCountryData[] | null>(null);
+  const [customerProfile, setCustomerProfile] = useState<CustomerProfile | null>(null);
+  const [listCityResidence, setListCityResidence] = useState<CityData[] | null>(null);
   const [isActiveView, showModalView, hideModalView] = useModal();
   const [memberDetail, setMemberDetail] = useState<MemberDetailForm | null>(null);
   const [touched, setTouched] = useState<boolean>(false);
@@ -68,7 +64,7 @@ function useKycRequestUpsert(props: useKycRequestUpsertProps) {
 
   const fetchListCountryResidence = async () => {
     setLoading(true);
-    const { result, error } = await useCountryListFetcher(baseUrl, { limit: 100 });
+    const { result, error } = await useAllCountryListFetcher(baseUrl);
 
     if (result && !error) {
       setListCountryResidence(result);
@@ -76,52 +72,22 @@ function useKycRequestUpsert(props: useKycRequestUpsertProps) {
     setLoading(false);
   };
 
-  const fetchListCountryDomicile = async () => {
+  const fetchMasterCustomerProfile = async () => {
     setLoading(true);
-    const { result, error } = await useCountryListFetcher(baseUrl, { limit: 100 });
+    const { result, error } = await useCustomerProfileFetcher(baseUrl);
 
     if (result && !error) {
-      setListCountryDomicile(result);
+      setCustomerProfile(result);
     }
     setLoading(false);
   };
 
-  const fetchListProvinceResidence = async (countryId: string) => {
+  const fetchListCityResidence = async (provinceCode: string) => {
     setLoading(true);
-    const { result, error } = await useProvinceListFetcher(baseUrl, { "country-id": countryId, limit: 100 });
-
-    if (result && !error) {
-      setListProvinceResidence(result);
-    }
-    setLoading(false);
-  };
-
-  const fetchListProvinceDomicile = async (countryId: string) => {
-    setLoading(true);
-    const { result, error } = await useProvinceListFetcher(baseUrl, { "country-id": countryId, limit: 100 });
-
-    if (result && !error) {
-      setListProvinceDomicile(result);
-    }
-    setLoading(false);
-  };
-
-  const fetchListCityResidence = async (provinceId: string) => {
-    setLoading(true);
-    const { result, error } = await useCityListFetcher(baseUrl, { "province-id": provinceId, limit: 100 });
+    const { result, error } = await useCityListByProvinceCodeFetcher(baseUrl, provinceCode);
 
     if (result && !error) {
       setListCityResidence(result);
-    }
-    setLoading(false);
-  };
-
-  const fetchListCityDomicile = async (provinceId: string) => {
-    setLoading(true);
-    const { result, error } = await useCityListFetcher(baseUrl, { "province-id": provinceId, limit: 100 });
-
-    if (result && !error) {
-      setListCityDomicile(result);
     }
     setLoading(false);
   };
@@ -152,17 +118,17 @@ function useKycRequestUpsert(props: useKycRequestUpsertProps) {
         });
       }
     }
-    if (!isHistory) {
-      const { result, error } = await useKycPremiumMemberDetailFetcher(baseUrl, id);
-      if (result && !error) {
-        setKycDetail({
-          ...result,
-          identityCardUpload: { docPath: result.identityCard.identityCardUrl },
-          selfie: { docPath: result.premiumMember.selfieUrl },
-          signature: { docPath: result.premiumMember.signatureUrl },
-        });
-      }
+
+    const { result, error } = await useKycPremiumMemberDetailFetcher(baseUrl, id);
+    if (result && !error) {
+      setKycDetail({
+        ...result,
+        identityCardUpload: { docPath: result.identityCard.identityCardUrl },
+        selfie: { docPath: result.premiumMember.selfieUrl },
+        signature: { docPath: result.premiumMember.signatureUrl },
+      });
     }
+
     setLoading(false);
   };
 
@@ -229,6 +195,7 @@ function useKycRequestUpsert(props: useKycRequestUpsertProps) {
     if (selectedId) {
       fetchKYCDetail(selectedId);
       fetchMemberDetail(memberSecureId!, phoneNumber!);
+      fetchMasterCustomerProfile();
     }
   }, [selectedId]);
 
@@ -236,13 +203,7 @@ function useKycRequestUpsert(props: useKycRequestUpsertProps) {
     const data = isHistory ? kycDetailHistory : kycDetail;
     if (data) {
       fetchListCountryResidence();
-      fetchListCountryDomicile();
-
-      fetchListProvinceResidence(data?.premiumMember.nationalityId);
-      fetchListProvinceDomicile(data?.premiumMember.nationalityId);
-
       fetchListCityResidence(data?.memberResidence.provinceId);
-      fetchListCityDomicile(data?.identityCard.provinceId);
     }
   }, [kycDetailHistory, kycDetail]);
 
@@ -259,11 +220,8 @@ function useKycRequestUpsert(props: useKycRequestUpsertProps) {
     handleRegisterDttot,
     kycDetailHistory,
     listCountryResidence,
-    listCountryDomicile,
-    listProvinceResidence,
-    listProvinceDomicile,
     listCityResidence,
-    listCityDomicile,
+    customerProfile
   };
 }
 

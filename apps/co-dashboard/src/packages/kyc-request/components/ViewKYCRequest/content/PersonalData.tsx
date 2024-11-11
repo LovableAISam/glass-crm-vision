@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
-import { Box, Grid, Stack, Typography, Divider } from '@mui/material';
-import { UploadDocumentData } from '@woi/uploadDocument';
-import useModal from '@woi/common/hooks/useModal';
-import { ViewPhotoModal } from '@woi/web-component';
+import { Box, Divider, Grid, Stack, Typography } from '@mui/material';
 import ImageUpload from '@src/shared/components/FormUpload/ImageUpload';
-import { ViewKYCRequestTabProps } from '../ViewKYCRequestTab';
+import useModal from '@woi/common/hooks/useModal';
+import { UploadDocumentData } from '@woi/uploadDocument';
+import { ViewPhotoModal } from '@woi/web-component';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ViewKYCRequestTabProps } from '../ViewKYCRequestTab';
 
 function PersonalData(props: ViewKYCRequestTabProps) {
   const {
     kycDetail,
     listCountryResidence,
-    listCountryDomicile,
-    listProvinceResidence,
-    listProvinceDomicile,
     listCityResidence,
-    listCityDomicile,
+    customerProfile,
+    memberDetail
   } = props;
   const [selectedView, setSelectedView] = useState<UploadDocumentData | null>(
     null,
@@ -32,8 +30,9 @@ function PersonalData(props: ViewKYCRequestTabProps) {
   return (
     <Box>
       <Typography variant="h5" sx={{ mb: 3 }}>
-        {tKYC('personalDataTitle')}
+        {tKYC('personalDataIdentityDetails')}
       </Typography>
+
       <Grid container spacing={2} rowSpacing={4} sx={{ mb: 6 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
@@ -41,7 +40,7 @@ function PersonalData(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataFullName')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.fullName}
+              {`${kycDetail?.premiumMember.firstName} ${kycDetail?.premiumMember.middleName} ${kycDetail?.premiumMember.lastName}` || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -52,7 +51,11 @@ function PersonalData(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataGender')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.gender}
+              {
+                customerProfile?.gender?.find(
+                  item => item.genderCode === kycDetail?.premiumMember?.gender,
+                )?.genderDescription
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -60,10 +63,10 @@ function PersonalData(props: ViewKYCRequestTabProps) {
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataPlaceOfBirth')}
+              {tKYC('personalDataMotherMaidenName')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.placeOfBirth}
+              {kycDetail?.premiumMember.motherMaidenName || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -74,7 +77,18 @@ function PersonalData(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataDateOfBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.dateOfBirth}
+              {kycDetail?.premiumMember.dateOfBirth || '-'}
+            </Typography>
+            <Divider />
+          </Stack>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Stack direction="column" spacing={2}>
+            <Typography variant="body2">
+              {tKYC('personalDataEmail')}
+            </Typography>
+            <Typography variant="subtitle2">
+              {kycDetail?.premiumMember.email || memberDetail.email || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -85,31 +99,18 @@ function PersonalData(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataIDType')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.identityCard.type}
+              {kycDetail?.identityCard.type || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
-        {kycDetail?.identityCard.licenseType && (
-          <Grid item md={6} xs={12}>
-            <Stack direction="column" spacing={2}>
-              <Typography variant="body2">
-                {tKYC('personalDataSIMType')}
-              </Typography>
-              <Typography variant="subtitle2">
-                {kycDetail?.identityCard.licenseType}
-              </Typography>
-              <Divider />
-            </Stack>
-          </Grid>
-        )}
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataIDNumber')}
+              {tKYC('personalDataTransactionDate')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.identityCard.number}
+              -
             </Typography>
             <Divider />
           </Stack>
@@ -117,54 +118,63 @@ function PersonalData(props: ViewKYCRequestTabProps) {
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataBloodType')}
+              {tKYC('personalDataIDNumber')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.bloodType}
+              {kycDetail?.identityCard.number || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
-            <Typography variant="body2">{tKYC('personalDataEmail')}</Typography>
+            <Typography variant="body2">
+              {tKYC('personalDataCountryofBirth')}
+            </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.modifiedBy}
+              {kycDetail?.premiumMember.placeOfBirth || '-'}
+            </Typography>
+            <Divider />
+          </Stack>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Stack direction="column" spacing={2}>
+            <Typography variant="body2">
+              {tKYC('personalDataCityofBirth')}
+            </Typography>
+            <Typography variant="subtitle2">
+              {kycDetail?.premiumMember.cityOfBirth || '-'}
+            </Typography>
+            <Divider />
+          </Stack>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Stack direction="column" spacing={2}>
+            <Typography variant="body2">
+              {tKYC('personalDataDistrictBirth')}
+            </Typography>
+            <Typography variant="subtitle2">
+              {kycDetail?.premiumMember.districtOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
       </Grid>
-      <Typography variant="subtitle1" sx={{ mb: 3 }}>
+
+      <Typography variant="h5" sx={{ mb: 3 }}>
         {tKYC('personalDataAddressInformation')}
       </Typography>
+
       <Grid container spacing={2} rowSpacing={4} sx={{ mb: 6 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
-            <Typography variant="body2">
-              {tKYC('personalDataCountry')}
-            </Typography>
+            <Typography variant="body2">{tKYC('personalDataCountryResidence')}</Typography>
             <Typography variant="subtitle2">
               {
-                listCountryResidence?.data.find(
-                  item => item.id === kycDetail?.premiumMember.nationalityId,
-                )?.name
-              }
-            </Typography>
-            <Divider />
-          </Stack>
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <Stack direction="column" spacing={2}>
-            <Typography variant="body2">
-              {tKYC('personalDataProvince')}
-            </Typography>
-            <Typography variant="subtitle2">
-              {
-                listProvinceResidence?.data.find(
-                  item => item.id === kycDetail?.memberResidence.provinceId,
-                )?.name
-              }
+                listCountryResidence?.find(
+                  item => item.countryCode === kycDetail?.premiumMember.nationalityId,
+                )?.countryName
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -174,10 +184,19 @@ function PersonalData(props: ViewKYCRequestTabProps) {
             <Typography variant="body2">{tKYC('personalDataCity')}</Typography>
             <Typography variant="subtitle2">
               {
-                listCityResidence?.data.find(
-                  item => item.id === kycDetail?.memberResidence.cityId,
+                listCityResidence?.find(
+                  item => item.code === kycDetail?.memberResidence.cityId,
                 )?.name
-              }
+                || '-'}
+            </Typography>
+            <Divider />
+          </Stack>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Stack direction="column" spacing={2}>
+            <Typography variant="body2">{tKYC('personalDataTownorDistrict')}</Typography>
+            <Typography variant="subtitle2">
+              {kycDetail?.memberResidence.barangay || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -185,41 +204,43 @@ function PersonalData(props: ViewKYCRequestTabProps) {
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataPostalCode')}
+              {tKYC('personalDataCurrentAddress')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.memberResidence.postalCode}
+              {kycDetail?.memberResidence.address || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
-        <Grid item md={12} xs={12}>
+        <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataAddressDetail')}
+              {tKYC('personalDataZipCode')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.memberResidence.address}
+              {kycDetail?.memberResidence.address || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
       </Grid>
-      <Typography variant="subtitle1" sx={{ mb: 3 }}>
-        {tKYC('personalDataDomicileAddress')}
+
+      <Typography variant="h5" sx={{ mb: 3 }}>
+        {tKYC('personalDataWorkInformation')}
       </Typography>
+
       <Grid container spacing={2} rowSpacing={4} sx={{ mb: 6 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataCountry')}
+              {tKYC('personalDataSourceIncome')}
             </Typography>
             <Typography variant="subtitle2">
               {
-                listCountryDomicile?.data.find(
-                  item => item.id === kycDetail?.premiumMember.nationalityId,
-                )?.name
-              }
+                customerProfile?.sourceOfFunds?.find(
+                  item => item.sourceOfFundsCode === kycDetail?.premiumMember?.sourceOfFunds,
+                )?.sourceOfFundsDescription
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -227,27 +248,19 @@ function PersonalData(props: ViewKYCRequestTabProps) {
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataProvince')}
+              {tKYC('personalDataEmployerorBusiness')}
             </Typography>
             <Typography variant="subtitle2">
-              {
-                listProvinceDomicile?.data.find(
-                  item => item.id === kycDetail?.identityCard.provinceId,
-                )?.name
-              }
+              {kycDetail?.premiumMember?.employer || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
-            <Typography variant="body2">{tKYC('personalDataCity')}</Typography>
+            <Typography variant="body2">{tKYC('personalDataJobTitle')}</Typography>
             <Typography variant="subtitle2">
-              {
-                listCityDomicile?.data.find(
-                  item => item.id === kycDetail?.identityCard.cityId,
-                )?.name
-              }
+              {kycDetail?.premiumMember?.jobTitle || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -255,29 +268,35 @@ function PersonalData(props: ViewKYCRequestTabProps) {
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataPostalCode')}
+              {tKYC('personalDataIndustry')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.identityCard.postalCode}
+              {
+                customerProfile?.natureOfBusiness?.find(
+                  item => item.natureOfBusinessCode === kycDetail?.premiumMember?.natureOfWork,
+                )?.natureOfBusinessDescription
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
-        <Grid item md={12} xs={12}>
+        <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataAddressDetail')}
+              {tKYC('personalDataReferalCode')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.identityCard.address}
+              {kycDetail?.premiumMember?.referralCode || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
       </Grid>
-      <Typography variant="h5" sx={{ mb: 2 }}>
+
+      <Typography variant="h5" sx={{ mb: 3 }}>
         {tKYC('personalDataKYC')}
       </Typography>
+
       <Stack direction="column" spacing={2}>
         <Stack direction="column" spacing={2}>
           <Typography variant="subtitle1">

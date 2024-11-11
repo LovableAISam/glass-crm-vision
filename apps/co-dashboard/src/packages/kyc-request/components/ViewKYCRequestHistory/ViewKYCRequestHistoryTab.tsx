@@ -1,13 +1,12 @@
-import React from 'react';
+import { CityData } from "@woi/service/co/admin/city/cityListByProvinceCode";
+import { AllCountryData } from "@woi/service/co/admin/country/allCountryList";
+import { CustomerProfile } from "@woi/service/co/admin/customerProfile/customerProfile";
 import dynamic from 'next/dynamic';
 import {
   KycPremiumMemberDetailForm,
   KycPremiumMemberDetailHistoryForm,
   MemberDetailForm,
 } from '../../hooks/useKycRequstUpsert';
-import { ProvinceListResponse } from "@woi/service/co/admin/province/provinceList";
-import { CityListResponse } from "@woi/service/co/admin/city/cityList";
-import { CountryListResponse } from "@woi/service/co/admin/country/countryList";
 
 const AccountInformation = dynamic(
   () => import('./content/AccountInformation'),
@@ -24,12 +23,9 @@ export type ViewKYCRequestTabProps = {
   kycDetail: KycPremiumMemberDetailForm | null;
   kycDetailHistory: KycPremiumMemberDetailHistoryForm | null;
   memberDetail: MemberDetailForm | null;
-  listCountryResidence: CountryListResponse | null;
-  listCountryDomicile: CountryListResponse | null;
-  listProvinceResidence: ProvinceListResponse | null;
-  listProvinceDomicile: ProvinceListResponse | null;
-  listCityResidence: CityListResponse | null;
-  listCityDomicile: CityListResponse | null;
+  listCountryResidence: AllCountryData[] | null;
+  listCityResidence: CityData[] | null; 
+  customerProfile: CustomerProfile | null;
 };
 
 function ViewKYCRequestHistoryTab(props: ViewKYCRequestTabProps) {

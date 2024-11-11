@@ -54,6 +54,7 @@ export interface KycPermiumMemberResidence extends ResponseData {
   memberId: string;
   postalCode: string;
   provinceId: string;
+  barangay: string;
 }
 
 export interface KycPermiumMember extends ResponseData {
@@ -76,6 +77,23 @@ export interface KycPermiumMember extends ResponseData {
   selfieUrl: string;
   signatureUrl: string;
   status: KycPremiumMemberStatus | null;
+
+  motherMaidenName: string;
+  transactionDate: string;
+  referralCode: string;
+  industryId: string;
+  jobTitle: string;
+  employer: string;
+  cityOfBirth: string;
+  districtOfBirth: string;
+
+  email: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  suffix: string;
+  natureOfWork: string;
+  sourceOfFunds: string;
 }
 
 export interface KycPremiumMemberDetailData {

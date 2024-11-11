@@ -1,4 +1,4 @@
-import { constructUrlSearchParams, DefaultQueryPageRequest, DefaultResponseDataPagination, ResponseData } from '@woi/core/api';
+import { constructUrlSearchParams, DefaultQueryPageRequest, ResponseData } from '@woi/core/api';
 import { apiTransactionHistory } from '@woi/common/meta/apiPaths/coApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 
@@ -47,26 +47,44 @@ type TransactionHistoryMethod = {
 };
 
 export interface TransactionHistoryData extends ResponseData {
-  account: string;
-  date: string;
-  amount: number;
-  transactionType: TransactionHistoryType | null;
-  transactionCategory: TransactionHistoryCategory | null;
-  transactionMethod: TransactionHistoryMethod | null;
-  status: TransactionHistoryStatus;
-  referenceId: string;
+  // account: string;
+  // date: string;
+  // type: string;
+  // amount: number;
+  // transactionType: TransactionHistoryType | null;
+  // transactionCategory: TransactionHistoryCategory | null;
+  // transactionMethod: TransactionHistoryMethod | null;
+  // status: TransactionHistoryStatus;
+  // referenceId: string;
+  // description: string;
+  // successDate: string;
+  // vaDest: string;
+  // transfer: TransactionHistoryTransfer | null;
+  // deposit: TransactionHistoryDeposit | null;
+  // withdraw: TransactionHistoryWithdraw | null;
+  // isDebit: boolean;
+  // balance: number;
+  // activityId: string;
+
+  dateTime: string;
+  type: string;
+  method: string;
+  transactionId: string;
   description: string;
-  successDate: string;
-  vaDest: string;
-  transfer: TransactionHistoryTransfer | null;
-  deposit: TransactionHistoryDeposit | null;
-  withdraw: TransactionHistoryWithdraw | null;
-  isDebit: boolean;
+  amount: number;
   balance: number;
-  activityId: string;
+  dbCr: string;
+
 }
 
-interface TransactionHistoryListResponse extends DefaultResponseDataPagination<TransactionHistoryData[]> { }
+interface ResponseDataPagination<T> {
+  transactions: T;
+  currentPage: number;
+  totalElements: number;
+  totalPages: number;
+}
+
+interface TransactionHistoryListResponse extends ResponseDataPagination<TransactionHistoryData[]> { }
 
 export interface TransactionHistoryListRequest extends DefaultQueryPageRequest {
   status?: string;

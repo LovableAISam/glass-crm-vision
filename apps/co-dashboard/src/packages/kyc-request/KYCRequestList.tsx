@@ -1,5 +1,5 @@
 // Cores
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 // Components
 import {
@@ -54,7 +54,7 @@ const KYCRequestList = () => {
   const { t: tKYC } = useTranslation('kyc');
   const { t: tForm } = useTranslation('form');
 
-  const columns: Array<Column<KycPremiumMemberData & { action: string }>> =
+  const columns: Array<Column<KycPremiumMemberData & { action: string; }>> =
     useMemo(
       () => [
         {
@@ -162,8 +162,13 @@ const KYCRequestList = () => {
           ),
         },
       ],
-      [showModal, setSelectedData],
+      [showModal],
     );
+
+  const handleCloseModal = () => {
+    hideModal();
+    setSelectedData(null);
+  };
 
   return (
     <Stack direction="column">
@@ -317,17 +322,16 @@ const KYCRequestList = () => {
           </Card>
         )}
       </Stack>
-      {isActive && (
-        <ViewKYCRequestModal
-          isHistory={!checkAuthority('kyc', ['create', 'update'])}
-          isActive={isActive}
-          onHide={hideModal}
-          selectedId={selectedData?.id || null}
-          fetchKycRequestList={fetchKycRequestList}
-          phoneNumber={selectedData?.phoneNumber || null}
-          memberSecureId={selectedData?.id || null}
-        />
-      )}
+      <ViewKYCRequestModal
+        // isHistory={!checkAuthority('kyc', ['create', 'update'])}
+        isHistory={false}
+        isActive={isActive}
+        onHide={handleCloseModal}
+        selectedId={selectedData?.id || null}
+        fetchKycRequestList={fetchKycRequestList}
+        phoneNumber={selectedData?.phoneNumber || null}
+        memberSecureId={selectedData?.id || null}
+      />
     </Stack>
   );
 };

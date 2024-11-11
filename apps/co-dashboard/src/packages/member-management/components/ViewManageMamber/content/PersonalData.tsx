@@ -8,7 +8,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
   const { memberDetail, memberKYCDetail } = props;
   const { t: tKYC } = useTranslation('kyc');
 
-  if (memberDetail?.vybeMember === 'LITE') {
+  if (memberDetail?.vybeMember === 'LITE' || memberDetail?.vybeMember === 'UNVERIFIED') {
     return (
       <EmptyList
         title={tKYC('personalDataEmptyTitle')}
@@ -23,6 +23,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
       <Typography variant="h5" sx={{ mb: 3 }}>
         {tKYC('personalDataIdentityDetails')}
       </Typography>
+
       <Grid container spacing={2} rowSpacing={4} sx={{ mb: 5 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
@@ -145,6 +146,13 @@ function PersonalData(props: ViewManageMemberTabProps) {
             <Divider />
           </Stack>
         </Grid>
+      </Grid>
+
+      <Typography variant="h5" sx={{ mb: 3 }}>
+        {tKYC('personalDataAddressInformation')}
+      </Typography>
+
+      <Grid container spacing={2} rowSpacing={4} sx={{ mb: 5 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
@@ -203,6 +211,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
       <Typography variant="h5" sx={{ mb: 3 }}>
         {tKYC('personalDataWorkInformation')}
       </Typography>
+
       <Grid container spacing={2} rowSpacing={4} sx={{ mb: 2 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>

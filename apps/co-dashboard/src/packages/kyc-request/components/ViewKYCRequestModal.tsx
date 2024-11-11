@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -62,12 +62,9 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
     handleVerify,
     handleRegisterDttot,
     kycDetailHistory,
-    listProvinceResidence,
-    listProvinceDomicile,
     listCityResidence,
-    listCityDomicile,
     listCountryResidence,
-    listCountryDomicile,
+    customerProfile
   } = useKycRequestUpsert({
     selectedId,
     onHide,
@@ -80,14 +77,7 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
 
   const dataKyc:
     | KycPremiumMemberDetailForm
-    | KycPremiumMemberDetailHistoryForm
-    | null = useMemo(() => {
-    if (isHistory) {
-      return kycDetailHistory;
-    } else {
-      return kycDetail;
-    }
-  }, [kycDetail, kycDetailHistory]);
+    | null = useMemo(() => kycDetail, [kycDetail]);
 
   const displayStatus = useMemo(() => {
     if (dataKyc?.premiumMember.status === 'STARTED') {
@@ -146,7 +136,7 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
         </DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ pt: 1 }}>
-            <Grid item md={12 / 5} xs={12}>
+            <Grid item md={12 / 4} xs={12}>
               <Card sx={{ borderRadius: 4, p: 2 }}>
                 <Stack direction="column" spacing={2}>
                   <Typography
@@ -162,7 +152,7 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
                 </Stack>
               </Card>
             </Grid>
-            <Grid item md={12 / 5} xs={12}>
+            <Grid item md={12 / 4} xs={12}>
               <Card sx={{ borderRadius: 4, p: 2 }}>
                 <Stack direction="column" spacing={2}>
                   <Typography
@@ -173,12 +163,12 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
                     {tKYC('detailMemberName')}
                   </Typography>
                   <Typography variant="subtitle2">
-                    {dataKyc?.premiumMember.fullName || '-'}
+                    {`${dataKyc?.premiumMember.firstName} ${dataKyc?.premiumMember.middleName} ${dataKyc?.premiumMember.lastName}` || '-'}
                   </Typography>
                 </Stack>
               </Card>
             </Grid>
-            <Grid item md={12 / 5} xs={12}>
+            <Grid item md={12 / 4} xs={12} hidden>
               <Card sx={{ borderRadius: 4, p: 2 }}>
                 <Stack direction="column" spacing={2}>
                   <Typography
@@ -194,7 +184,7 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
                 </Stack>
               </Card>
             </Grid>
-            <Grid item md={12 / 5} xs={12}>
+            <Grid item md={12 / 4} xs={12}>
               <Card
                 variant={showErrorDttot ? 'outlined' : 'elevation'}
                 sx={{
@@ -213,6 +203,7 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
                     <Typography
                       variant="body2"
                       color={Token.color.greyscaleGreyDarkest}
+                      sx={{ py: isHistory ? 0 : 1 }}
                     >
                       {tKYC('detailRegisteredAsDTTOT')}
                     </Typography>
@@ -235,7 +226,7 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
                 </FormHelperText>
               )}
             </Grid>
-            <Grid item md={12 / 5} xs={12}>
+            <Grid item md={12 / 4} xs={12}>
               <Card sx={{ borderRadius: 4, p: 2 }}>
                 <Stack direction="column" spacing={2}>
                   <Typography
@@ -301,12 +292,9 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
                   kycDetail={kycDetail}
                   memberDetail={memberDetail}
                   kycDetailHistory={kycDetailHistory}
-                  listProvinceResidence={listProvinceResidence}
-                  listProvinceDomicile={listProvinceDomicile}
                   listCityResidence={listCityResidence}
-                  listCityDomicile={listCityDomicile}
-                  listCountryDomicile={listCountryDomicile}
                   listCountryResidence={listCountryResidence}
+                  customerProfile={customerProfile}
                 />
               ) : (
                 <ViewKYCRequestTab
@@ -314,12 +302,9 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
                   kycDetail={kycDetail}
                   memberDetail={memberDetail}
                   kycDetailHistory={kycDetailHistory}
-                  listProvinceResidence={listProvinceResidence}
-                  listProvinceDomicile={listProvinceDomicile}
                   listCityResidence={listCityResidence}
-                  listCityDomicile={listCityDomicile}
-                  listCountryDomicile={listCountryDomicile}
                   listCountryResidence={listCountryResidence}
+                  customerProfile={customerProfile}
                 />
               )}
             </Box>

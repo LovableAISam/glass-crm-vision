@@ -211,6 +211,13 @@ export const apiBank = '/admin/api/v1/bank';
 export const apiCountry = '/admin/api/v1/country';
 
 /**
+ * AllCountry
+ * usage for Allcountry
+ * Contract: admin/Allcountry/*
+ */
+export const apiAllCountry = '/admin/api/v1/country/all-country';
+
+/**
  * Province
  * usage for province
  * Contract: admin/province/*
@@ -223,6 +230,20 @@ export const apiProvince = '/admin/api/v1/province';
  * Contract: admin/city/*
  */
 export const apiCity = '/admin/api/v1/city';
+
+/**
+ * City
+ * usage for city
+ * Contract: admin/city/*
+ */
+export const apiCityByCode = '/admin/api/v1/city/code';
+
+/**
+ * Customer Profile
+ * usage for Customer Profile
+ * Contract: admin/CustomerProfile/*
+ */
+export const apiCustomerProfile = '/admin/api/v1/customer-profile/all-customer-profile';
 
 /**
  * Currency

@@ -41,7 +41,7 @@ import { TransactionHistoryData } from '@woi/service/co/transaction/transactionH
 
 function AccountInformation(props: ViewKYCRequestTabProps) {
   const { memberDetail } = props;
-  const [show, setShow] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(true);
   const { coDetail } = useCommunityOwner();
   const router = useRouter();
   const {
@@ -65,11 +65,11 @@ function AccountInformation(props: ViewKYCRequestTabProps) {
     () => [
       {
         Header: tKYC('accountInformationTableHeaderDateTime'),
-        accessor: 'createdDate',
+        accessor: 'dateTime',
         Cell: ({ row }) => (
-          <Typography variant="inherit" key="createdDate">
+          <Typography variant="inherit" key="dateTime">
             {DateConvert.stringToDateFormat(
-              row.original.createdDate,
+              row.original.dateTime,
               LONG_DATE_TIME_FORMAT,
             )}
           </Typography>
@@ -77,25 +77,25 @@ function AccountInformation(props: ViewKYCRequestTabProps) {
       },
       {
         Header: tKYC('accountInformationTableHeaderType'),
-        accessor: 'transactionType',
+        accessor: 'method',
         Cell: ({ value }) => (
-          <Typography variant="inherit" key="transactionType">
-            {value?.name || '-'}
+          <Typography variant="inherit" key="method">
+            {value || '-'}
           </Typography>
         ),
       },
       {
         Header: tKYC('accountInformationTableHeaderMethod'),
-        accessor: 'transactionMethod',
+        accessor: 'dbCr',
         Cell: ({ value }) => (
-          <Typography variant="inherit" key="transactionMethod">
-            {value?.name || '-'}
+          <Typography variant="inherit" key="dbCr">
+            {value || '-'}
           </Typography>
         ),
       },
       {
         Header: tKYC('accountInformationTableHeaderRefID'),
-        accessor: 'referenceId',
+        accessor: 'transactionId',
       },
       {
         Header: tKYC('accountInformationTableHeaderDescription'),
@@ -110,72 +110,71 @@ function AccountInformation(props: ViewKYCRequestTabProps) {
               <Typography
                 variant="inherit"
                 color={
-                  row.original.isDebit
+                  row.original.dbCr
                     ? Token.color.redDark
                     : Token.color.greenDark
                 }
                 key="amount"
               >
-                {row.original.isDebit ? '-' : '+'}{' '}
                 {PriceConverter.formatPrice(row.original.amount, router.locale)}
               </Typography>
             );
           }
-          if (row.original.withdraw) {
-            return (
-              <Typography
-                variant="inherit"
-                color={
-                  row.original.isDebit
-                    ? Token.color.redDark
-                    : Token.color.greenDark
-                }
-                key="amount"
-              >
-                {row.original.isDebit ? '-' : '+'}{' '}
-                {PriceConverter.formatPrice(
-                  row.original.withdraw.withdrawAmount,
-                  router.locale,
-                )}
-              </Typography>
-            );
-          }
-          if (row.original.deposit) {
-            return (
-              <Typography
-                variant="inherit"
-                color={
-                  row.original.isDebit
-                    ? Token.color.redDark
-                    : Token.color.greenDark
-                }
-              >
-                {row.original.isDebit ? '-' : '+'}{' '}
-                {PriceConverter.formatPrice(
-                  row.original.deposit.depositAmount,
-                  router.locale,
-                )}
-              </Typography>
-            );
-          }
-          if (row.original.transfer) {
-            return (
-              <Typography
-                variant="inherit"
-                color={
-                  row.original.isDebit
-                    ? Token.color.redDark
-                    : Token.color.greenDark
-                }
-              >
-                {row.original.isDebit ? '-' : '+'}{' '}
-                {PriceConverter.formatPrice(
-                  row.original.transfer.transferAmount,
-                  router.locale,
-                )}
-              </Typography>
-            );
-          }
+          // if (row.original.withdraw) {
+          //   return (
+          //     <Typography
+          //       variant="inherit"
+          //       color={
+          //         row.original.isDebit
+          //           ? Token.color.redDark
+          //           : Token.color.greenDark
+          //       }
+          //       key="amount"
+          //     >
+          //       {row.original.isDebit ? '-' : '+'}{' '}
+          //       {PriceConverter.formatPrice(
+          //         row.original.withdraw.withdrawAmount,
+          //         router.locale,
+          //       )}
+          //     </Typography>
+          //   );
+          // }
+          // if (row.original.deposit) {
+          //   return (
+          //     <Typography
+          //       variant="inherit"
+          //       color={
+          //         row.original.isDebit
+          //           ? Token.color.redDark
+          //           : Token.color.greenDark
+          //       }
+          //     >
+          //       {row.original.isDebit ? '-' : '+'}{' '}
+          //       {PriceConverter.formatPrice(
+          //         row.original.deposit.depositAmount,
+          //         router.locale,
+          //       )}
+          //     </Typography>
+          //   );
+          // }
+          // if (row.original.transfer) {
+          //   return (
+          //     <Typography
+          //       variant="inherit"
+          //       color={
+          //         row.original.isDebit
+          //           ? Token.color.redDark
+          //           : Token.color.greenDark
+          //       }
+          //     >
+          //       {row.original.isDebit ? '-' : '+'}{' '}
+          //       {PriceConverter.formatPrice(
+          //         row.original.transfer.transferAmount,
+          //         router.locale,
+          //       )}
+          //     </Typography>
+          //   );
+          // }
           return <></>;
         },
       },
@@ -190,7 +189,7 @@ function AccountInformation(props: ViewKYCRequestTabProps) {
 
   return (
     <Box>
-      {!show && (
+      {!show && coDetail && (
         <React.Fragment>
           <Typography variant="subtitle1" sx={{ mb: 2 }}>
             {tKYC('accountInformationListOfCO')}
@@ -204,7 +203,7 @@ function AccountInformation(props: ViewKYCRequestTabProps) {
                 >
                   {tKYC('accountInformationCOCode')}
                 </Typography>
-                <Typography variant="subtitle2">{coDetail?.code}</Typography>
+                <Typography variant="subtitle2">{coDetail?.code || '-'}</Typography>
                 <Divider />
               </Stack>
             </Grid>
@@ -216,7 +215,7 @@ function AccountInformation(props: ViewKYCRequestTabProps) {
                 >
                   {tKYC('accountInformationCOName')}
                 </Typography>
-                <Typography variant="subtitle2">{coDetail?.name}</Typography>
+                <Typography variant="subtitle2">{coDetail?.name || '-'}</Typography>
                 <Divider />
               </Stack>
             </Grid>
@@ -229,15 +228,13 @@ function AccountInformation(props: ViewKYCRequestTabProps) {
                   {tKYC('accountInformationEffectiveDate')}
                 </Typography>
                 <Typography variant="subtitle2">
-                  {DateConvert.stringToDateFormat(
+                  {coDetail?.activeDate ? `${DateConvert.stringToDateFormat(
                     coDetail?.activeDate,
                     LONG_DATE_FORMAT,
-                  )}{' '}
-                  -{' '}
-                  {DateConvert.stringToDateFormat(
+                  )} - ${DateConvert.stringToDateFormat(
                     coDetail?.inactiveDate,
                     LONG_DATE_FORMAT,
-                  )}
+                  )}` : '-'}
                 </Typography>
                 <Divider />
               </Stack>
@@ -263,14 +260,13 @@ function AccountInformation(props: ViewKYCRequestTabProps) {
                 }}
               />
             }
-            sx={{ borderRadius: 2 }}
+            sx={{ borderRadius: 2, display: 'none' }}
             onClick={() => setShow(showProps => !showProps)}
           >
-            {`${
-              show
-                ? tKYC('accountInformationActionHideTransactionDetail')
-                : tKYC('accountInformationActionSeeTransactionDetail')
-            }`}
+            {`${show
+              ? tKYC('accountInformationActionHideTransactionDetail')
+              : tKYC('accountInformationActionSeeTransactionDetail')
+              }`}
           </Button>
         </Stack>
         <Divider />

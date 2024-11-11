@@ -1,13 +1,12 @@
-import React from 'react';
+import { CityData } from "@woi/service/co/admin/city/cityListByProvinceCode";
+import { AllCountryData } from "@woi/service/co/admin/country/allCountryList";
+import { CustomerProfile } from "@woi/service/co/admin/customerProfile/customerProfile";
+import { KycPremiumMemberHistoryDetailData } from '@woi/service/co/kyc/premiumMember/premiumMemberHistoryDetail';
 import dynamic from 'next/dynamic';
 import {
   KycPremiumMemberDetailForm,
   MemberDetailForm,
 } from '../../hooks/useKycRequstUpsert';
-import { KycPremiumMemberHistoryDetailData } from '@woi/service/co/kyc/premiumMember/premiumMemberHistoryDetail';
-import { CountryListResponse } from '@woi/service/co/admin/country/countryList';
-import { ProvinceListResponse } from '@woi/service/co/admin/province/provinceList';
-import { CityListResponse } from '@woi/service/co/admin/city/cityList';
 
 const AccountInformation = dynamic(
   () => import('./content/AccountInformation'),
@@ -19,12 +18,9 @@ export type ViewKYCRequestTabProps = {
   kycDetail: KycPremiumMemberDetailForm | null;
   kycDetailHistory: KycPremiumMemberHistoryDetailData | null;
   memberDetail: MemberDetailForm | null;
-  listCountryResidence: CountryListResponse | null;
-  listCountryDomicile: CountryListResponse | null;
-  listProvinceResidence: ProvinceListResponse | null;
-  listProvinceDomicile: ProvinceListResponse | null;
-  listCityResidence: CityListResponse | null;
-  listCityDomicile: CityListResponse | null;
+  listCountryResidence: AllCountryData[] | null;
+  listCityResidence: CityData[] | null;
+  customerProfile: CustomerProfile | null;
 };
 
 function ViewKYCRequestTab(props: ViewKYCRequestTabProps) {

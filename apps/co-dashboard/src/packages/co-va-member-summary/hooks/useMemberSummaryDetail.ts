@@ -100,8 +100,8 @@ function useMemberSummaryDetail(props: ActivityMemberHistoryListProps) {
   ]);
 
   const getSortPayload = (paramSortBy: keyof TransactionHistoryData) => {
-    if (paramSortBy === 'date') return 'dateTime';
-    if (paramSortBy === 'vaDest') return 'vaDestination';
+    // if (paramSortBy === 'date') return 'dateTime';
+    // if (paramSortBy === 'vaDest') return 'vaDestination';
     return paramSortBy;
   };
 

@@ -61,10 +61,10 @@ function useActivityMemberHistoryList(props: ActivityMemberHistoryListProps) {
   );
 
   const getSortPayload = (paramSortBy: keyof TransactionHistoryData) => {
-    if (paramSortBy === 'transactionType') return 'transaction.transactionTypeName';
-    if (paramSortBy === 'transactionMethod') return 'transaction.transactionMethodName';
-    if (paramSortBy === 'referenceId') return 'transaction.referenceId';
-    if (paramSortBy === 'account') return 'transaction.accountStatementHistories.phoneNumber';
+    // if (paramSortBy === 'transactionType') return 'transaction.transactionTypeName';
+    // if (paramSortBy === 'transactionMethod') return 'transaction.transactionMethodName';
+    // if (paramSortBy === 'referenceId') return 'transaction.referenceId';
+    // if (paramSortBy === 'account') return 'transaction.accountStatementHistories.phoneNumber';
     return paramSortBy;
   };
 
@@ -88,7 +88,7 @@ function useActivityMemberHistoryList(props: ActivityMemberHistoryListProps) {
       refetchOnWindowFocus: false,
       onSuccess: (response) => {
         const result = response.result;
-        if (result && result.data && !response.error) {
+        if (result && result.transactions && !response.error) {
           setPagination(oldPagination => ({
             ...oldPagination,
             totalPages: Math.ceil(result.totalElements / pagination.limit),
@@ -142,7 +142,7 @@ function useActivityMemberHistoryList(props: ActivityMemberHistoryListProps) {
     direction,
     handleSort,
     handleExport,
-    activityMemberHistoryData: activityMemberHistoryData?.result?.data || [],
+    activityMemberHistoryData: activityMemberHistoryData?.result?.transactions || [],
     activityMemberHistoryStatus,
     getSortPayload
   };
