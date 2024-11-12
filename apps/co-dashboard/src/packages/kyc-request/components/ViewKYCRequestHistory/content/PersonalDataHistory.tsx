@@ -40,7 +40,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataFullName')}
             </Typography>
             <Typography variant="subtitle2">
-              {`${kycDetail?.premiumMember.firstName} ${kycDetail?.premiumMember.middleName} ${kycDetail?.premiumMember.lastName}` || '-'}
+              {`${kycDetail?.premiumMember?.firstName} ${kycDetail?.premiumMember?.middleName} ${kycDetail?.premiumMember?.lastName}` || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -66,7 +66,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataMotherMaidenName')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.motherMaidenName || '-'}
+              {kycDetail?.premiumMember?.motherMaidenName || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -77,7 +77,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataDateOfBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.dateOfBirth || '-'}
+              {kycDetail?.premiumMember?.dateOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -88,7 +88,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataEmail')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.email || memberDetail.email || '-'}
+              {kycDetail?.premiumMember?.email || memberDetail?.email || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -132,7 +132,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataCountryofBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.placeOfBirth || '-'}
+              {kycDetail?.premiumMember?.placeOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -143,7 +143,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataCityofBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.cityOfBirth || '-'}
+              {kycDetail?.premiumMember?.cityOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -154,7 +154,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataDistrictBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.premiumMember.districtOfBirth || '-'}
+              {kycDetail?.premiumMember?.districtOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -172,7 +172,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
             <Typography variant="subtitle2">
               {
                 listCountryResidence?.find(
-                  item => item.countryCode === kycDetail?.premiumMember.nationalityId,
+                  item => item.countryCode === kycDetail?.premiumMember?.nationalityId,
                 )?.countryName
                 || '-'}
             </Typography>
