@@ -57,7 +57,7 @@ function useRoleUpsert(props: RoleUpsertProps) {
   const { handleSubmit, setValue, watch, getValues } = formData;
   const { t: tCommon } = useTranslation('common');
 
-  const excludeMenusBPI = ["CO Account Management", "Privilege Management", 'App Customization', 'KYC Management', 'Merchant Management', 'Layering Approval', 'Bank Management', 'Transaction Type Management', 'Content Management'];
+  const excludeMenusBPI = ["CO Account Management", "Privilege Management", 'App Customization', 'Merchant Management', 'Layering Approval', 'Bank Management', 'Transaction Type Management', 'Content Management'];
 
   const handleCancel = async () => {
     const confirmed = await getConfirmation({
