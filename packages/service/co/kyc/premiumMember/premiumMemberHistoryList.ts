@@ -22,6 +22,11 @@ export interface KycPremiumMemberHistoryData extends ResponseData {
   createdBy: string;
   modifiedBy: string;
   requestDate: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  idType: string;
+  idNumber: string;
 }
 
 interface KycPremiumMemberHistoryListResponse extends ResultData<KycPremiumMemberHistoryData[]> { }

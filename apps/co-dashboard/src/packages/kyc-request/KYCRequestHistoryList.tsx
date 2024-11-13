@@ -68,7 +68,12 @@ const KYCRequestHistoryList = () => {
       },
       {
         Header: tKYC('detailMemberName'),
-        accessor: 'fullName',
+        accessor: 'firstName',
+        Cell: ({ row }) => (
+          <Typography variant="inherit" key="firstName">
+            {`${row.original.firstName} ${row.original.middleName} ${row.original.lastName}`}
+          </Typography>
+        ),
       },
       {
         Header: tKYC('tableHeaderRequestDate'),
