@@ -34,11 +34,14 @@ type ViewManageMemberModalProps = {
 const ViewManageMemberModal = (props: ViewManageMemberModalProps) => {
   const { isActive, onHide, selectedData, fetchMemberList } = props;
   const [activeTab, setActiveTab] = useState<number>(0);
-  const { memberDetail, memberKYCDetail, handleLockUnlock } = useMemberUpsert({
-    selectedData,
-    onHide,
-    fetchMemberList,
-  });
+  const {
+    memberDetail,
+    memberKYCDetail,
+    handleLockUnlock,
+    listCountryResidence,
+    listCityResidence,
+    customerProfile
+  } = useMemberUpsert({ selectedData, onHide, fetchMemberList });
   const { t: tMember } = useTranslation('member');
   const { t: tKYC } = useTranslation('kyc');
 
@@ -178,6 +181,9 @@ const ViewManageMemberModal = (props: ViewManageMemberModalProps) => {
               activeTab={activeTab}
               memberDetail={memberDetail}
               memberKYCDetail={memberKYCDetail}
+              customerProfile={customerProfile}
+              listCityResidence={listCityResidence}
+              listCountryResidence={listCountryResidence}
             />
           </Box>
         </Grid>

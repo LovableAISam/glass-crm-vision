@@ -127,7 +127,7 @@ const Login = () => {
         color="primary"
         sx={{ py: 1, px: 5, borderRadius: 2 }}
         loading={loadingSubmit}
-        // disabled={!isVerified}
+        disabled={!isVerified}
         onClick={onSubmit}
       >
         <Typography variant="subtitle2">{tAuth('loginCTA')}</Typography>

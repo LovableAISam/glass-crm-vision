@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, Stack, Typography, Divider } from '@mui/material';
-import { EmptyList } from '@woi/web-component';
+import { EmptyList, ViewPhotoModal } from '@woi/web-component';
 import { ViewManageMemberTabProps } from '../ViewManageMemberTab';
 import { useTranslation } from 'react-i18next';
+import { UploadDocumentData } from "@woi/uploadDocument";
+import useModal from "@woi/common/hooks/useModal";
+import ImageUpload from "@src/shared/components/FormUpload/ImageUpload";
 
 function PersonalData(props: ViewManageMemberTabProps) {
-  const { memberDetail, memberKYCDetail } = props;
+  const {
+    memberDetail,
+    memberKYCDetail,
+    listCountryResidence,
+    listCityResidence,
+    customerProfile
+  } = props;
   const { t: tKYC } = useTranslation('kyc');
+
+  const [selectedView, setSelectedView] = useState<UploadDocumentData | null>(
+    null,
+  );
+  const [modalTitle, setModalTitle] = useState<string>('');
+  const [isActiveView, showModalView, hideModalView] = useModal();
+
+  const handleView = (_modalTitle: string) => {
+    setModalTitle(_modalTitle);
+    showModalView();
+  };
 
   if (memberDetail?.vybeMember === 'LITE' || memberDetail?.vybeMember === 'UNVERIFIED') {
     return (
@@ -24,14 +44,14 @@ function PersonalData(props: ViewManageMemberTabProps) {
         {tKYC('personalDataIdentityDetails')}
       </Typography>
 
-      <Grid container spacing={2} rowSpacing={4} sx={{ mb: 5 }}>
+      <Grid container spacing={2} rowSpacing={4} sx={{ mb: 6 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
               {tKYC('personalDataFullName')}
             </Typography>
-            <Typography variant="subtitle2" textTransform="capitalize">
-              {memberKYCDetail?.name.toLocaleLowerCase() || '-'}
+            <Typography variant="subtitle2">
+              {`${memberKYCDetail?.premiumMember?.firstName} ${memberKYCDetail?.premiumMember?.middleName} ${memberKYCDetail?.premiumMember?.lastName}` || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -42,7 +62,11 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataGender')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.gender || '-'}
+              {
+                customerProfile?.gender?.find(
+                  item => item.genderCode === memberKYCDetail?.premiumMember?.gender,
+                )?.genderDescription
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -53,7 +77,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataMotherMaidenName')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.motherMaidenName || '-'}
+              {memberKYCDetail?.premiumMember?.motherMaidenName || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -64,7 +88,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataDateOfBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.dateOfBirth || '-'}
+              {memberKYCDetail?.premiumMember?.dateOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -75,7 +99,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataEmail')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.email || '-'}
+              {memberKYCDetail?.premiumMember?.email || memberDetail?.email || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -86,7 +110,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataIDType')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.idType || '-'}
+              {memberKYCDetail?.identityCard.type || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -97,7 +121,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataTransactionDate')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberDetail?.vybeMember === "PRO" ? memberKYCDetail?.transactionDate || '-' : '-'}
+              -
             </Typography>
             <Divider />
           </Stack>
@@ -108,7 +132,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataIDNumber')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.idNumber || '-'}
+              {memberKYCDetail?.identityCard.number || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -119,7 +143,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataCountryofBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.countryOfBirth || '-'}
+              {memberKYCDetail?.premiumMember?.placeOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -130,7 +154,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataCityofBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.cityOfBirth || '-'}
+              {memberKYCDetail?.premiumMember?.cityOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -141,7 +165,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataDistrictBirth')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.townDistrictBirth || '-'}
+              {memberKYCDetail?.premiumMember?.districtOfBirth || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -152,14 +176,16 @@ function PersonalData(props: ViewManageMemberTabProps) {
         {tKYC('personalDataAddressInformation')}
       </Typography>
 
-      <Grid container spacing={2} rowSpacing={4} sx={{ mb: 5 }}>
+      <Grid container spacing={2} rowSpacing={4} sx={{ mb: 6 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
-            <Typography variant="body2">
-              {tKYC('personalDataCountryResidence')}
-            </Typography>
+            <Typography variant="body2">{tKYC('personalDataCountryResidence')}</Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.countryOfResidence || '-'}
+              {
+                listCountryResidence?.find(
+                  item => item.countryCode === memberKYCDetail?.premiumMember?.nationalityId,
+                )?.countryName
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -168,29 +194,20 @@ function PersonalData(props: ViewManageMemberTabProps) {
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">{tKYC('personalDataCity')}</Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.city || '-'}
+              {
+                listCityResidence?.find(
+                  item => item.code === memberKYCDetail?.memberResidence.cityId,
+                )?.name
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
-            <Typography variant="body2">
-              {tKYC('personalDataTownorDistrict')}
-            </Typography>
+            <Typography variant="body2">{tKYC('personalDataTownorDistrict')}</Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.barangay || '-'}
-            </Typography>
-            <Divider />
-          </Stack>
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <Stack direction="column" spacing={2}>
-            <Typography variant="body2">
-              {tKYC('personalDataZipCode')}
-            </Typography>
-            <Typography variant="subtitle2">
-              {memberKYCDetail?.zipCode || '-'}
+              {memberKYCDetail?.memberResidence.barangay || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -201,7 +218,18 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataCurrentAddress')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.streetAddress || '-'}
+              {memberKYCDetail?.memberResidence.address || '-'}
+            </Typography>
+            <Divider />
+          </Stack>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <Stack direction="column" spacing={2}>
+            <Typography variant="body2">
+              {tKYC('personalDataZipCode')}
+            </Typography>
+            <Typography variant="subtitle2">
+              {memberKYCDetail?.memberResidence.address || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -212,14 +240,18 @@ function PersonalData(props: ViewManageMemberTabProps) {
         {tKYC('personalDataWorkInformation')}
       </Typography>
 
-      <Grid container spacing={2} rowSpacing={4} sx={{ mb: 2 }}>
+      <Grid container spacing={2} rowSpacing={4} sx={{ mb: 6 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
               {tKYC('personalDataSourceIncome')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.sourceOfIncome || '-'}
+              {
+                customerProfile?.sourceOfFunds?.find(
+                  item => item.sourceOfFundsCode === memberKYCDetail?.premiumMember?.sourceOfFunds,
+                )?.sourceOfFundsDescription
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -230,18 +262,16 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataEmployerorBusiness')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.employer || '-'}
+              {memberKYCDetail?.premiumMember?.employer || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
-            <Typography variant="body2">
-              {tKYC('personalDataJobTitle')}
-            </Typography>
+            <Typography variant="body2">{tKYC('personalDataJobTitle')}</Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.jobTitle || '-'}
+              {memberKYCDetail?.premiumMember?.jobTitle || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -252,7 +282,11 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataIndustry')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.industryId || '-'}
+              {
+                customerProfile?.natureOfBusiness?.find(
+                  item => item.natureOfBusinessCode === memberKYCDetail?.premiumMember?.natureOfWork,
+                )?.natureOfBusinessDescription
+                || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -263,12 +297,73 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataReferalCode')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.referralCode || '-'}
+              {memberKYCDetail?.premiumMember?.referralCode || '-'}
             </Typography>
             <Divider />
           </Stack>
         </Grid>
       </Grid>
+
+      <Typography variant="h5" sx={{ mb: 3 }}>
+        {tKYC('personalDataKYC')}
+      </Typography>
+
+      <Stack direction="column" spacing={2}>
+        <Stack direction="column" spacing={2}>
+          <Typography variant="subtitle1">
+            {tKYC('personalDataIDCard')}
+          </Typography>
+          {memberKYCDetail && (
+            <ImageUpload
+              viewOnly
+              selectedFile={memberKYCDetail.identityCardUpload}
+              selectedImage={memberKYCDetail.identityCardUpload.docPath}
+              onView={file => {
+                setSelectedView(file);
+                handleView('ID Card');
+              }}
+            />
+          )}
+        </Stack>
+        <Stack direction="column" spacing={2}>
+          <Typography variant="subtitle1">
+            {tKYC('personalDataSelfieWithKTP')}
+          </Typography>
+          {memberKYCDetail && (
+            <ImageUpload
+              viewOnly
+              selectedFile={memberKYCDetail.selfie}
+              selectedImage={memberKYCDetail.selfie.docPath}
+              onView={file => {
+                setSelectedView(file);
+                handleView('Selfie With KTP');
+              }}
+            />
+          )}
+        </Stack>
+        <Stack direction="column" spacing={2}>
+          <Typography variant="subtitle1">
+            {tKYC('personalDataSignature')}
+          </Typography>
+          {memberKYCDetail && (
+            <ImageUpload
+              viewOnly
+              selectedFile={memberKYCDetail.signature}
+              selectedImage={memberKYCDetail.signature.docPath}
+              onView={file => {
+                setSelectedView(file);
+                handleView('Signature');
+              }}
+            />
+          )}
+        </Stack>
+      </Stack>
+      <ViewPhotoModal
+        title={modalTitle}
+        isActive={isActiveView}
+        onHide={hideModalView}
+        selectedFile={selectedView}
+      />
     </Box>
   );
 }

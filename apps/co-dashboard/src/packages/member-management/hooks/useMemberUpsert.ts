@@ -1,5 +1,5 @@
 import useBaseUrl from "@src/shared/hooks/useBaseUrl";
-import { useMemberDetailFetcher, useMemberActivationFetcher, useMemberKYCDetailFetcher } from "@woi/service/co";
+import { useMemberDetailFetcher, useMemberActivationFetcher, useKycPremiumMemberDetailFetcher } from "@woi/service/co";
 
 // Hooks
 import { useConfirmationDialog } from "@woi/web-component";
@@ -9,7 +9,10 @@ import { useEffect, useState } from "react";
 import { MemberDetailData, MemberDetailPremium } from "@woi/service/co/idp/member/memberDetail";
 import { UploadDocumentData } from "@woi/uploadDocument";
 import { useTranslation } from "react-i18next";
-import { MemberKYCDetailData } from "@woi/service/co/idp/member/memberKYCDetail";
+import { KycPremiumMemberDetailData } from "@woi/service/co/kyc/premiumMember/premiumMemberDetail";
+import useAllCountryListFetcher, { AllCountryData } from "@woi/service/co/admin/country/allCountryList";
+import useCustomerProfileFetcher, { CustomerProfile } from "@woi/service/co/admin/customerProfile/customerProfile";
+import useCityListByProvinceCodeFetcher, { CityData } from "@woi/service/co/admin/city/cityListByProvinceCode";
 
 interface MemberUpsertProps {
   selectedData: MemberData;
@@ -27,15 +30,24 @@ export interface MemberDetailForm extends MemberDetailData {
   premiumMemberDetail: MemberDetailPremiumForm | null;
 }
 
+export interface KycPremiumMemberDetailHistoryForm extends KycPremiumMemberDetailData {
+  identityCardUpload: UploadDocumentData;
+  selfie: UploadDocumentData;
+  signature: UploadDocumentData;
+}
+
 function useMemberUpsert(props: MemberUpsertProps) {
   const { selectedData, onHide, fetchMemberList } = props;
   const { getConfirmation } = useConfirmationDialog();
   const { baseUrl } = useBaseUrl();
   const { enqueueSnackbar } = useSnackbar();
   const [memberDetail, setMemberDetail] = useState<MemberDetailForm | null>(null);
-  const [memberKYCDetail, setMemberKYCDetail] = useState<MemberKYCDetailData | null>(null);
+  const [memberKYCDetail, setMemberKYCDetail] = useState<KycPremiumMemberDetailHistoryForm | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const { t: tCommon } = useTranslation('common');
+  const [listCountryResidence, setListCountryResidence] = useState<AllCountryData[] | null>(null);
+  const [customerProfile, setCustomerProfile] = useState<CustomerProfile | null>(null);
+  const [listCityResidence, setListCityResidence] = useState<CityData[] | null>(null);
 
   const fetchMemberDetail = async (memberData: MemberData) => {
     setLoading(true);
@@ -55,14 +67,45 @@ function useMemberUpsert(props: MemberUpsertProps) {
 
   const fetchMemberKYCDetail = async (memberData: MemberData) => {
     setLoading(true);
-    const { result, error } = await useMemberKYCDetailFetcher(baseUrl, {
-      phoneNumber: memberData.phoneNumber,
-    });
+    const { result, error } = await useKycPremiumMemberDetailFetcher(baseUrl, memberData.phoneNumber);
 
     if (result && !error) {
       setMemberKYCDetail({
         ...result,
+        identityCardUpload: { docPath: result.identityCard.identityCardUrl },
+        selfie: { docPath: result.premiumMember.selfieUrl },
+        signature: { docPath: result.premiumMember.signatureUrl },
       });
+    }
+    setLoading(false);
+  };
+
+  const fetchListCountryResidence = async () => {
+    setLoading(true);
+    const { result, error } = await useAllCountryListFetcher(baseUrl);
+
+    if (result && !error) {
+      setListCountryResidence(result);
+    }
+    setLoading(false);
+  };
+
+  const fetchMasterCustomerProfile = async () => {
+    setLoading(true);
+    const { result, error } = await useCustomerProfileFetcher(baseUrl);
+
+    if (result && !error) {
+      setCustomerProfile(result);
+    }
+    setLoading(false);
+  };
+
+  const fetchListCityResidence = async (provinceCode: string) => {
+    setLoading(true);
+    const { result, error } = await useCityListByProvinceCodeFetcher(baseUrl, provinceCode);
+
+    if (result && !error) {
+      setListCityResidence(result);
     }
     setLoading(false);
   };
@@ -121,15 +164,27 @@ function useMemberUpsert(props: MemberUpsertProps) {
     if (selectedData) {
       fetchMemberDetail(selectedData);
       fetchMemberKYCDetail(selectedData);
+      fetchListCountryResidence();
+      fetchMasterCustomerProfile();
     }
   }, [selectedData]);
+
+  useEffect(() => {
+    if (memberKYCDetail) {
+      fetchListCountryResidence();
+      fetchListCityResidence(memberKYCDetail?.memberResidence.provinceId);
+    }
+  }, [memberKYCDetail]);
 
   return {
     memberDetail,
     loading,
     handleCancel,
     handleLockUnlock,
-    memberKYCDetail
+    memberKYCDetail,
+    listCountryResidence,
+    listCityResidence,
+    customerProfile
   };
 }
 
