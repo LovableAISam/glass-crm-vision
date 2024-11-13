@@ -218,7 +218,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               {tKYC('personalDataZipCode')}
             </Typography>
             <Typography variant="subtitle2">
-              {kycDetail?.memberResidence.address || '-'}
+              {kycDetail?.memberResidence.postalCode || '-'}
             </Typography>
             <Divider />
           </Stack>
