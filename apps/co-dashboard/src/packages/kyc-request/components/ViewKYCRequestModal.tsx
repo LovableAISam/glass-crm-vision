@@ -82,6 +82,10 @@ const ViewKYCRequestModal = (props: ViewKYCRequestModalProps) => {
   const displayStatus = useMemo(() => {
     if (dataKyc?.premiumMember.status === 'STARTED') {
       return tKYC('statusStarted');
+    } else if (dataKyc?.premiumMember.status === 'VERIFIED') {
+      return tKYC('statusVerified');
+    } else if (dataKyc?.premiumMember.status === 'UNVERIFIED') {
+      return tKYC('statusUnverified');
     } else if (dataKyc?.premiumMember.status === 'UNREGISTER') {
       return tKYC('statusUnregistered');
     } else if (dataKyc?.premiumMember.status === 'WAITING_TO_REVIEW') {

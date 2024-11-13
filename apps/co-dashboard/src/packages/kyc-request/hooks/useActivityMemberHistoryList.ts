@@ -84,7 +84,6 @@ function useActivityMemberHistoryList(props: ActivityMemberHistoryListProps) {
     ['kyc-request-list', activityMemberHistoryPayload],
     async () => useTransactionHistoryListFetcher(baseUrl, activityMemberHistoryPayload),
     {
-      enabled: Boolean(phoneNumber),
       refetchOnWindowFocus: false,
       onSuccess: (response) => {
         const result = response.result;

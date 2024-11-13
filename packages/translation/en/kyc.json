@@ -120,6 +120,8 @@
   "failedVerifyMember": "Verify member failed!",
 
   "statusStarted": "Started",
+  "statusVerified": "Verified",
+  "statusUnverified": "Unverified",
   "statusWaitingToReview": "Waiting To Review",
   "statusUnregister": "Unregister",
   "statusRegistered": "Registered",

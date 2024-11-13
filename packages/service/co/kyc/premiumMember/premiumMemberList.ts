@@ -2,7 +2,7 @@ import { constructUrlSearchParams, DefaultQueryPageRequest, ResponseData, Result
 import { apiKycPremiumMember } from '@woi/common/meta/apiPaths/coApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 
-export type KycPremiumMemberStatus = 'STARTED' | 'WAITING_TO_REVIEW' | 'REGISTERED' | 'UNREGISTER' | 'REJECTED';
+export type KycPremiumMemberStatus = 'STARTED' | 'WAITING_TO_REVIEW' | 'REGISTERED' | 'UNREGISTER' | 'REJECTED' | 'UNVERIFIED' | 'VERIFIED';
 
 export interface KycPremiumMemberData extends ResponseData {
   identityNumber: number;
@@ -12,6 +12,16 @@ export interface KycPremiumMemberData extends ResponseData {
   status: KycPremiumMemberStatus;
   createdBy: string;
   modifiedBy: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  placeOfBirth: string;
+  gender: string;
+  nationalityId: string;
+  email: string;
+  suffix: string;
+  natureOfWork: string;
+  sourceOfFunds: string;
 }
 
 interface KycPremiumMemberListResponse extends ResultData<KycPremiumMemberData[]> { }

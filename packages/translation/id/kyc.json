@@ -120,6 +120,8 @@
   "failedVerifyMember": "Gagal memverifikasi member!",
 
   "statusStarted": "Dimulai",
+  "statusVerified": "Terverifikasi",
+  "statusUnverified": "Tidak Terverifikasi",
   "statusWaitingToReview": "Menunggu Untuk Ditinjau",
   "statusUnregister": "Batalkan pendaftaran",
   "statusRegistered": "Terdaftar",
