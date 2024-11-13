@@ -25,6 +25,7 @@
   "vybeStatusRegular": "Regular",
   "vybeStatusPro": "Pro",
   "upgradeStatusNotUpgrade": "Not Upgrade",
+  "upgradeStatusWaitingToReview": "Menunggu Direview",
   "upgradeStatusUpgrade": "Upgrade",
   "detailTitle": "Lihat & Kelola Member",
   "detailPhoneNumber": "Nomor Telepon",

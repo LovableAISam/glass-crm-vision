@@ -25,6 +25,7 @@
   "vybeStatusRegular": "Regular",
   "vybeStatusPro": "Pro",
   "upgradeStatusNotUpgrade": "Not Upgrade",
+  "upgradeStatusWaitingToReview": "Waiting To Review",
   "upgradeStatusUpgrade": "Upgrade",
   "detailTitle": "View & Manage Member",
   "detailPhoneNumber": "Phone Number",

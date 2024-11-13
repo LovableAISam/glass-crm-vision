@@ -52,12 +52,16 @@ function useMemberList() {
 
   const upgrageStatusOptions = <OptionMap<UpgradeStatus>[]>([
     {
+      label: tMember('upgradeStatusUpgrade'),
+      value: 'REGISTERED',
+    },
+    {
       label: tMember('upgradeStatusNotUpgrade'),
       value: 'NOT_UPGRADE',
     },
     {
-      label: tMember('upgradeStatusUpgrade'),
-      value: 'UPGRADE',
+      label: tMember('upgradeStatusWaitingToReview'),
+      value: 'WAITING',
     },
   ]);
 

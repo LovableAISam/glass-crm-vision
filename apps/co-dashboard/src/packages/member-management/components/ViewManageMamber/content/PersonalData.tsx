@@ -226,7 +226,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataPostalCode')}
+              {tKYC('personalDataZipCode')}
             </Typography>
             <Typography variant="subtitle2">
               {memberKYCDetail?.memberResidence.postalCode || '-'}
