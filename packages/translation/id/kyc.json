@@ -10,6 +10,7 @@
   "statusWaitingToVerify": "Menunggu untuk Memverifikasi",
   "statusApproved": "Disetujui",
   "statusRejected": "Ditolak",
+  "statusNotUpgrade": "Belum Diupgrade",
   "filterPhoneNumber": "Nomor Telepon",
   "placeholderTypePhoneNumber": "ketik nomor telepon",
   "filterMemberName": "Nama Member",

@@ -64,9 +64,10 @@ const MemberManagementList = () => {
   const { t: tCommon } = useTranslation('common');
   const { t: tMember } = useTranslation('member');
   const { t: tForm } = useTranslation('form');
+  const { t: tKYC } = useTranslation('kyc');
   const [selectedData, setSelectedData] = useState<MemberData | null>(null);
 
-  const renderCell = ({ value, row }: { value: any; row: any }) => (
+  const renderCell = ({ value, row }: { value: any; row: any; }) => (
     <Typography
       variant="inherit"
       key="name"
@@ -81,7 +82,7 @@ const MemberManagementList = () => {
     </Typography>
   );
 
-  const columns: Array<Column<MemberData & { action: string }>> = useMemo(
+  const columns: Array<Column<MemberData & { action: string; }>> = useMemo(
     () => [
       {
         Header: tMember('tableHeaderPhoneNumber'),
@@ -139,19 +140,69 @@ const MemberManagementList = () => {
         Header: tMember('tableHeaderUpgradeStatus'),
         accessor: 'upgradeStatus',
         Cell: ({ value }) => {
-          if (value === 'NOT_UPGRADE')
-            return (
-              <Typography variant="inherit">
-                {tMember('upgradeStatusNotUpgrade')}
+          let componentToRender;
+          if (value === 'STARTED') {
+            componentToRender = (
+              <Typography variant="inherit" key="status">
+                {tKYC('statusStarted')}
               </Typography>
             );
-          if (value === 'UPGRADE')
-            return (
-              <Typography variant="inherit">
-                {tMember('upgradeStatusUpgrade')}
+          } else if (value === 'WAITING_TO_REVIEW' || value === "WAITING") {
+            componentToRender = (
+              <Typography variant="inherit" key="status" color={Token.color.primaryBlue}>
+                {tKYC('statusWaitingToReview')}
               </Typography>
             );
-          return <Typography variant="inherit">-</Typography>;
+          } else if (value === 'REGISTERED') {
+            componentToRender = (
+              <Typography
+                variant="inherit"
+                color={Token.color.greenDarker}
+                key="status"
+              >
+                {tKYC('statusRegistered')}
+              </Typography>
+            );
+          } else if (value === 'NOT_UPGRADE') {
+            componentToRender = (
+              <Typography
+                variant="inherit"
+                key="status"
+              >
+                {tKYC('statusNotUpgrade')}
+              </Typography>
+            );
+          } else if (value === 'UNREGISTER') {
+            componentToRender = (
+              <Typography
+                variant="inherit"
+                color={Token.color.orangeDark}
+                key="status"
+              >
+                {tKYC('statusUnregister')}
+              </Typography>
+            );
+          } else if (value === 'REJECTED') {
+            componentToRender = (
+              <Typography
+                variant="inherit"
+                color={Token.color.orangeDark}
+                key="status"
+              >
+                {tKYC('statusRejected')}
+              </Typography>
+            );
+          } else {
+            componentToRender = (
+              <Typography
+                variant="inherit"
+                key="status"
+              >
+                {tKYC('statusUnknown')}
+              </Typography>
+            );
+          }
+          return componentToRender;
         },
       },
       {

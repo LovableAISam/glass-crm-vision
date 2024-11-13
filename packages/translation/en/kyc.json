@@ -10,6 +10,7 @@
   "statusWaitingToVerify": "Waiting to Verify",
   "statusApproved": "Approved",
   "statusRejected": "Rejected",
+  "statusNotUpgrade": "Not Upgrade",
   "filterPhoneNumber": "Phone Number",
   "placeholderTypePhoneNumber": "type phone number",
   "filterMemberName": "Member Name",
