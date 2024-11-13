@@ -78,6 +78,7 @@
   "personalDataKYC": "KYC (Know Your Customer)",
   "personalDataIDCard": "ID Card",
   "personalDataSelfieWithKTP": "Selfie With KTP",
+  "personalDataSelfieVerification": "Selfie Verification",
   "personalDataSignature": "Signature",
   "accountInformationTableHeaderDateTime": "Date & Time",
   "accountInformationTableHeaderType": "Type",

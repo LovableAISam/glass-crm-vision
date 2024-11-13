@@ -226,10 +226,10 @@ function PersonalData(props: ViewManageMemberTabProps) {
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataZipCode')}
+              {tKYC('personalDataPostalCode')}
             </Typography>
             <Typography variant="subtitle2">
-              {memberKYCDetail?.memberResidence.address || '-'}
+              {memberKYCDetail?.memberResidence.postalCode || '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -327,7 +327,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
         </Stack>
         <Stack direction="column" spacing={2}>
           <Typography variant="subtitle1">
-            {tKYC('personalDataSelfieWithKTP')}
+            {tKYC('personalDataSelfieVerification')}
           </Typography>
           {memberKYCDetail && (
             <ImageUpload
@@ -336,7 +336,7 @@ function PersonalData(props: ViewManageMemberTabProps) {
               selectedImage={memberKYCDetail.selfie.docPath}
               onView={file => {
                 setSelectedView(file);
-                handleView('Selfie With KTP');
+                handleView('Selfie Verification');
               }}
             />
           )}

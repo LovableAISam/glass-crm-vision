@@ -215,7 +215,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">
-              {tKYC('personalDataZipCode')}
+              {tKYC('personalDataPostalCode')}
             </Typography>
             <Typography variant="subtitle2">
               {kycDetail?.memberResidence.postalCode || '-'}
@@ -316,7 +316,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
         </Stack>
         <Stack direction="column" spacing={2}>
           <Typography variant="subtitle1">
-            {tKYC('personalDataSelfieWithKTP')}
+            {tKYC('personalDataSelfieVerification')}
           </Typography>
           {kycDetail && (
             <ImageUpload
@@ -325,7 +325,7 @@ function PersonalDataHistory(props: ViewKYCRequestTabProps) {
               selectedImage={kycDetail.selfie.docPath}
               onView={file => {
                 setSelectedView(file);
-                handleView('Selfie With KTP');
+                handleView('Selfie Verification');
               }}
             />
           )}
