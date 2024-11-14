@@ -59,7 +59,7 @@ function useKycRequestHistoryList() {
     page: pagination.currentPage,
     limit: pagination.limit,
     sort: sortBy ? `${sortBy}:${direction}` : '',
-    fullName: debouncedFilter.fullName,
+    memberName: debouncedFilter.fullName,
     phoneNumber: debouncedFilter.phoneNumber,
     verificationDateFrom: stringToDateFormat(debouncedFilter.verificationDate.startDate),
     verificationDateTo: stringToDateFormat(debouncedFilter.verificationDate.endDate),

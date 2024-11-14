@@ -32,7 +32,7 @@ export interface KycPremiumMemberHistoryData extends ResponseData {
 interface KycPremiumMemberHistoryListResponse extends ResultData<KycPremiumMemberHistoryData[]> { }
 
 export interface KycPremiumMemberHistoryListRequest extends DefaultQueryPageRequest {
-  fullName?: string;
+  memberName?: string;
   phoneNumber?: string;
   verificationDateFrom?: string;
   verificationDateTo?: string;
