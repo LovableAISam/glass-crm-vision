@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -9,7 +9,6 @@ import {
   DialogActions,
   Card,
 } from '@mui/material';
-import Image from 'next/legacy/image';
 
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
@@ -32,6 +31,14 @@ const ViewPhotoModal = (props: ViewPhotoModalProps) => {
   const { isActive, selectedFile, onHide, title } = props;
   const [zoom, setZoom] = useState<number>(1);
   const [rotate, setRotate] = useState<number>(0);
+
+  // Reset zoom and rotate when modal is closed
+  useEffect(() => {
+    if (!isActive) {
+      setZoom(1);
+      setRotate(0);
+    }
+  }, [isActive]);
 
   const changeZoom = (offset: number) => {
     if (offset > 0 || (zoom > 1 && offset < 0)) {
@@ -79,7 +86,7 @@ const ViewPhotoModal = (props: ViewPhotoModalProps) => {
           borderRadius: 5,
         },
       }}
-      maxWidth="xs"
+      maxWidth="lg"
       fullWidth
     >
       <DialogTitle>
@@ -112,23 +119,21 @@ const ViewPhotoModal = (props: ViewPhotoModalProps) => {
                   p: 2,
                   borderRadius: 3,
                   width: '100%',
-                  height: 200,
+                  height: '560px',
                   position: 'relative',
+                  overflow: 'auto'
                 }}
               >
-                <Stack direction="row" justifyContent="center">
-                  <Image
-                    unoptimized
-                    src={selectedFile.docPath}
-                    alt="select-file"
-                    style={{
-                      objectFit: 'contain',
-                      transform: `rotate(${rotate}deg)`,
-                      height: `${100 * zoom}%`,
-                      width: `${100 * zoom}%`,
-                    }}
-                  />
-                </Stack>
+                <img
+                  src={selectedFile.docPath}
+                  alt="select-file"
+                  style={{
+                    objectFit: 'contain',
+                    transform: `rotate(${rotate}deg)`,
+                    height: `${100 * zoom}%`,
+                    width: `${100 * zoom}%`,
+                  }}
+                />
               </Card>
             )}
             <Stack
