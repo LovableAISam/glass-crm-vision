@@ -34,7 +34,7 @@ const StyledMenuItem = (props: StyledMenuItemProps) => {
           aria-controls="demo-customized-menu"
           color="primary"
           aria-haspopup="true"
-          aria-expanded={open}
+          aria-expanded={open && 'true'}
           variant="text"
           disableElevation
           onClick={handleClick}
@@ -42,11 +42,7 @@ const StyledMenuItem = (props: StyledMenuItemProps) => {
         >
           <Stack direction="row" justifyContent="center" alignContent="center">
             {iconLeft}
-            <Stack
-              direction="column"
-              justifyContent="center"
-              alignContent="center"
-            >
+            <Stack direction="column" justifyContent="center" alignContent="center">
               <Typography variant="subtitle2">{title}</Typography>
             </Stack>
           </Stack>
@@ -56,7 +52,7 @@ const StyledMenuItem = (props: StyledMenuItemProps) => {
           id="demo-customized-button"
           aria-controls="demo-customized-menu"
           aria-haspopup="true"
-          aria-expanded={open}
+          aria-expanded={open && 'true'}
           onClick={handleClick}
         >
           <KeyboardArrowDownIcon sx={{ color: theme.palette.text.primary }} />
@@ -77,6 +73,6 @@ const StyledMenuItem = (props: StyledMenuItemProps) => {
       </StyledMenu>
     </>
   );
-};
+}
 
 export default StyledMenuItem;

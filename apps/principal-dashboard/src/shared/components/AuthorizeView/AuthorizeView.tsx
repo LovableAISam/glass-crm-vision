@@ -14,34 +14,18 @@ export type AutorizeViewRenderMethods = {
 type AuthorizeViewProps = {
   privileges: PRIVILEGE_ACCESS[];
   access: MENU_ACCESS;
-  children:
-    | React.ReactElement
-    | ((methods: AutorizeViewRenderMethods) => React.ReactElement);
+  children: React.ReactElement | ((methods: AutorizeViewRenderMethods) => React.ReactElement);
 };
 
 const AuthorizeView = (props: AuthorizeViewProps) => {
   const { children, privileges, access } = props;
   const { checkAuthority } = useMenuPrivilege();
-  const enabled = privileges.every(privilege =>
-    checkAuthority(access, privilege),
-  );
 
-  if (enabled) {
-    if (typeof children === 'function') {
-      return (
-        <>
-          {(
-            children as (
-              methods: AutorizeViewRenderMethods,
-            ) => React.ReactElement
-          )({ enabled })}
-        </>
-      );
-    }
-    return <>{children}</>;
+  if (privileges.every(privilege => checkAuthority(access, privilege))) {
+    return <React.Fragment>{children}</React.Fragment>
   }
 
   return null;
-};
+}
 
 export default AuthorizeView;

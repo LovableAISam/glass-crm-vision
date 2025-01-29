@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Core
 import React from 'react';
 import { NextPageContext } from 'next';

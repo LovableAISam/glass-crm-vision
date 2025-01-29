@@ -13,7 +13,7 @@ import {
   Grid,
 } from '@mui/material';
 import { FormDatePicker, Token } from '@woi/web-component';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
 // Asset

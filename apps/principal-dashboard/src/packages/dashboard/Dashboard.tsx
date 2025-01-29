@@ -1,18 +1,7 @@
 import React from 'react';
-import {
-  Stack,
-  Typography,
-  Card,
-  Divider,
-  Box,
-  List,
-  Avatar,
-  ListItemButton,
-  Button,
-  useTheme,
-} from '@mui/material';
+import { Stack, Typography, Card, Divider, Box, List, Avatar, ListItemButton, Button, useTheme } from '@mui/material';
 import { FormDatePicker, Token } from '@woi/web-component';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 
 // Asset
 import Merchant1 from 'asset/images/merchant-1.png';
@@ -47,19 +36,12 @@ const Dashboard = () => {
           sx={{
             '& .MuiOutlinedInput-root': {
               borderRadius: 3,
-              minWidth: 450,
-            },
+              minWidth: 450
+            }
           }}
         />
       </Stack>
-      <Card
-        elevation={0}
-        sx={themeProps => ({
-          background: themeProps.palette.secondary.main,
-          p: 3,
-          borderRadius: 4,
-        })}
-      >
+      <Card elevation={0} sx={themeProps => ({ background: themeProps.palette.secondary.main, p: 3, borderRadius: 4 })}>
         <Stack direction="column" spacing={2}>
           <Stack direction="row" justifyContent="space-between">
             <Typography variant="subtitle1">Quick Widgets</Typography>
@@ -72,21 +54,14 @@ const Dashboard = () => {
               Edit Widgets
             </Button>
           </Stack>
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+          <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
             <Card sx={{ p: 2, borderRadius: 4, flex: 1 }}>
               <Stack direction="column" spacing={2}>
                 <StarOutlineIcon fontSize="large" />
                 <Stack direction="row" spacing={1} alignItems="center">
                   <Typography variant="h3">128</Typography>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.success.main}
-                  >
-                    20%
-                  </Typography>
-                  <ArrowUpwardIcon
-                    sx={{ fontSize: 14, color: theme.palette.success.main }}
-                  />
+                  <Typography variant="body2" color={theme.palette.success.main}>20%</Typography>
+                  <ArrowUpwardIcon sx={{ fontSize: 14, color: theme.palette.success.main }} />
                 </Stack>
                 <Typography variant="body2">KYC Request</Typography>
               </Stack>
@@ -105,15 +80,8 @@ const Dashboard = () => {
                 <AccountBalanceIcon fontSize="large" />
                 <Stack direction="row" spacing={1} alignItems="center">
                   <Typography variant="h3">128</Typography>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.warning.main}
-                  >
-                    15%
-                  </Typography>
-                  <ArrowDownwardIcon
-                    sx={{ fontSize: 14, color: theme.palette.warning.main }}
-                  />
+                  <Typography variant="body2" color={theme.palette.warning.main}>15%</Typography>
+                  <ArrowDownwardIcon sx={{ fontSize: 14, color: theme.palette.warning.main }} />
                 </Stack>
                 <Typography variant="body2">Bank Registered</Typography>
               </Stack>
@@ -123,15 +91,8 @@ const Dashboard = () => {
                 <AccountBoxIcon fontSize="large" />
                 <Stack direction="row" spacing={1} alignItems="center">
                   <Typography variant="h3">128</Typography>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.success.main}
-                  >
-                    56%
-                  </Typography>
-                  <ArrowUpwardIcon
-                    sx={{ fontSize: 14, color: theme.palette.success.main }}
-                  />
+                  <Typography variant="body2" color={theme.palette.success.main}>56%</Typography>
+                  <ArrowUpwardIcon sx={{ fontSize: 14, color: theme.palette.success.main }} />
                 </Stack>
                 <Typography variant="body2">Members Joined</Typography>
               </Stack>
@@ -141,33 +102,20 @@ const Dashboard = () => {
                 <KeyIcon fontSize="large" />
                 <Stack direction="row" spacing={1} alignItems="center">
                   <Typography variant="h3">128</Typography>
-                  <Typography
-                    variant="body2"
-                    color={theme.palette.warning.main}
-                  >
-                    20%
-                  </Typography>
-                  <ArrowDownwardIcon
-                    sx={{ fontSize: 14, color: theme.palette.warning.main }}
-                  />
+                  <Typography variant="body2" color={theme.palette.warning.main}>20%</Typography>
+                  <ArrowDownwardIcon sx={{ fontSize: 14, color: theme.palette.warning.main }} />
                 </Stack>
                 <Typography variant="body2">CO Account</Typography>
               </Stack>
             </Card>
           </Stack>
-          <Typography variant="caption" color={theme.palette.text.secondary}>
-            Data compared from year 2021
-          </Typography>
+          <Typography variant="caption" color={theme.palette.text.secondary}>Data compared from year 2021</Typography>
         </Stack>
       </Card>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <Card sx={{ flex: 3, p: 3, borderRadius: 4 }}>
           <Stack direction="column" spacing={2}>
-            <Stack
-              direction={{ xs: 'column', sm: 'row' }}
-              spacing={2}
-              justifyContent="space-between"
-            >
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="space-between">
               <Typography variant="subtitle1">Users Statistic</Typography>
               <Stack direction="column" spacing={1}>
                 <Stack direction="row" spacing={2}>
@@ -175,15 +123,8 @@ const Dashboard = () => {
                     <Typography variant="body2">Total Users</Typography>
                     <Stack direction="row" spacing={1} alignItems="center">
                       <Typography variant="h3">1089</Typography>
-                      <Typography
-                        variant="body2"
-                        color={theme.palette.success.main}
-                      >
-                        20%
-                      </Typography>
-                      <ArrowUpwardIcon
-                        sx={{ fontSize: 14, color: theme.palette.success.main }}
-                      />
+                      <Typography variant="body2" color={theme.palette.success.main}>20%</Typography>
+                      <ArrowUpwardIcon sx={{ fontSize: 14, color: theme.palette.success.main }} />
                     </Stack>
                   </Stack>
                   <Box sx={{ p: 1 }}>
@@ -193,39 +134,16 @@ const Dashboard = () => {
                     <Typography variant="body2">Active Users</Typography>
                     <Stack direction="row" spacing={1} alignItems="center">
                       <Typography variant="h3">795</Typography>
-                      <Typography
-                        variant="body2"
-                        color={theme.palette.warning.main}
-                      >
-                        8%
-                      </Typography>
-                      <ArrowDownwardIcon
-                        sx={{ fontSize: 14, color: theme.palette.warning.main }}
-                      />
+                      <Typography variant="body2" color={theme.palette.warning.main}>8%</Typography>
+                      <ArrowDownwardIcon sx={{ fontSize: 14, color: theme.palette.warning.main }} />
                     </Stack>
                   </Stack>
                 </Stack>
-                <Typography
-                  variant="caption"
-                  color={theme.palette.text.secondary}
-                >
-                  Data compared from year 2021
-                </Typography>
+                <Typography variant="caption" color={theme.palette.text.secondary}>Data compared from year 2021</Typography>
               </Stack>
             </Stack>
-            <Box
-              sx={{
-                width: '100%',
-                height: 380,
-                background: Token.color.greyscaleGreyLightest,
-              }}
-            >
-              <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                sx={{ flex: 1, height: '100%' }}
-              >
+            <Box sx={{ width: '100%', height: 380, background: Token.color.greyscaleGreyLightest }}>
+              <Stack direction="row" justifyContent="center" alignItems="center" sx={{ flex: 1, height: '100%' }}>
                 <Typography variant="caption">Graph</Typography>
               </Stack>
             </Box>
@@ -243,15 +161,8 @@ const Dashboard = () => {
                   <Typography variant="body2">Total Merchant</Typography>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <Typography variant="h3">37</Typography>
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.success.main}
-                    >
-                      20%
-                    </Typography>
-                    <ArrowUpwardIcon
-                      sx={{ fontSize: 14, color: theme.palette.success.main }}
-                    />
+                    <Typography variant="body2" color={theme.palette.success.main}>20%</Typography>
+                    <ArrowUpwardIcon sx={{ fontSize: 14, color: theme.palette.success.main }} />
                   </Stack>
                 </Stack>
                 <Box sx={{ p: 1 }}>
@@ -261,24 +172,12 @@ const Dashboard = () => {
                   <Typography variant="body2">Active Merchant</Typography>
                   <Stack direction="row" spacing={1} alignItems="center">
                     <Typography variant="h3">28</Typography>
-                    <Typography
-                      variant="body2"
-                      color={theme.palette.warning.main}
-                    >
-                      8%
-                    </Typography>
-                    <ArrowDownwardIcon
-                      sx={{ fontSize: 14, color: theme.palette.warning.main }}
-                    />
+                    <Typography variant="body2" color={theme.palette.warning.main}>8%</Typography>
+                    <ArrowDownwardIcon sx={{ fontSize: 14, color: theme.palette.warning.main }} />
                   </Stack>
                 </Stack>
               </Stack>
-              <Typography
-                variant="caption"
-                color={theme.palette.text.secondary}
-              >
-                Data compared from year 2021
-              </Typography>
+              <Typography variant="caption" color={theme.palette.text.secondary}>Data compared from year 2021</Typography>
             </Stack>
             <List
               sx={themeProps => ({
@@ -287,23 +186,13 @@ const Dashboard = () => {
                 bgcolor: 'background.paper',
                 '& .MuiListItemButton-root:hover': {
                   background: themeProps.palette.secondary.main,
-                },
+                }
               })}
             >
               <ListItemButton sx={{ py: 2 }}>
                 <Stack direction="row" spacing={2}>
-                  <Avatar
-                    variant="rounded"
-                    sx={{ width: 20, height: 20, background: 'transparent' }}
-                  >
-                    <Image
-                      src={Merchant1}
-                      layout="fill"
-                      alt="merchant1"
-                      style={{
-                        objectFit: 'contain',
-                      }}
-                    />
+                  <Avatar variant="rounded" sx={{ width: 20, height: 20, background: 'transparent' }}>
+                    <Image src={Merchant1} layout="fill" objectFit="contain" />
                   </Avatar>
                   {/** @ts-ignore */}
                   <Typography variant="subtitle3">KFC</Typography>
@@ -312,18 +201,8 @@ const Dashboard = () => {
               <Divider variant="fullWidth" component="li" />
               <ListItemButton sx={{ py: 2 }}>
                 <Stack direction="row" spacing={2}>
-                  <Avatar
-                    variant="rounded"
-                    sx={{ width: 20, height: 20, background: 'transparent' }}
-                  >
-                    <Image
-                      src={Merchant2}
-                      layout="fill"
-                      alt="merchant2"
-                      style={{
-                        objectFit: 'contain',
-                      }}
-                    />
+                  <Avatar variant="rounded" sx={{ width: 20, height: 20, background: 'transparent' }}>
+                    <Image src={Merchant2} layout="fill" objectFit="contain" />
                   </Avatar>
                   {/** @ts-ignore */}
                   <Typography variant="subtitle3">Dunkin Donuts</Typography>
@@ -332,18 +211,8 @@ const Dashboard = () => {
               <Divider variant="fullWidth" component="li" />
               <ListItemButton sx={{ py: 2 }}>
                 <Stack direction="row" spacing={2}>
-                  <Avatar
-                    variant="rounded"
-                    sx={{ width: 20, height: 20, background: 'transparent' }}
-                  >
-                    <Image
-                      src={Merchant3}
-                      layout="fill"
-                      alt="merchant3"
-                      style={{
-                        objectFit: 'contain',
-                      }}
-                    />
+                  <Avatar variant="rounded" sx={{ width: 20, height: 20, background: 'transparent' }}>
+                    <Image src={Merchant3} layout="fill" objectFit="contain" />
                   </Avatar>
                   {/** @ts-ignore */}
                   <Typography variant="subtitle3">Ta Wan</Typography>
@@ -352,18 +221,8 @@ const Dashboard = () => {
               <Divider variant="fullWidth" component="li" />
               <ListItemButton sx={{ py: 2 }}>
                 <Stack direction="row" spacing={2}>
-                  <Avatar
-                    variant="rounded"
-                    sx={{ width: 20, height: 20, background: 'transparent' }}
-                  >
-                    <Image
-                      src={Merchant4}
-                      layout="fill"
-                      alt="merchant4"
-                      style={{
-                        objectFit: 'contain',
-                      }}
-                    />
+                  <Avatar variant="rounded" sx={{ width: 20, height: 20, background: 'transparent' }}>
+                    <Image src={Merchant4} layout="fill" objectFit="contain" />
                   </Avatar>
                   {/** @ts-ignore */}
                   <Typography variant="subtitle3">Pizza Hut</Typography>
@@ -372,18 +231,8 @@ const Dashboard = () => {
               <Divider variant="fullWidth" component="li" />
               <ListItemButton sx={{ py: 2 }}>
                 <Stack direction="row" spacing={2}>
-                  <Avatar
-                    variant="rounded"
-                    sx={{ width: 20, height: 20, background: 'transparent' }}
-                  >
-                    <Image
-                      src={Merchant5}
-                      layout="fill"
-                      alt="merchant5"
-                      style={{
-                        objectFit: 'contain',
-                      }}
-                    />
+                  <Avatar variant="rounded" sx={{ width: 20, height: 20, background: 'transparent' }}>
+                    <Image src={Merchant5} layout="fill" objectFit="contain" />
                   </Avatar>
                   {/** @ts-ignore */}
                   <Typography variant="subtitle3">Starbucks Coffee</Typography>
@@ -401,14 +250,10 @@ const Dashboard = () => {
           </Stack>
         </Card>
       </Stack>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+      <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
         <Card sx={{ flex: 3, p: 3, borderRadius: 4 }}>
           <Stack direction="column" spacing={2}>
-            <Stack
-              direction={{ xs: 'column', sm: 'row' }}
-              spacing={2}
-              justifyContent="space-between"
-            >
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2} justifyContent="space-between">
               <Typography variant="subtitle1">Transaction</Typography>
               <Stack direction="column" spacing={1}>
                 <Stack direction="row" spacing={2}>
@@ -416,39 +261,16 @@ const Dashboard = () => {
                     <Typography variant="body2">Total Transaction</Typography>
                     <Stack direction="row" spacing={1} alignItems="center">
                       <Typography variant="h3">Rp 97.580.450</Typography>
-                      <Typography
-                        variant="body2"
-                        color={theme.palette.success.main}
-                      >
-                        20%
-                      </Typography>
-                      <ArrowUpwardIcon
-                        sx={{ fontSize: 14, color: theme.palette.success.main }}
-                      />
+                      <Typography variant="body2" color={theme.palette.success.main}>20%</Typography>
+                      <ArrowUpwardIcon sx={{ fontSize: 14, color: theme.palette.success.main }} />
                     </Stack>
                   </Stack>
                 </Stack>
-                <Typography
-                  variant="caption"
-                  color={theme.palette.text.secondary}
-                >
-                  Data compared from year 2021
-                </Typography>
+                <Typography variant="caption" color={theme.palette.text.secondary}>Data compared from year 2021</Typography>
               </Stack>
             </Stack>
-            <Box
-              sx={{
-                width: '100%',
-                height: 380,
-                background: Token.color.greyscaleGreyLightest,
-              }}
-            >
-              <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                sx={{ flex: 1, height: '100%' }}
-              >
+            <Box sx={{ width: '100%', height: 380, background: Token.color.greyscaleGreyLightest }}>
+              <Stack direction="row" justifyContent="center" alignItems="center" sx={{ flex: 1, height: '100%' }}>
                 <Typography variant="caption">Graph</Typography>
               </Stack>
             </Box>
@@ -466,7 +288,7 @@ const Dashboard = () => {
                 maxWidth: 360,
                 '& .MuiListItemButton-root:hover': {
                   background: themeProps.palette.secondary.main,
-                },
+                }
               })}
             >
               <ListItemButton
@@ -479,59 +301,30 @@ const Dashboard = () => {
                 <Stack direction="column" spacing={1} sx={{ flex: 1 }}>
                   <Stack direction="row" justifyContent="space-between">
                     {/** @ts-ignore */}
-                    <Typography variant="subtitle3">
-                      Successfully add new bank!
-                    </Typography>
-                    <CircleIcon
-                      sx={{ fontSize: 10, color: theme.palette.warning.main }}
-                    />
+                    <Typography variant="subtitle3">Successfully add new bank!</Typography>
+                    <CircleIcon sx={{ fontSize: 10, color: theme.palette.warning.main }} />
                   </Stack>
-                  <Typography variant="caption">
-                    Bank Mandiri is added to list
-                  </Typography>
+                  <Typography variant="caption">Bank Mandiri is added to list</Typography>
                   <Divider variant="fullWidth" />
-                  <Typography
-                    variant="caption"
-                    color={theme.palette.text.secondary}
-                  >
-                    Bank Management
-                  </Typography>
+                  <Typography variant="caption" color={theme.palette.text.secondary}>Bank Management</Typography>
                 </Stack>
               </ListItemButton>
               <ListItemButton sx={{ py: 2, my: 1 }}>
                 <Stack direction="column" spacing={1} sx={{ flex: 1 }}>
                   {/** @ts-ignore */}
-                  <Typography variant="subtitle3">
-                    Successfully add new bank!
-                  </Typography>
-                  <Typography variant="caption">
-                    Bank Mandiri is added to list
-                  </Typography>
+                  <Typography variant="subtitle3">Successfully add new bank!</Typography>
+                  <Typography variant="caption">Bank Mandiri is added to list</Typography>
                   <Divider variant="fullWidth" />
-                  <Typography
-                    variant="caption"
-                    color={theme.palette.text.secondary}
-                  >
-                    Bank Management
-                  </Typography>
+                  <Typography variant="caption" color={theme.palette.text.secondary}>Bank Management</Typography>
                 </Stack>
               </ListItemButton>
               <ListItemButton sx={{ py: 2, my: 1 }}>
                 <Stack direction="column" spacing={1} sx={{ flex: 1 }}>
                   {/** @ts-ignore */}
-                  <Typography variant="subtitle3">
-                    Successfully add new bank!
-                  </Typography>
-                  <Typography variant="caption">
-                    Bank Mandiri is added to list
-                  </Typography>
+                  <Typography variant="subtitle3">Successfully add new bank!</Typography>
+                  <Typography variant="caption">Bank Mandiri is added to list</Typography>
                   <Divider variant="fullWidth" />
-                  <Typography
-                    variant="caption"
-                    color={theme.palette.text.secondary}
-                  >
-                    Bank Management
-                  </Typography>
+                  <Typography variant="caption" color={theme.palette.text.secondary}>Bank Management</Typography>
                 </Stack>
               </ListItemButton>
             </List>
@@ -546,7 +339,7 @@ const Dashboard = () => {
         </Card>
       </Stack>
     </Stack>
-  );
-};
+  )
+}
 
 export default Dashboard;

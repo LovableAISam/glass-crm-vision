@@ -37,6 +37,7 @@ import { CommunityOwnerProvider } from '@src/shared/context/CommunityOwnerContex
 import { OnlineStatusProvider } from '@woi/common/context/OnlineStatusContext';
 import { useCommunityOwnerCheckFetcher } from '@woi/service/co';
 import { CommunityOwnerDetailData } from '@woi/service/co/admin/communityOwner/communityOwnerDetail';
+import Page404 from "./404";
 
 // Query Client Config
 const queryCache = new QueryCache();
@@ -105,15 +106,17 @@ function App(props: MyAppProps) {
                     }}
                     autoHideDuration={2000}
                   >
-                    <OnlineStatusProvider coName={coName}>
-                      <ConfigProvider>
-                        <ConfirmationDialogProvider>
-                          <LastOpenedProvider>
-                            {/** @ts-ignore */}
-                            <Component {...pageProps} />
-                          </LastOpenedProvider>
-                        </ConfirmationDialogProvider>
-                      </ConfigProvider>
+                    <OnlineStatusProvider>
+                      {coName === 'co' ?
+                        <ConfigProvider>
+                          <ConfirmationDialogProvider>
+                            <LastOpenedProvider>
+                              {/** @ts-ignore */}
+                              <Component {...pageProps} />
+                            </LastOpenedProvider>
+                          </ConfirmationDialogProvider>
+                        </ConfigProvider>
+                        : <Page404 />}
                     </OnlineStatusProvider>
                   </SnackbarProvider>
                 </ProtectedRoute>

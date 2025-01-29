@@ -1,6 +1,6 @@
 // Core
 import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { JWTConfig } from '@woi/core';
 
 // Components

@@ -1,13 +1,13 @@
+const withTM = require('next-transpile-modules')([
+  '@woi/ui',
+  '@woi/core',
+  '@woi/common',
+  '@woi/service',
+  '@woi/web-component'
+])
 const { i18n } = require('./next-i18next.config');
 
-module.exports = {
-  transpilePackages:[
-    '@woi/ui',
-    '@woi/core',
-    '@woi/common',
-    '@woi/service',
-    '@woi/web-component',
-  ],
+module.exports = withTM({
   i18n,
   reactStrictMode: true,
   eslint: {
@@ -21,4 +21,5 @@ module.exports = {
     localeDetection: false,
   },
   trailingSlash: true,
-};
+  poweredByHeader: false,
+})

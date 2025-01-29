@@ -1,6 +1,6 @@
 // Core
 import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import SuccessImage from 'asset/images/success-co.svg';
 import { useTranslation } from 'next-i18next';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import LogoImg from '@public/logo.png';
 import { Avatar } from '@mui/material';
 

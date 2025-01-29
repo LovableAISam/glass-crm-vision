@@ -9,6 +9,9 @@
     "react-library.json"
   ],
   "devDependencies": {
-    "typescript": "^5.4.5"
+    "@woi/core": "0.0.0",
+    "@woi/common": "0.0.0",
+    "tsconfig": "*",
+    "typescript": "^4.5.3"
   }
 }

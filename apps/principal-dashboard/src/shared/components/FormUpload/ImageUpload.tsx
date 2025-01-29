@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { FileConvert } from '@woi/core';
-import { useSnackbar } from 'notistack';
+import { useSnackbar } from "notistack";
 
-import {
-  Stack,
-  Typography,
-  Card,
-  Box,
-  Avatar,
-  IconButton,
-} from '@mui/material';
+import { Stack, Typography, Card, Box, Avatar, IconButton } from '@mui/material';
 import { Token, FormUpload, Button } from '@woi/web-component';
 import AddImage from 'asset/images/add-image.svg';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -67,12 +60,15 @@ function ImageUpload(props: ImageUploadProps) {
     }
 
     if (acceptExt === '.png' && file.type !== 'image/png') {
-      enqueueSnackbar(`Select image with .png extension`, {
-        variant: 'error',
-      });
+      enqueueSnackbar(
+        `Select image with .png extension`,
+        {
+          variant: 'error',
+        },
+      );
       return;
     }
-
+    
     const { result, error, errorData } = await useUploadTemporaryImageFetcher(
       baseUrl,
       {
@@ -120,11 +116,11 @@ function ImageUpload(props: ImageUploadProps) {
     if (typeof onView !== 'function') return;
 
     if (selectedFile) {
-      onView(selectedFile);
+      onView(selectedFile)
     } else {
-      onView({ docPath: _selectedImage });
+      onView({ docPath: _selectedImage })
     }
-  };
+  }
 
   if (viewOnly && !(selectedFile && selectedFile.docPath) && !selectedImage) {
     return (
@@ -138,7 +134,7 @@ function ImageUpload(props: ImageUploadProps) {
     );
   }
 
-  if (selectedImage) {
+if (selectedImage) {
     return (
       <Stack direction="column" spacing={1}>
         <Box
@@ -163,7 +159,6 @@ function ImageUpload(props: ImageUploadProps) {
               unoptimized
               src={selectedImage}
               layout="fill"
-              alt="selected"
               objectFit="contain"
             />
           </Card>
@@ -205,11 +200,7 @@ function ImageUpload(props: ImageUploadProps) {
   }
 
   return (
-    <FormUpload
-      handleUpload={handleUpload}
-      uploadType={'Image'}
-      acceptExt={acceptExt}
-    >
+    <FormUpload handleUpload={handleUpload} uploadType={'Image'} acceptExt={acceptExt}>
       {({ triggerUpload }) => {
         return (
           <Card
@@ -241,14 +232,7 @@ function ImageUpload(props: ImageUploadProps) {
                 variant="rounded"
                 sx={{ width: 50, height: 50, background: 'transparent' }}
               >
-                <Image
-                  src={AddImage}
-                  layout="fill"
-                  alt="add-img"
-                  style={{
-                    objectFit: 'contain',
-                  }}
-                />
+                <Image src={AddImage} layout="fill" objectFit="contain" />
               </Avatar>
               {/** @ts-ignore */}
               <Typography variant="caption2" textAlign="center">

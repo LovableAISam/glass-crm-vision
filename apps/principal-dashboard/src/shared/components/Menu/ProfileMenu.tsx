@@ -1,18 +1,11 @@
 // Core
 import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { JWTConfig } from '@woi/core';
 
 // Components
 import MenuItem from '@mui/material/MenuItem';
-import {
-  Menu,
-  Box,
-  Typography,
-  Stack,
-  ListItemIcon,
-  Avatar,
-} from '@mui/material';
+import { Menu, Box, Typography, Stack, ListItemIcon, Avatar } from '@mui/material';
 import { Button, useConfirmationDialog } from '@woi/web-component';
 import { Logout, ExpandLess, ExpandMore } from '@mui/icons-material';
 import PersonImg from 'asset/images/person.png';
@@ -50,7 +43,7 @@ const ProfileMenu = () => {
 
     if (confirmed) {
       dispatch({ type: 'do-logout' });
-      onNavigate('/login');
+      onNavigate('/login')
     }
   };
 
@@ -103,39 +96,21 @@ const ProfileMenu = () => {
   return (
     <>
       <Box sx={{ py: 2 }}>
-        <Button
-          color="secondary"
-          variant="text"
-          disableElevation
-          onClick={handleProfileMenuOpen}
-        >
+        <Button color="secondary" variant="text" disableElevation onClick={handleProfileMenuOpen}>
           <Stack direction="row" spacing={1} alignItems="center">
             <Avatar sx={{ width: 24, height: 24 }}>
-              <Image
-                src={PersonImg}
-                layout="fill"
-                alt="person"
-                style={{
-                  objectFit: 'cover',
-                }}
-              />
+              <Image src={PersonImg} layout="fill" objectFit="cover" />
             </Avatar>
             <Stack direction="column" alignItems="flex-start">
-              <Typography variant="subtitle2" style={{ textTransform: 'none' }}>
-                {tCommon('appBarWelcome', { name: tokenData?.user_name })}
-              </Typography>
+              <Typography variant="subtitle2" style={{ textTransform: "none" }}>{tCommon('appBarWelcome', { name: tokenData?.user_name })}</Typography>
             </Stack>
-            {isMenuOpen ? (
-              <ExpandLess fontSize="medium" />
-            ) : (
-              <ExpandMore fontSize="medium" />
-            )}
+            {isMenuOpen ? <ExpandLess fontSize="medium" /> : <ExpandMore fontSize="medium" />}
           </Stack>
         </Button>
       </Box>
       {renderProfile}
     </>
   );
-};
+}
 
 export default ProfileMenu;

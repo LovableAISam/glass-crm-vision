@@ -1,20 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Grid,
-  RadioGroup,
-  Stack,
-  TextField,
-  Typography,
-  FormControlLabel,
-  Radio,
-  Button,
-  Avatar,
-  Box,
-  Divider,
-  FormControl,
-  FormHelperText,
-} from '@mui/material';
-import Image from 'next/legacy/image';
+import { Grid, RadioGroup, Stack, TextField, Typography, FormControlLabel, Radio, Button, Avatar, Box, Divider, FormControl, FormHelperText } from "@mui/material";
+import Image from 'next/image';
 
 import { FormDatePicker, FormUpload, Token } from '@woi/web-component';
 import { FileConvert, TextValidation } from '@woi/core';
@@ -34,12 +20,7 @@ import { useTranslation } from 'react-i18next';
 
 function IdentityData(props: CreateCOModalContentProps) {
   const { activeStep, handleComplete, handleCancel, selectedData } = props;
-  const {
-    control,
-    setValue,
-    formState: { errors },
-    handleSubmit,
-  } = useFormContext<CommunityOwnerData>();
+  const { control, setValue, formState: { errors }, handleSubmit } = useFormContext<CommunityOwnerData>();
   const { enqueueSnackbar } = useSnackbar();
   const { baseUrl } = useBaseUrl();
   const [touched, setTouched] = useState<boolean>(false);
@@ -48,25 +29,17 @@ function IdentityData(props: CreateCOModalContentProps) {
   const { t: tCO } = useTranslation('co');
   const { t: tForm } = useTranslation('form');
 
-  const handleSubmitForm = handleSubmit(form => {
-    if (
-      form.contacts.length === 0 ||
-      form.addresses.length === 0 ||
-      form.usersOTP.length === 0
-    ) {
+  const handleSubmitForm = handleSubmit((form) => {
+    if (form.contacts.length === 0 || form.addresses.length === 0 || form.usersOTP.length === 0) {
       setTouched(true);
       return;
     }
-    handleComplete(activeStep + 1);
-  });
+    handleComplete(activeStep + 1)
+  })
 
   const validateForm = (callback: () => void) => {
-    handleSubmit(form => {
-      if (
-        form.contacts.length === 0 ||
-        form.addresses.length === 0 ||
-        form.usersOTP.length === 0
-      ) {
+    handleSubmit((form) => {
+      if (form.contacts.length === 0 || form.addresses.length === 0 || form.usersOTP.length === 0) {
         setTouched(true);
         return;
       }
@@ -77,15 +50,12 @@ function IdentityData(props: CreateCOModalContentProps) {
 
   const handleUploadBankLogo = async (file: File | null) => {
     if (!file) {
-      setValue('bankLogo', null);
+      setValue('bankLogo', null)
       return;
     }
-    const { result, error, errorData } = await useUploadTemporaryImageFetcher(
-      baseUrl,
-      {
-        upload: file,
-      },
-    );
+    const { result, error, errorData } = await useUploadTemporaryImageFetcher(baseUrl, {
+      upload: file,
+    });
     if (result && !error) {
       const dataUri = await FileConvert.getDataUriFromFile(file);
       setValue('bankLogo', {
@@ -93,25 +63,20 @@ function IdentityData(props: CreateCOModalContentProps) {
         fileName: file.name,
         fileData: file,
         imageUri: dataUri as string,
-      });
+      })
     } else {
-      enqueueSnackbar(errorData?.details?.[0] || 'Upload Gagal!', {
-        variant: 'error',
-      });
+      enqueueSnackbar(errorData?.details?.[0] || 'Upload Gagal!', { variant: 'error' })
     }
-  };
+  }
 
   const handleUploadBackgroundCard = async (file: File | null) => {
     if (!file) {
-      setValue('backgroundCard', null);
+      setValue('backgroundCard', null)
       return;
     }
-    const { result, error, errorData } = await useUploadTemporaryImageFetcher(
-      baseUrl,
-      {
-        upload: file,
-      },
-    );
+    const { result, error, errorData } = await useUploadTemporaryImageFetcher(baseUrl, {
+      upload: file,
+    });
     if (result && !error) {
       const dataUri = await FileConvert.getDataUriFromFile(file);
       setValue('backgroundCard', {
@@ -119,20 +84,18 @@ function IdentityData(props: CreateCOModalContentProps) {
         fileName: file.name,
         fileData: file,
         imageUri: dataUri as string,
-      });
+      })
     } else {
-      enqueueSnackbar(errorData?.details?.[0] || 'Upload Gagal!', {
-        variant: 'error',
-      });
+      enqueueSnackbar(errorData?.details?.[0] || 'Upload Gagal!', { variant: 'error' })
     }
-  };
+  }
 
   const { field: fieldCode } = useController({
     name: 'code',
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Code' }),
-    },
+    }
   });
 
   const { field: fieldName } = useController({
@@ -140,7 +103,7 @@ function IdentityData(props: CreateCOModalContentProps) {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Name' }),
-    },
+    }
   });
 
   const { field: fieldSiupNo } = useController({
@@ -148,7 +111,7 @@ function IdentityData(props: CreateCOModalContentProps) {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'SIUP no' }),
-    },
+    }
   });
 
   const { field: fieldEmail } = useController({
@@ -157,10 +120,9 @@ function IdentityData(props: CreateCOModalContentProps) {
     rules: {
       required: 'Email no must be filled.',
       validate: value => {
-        if (!TextValidation.isEmailFormat(value))
-          return tForm('generalErrorEmail');
-      },
-    },
+        if (!TextValidation.isEmailFormat(value)) return tForm('generalErrorEmail');
+      }
+    }
   });
 
   const { field: fieldBackgroundCard } = useController({
@@ -168,7 +130,7 @@ function IdentityData(props: CreateCOModalContentProps) {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Background card' }),
-    },
+    }
   });
 
   const { field: fieldBankLogo } = useController({
@@ -176,7 +138,7 @@ function IdentityData(props: CreateCOModalContentProps) {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Bank logo' }),
-    },
+    }
   });
 
   const { field: fieldCardable } = useController({
@@ -212,25 +174,19 @@ function IdentityData(props: CreateCOModalContentProps) {
   return (
     <Box>
       <TabAction {...props} validateForm={validateForm} />
-      <Typography variant="h5" sx={{ mb: 2 }}>
-        {tCO('tabActionConfiguration')}
-      </Typography>
+      <Typography variant="h5" sx={{ mb: 2 }}>{tCO('tabActionConfiguration')}</Typography>
       <Grid container spacing={2} sx={{ pt: 1 }}>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">
-              {tCO('identityDataFormSuffixUrl')}
-            </Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormSuffixUrl')}</Typography>
             <TextField
               {...fieldCode}
               fullWidth
-              placeholder={tForm('placeholderType', {
-                fieldName: 'suffix url',
-              })}
+              placeholder={tForm('placeholderType', { fieldName: 'suffix url' })}
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                },
+                  borderRadius: 3
+                }
               }}
               disabled={isUpdate}
               error={Boolean(errors.code)}
@@ -240,17 +196,15 @@ function IdentityData(props: CreateCOModalContentProps) {
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">
-              {tCO('identityDataFormCoName')}
-            </Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormCoName')}</Typography>
             <TextField
               {...fieldName}
               fullWidth
               placeholder={tForm('placeholderType', { fieldName: 'co name' })}
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                },
+                  borderRadius: 3
+                }
               }}
               error={Boolean(errors.name)}
               helperText={errors.name?.message}
@@ -258,9 +212,7 @@ function IdentityData(props: CreateCOModalContentProps) {
           </Stack>
         </Grid>
         <Grid item md={12} xs={12}>
-          <Typography variant="subtitle2" gutterBottom>
-            {tCO('identityDataFormEffectiveDate')}
-          </Typography>
+          <Typography variant="subtitle2" gutterBottom>{tCO('identityDataFormEffectiveDate')}</Typography>
           <FormDatePicker
             value={{
               startDate: fieldActiveDate.value,
@@ -274,23 +226,21 @@ function IdentityData(props: CreateCOModalContentProps) {
             sx={{
               '& .MuiOutlinedInput-root': {
                 borderRadius: 3,
-              },
+              }
             }}
           />
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">
-              {tCO('identityDataFormSIUPNo')}
-            </Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormSIUPNo')}</Typography>
             <TextField
               {...fieldSiupNo}
               fullWidth
               placeholder={tForm('placeholderType', { fieldName: 'siup no' })}
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                },
+                  borderRadius: 3
+                }
               }}
               error={Boolean(errors.siupNo)}
               helperText={errors.siupNo?.message}
@@ -299,17 +249,15 @@ function IdentityData(props: CreateCOModalContentProps) {
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">
-              {tCO('identityDataFormEmail')}
-            </Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormEmail')}</Typography>
             <TextField
               {...fieldEmail}
               fullWidth
               placeholder={tForm('placeholderType', { fieldName: 'email' })}
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                },
+                  borderRadius: 3
+                }
               }}
               error={Boolean(errors.email)}
               helperText={errors.email?.message}
@@ -318,74 +266,37 @@ function IdentityData(props: CreateCOModalContentProps) {
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">
-              {tCO('identityDataFormBackLogo')}
-            </Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormBackLogo')}</Typography>
             <FormControl
               {...fieldBankLogo}
               component="fieldset"
               variant="standard"
               sx={{ width: '100%' }}
             >
-              <FormUpload
-                handleUpload={handleUploadBankLogo}
-                uploadType={'Image'}
-              >
+              <FormUpload handleUpload={handleUploadBankLogo} uploadType={'Image'}>
                 {({ triggerUpload }) => {
                   if (fieldBankLogo.value) {
                     return (
-                      <Stack
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="space-between"
-                      >
+                      <Stack direction="row" alignItems="center" justifyContent="space-between">
                         <Stack direction="row" spacing={2} alignItems="center">
-                          <Avatar
-                            variant="rounded"
-                            sx={{
-                              width: 50,
-                              height: 50,
-                              background: 'transparent',
-                            }}
-                          >
-                            <Image
-                              unoptimized
-                              src={
-                                fieldBankLogo.value.imageUri ||
-                                fieldBankLogo.value.docPath
-                              }
-                              layout="fill"
-                              style={{
-                                objectFit: 'contain',
-                              }}
-                              alt="bankLogo"
-                            />
+                          <Avatar variant="rounded" sx={{ width: 50, height: 50, background: 'transparent' }}>
+                            <Image unoptimized src={fieldBankLogo.value.imageUri || fieldBankLogo.value.docPath} layout="fill" objectFit="contain" />
                           </Avatar>
-                          <Typography variant="body2">
-                            {fieldBankLogo.value.fileName}
-                          </Typography>
+                          <Typography variant="body2">{fieldBankLogo.value.fileName}</Typography>
                         </Stack>
                         <Stack direction="row" spacing={1}>
-                          <Button
-                            variant="text"
-                            size="small"
-                            onClick={triggerUpload}
-                          >
+                          <Button variant="text" size="small" onClick={triggerUpload}>
                             {tCommon('actionReplace')}
                           </Button>
                           <Box>
                             <Divider orientation="vertical" />
                           </Box>
-                          <Button
-                            variant="text"
-                            size="small"
-                            onClick={() => handleUploadBankLogo(null)}
-                          >
+                          <Button variant="text" size="small" onClick={() => handleUploadBankLogo(null)}>
                             {tCommon('actionDelete')}
                           </Button>
                         </Stack>
                       </Stack>
-                    );
+                    )
                   }
 
                   return (
@@ -398,7 +309,7 @@ function IdentityData(props: CreateCOModalContentProps) {
                     >
                       {tCommon('actionUploadImage')}
                     </Button>
-                  );
+                  )
                 }}
               </FormUpload>
               {Boolean(errors.bankLogo) && (
@@ -411,74 +322,37 @@ function IdentityData(props: CreateCOModalContentProps) {
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">
-              {tCO('identityDataFormBackgroupCard')}
-            </Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormBackgroupCard')}</Typography>
             <FormControl
               {...fieldBackgroundCard}
               component="fieldset"
               variant="standard"
               sx={{ width: '100%' }}
             >
-              <FormUpload
-                handleUpload={handleUploadBackgroundCard}
-                uploadType={'Image'}
-              >
+              <FormUpload handleUpload={handleUploadBackgroundCard} uploadType={'Image'}>
                 {({ triggerUpload }) => {
                   if (fieldBackgroundCard.value) {
                     return (
-                      <Stack
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="space-between"
-                      >
+                      <Stack direction="row" alignItems="center" justifyContent="space-between">
                         <Stack direction="row" spacing={2} alignItems="center">
-                          <Avatar
-                            variant="rounded"
-                            sx={{
-                              width: 50,
-                              height: 50,
-                              background: 'transparent',
-                            }}
-                          >
-                            <Image
-                              unoptimized
-                              src={
-                                fieldBackgroundCard.value.imageUri ||
-                                fieldBackgroundCard.value.docPath
-                              }
-                              layout="fill"
-                              style={{
-                                objectFit: 'contain',
-                              }}
-                              alt="bgCard"
-                            />
+                          <Avatar variant="rounded" sx={{ width: 50, height: 50, background: 'transparent' }}>
+                            <Image unoptimized src={fieldBackgroundCard.value.imageUri || fieldBackgroundCard.value.docPath} layout="fill" objectFit="contain" />
                           </Avatar>
-                          <Typography variant="body2">
-                            {fieldBackgroundCard.value.fileName}
-                          </Typography>
+                          <Typography variant="body2">{fieldBackgroundCard.value.fileName}</Typography>
                         </Stack>
                         <Stack direction="row" spacing={1}>
-                          <Button
-                            variant="text"
-                            size="small"
-                            onClick={triggerUpload}
-                          >
+                          <Button variant="text" size="small" onClick={triggerUpload}>
                             Replace
                           </Button>
                           <Box>
                             <Divider orientation="vertical" />
                           </Box>
-                          <Button
-                            variant="text"
-                            size="small"
-                            onClick={() => handleUploadBackgroundCard(null)}
-                          >
+                          <Button variant="text" size="small" onClick={() => handleUploadBackgroundCard(null)}>
                             Delete
                           </Button>
                         </Stack>
                       </Stack>
-                    );
+                    )
                   }
 
                   return (
@@ -491,7 +365,7 @@ function IdentityData(props: CreateCOModalContentProps) {
                     >
                       {tCommon('actionUploadImage')}
                     </Button>
-                  );
+                  )
                 }}
               </FormUpload>
               {Boolean(errors.backgroundCard) && (
@@ -504,9 +378,7 @@ function IdentityData(props: CreateCOModalContentProps) {
         </Grid>
         <Grid item md={4} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">
-              {tCO('identityDataFormCardable')}
-            </Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormCardable')}</Typography>
             <FormControl
               component="fieldset"
               variant="standard"
@@ -514,8 +386,8 @@ function IdentityData(props: CreateCOModalContentProps) {
             >
               <RadioGroup
                 {...fieldCardable}
-                value={fieldCardable.value ? 'yes' : 'no'}
-                onChange={(_, value) => fieldCardable.onChange(value === 'yes')}
+                value={fieldCardable.value ? "yes" : "no"}
+                onChange={(_, value) => fieldCardable.onChange(value === "yes")}
                 row
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="row-radio-buttons-group"
@@ -536,9 +408,7 @@ function IdentityData(props: CreateCOModalContentProps) {
         </Grid>
         <Grid item md={12} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">
-              {tCO('identityDataFormLoyaltySupport')}
-            </Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormLoyaltySupport')}</Typography>
             <FormControl
               component="fieldset"
               variant="standard"
@@ -546,10 +416,8 @@ function IdentityData(props: CreateCOModalContentProps) {
             >
               <RadioGroup
                 {...fieldLoyaltySupport}
-                value={fieldLoyaltySupport.value ? 'yes' : 'no'}
-                onChange={(_, value) =>
-                  fieldLoyaltySupport.onChange(value === 'yes')
-                }
+                value={fieldLoyaltySupport.value ? "yes" : "no"}
+                onChange={(_, value) => fieldLoyaltySupport.onChange(value === "yes")}
                 row
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="row-radio-buttons-group"
@@ -568,19 +436,15 @@ function IdentityData(props: CreateCOModalContentProps) {
         {fieldLoyaltySupport.value && (
           <Grid item md={6} xs={12}>
             <Stack direction="column" spacing={1}>
-              <Typography variant="subtitle2">
-                {tCO('identityDataFormLoyaltyMerchantID')}
-              </Typography>
+              <Typography variant="subtitle2">{tCO('identityDataFormLoyaltyMerchantID')}</Typography>
               <TextField
                 {...fieldLoyaltyMerchantId}
                 fullWidth
-                placeholder={tForm('placeholderType', {
-                  fieldName: 'loyalty merchant id',
-                })}
+                placeholder={tForm('placeholderType', { fieldName: 'loyalty merchant id' })}
                 sx={{
                   '& .MuiOutlinedInput-root': {
-                    borderRadius: 3,
-                  },
+                    borderRadius: 3
+                  }
                 }}
                 error={Boolean(errors.loyaltyMerchantId)}
                 helperText={errors.loyaltyMerchantId?.message}
@@ -591,19 +455,15 @@ function IdentityData(props: CreateCOModalContentProps) {
         {fieldLoyaltySupport.value && (
           <Grid item md={6} xs={12}>
             <Stack direction="column" spacing={1}>
-              <Typography variant="subtitle2">
-                {tCO('identityDataFormLoyaltyMerchantCode')}
-              </Typography>
+              <Typography variant="subtitle2">{tCO('identityDataFormLoyaltyMerchantCode')}</Typography>
               <TextField
                 {...fieldLoyaltyMerchantCode}
                 fullWidth
-                placeholder={tForm('placeholderType', {
-                  fieldName: 'loyalty merchant code',
-                })}
+                placeholder={tForm('placeholderType', { fieldName: 'loyalty merchant code' })}
                 sx={{
                   '& .MuiOutlinedInput-root': {
-                    borderRadius: 3,
-                  },
+                    borderRadius: 3
+                  }
                 }}
                 error={Boolean(errors.loyaltyMerchantCode)}
                 helperText={errors.loyaltyMerchantCode?.message}
@@ -619,33 +479,18 @@ function IdentityData(props: CreateCOModalContentProps) {
         </Grid>
       </Grid>
       <AuthorizeView access="co" privileges={['create', 'update']}>
-        <Stack
-          direction="row"
-          spacing={2}
-          alignItems="center"
-          justifyContent="flex-end"
-          sx={{ pt: 2 }}
-        >
-          <Button
-            size="large"
-            variant="outlined"
-            onClick={handleCancel}
-            sx={{ py: 1, px: 5, borderRadius: 2 }}
-          >
-            {tCommon('actionCancel')}
-          </Button>
+        <Stack direction="row" spacing={2} alignItems="center" justifyContent="flex-end" sx={{ pt: 2 }}>
+          <Button size="large" variant="outlined" onClick={handleCancel} sx={{ py: 1, px: 5, borderRadius: 2 }}>{tCommon('actionCancel')}</Button>
           <Button
             size="large"
             variant="contained"
             onClick={handleSubmitForm}
             sx={{ py: 1, px: 5, borderRadius: 2 }}
-          >
-            {tCommon('actionNext')}
-          </Button>
+          >{tCommon('actionNext')}</Button>
         </Stack>
       </AuthorizeView>
     </Box>
-  );
+  )
 }
 
 export default IdentityData;

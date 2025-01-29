@@ -7,5 +7,5 @@ module.exports = {
     defaultLocale: 'en',
     locales: ['en', 'id'],
   },
-  localePath: path.resolve('../../packages/translation'),
+  localePath: path.resolve('../../packages/translation')
 };

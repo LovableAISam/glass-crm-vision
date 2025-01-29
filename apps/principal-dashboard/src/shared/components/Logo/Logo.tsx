@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import LogoImg from '@public/logo.png';
 import { Avatar } from '@mui/material';
 
@@ -13,16 +13,9 @@ const Logo = (props: LogoProps) => {
 
   return (
     <Avatar variant="rounded" sx={{ width, height, background: 'transparent' }}>
-      <Image
-        src={LogoImg}
-        layout="fill"
-        alt="logo"
-        style={{
-          objectFit: 'contain',
-        }}
-      />
+      <Image src={LogoImg} layout="fill" objectFit="contain" />
     </Avatar>
   );
-};
+}
 
 export default Logo;

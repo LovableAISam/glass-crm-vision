@@ -16,7 +16,7 @@ import {
   FormControl,
   FormHelperText,
 } from '@mui/material';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { Button, FormColor, FormUpload, Token } from '@woi/web-component';
 
 // Icons
@@ -35,7 +35,7 @@ type CreateBankModalProps = {
   isActive: boolean;
   onHide: () => void;
   fetchBankList: () => void;
-};
+}
 
 const CreateBankModal = (props: CreateBankModalProps) => {
   const { isActive, selectedData, onHide, fetchBankList } = props;
@@ -55,18 +55,14 @@ const CreateBankModal = (props: CreateBankModalProps) => {
 
   const isUpdate = Boolean(selectedData);
 
-  const {
-    formState: { errors },
-    control,
-    getValues,
-  } = formData;
+  const { formState: { errors }, control, getValues } = formData;
 
   const { field: fieldBackgroundCard } = useController({
     name: 'backgroundCard',
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Background card' }),
-    },
+    }
   });
 
   const { field: fieldColor } = useController({
@@ -74,7 +70,7 @@ const CreateBankModal = (props: CreateBankModalProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Color' }),
-    },
+    }
   });
 
   const { field: fieldFullname } = useController({
@@ -82,7 +78,7 @@ const CreateBankModal = (props: CreateBankModalProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Fullname' }),
-    },
+    }
   });
 
   const { field: fieldLogo } = useController({
@@ -90,7 +86,7 @@ const CreateBankModal = (props: CreateBankModalProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Logo' }),
-    },
+    }
   });
 
   const { field: fieldName } = useController({
@@ -98,7 +94,7 @@ const CreateBankModal = (props: CreateBankModalProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Name' }),
-    },
+    }
   });
 
   const { field: fieldStatus } = useController({
@@ -106,7 +102,7 @@ const CreateBankModal = (props: CreateBankModalProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', { fieldName: 'Status' }),
-    },
+    }
   });
 
   return (
@@ -116,20 +112,14 @@ const CreateBankModal = (props: CreateBankModalProps) => {
       sx={{
         '& .MuiDialog-paper': {
           borderRadius: 5,
-        },
+        }
       }}
       maxWidth="md"
       fullWidth
     >
       <DialogTitle>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <Typography variant="h5">
-            {isUpdate ? tBank('modalUpdateTitle') : tBank('modalCreateTitle')}
-          </Typography>
+        <Stack direction="row" justifyContent="space-between" alignItems="center">
+          <Typography variant="h5">{isUpdate ? tBank('modalUpdateTitle') : tBank('modalCreateTitle')}</Typography>
           <IconButton onClick={onHide}>
             <CloseIcon />
           </IconButton>
@@ -138,64 +128,52 @@ const CreateBankModal = (props: CreateBankModalProps) => {
       <DialogContent>
         <Grid container spacing={2} sx={{ pt: 1 }}>
           <Grid item md={12} xs={12}>
-            <Typography variant="subtitle2" gutterBottom>
-              {tBank('formName')}
-            </Typography>
+            <Typography variant="subtitle2" gutterBottom>{tBank('formName')}</Typography>
             <TextField
               {...fieldName}
               fullWidth
               placeholder={tForm('placeholderType', { fieldName: 'bank name' })}
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                },
+                  borderRadius: 3
+                }
               }}
               error={Boolean(errors.name)}
               helperText={errors.name?.message}
             />
           </Grid>
           <Grid item md={12} xs={12}>
-            <Typography variant="subtitle2" gutterBottom>
-              {tBank('formFullname')}
-            </Typography>
+            <Typography variant="subtitle2" gutterBottom>{tBank('formFullname')}</Typography>
             <TextField
               {...fieldFullname}
               fullWidth
-              placeholder={tForm('placeholderType', {
-                fieldName: 'bank full name',
-              })}
+              placeholder={tForm('placeholderType', { fieldName: 'bank full name' })}
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                },
+                  borderRadius: 3
+                }
               }}
               error={Boolean(errors.fullName)}
               helperText={errors.fullName?.message}
             />
           </Grid>
           <Grid item md={12} xs={12}>
-            <Typography variant="subtitle2" gutterBottom>
-              {tBank('formColorCode')}
-            </Typography>
+            <Typography variant="subtitle2" gutterBottom>{tBank('formColorCode')}</Typography>
             <FormColor
               {...fieldColor}
               fullWidth
-              placeholder={tForm('placeholderSelect', {
-                fieldName: 'bank color code',
-              })}
+              placeholder={tForm('placeholderSelect', { fieldName: 'bank color code' })}
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                },
+                  borderRadius: 3
+                }
               }}
               error={Boolean(errors.color)}
               helperText={errors.color?.message}
             />
           </Grid>
           <Grid item md={12} xs={12}>
-            <Typography variant="subtitle2" gutterBottom>
-              {tBank('formLogo')}
-            </Typography>
+            <Typography variant="subtitle2" gutterBottom>{tBank('formLogo')}</Typography>
             <FormControl
               {...fieldLogo}
               component="fieldset"
@@ -209,58 +187,26 @@ const CreateBankModal = (props: CreateBankModalProps) => {
                 {({ triggerUpload }) => {
                   if (fieldLogo.value) {
                     return (
-                      <Stack
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="space-between"
-                      >
+                      <Stack direction="row" alignItems="center" justifyContent="space-between">
                         <Stack direction="row" spacing={2} alignItems="center">
-                          <Avatar
-                            variant="rounded"
-                            sx={{
-                              width: 50,
-                              height: 50,
-                              background: 'transparent',
-                            }}
-                          >
-                            <Image
-                              unoptimized
-                              src={
-                                fieldLogo.value.imageUri ||
-                                fieldLogo.value.docPath
-                              }
-                              alt="fieldLogo"
-                              layout="fill"
-                              style={{
-                                objectFit: 'contain',
-                              }}
-                            />
+                          <Avatar variant="rounded" sx={{ width: 50, height: 50, background: 'transparent' }}>
+                            <Image unoptimized src={fieldLogo.value.imageUri || fieldLogo.value.docPath} layout="fill" objectFit="contain" />
                           </Avatar>
-                          <Typography variant="body2">
-                            {fieldLogo.value.fileName}
-                          </Typography>
+                          <Typography variant="body2">{fieldLogo.value.fileName}</Typography>
                         </Stack>
                         <Stack direction="row" spacing={1}>
-                          <Button
-                            variant="text"
-                            size="small"
-                            onClick={triggerUpload}
-                          >
+                          <Button variant="text" size="small" onClick={triggerUpload}>
                             {tCommon('actionReplace')}
                           </Button>
                           <Box>
                             <Divider orientation="vertical" />
                           </Box>
-                          <Button
-                            variant="text"
-                            size="small"
-                            onClick={() => handleUploadBankLogo(null)}
-                          >
+                          <Button variant="text" size="small" onClick={() => handleUploadBankLogo(null)}>
                             {tCommon('actionDelete')}
                           </Button>
                         </Stack>
                       </Stack>
-                    );
+                    )
                   }
 
                   return (
@@ -274,7 +220,7 @@ const CreateBankModal = (props: CreateBankModalProps) => {
                     >
                       {tCommon('actionUploadImage')}
                     </Button>
-                  );
+                  )
                 }}
               </FormUpload>
               {Boolean(errors.logo) && (
@@ -285,9 +231,7 @@ const CreateBankModal = (props: CreateBankModalProps) => {
             </FormControl>
           </Grid>
           <Grid item md={12} xs={12}>
-            <Typography variant="subtitle2" gutterBottom>
-              {tBank('formBackgroudCard')}
-            </Typography>
+            <Typography variant="subtitle2" gutterBottom>{tBank('formBackgroudCard')}</Typography>
             <FormControl
               {...fieldBackgroundCard}
               component="fieldset"
@@ -301,58 +245,26 @@ const CreateBankModal = (props: CreateBankModalProps) => {
                 {({ triggerUpload }) => {
                   if (fieldBackgroundCard.value) {
                     return (
-                      <Stack
-                        direction="row"
-                        alignItems="center"
-                        justifyContent="space-between"
-                      >
+                      <Stack direction="row" alignItems="center" justifyContent="space-between">
                         <Stack direction="row" spacing={2} alignItems="center">
-                          <Avatar
-                            variant="rounded"
-                            sx={{
-                              width: 50,
-                              height: 50,
-                              background: 'transparent',
-                            }}
-                          >
-                            <Image
-                              unoptimized
-                              src={
-                                fieldBackgroundCard.value.imageUri ||
-                                fieldBackgroundCard.value.docPath
-                              }
-                              layout="fill"
-                              style={{
-                                objectFit: 'contain',
-                              }}
-                              alt="backgroundcard"
-                            />
+                          <Avatar variant="rounded" sx={{ width: 50, height: 50, background: 'transparent' }}>
+                            <Image unoptimized src={fieldBackgroundCard.value.imageUri || fieldBackgroundCard.value.docPath} layout="fill" objectFit="contain" />
                           </Avatar>
-                          <Typography variant="body2">
-                            {fieldBackgroundCard.value.fileName}
-                          </Typography>
+                          <Typography variant="body2">{fieldBackgroundCard.value.fileName}</Typography>
                         </Stack>
                         <Stack direction="row" spacing={1}>
-                          <Button
-                            variant="text"
-                            size="small"
-                            onClick={triggerUpload}
-                          >
+                          <Button variant="text" size="small" onClick={triggerUpload}>
                             {tCommon('actionReplace')}
                           </Button>
                           <Box>
                             <Divider orientation="vertical" />
                           </Box>
-                          <Button
-                            variant="text"
-                            size="small"
-                            onClick={() => handleUploadBackgroundCard(null)}
-                          >
+                          <Button variant="text" size="small" onClick={() => handleUploadBackgroundCard(null)}>
                             {tCommon('actionDelete')}
                           </Button>
                         </Stack>
                       </Stack>
-                    );
+                    )
                   }
 
                   return (
@@ -366,7 +278,7 @@ const CreateBankModal = (props: CreateBankModalProps) => {
                     >
                       {tCommon('actionUploadImage')}
                     </Button>
-                  );
+                  )
                 }}
               </FormUpload>
               {Boolean(errors.backgroundCard) && (
@@ -377,24 +289,20 @@ const CreateBankModal = (props: CreateBankModalProps) => {
             </FormControl>
           </Grid>
           <Grid item md={12} xs={12}>
-            <Typography variant="subtitle2" gutterBottom>
-              {tBank('formStatus')}
-            </Typography>
+            <Typography variant="subtitle2" gutterBottom>{tBank('formStatus')}</Typography>
             <Autocomplete
               {...fieldStatus}
               onChange={(_, value) => fieldStatus.onChange(value)}
               options={statusOptions}
               fullWidth
-              renderInput={params => (
+              renderInput={(params) => (
                 <TextField
                   {...params}
-                  placeholder={tForm('placeholderSelect', {
-                    fieldName: 'postal status',
-                  })}
+                  placeholder={tForm('placeholderSelect', { fieldName: 'postal status' })}
                   sx={{
                     '& .MuiOutlinedInput-root': {
-                      borderRadius: 3,
-                    },
+                      borderRadius: 3
+                    }
                   }}
                   error={Boolean(errors.status)}
                   helperText={errors.status?.message}
@@ -405,55 +313,28 @@ const CreateBankModal = (props: CreateBankModalProps) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent={isUpdate ? 'space-between' : 'flex-end'}
-          sx={{ p: 2, flex: 1 }}
-        >
+        <Stack direction="row" alignItems="center" justifyContent={isUpdate ? 'space-between' : 'flex-end'} sx={{ p: 2, flex: 1 }}>
           {isUpdate && (
             <Button
               variant="text"
-              startIcon={
-                getValues('isActive') ? <ToggleOffIcon /> : <ToggleOnIcon />
-              }
-              color={getValues('isActive') ? 'warning' : 'success'}
+              startIcon={getValues('isActive') ? <ToggleOffIcon /> : <ToggleOnIcon />}
+              color={getValues('isActive') ? "warning" : "success"}
               onClick={handleActivateDeactivate}
               sx={{ py: 1, borderRadius: 2 }}
             >
-              {getValues('isActive')
-                ? tBank('modalActionDeactivate')
-                : tBank('modalActionActivate')}
+              {getValues('isActive') ? tBank('modalActionDeactivate') : tBank('modalActionActivate')}
             </Button>
           )}
           <AuthorizeView access="bank" privileges={['create', 'update']}>
-            <Stack
-              direction="row"
-              spacing={2}
-              alignItems="center"
-              justifyContent="flex-end"
-              sx={{ flex: 1 }}
-            >
-              <Button
-                variant="outlined"
-                onClick={handleCancel}
-                sx={{ py: 1, px: 5, borderRadius: 2 }}
-              >
-                {tCommon('actionCancel')}
-              </Button>
-              <Button
-                variant="contained"
-                onClick={handleUpsert}
-                sx={{ py: 1, px: 5, borderRadius: 2 }}
-              >
-                {tCommon('actionSave')}
-              </Button>
+            <Stack direction="row" spacing={2} alignItems="center" justifyContent="flex-end" sx={{ flex: 1 }}>
+              <Button variant="outlined" onClick={handleCancel} sx={{ py: 1, px: 5, borderRadius: 2 }}>{tCommon('actionCancel')}</Button>
+              <Button variant="contained" onClick={handleUpsert} sx={{ py: 1, px: 5, borderRadius: 2 }}>{tCommon('actionSave')}</Button>
             </Stack>
           </AuthorizeView>
         </Stack>
       </DialogActions>
     </Dialog>
-  );
-};
+  )
+}
 
 export default CreateBankModal;

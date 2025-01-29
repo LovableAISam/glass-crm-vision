@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import DialogDirectPayment from './components/DialogDirectPayment';
 import { useForm } from 'react-hook-form';
 import useModal from '@woi/common/hooks/useModal';

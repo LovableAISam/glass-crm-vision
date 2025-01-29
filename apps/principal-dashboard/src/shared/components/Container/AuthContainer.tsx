@@ -1,6 +1,6 @@
 // Core
 import React from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { Token } from '@woi/web-component'
 import SideAuthImage from 'asset/images/side-auth.svg';
 import LogoWhiteImage from 'asset/images/logo-white.svg';
