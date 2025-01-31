@@ -9,13 +9,15 @@ export type LoginResponse = {
   expires_in: number;
   scope: string;
   jti: string;
-}
+  merchantCode: string;
+};
 
 export type LoginRequest = DefaultRequest & {
   grant_type: 'password';
   username: string;
   password: string;
-}
+  isMerchant: boolean;
+};
 
 function useLoginFetcher(baseUrl: string, payload: LoginRequest) {
   return apiPost<LoginResponse>({

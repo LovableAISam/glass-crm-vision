@@ -106,5 +106,23 @@
   "successLogin": "Login berhasil!",
   "labelMaxDownload": "Batasan download data adalah 100 baris",
   "errorDatePickerGeneral": "Tanggal transaksi harus diisi sebelum download data",
-  "errorDatePickerGreater": "Range tanggal transaksi hingga tidak boleh lebih dari 730 hari"
+  "errorDatePickerGreater": "Range tanggal transaksi hingga tidak boleh lebih dari 730 hari",
+
+  "tableActionPrint": "Cetak",
+  "tableActionRefund": "Refund",
+  "actionBack": "Kembali",
+  "actionClose": "Tutup",
+  "actionContinue": "Lanjutkan",
+  "actionCheckStatus": "Cek Status",
+  "confirmationCancelUpdateTitle": "Batal Ubah {{text}}?",
+  "confirmationCancelUpdateDescription": "Perubahan akan dihapus dari bidang formulir. Tindakan ini tidak dapat diurungkan.",
+  "confirmationCancelUpdateYes": "Batal",
+  "confirmationCancelUpdateNo": "Kembali",
+  "confirmationCancel": "Batal {{text}}?",
+  "confirmationCancelTransaction": "Kembali ke Detail",
+  "accountLockTitle": "Akun Terkunci",
+  "accountLock": "Akun Anda terkunci karena beberapa kali percobaan login yang gagal. Silakan coba lagi nanti atau hubungi dukungan untuk bantuan.",
+  "successUpdateAddress": "{{text}} perubahan berhasil disimpan!",
+  "labelMaxDownloadExceed": "Anda telah melebihi batas maksimal unduhan data, rentang maksimal adalah 3 bulan",
+  "labelMaxCountDownloadExceed": "The limitation of the data download is 100 rows"
 }

@@ -106,5 +106,23 @@
   "successLogin": "Login success!",
   "labelMaxDownload": "The limitation of the data download is 100 rows",
   "errorDatePickerGeneral": "The transaction date must be entered before downloading the data",
-  "errorDatePickerGreater": "The range of transaction dates must not exceed 730 days"
+  "errorDatePickerGreater": "The range of transaction dates must not exceed 730 days",
+
+  "tableActionRefund": "Refund",
+  "tableActionPrint": "Print",
+  "actionBack": "Back",
+  "actionClose": "Close",
+  "actionContinue": "Continue",
+  "actionCheckStatus": "Check Status",
+  "confirmationCancelUpdateTitle": "Cancel Update {{text}}?",
+  "confirmationCancelUpdateDescription": "The changes will be deleted from the form field. This action can not be undo.",
+  "confirmationCancelUpdateYes": "Cancel",
+  "confirmationCancelUpdateNo": "Back to Editing",
+  "confirmationCancel": "Cancel {{text}}?",
+  "confirmationCancelTransaction": "Back to Detail",
+  "accountLockTitle": "Account Locked",
+  "accountLock": "Your account is locked due to multiple failed login attempts. Please try again later or contact support for assistance.",
+  "successUpdateAddress": "{{text}} address changes saved.",
+  "labelMaxDownloadExceed": "You have exceeded the maximum data download limit, the maximum range is 90 days",
+  "labelMaxCountDownloadExceed": "The limitation of the data download is 100 rows"
 }

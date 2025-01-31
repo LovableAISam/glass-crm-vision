@@ -28,5 +28,8 @@
   "errorEmpty": "{{fieldName}} must be filled at least 1",
 
   "placeholderType": "type {{fieldName}}",
-  "placeholderSelect": "select {{fieldName}}"
+  "placeholderSelect": "select {{fieldName}}",
+
+  "dateFieldLabel": "Filter Date",
+  "dateFieldType": "date"
 }

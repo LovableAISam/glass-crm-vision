@@ -91,6 +91,7 @@ const Login = () => {
           </Link>
         </Typography>
         {siteKey && (
+          // @ts-ignore
           <ReCAPTCHA
             ref={recaptchaRef}
             sitekey={siteKey}

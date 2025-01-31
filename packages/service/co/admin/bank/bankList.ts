@@ -8,6 +8,7 @@ export interface BankData extends ResponseData {
   name: string;
   fullName: string;
   status: BankStatus;
+  bankCode: string;
 }
 
 interface BankListResponse extends ResultData<BankData[]> {}

@@ -23,3 +23,5 @@ export { default as batch } from './utils/batch';
 export { default as TextGetter } from './utils/text/textGetter';
 
 export { default as reverseDirection } from './utils/reverseDirection';
+
+export { fileFormats } from './utils/downloadOptions';

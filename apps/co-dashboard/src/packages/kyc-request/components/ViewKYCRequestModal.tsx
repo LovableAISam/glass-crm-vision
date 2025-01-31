@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   Dialog,
   DialogTitle,
@@ -22,10 +22,7 @@ import ViewKYCRequestTab from './ViewKYCRequest/ViewKYCRequestTab';
 import ViewKYCRequestHistoryTab from './ViewKYCRequestHistory/ViewKYCRequestHistoryTab';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ViewKYCRequestVerifyModal from './ViewKYCRequestVerifyModal';
-import useKycRequestUpsert, {
-  KycPremiumMemberDetailForm,
-  KycPremiumMemberDetailHistoryForm,
-} from '../hooks/useKycRequstUpsert';
+import useKycRequestUpsert, { KycPremiumMemberDetailForm } from '../hooks/useKycRequstUpsert';
 import { useTranslation } from 'react-i18next';
 
 // Icons

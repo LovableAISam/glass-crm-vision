@@ -15,7 +15,12 @@ import { Theme } from '@mui/material/styles';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import idLocale from 'date-fns/locale/id';
 import defaultTheme from '@woi/core/utils/theme';
-import { ckAccessToken, ckRefreshToken } from '@woi/common/meta/cookieKeys';
+import {
+  ckAccessToken,
+  ckMerchantAccessToken,
+  ckMerchantRefreshToken,
+  ckRefreshToken,
+} from '@woi/common/meta/cookieKeys';
 
 // Components
 import CssBaseline from '@mui/material/CssBaseline';
@@ -33,11 +38,14 @@ import { ConfirmationDialogProvider } from '@woi/web-component';
 import { AuthenticationProvider } from '@src/shared/context/AuthenticationContext';
 import { getJwtData, isExpiredToken } from '@woi/core/utils/jwt/jwt';
 import { ConfigProvider } from '@src/shared/components/Surfaces/Config';
-import { CommunityOwnerProvider } from '@src/shared/context/CommunityOwnerContext';
+import {
+  CommunityOwnerAvailableProvider,
+  CommunityOwnerProvider,
+} from '@src/shared/context/CommunityOwnerContext';
 import { OnlineStatusProvider } from '@woi/common/context/OnlineStatusContext';
 import { useCommunityOwnerCheckFetcher } from '@woi/service/co';
 import { CommunityOwnerDetailData } from '@woi/service/co/admin/communityOwner/communityOwnerDetail';
-import Page404 from "./404";
+// import DisableDevtool from 'disable-devtool';
 
 // Query Client Config
 const queryCache = new QueryCache();
@@ -81,6 +89,10 @@ function App(props: MyAppProps) {
     coDetail,
   } = props;
 
+  // useEffect(() => {
+  //   DisableDevtool();
+  // }, []);
+
   return (
     <CacheProvider value={emotionCache}>
       <QueryClientProvider client={queryClient}>
@@ -88,26 +100,29 @@ function App(props: MyAppProps) {
           <GeneralInfoProvider theme={theme}>
             <AppHead />
             <CssBaseline />
-            <AuthenticationProvider
-              accessToken={previousAccessToken}
-              refreshToken={previousRefreshToken}
+            <CommunityOwnerAvailableProvider
+              coName={coName}
+              coDetail={coDetail}
             >
-              <LocalizationProvider
-                dateAdapter={AdapterDateFns}
-                adapterLocale={idLocale}
+              <AuthenticationProvider
+                accessToken={previousAccessToken}
+                refreshToken={previousRefreshToken}
               >
-                <ProtectedRoute router={router}>
-                  {/** @ts-ignore */}
-                  <SnackbarProvider
-                    maxSnack={3}
-                    anchorOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                    autoHideDuration={2000}
-                  >
-                    <OnlineStatusProvider>
-                      {coName === 'co' ?
+                <LocalizationProvider
+                  dateAdapter={AdapterDateFns}
+                  adapterLocale={idLocale}
+                >
+                  <ProtectedRoute router={router}>
+                    {/** @ts-ignore */}
+                    <SnackbarProvider
+                      maxSnack={3}
+                      anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                      }}
+                      autoHideDuration={2000}
+                    >
+                      <OnlineStatusProvider>
                         <ConfigProvider>
                           <ConfirmationDialogProvider>
                             <LastOpenedProvider>
@@ -116,12 +131,12 @@ function App(props: MyAppProps) {
                             </LastOpenedProvider>
                           </ConfirmationDialogProvider>
                         </ConfigProvider>
-                        : <Page404 />}
-                    </OnlineStatusProvider>
-                  </SnackbarProvider>
-                </ProtectedRoute>
-              </LocalizationProvider>
-            </AuthenticationProvider>
+                      </OnlineStatusProvider>
+                    </SnackbarProvider>
+                  </ProtectedRoute>
+                </LocalizationProvider>
+              </AuthenticationProvider>
+            </CommunityOwnerAvailableProvider>
           </GeneralInfoProvider>
         </CommunityOwnerProvider>
       </QueryClientProvider>
@@ -135,18 +150,29 @@ App.getInitialProps = async (props: MyAppProps) => {
   let pageProps = {};
   let previousAccessToken = null;
   let previousRefreshToken = null;
-  let coName = ctx.query.coName as string;
+  const selectAccessToken = ctx.pathname.includes('/merchant/')
+    ? ckMerchantAccessToken
+    : ckAccessToken;
+  const selectRefreshToken = ctx.pathname.includes('/merchant/')
+    ? ckMerchantRefreshToken
+    : ckRefreshToken;
+
+  // let coName = ctx.query.coName as string;
+  let coName = ctx.asPath
+    ?.split('/')
+    .filter(url => url)
+    .shift() as string;
   let coDetail: CommunityOwnerDetailData | null = null;
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(ctx);
   }
   if (ctx.req && ctx.req.headers.cookie) {
     previousAccessToken = await Cookie.getServer(
-      ckAccessToken,
+      selectAccessToken,
       ctx.req.headers.cookie,
     );
     previousRefreshToken = await Cookie.getServer(
-      ckRefreshToken,
+      selectRefreshToken,
       ctx.req.headers.cookie,
     );
 
@@ -181,4 +207,5 @@ App.getInitialProps = async (props: MyAppProps) => {
   };
 };
 
+// @ts-ignore
 export default appWithTranslation(App);

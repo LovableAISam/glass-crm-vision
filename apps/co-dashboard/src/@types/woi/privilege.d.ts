@@ -4,6 +4,8 @@ declare module '@woi/privilege' {
 
   export type MENU_ACCESS =
     | 'default' // only used for FE
+    | 'default-merchant' // only used for FE
+    | 'default-merchant-dynamic' // only used for FE for merchant dynamic
     | 'principal'
     | 'transaction-type'
     | 'co'

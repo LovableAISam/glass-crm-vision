@@ -144,7 +144,7 @@ const MenuNested = (menu: MenuType) => {
               >
                 {typeof menuIcon === 'string'
                   ? // @ts-ignore
-                    React.createElement(Icons[menuIcon])
+                  React.createElement(Icons[menuIcon])
                   : menuIcon}
               </StyledListItemIcon>
             )}
@@ -179,7 +179,7 @@ const MenuNested = (menu: MenuType) => {
           <StyledListItemIcon sx={{ minWidth: 0, pr: 1.5, color: 'inherit' }}>
             {typeof menuIcon === 'string'
               ? // @ts-ignore
-                React.createElement(Icons[menuIcon])
+              React.createElement(Icons[menuIcon])
               : menuIcon}
           </StyledListItemIcon>
         )}
@@ -202,7 +202,7 @@ const MenuNested = (menu: MenuType) => {
         <StyledListItemIcon sx={{ minWidth: 0, pr: 1.5, color: 'inherit' }}>
           {typeof menuIcon === 'string'
             ? // @ts-ignore
-              React.createElement(Icons[menuIcon])
+            React.createElement(Icons[menuIcon])
             : menuIcon}
         </StyledListItemIcon>
       )}
@@ -250,8 +250,8 @@ const ResponsiveDrawer = (props: Props) => {
       </Card>
       <List sx={{ px: 2 }}>
         <Stack direction="column" spacing={1}>
-          {menuLists.map(menu => (
-            <MenuNested key={menu.menuName} {...menu} />
+          {menuLists.map((menu, key) => (
+            <MenuNested key={menu.menuName + key} {...menu} />
           ))}
         </Stack>
       </List>

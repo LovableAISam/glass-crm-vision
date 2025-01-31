@@ -25,6 +25,7 @@ import activityMember from '../../../../packages/translation/en/activityMember.j
 import report from '../../../../packages/translation/en/report.json';
 import balanceCorrection from '../../../../packages/translation/en/balanceCorrection.json';
 import amlaHoliday from '../../../../packages/translation/en/amlaHoliday.json';
+import account from '../../../../packages/translation/en/account.json';
 
 interface TranslationResource {
   common: typeof common;
@@ -51,6 +52,7 @@ interface TranslationResource {
   report: typeof report;
   balanceCorrection: typeof balanceCorrection;
   amlaHoliday: typeof amlaHoliday;
+  account: typeof account;
 }
 
 // react-i18next versions lower than 11.11.0

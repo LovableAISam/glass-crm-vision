@@ -32,7 +32,7 @@ export interface ResponseTransactionSummaryDetail {
     secondaryIdentifier: number,
     tertiaryIdentifier: number,
     searchResult: DataTransactionSummary[];
-
+    detail: DataTransactionSummary[];
     orderNumberRoyalty: string;
     billerFee: string;
     bankFee: string;

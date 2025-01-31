@@ -12,6 +12,7 @@ const OTPInput = React.forwardRef((props: PasswordInputProps, ref) => {
   const { value, onChange, onComplete } = props;
 
   return (
+    // @ts-ignore
     <MuiOtpInput
       ref={ref}
       length={6}

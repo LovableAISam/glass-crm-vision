@@ -1,0 +1,29 @@
+import { DefaultRequest, ResponseData } from '@woi/core/api';
+import { apiMerchant } from '@woi/common/meta/apiPaths/coApiPaths';
+import apiPut from '@woi/common/api/apiPut';
+
+export interface MerchantUpdateResponse extends ResponseData { }
+
+export interface MerchantUpdateRequest extends DefaultRequest {
+  countryCode: string;
+  effectiveDateFrom: string;
+  effectiveDateTo: string;
+  merchantCodeCategory: string;
+  merchantCriteria: string;
+  merchantName: string;
+  merchantType: string;
+  phoneNumber: string;
+  photoLogo: string;
+  principalId: string;
+  status: boolean;
+}
+
+function useMerchantUpdateFetcher(baseUrl: string, id: string, payload: MerchantUpdateRequest) {
+  return apiPut<MerchantUpdateResponse>({
+    baseUrl,
+    path: `${apiMerchant}/${id}`,
+    payload,
+  });
+}
+
+export default useMerchantUpdateFetcher;

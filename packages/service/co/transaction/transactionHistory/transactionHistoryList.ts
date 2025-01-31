@@ -4,7 +4,7 @@ import apiGet from '@woi/common/api/apiGet';
 
 export type TransactionHistoryStatus = 'SUCCESS';
 
-type TransactionHistoryTransfer = {
+export type TransactionHistoryTransfer = {
   senderPhoneNumber: string;
   receiverAccountNo: string;
   transferAmount: number;
@@ -15,32 +15,32 @@ type TransactionHistoryTransfer = {
   };
 };
 
-type TransactionHistoryDeposit = {
+export type TransactionHistoryDeposit = {
   phoneNumber: string;
   from: string;
   depositAmount: number;
   chargeAmount: number;
 };
 
-type TransactionHistoryWithdraw = {
+export type TransactionHistoryWithdraw = {
   phoneNumber: string;
   withdrawAmount: number;
   chargeAmount: number;
 };
 
-type TransactionHistoryType = {
+export type TransactionHistoryType = {
   id: number;
   code: string;
   name: string;
 };
 
-type TransactionHistoryCategory = {
+export type TransactionHistoryCategory = {
   id: number;
   name: string;
   isRepeatable: boolean;
 };
 
-type TransactionHistoryMethod = {
+export type TransactionHistoryMethod = {
   id: number;
   code: string;
   name: string;

@@ -1,4 +1,3 @@
-import { constructUrlSearchParams, DefaultQueryPageRequest, ResponseData, ResultData } from '@woi/core/api';
 import { apiCityByCode } from '@woi/common/meta/apiPaths/coApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 

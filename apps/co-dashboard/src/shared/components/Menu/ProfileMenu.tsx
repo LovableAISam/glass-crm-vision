@@ -25,16 +25,21 @@ import { useTranslation } from 'react-i18next';
 import useBaseUrl from '@src/shared/hooks/useBaseUrl';
 import { useSnackbar } from 'notistack';
 import { useLogoutFetcher } from '@woi/service/co';
+import { useRouter } from 'next/router';
+import { useLastOpenedSpecDispatch } from '@src/shared/context/LastOpenedContext';
 
 const ProfileMenu = () => {
+  const router = useRouter();
   const dispatch = useAuthenticationSpecDispatch();
+  const dispatchLasOpened = useLastOpenedSpecDispatch();
   const { getConfirmation } = useConfirmationDialog();
   const { onNavigate } = useRouteRedirection();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const {
     actions: { openPopup },
   } = useConfigState();
-  const tokenData = JWTConfig.getTokenData();
+  const isMerchant = router.asPath.includes('/merchant/');
+  const tokenData = JWTConfig.getTokenData(isMerchant);
   const { t: tCommon } = useTranslation('common');
   const { baseUrl } = useBaseUrl();
   const { enqueueSnackbar } = useSnackbar();
@@ -58,6 +63,29 @@ const ProfileMenu = () => {
     });
 
     if (confirmed) {
+      if (isMerchant) {
+        dispatchLasOpened({
+          type: 'set-last-opened-tab',
+          payload: {
+            lastOpenedTabs: [],
+          },
+        });
+      } else {
+        dispatchLasOpened({
+          type: 'set-last-opened-tab',
+          payload: {
+            lastOpenedTabs: [
+              {
+                menuType: 'Menu',
+                menuName: 'Dashboard Home',
+                menuIcon: 'Home',
+                menuLink: '/',
+              },
+            ],
+          },
+        });
+      }
+
       const { result, error, displayMessage } = await useLogoutFetcher(
         baseUrl,
         {
@@ -65,8 +93,8 @@ const ProfileMenu = () => {
         },
       );
       if (result && !error) {
-        dispatch({ type: 'do-logout' });
-        onNavigate('/login');
+        dispatch({ type: 'do-logout', isMerchant: isMerchant });
+        onNavigate(isMerchant ? '/merchant/login' : '/login');
       } else {
         enqueueSnackbar(displayMessage || result?.message, {
           variant: 'error',
@@ -138,14 +166,7 @@ const ProfileMenu = () => {
         >
           <Stack direction="row" spacing={1} alignItems="center">
             <Avatar sx={{ width: 24, height: 24 }}>
-              <Image
-                src={PersonImg}
-                layout="fill"
-                // style={{
-                //   objectFit: 'cover',
-                // }}
-                alt="person"
-              />
+              <Image src={PersonImg} layout="fill" objectFit="cover" />
             </Avatar>
             <Stack direction="column" alignItems="flex-start">
               <Typography variant="subtitle2" style={{ textTransform: 'none' }}>

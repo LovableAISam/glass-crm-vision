@@ -6,10 +6,13 @@ const TRAILING_PREFIX = '/[coName]';
 
 function useRouterWithPrefix() {
   const router = useRouter();
-  const { route, query } = router;
-  const coName = query.coName as string || 'co';
+  const { route, asPath } = router;
+  const coName = asPath.split('/')
+    .filter(url => url)
+    .shift() as string || 'co';
   const formattedRoute = route.replace(PREFIX, coName);
-  const prefixText = formattedRoute.split('/').filter(url => url).shift() as string;
+  const replacePrefix = formattedRoute.split('/').filter(url => url).shift() as string;
+  const prefixText = replacePrefix !== '404' ? replacePrefix : coName;
 
   const getRoute = (_route: string) => {
     return _route.replace(PREFIX, prefixText);
@@ -23,8 +26,15 @@ function useRouterWithPrefix() {
     return `/${prefixText}${_route}`;
   };
 
-  const onNavigate = (url: string) => {
-    router.push(`/${prefixText}${url}`);
+  const onNavigate = (url?: UrlObject | string) => {
+    if (typeof url === 'string') {
+      router.push(`/${prefixText}${url}`);
+      return;
+    }
+    router.push({
+      ...url,
+      pathname: `/${prefixText}${url?.pathname}`,
+    });
   };
 
   return { prefix: PREFIX, prefixText, coName, onNavigate, getRoute, getRouteWithoutPrefix, generateRoute };

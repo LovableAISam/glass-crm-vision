@@ -110,6 +110,7 @@ const FormDatePicker = React.forwardRef(
 
     const handleChangeDateType = (dateType: DateType) => {
       let startDate = new Date();
+      let endDate = new Date();
       if (dateType === 'LAST_7_DAYS') {
         startDate = addDays(new Date(), -6);
       } else if (dateType === 'LAST_30_DAYS') {
@@ -117,18 +118,26 @@ const FormDatePicker = React.forwardRef(
       } else if (dateType === 'LAST_90_DAYS') {
         startDate = addDays(new Date(), -89);
       } else if (dateType === '7_DAYS') {
-        startDate = addDays(new Date(), +6);
+        endDate = addDays(new Date(), +7);
       } else if (dateType === '30_DAYS') {
-        startDate = addDays(new Date(), +29);
+        endDate = addDays(new Date(), +30);
       } else if (dateType === '90_DAYS') {
-        startDate = addDays(new Date(), +89);
+        endDate = addDays(new Date(), +90);
       }
       setDateType(dateType);
-      setSelectedDateTemp(oldForm => ({
-        ...oldForm,
-        startDate,
-        endDate: new Date(),
-      }));
+      if (upcomingDate) {
+        setSelectedDateTemp(oldForm => ({
+          ...oldForm,
+          startDate: new Date(),
+          endDate,
+        }));
+      } else {
+        setSelectedDateTemp(oldForm => ({
+          ...oldForm,
+          startDate,
+          endDate: new Date(),
+        }));
+      }
     };
 
     const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -256,6 +265,7 @@ const FormDatePicker = React.forwardRef(
               </List>
             </Grid>
             <Grid item md={8} xs={12}>
+              {/* @ts-ignore */}
               <DateRange
                 {...dateRangeProps}
                 onChange={item => {

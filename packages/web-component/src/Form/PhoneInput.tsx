@@ -7,10 +7,11 @@ type PasswordInputProps = TextFieldProps & {
   onChange?: ((newValue: string, info: MuiTelInputInfo) => void) | undefined;
   error: boolean;
   helperText?: React.ReactNode;
+  textFieldProps?: {};
 };
 
 const PhoneInput = React.forwardRef((props: PasswordInputProps, ref: any) => {
-  const { value, onChange, error, helperText, ...textFieldProps } = props;
+  const { value, onChange, error, helperText, textFieldProps } = props;
 
   return (
     <MuiTelInput

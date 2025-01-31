@@ -1,4 +1,4 @@
-import { ckAccessToken } from "@woi/common/meta/cookieKeys";
+import { ckAccessToken, ckMerchantAccessToken } from "@woi/common/meta/cookieKeys";
 import jwt_decode from "jwt-decode";
 import Cookie from "../Cookie";
 
@@ -10,6 +10,7 @@ export interface JWTData {
   authorities: string[];
   jti: string;
   client_id: string;
+  merchantCode: string;
 }
 
 export const isExpiredToken = (exp: number) => {
@@ -20,13 +21,13 @@ export const getJwtData = (token: string) => {
   return jwt_decode<JWTData>(token);
 };
 
-export const getToken = () => {
-  const accessToken = Cookie.get(ckAccessToken);
+export const getToken = (isMerchant: boolean) => {
+  const accessToken = isMerchant ? Cookie.get(ckMerchantAccessToken) : Cookie.get(ckAccessToken);
   return accessToken;
 };
 
-export const getTokenData = () => {
-  const token = getToken();
+export const getTokenData = (isMerchant: boolean = false) => {
+  const token = getToken(isMerchant);
   if (!token) return;
   return getJwtData(token);
 };

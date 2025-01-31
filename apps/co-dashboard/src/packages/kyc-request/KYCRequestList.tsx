@@ -1,5 +1,5 @@
 // Cores
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 // Components
 import {
@@ -23,7 +23,6 @@ import {
 import useModal from '@woi/common/hooks/useModal';
 import useKycRequestList from './hooks/useKycRequestList';
 import { batch, DateConvert } from '@woi/core';
-import useMenuPrivilege from '@src/shared/hooks/useMenuPrivilege';
 import { useTranslation } from 'react-i18next';
 
 // Types & Consts
@@ -37,7 +36,7 @@ const KYCRequestList = () => {
   const [selectedData, setSelectedData] = useState<KycPremiumMemberData | null>(
     null,
   );
-  const { checkAuthority } = useMenuPrivilege();
+  // const { checkAuthority } = useMenuPrivilege();
   const {
     filterForm,
     setFilterForm,

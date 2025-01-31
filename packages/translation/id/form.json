@@ -28,5 +28,8 @@
   "errorEmpty": "{{fieldName}} harus diisi minimal 1",
 
   "placeholderType": "ketik {{fieldName}}",
-  "placeholderSelect": "pilih {{fieldName}}"
+  "placeholderSelect": "pilih {{fieldName}}",
+  
+  "dateFieldLabel": "Saring Tanggal",
+  "dateFieldType": "tanggal"
 }

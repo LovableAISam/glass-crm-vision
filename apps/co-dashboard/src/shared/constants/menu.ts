@@ -15,6 +15,14 @@ export type MenuType = {
 const adminMenu: MenuType[] = [
   {
     menuType: 'Menu',
+    menuName: 'Merchant Management',
+    menuIcon: 'Storefront',
+    menuLink: '/merchant-management',
+    // privilege: 'merchant',
+    privilege: 'default',
+  },
+  {
+    menuType: 'Menu',
     menuName: 'Member Management',
     menuIcon: 'AccountBox',
     menuLink: '/member-management',
@@ -175,6 +183,66 @@ const adminMenu: MenuType[] = [
     menuIcon: 'History',
     menuLink: '/activity-history',
     privilege: 'activity-history',
+  },
+
+  // Merchant
+  {
+    menuType: 'Menu',
+    menuName: 'Account Information',
+    menuIcon: 'Badge',
+    children: [
+      {
+        menuType: 'Submenu',
+        menuName: 'Account Profile',
+        menuLink: '/merchant/account-profile',
+        privilege: 'default-merchant',
+      },
+      {
+        menuType: 'Submenu',
+        menuName: 'Balance Inquiry',
+        menuLink: '/merchant/balance-inquiry',
+        privilege: 'default-merchant',
+      },
+      {
+        menuType: 'Submenu',
+        menuName: 'Account History',
+        menuLink: '/merchant/account-history',
+        privilege: 'default-merchant',
+      },
+    ],
+  },
+  {
+    menuType: 'Menu',
+    menuName: 'User Management',
+    menuIcon: 'SupervisorAccount',
+    menuLink: '/merchant/user-management',
+    privilege: 'default-merchant',
+  },
+  {
+    menuType: 'Menu',
+    menuName: 'Cash Out Merchant',
+    menuIcon: 'Payments',
+    menuLink: '/merchant/cashout-merchant',
+    privilege: 'default-merchant',
+  },
+  {
+    menuType: 'Menu',
+    menuName: 'Create QR',
+    menuIcon: 'QrCodeScanner',
+    menuLink: '/merchant/create-qr',
+    privilege: 'default-merchant-dynamic',
+  },
+  {
+    menuType: 'Header',
+    menuName: 'Dashboard Settings',
+    privilege: 'default-merchant',
+  },
+  {
+    menuType: 'Menu',
+    menuName: 'Change Password',
+    menuIcon: 'Lock',
+    menuLink: '/merchant/change-password',
+    privilege: 'default-merchant',
   },
   {
     menuType: 'Header',

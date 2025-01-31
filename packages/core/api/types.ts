@@ -12,13 +12,24 @@ export interface ResultSubmit {
   last_insert_id: number;
 }
 
+export interface StatusErrorResponse {
+  code: string;
+  text: string;
+  type: string;
+  message: string;
+}
+
 export interface DefaultResponse {
   descriptions: Array<string | null>;
   details: Array<string>;
   errorCode: number;
   message: string;
-  status: number;
+  status: StatusErrorResponse;
   timestamp: string;
+  failure: string;
+  error: string;
+  error_description: string;
+  responseMessage: string;
 }
 
 export interface ErrorResponse {

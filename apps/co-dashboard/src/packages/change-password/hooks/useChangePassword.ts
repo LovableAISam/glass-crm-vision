@@ -10,6 +10,7 @@ import { useConfirmationDialog } from "@woi/web-component";
 import { useSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
 
 export interface ChangePasswordForm {
   password: string;
@@ -24,6 +25,7 @@ const initialChangePasswordForm: ChangePasswordForm = {
 };
 
 function useChangePassword() {
+  const router = useRouter();
   const formData = useForm<ChangePasswordForm>({
     defaultValues: initialChangePasswordForm,
   });
@@ -34,6 +36,7 @@ function useChangePassword() {
   const { onNavigate } = useRouteRedirection();
   const dispatch = useAuthenticationSpecDispatch();
   const { t: tCommon } = useTranslation('common');
+  const isMerchant = router.asPath.includes('/merchant/');
 
   const handleChangePassword = handleSubmit(async (form) => {
     const confirmed = await getConfirmation({
@@ -52,7 +55,7 @@ function useChangePassword() {
         enqueueSnackbar(tCommon('successUpdate', { text: 'Password' }), { variant: 'success' });
         reset();
         refetchPasswordChangedHistory();
-        dispatch({ type: 'do-logout' });
+        dispatch({ type: 'do-logout', isMerchant });
         onNavigate('/login');
       } else {
         enqueueSnackbar(errorData?.details?.[0] || tCommon('failedUpdate', { text: 'Password' }), { variant: 'error' });

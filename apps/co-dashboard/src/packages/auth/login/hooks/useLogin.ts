@@ -15,7 +15,6 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useTranslation } from 'react-i18next';
 import { generateMenu, MenuType } from "@src/shared/constants/menu";
 import { getJwtData } from "@woi/core/utils/jwt/jwt";
-import { stringify } from "json5";
 import { Cookie } from "@woi/core";
 import { ckAccessToken } from "@woi/common/meta/cookieKeys";
 
@@ -77,7 +76,7 @@ function useLogin() {
         onNavigate('/');
       }
     } else if (!accessToken && isLoggedIn) {
-      dispatch({ type: 'do-logout' });
+      dispatch({ type: 'do-logout', isMerchant: false });
       Router.reload();
     }
   }, [isLoggedIn, accessToken]);
@@ -90,6 +89,7 @@ function useLogin() {
       grant_type: 'password',
       username: form.username,
       password: form.password,
+      isMerchant: false // as a merchant?
     });
     if (result && !error) {
       dispatch({
@@ -97,6 +97,8 @@ function useLogin() {
         payload: {
           accessToken: result.access_token,
           refreshToken: result.refresh_token,
+          isMerchant: false,
+          merchantCode: result.merchantCode
         }
       });
       enqueueSnackbar(tCommon('successLogin'), { variant: 'success' });

@@ -1,6 +1,12 @@
 import React from 'react';
 import { Cookie } from '@woi/core';
-import { ckAccessToken, ckRefreshToken } from '@woi/common/meta/cookieKeys';
+import {
+  ckAccessToken,
+  ckMerchantAccessToken,
+  ckMerchantCode,
+  ckMerchantRefreshToken,
+  ckRefreshToken,
+} from '@woi/common/meta/cookieKeys';
 
 export interface AuthenticationData {
   isLoggedIn: boolean;
@@ -15,15 +21,18 @@ const AuthenticationDispatch = React.createContext<
 
 type AuthenticationAction =
   | {
-      type: 'do-login';
-      payload: {
-        accessToken: string;
-        refreshToken: string;
-      };
-    }
-  | {
-      type: 'do-logout';
+    type: 'do-login';
+    payload: {
+      accessToken: string;
+      refreshToken: string;
+      isMerchant: boolean;
+      merchantCode: string;
     };
+  }
+  | {
+    type: 'do-logout';
+    isMerchant: boolean;
+  };
 
 function specReducer(
   state: AuthenticationData,
@@ -31,8 +40,14 @@ function specReducer(
 ): AuthenticationData {
   switch (action.type) {
     case 'do-login':
-      Cookie.set(ckAccessToken, action.payload.accessToken);
-      Cookie.set(ckRefreshToken, action.payload.refreshToken);
+      if (action.payload.isMerchant) {
+        Cookie.set(ckMerchantAccessToken, action.payload.accessToken);
+        Cookie.set(ckMerchantRefreshToken, action.payload.accessToken);
+        Cookie.set(ckMerchantCode, action.payload.merchantCode);
+      } else {
+        Cookie.set(ckAccessToken, action.payload.accessToken);
+        Cookie.set(ckRefreshToken, action.payload.accessToken);
+      }
       return {
         ...state,
         isLoggedIn: true,
@@ -40,8 +55,14 @@ function specReducer(
         refreshToken: action.payload.refreshToken,
       };
     case 'do-logout':
-      Cookie.remove(ckAccessToken);
-      Cookie.remove(ckRefreshToken);
+      if (action.isMerchant) {
+        Cookie.remove(ckMerchantAccessToken);
+        Cookie.remove(ckMerchantRefreshToken);
+        Cookie.remove(ckMerchantCode);
+      } else {
+        Cookie.remove(ckAccessToken);
+        Cookie.remove(ckRefreshToken);
+      }
       return {
         ...state,
         isLoggedIn: false,
