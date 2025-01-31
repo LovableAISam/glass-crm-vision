@@ -12,11 +12,12 @@ import {
   TextField,
   Card,
 } from '@mui/material';
-
 import { Button, Token } from '@woi/web-component';
-import useForgotPassword from './hooks/useForgotPassword';
+
+// Hooks
 import { useController } from 'react-hook-form';
 import { TextValidation } from '@woi/core';
+import useForgotPassword from './hooks/useForgotPassword';
 
 const ForgotPassword = () => {
   const {

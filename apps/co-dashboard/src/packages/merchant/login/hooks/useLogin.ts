@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
 
+// Components
+import ReCAPTCHA from 'react-google-recaptcha';
+
 // Hooks
 import { useRouter } from 'next/router';
 import { useLoginFetcher } from '@woi/service/co';
@@ -11,7 +14,6 @@ import { useForm } from 'react-hook-form';
 import useBaseUrl from '@src/shared/hooks/useBaseUrl';
 
 // Types
-import ReCAPTCHA from 'react-google-recaptcha';
 import { useTranslation } from 'react-i18next';
 
 type LoginForm = {
