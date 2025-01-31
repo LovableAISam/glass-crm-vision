@@ -132,6 +132,19 @@ const Login = () => {
       >
         <Typography variant="subtitle2">{tAuth('loginCTA')}</Typography>
       </Button>
+
+      <Typography
+        variant="caption"
+        sx={{
+          position: 'absolute',
+          bottom: '0px',
+          left: '0px',
+          p: 2,
+          color: 'gray',
+        }}
+      >
+        Dev v.1.0.0
+      </Typography>
     </Stack>
   );
 };
