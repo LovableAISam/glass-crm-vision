@@ -149,17 +149,17 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
   const { field: fieldDistrict } = useController({
     name: 'district',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', { fieldName: 'District' }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', { fieldName: 'District' }),
+    // },
   });
 
   const { field: fieldVillage } = useController({
     name: 'village',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', { fieldName: 'Village' }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', { fieldName: 'Village' }),
+    // },
   });
 
   const { field: fieldPhoneNumber } = useController({
@@ -439,7 +439,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
               )}
             />
           </Grid>
-          <Grid item md={12} xs={12}>
+          <Grid item md={12} xs={12} hidden>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formDistrict')}
             </Typography>
@@ -474,7 +474,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
               )}
             />
           </Grid>
-          <Grid item md={12} xs={12}>
+          <Grid item md={12} xs={12} hidden>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formVillage')}
             </Typography>

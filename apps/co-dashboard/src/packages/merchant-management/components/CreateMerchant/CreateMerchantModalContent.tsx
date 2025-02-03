@@ -41,7 +41,7 @@ function CreateMerchantModalContent(props: CreateMerchantModalContentProps) {
       return <CreateMerchantPartner {...props} />;
     default:
       // @ts-ignore
-      return <CreateMerchantPartner {...props} />;
+      return <MerchantQRISAcquirerContent {...props} />;
   }
 }
 

@@ -109,7 +109,7 @@ const CreateMerchantModal = (props: CreateMerchantModalProps) => {
         </Stack>
       </DialogTitle>
       <DialogContent dividers={true}>
-        <Stack>
+        <Stack sx={{ display: 'none' }}>
           <Typography variant="subtitle2" gutterBottom>
             {tMerchant('formMerchantFor')}
           </Typography>

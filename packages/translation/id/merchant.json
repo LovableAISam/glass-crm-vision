@@ -29,8 +29,6 @@
   "logoEmpty": "Logo tidak terdaftar",
   "logoInfo": "<ul><li>Format gambar adalah png, jpeg, atau jpg</li><li>Ukuran minimum adalah 200px x 200px</li><li>Ukuran file maksimum adalah 2 MB</li></ul>",
 
-
-
   "detailMerchantType": "Tipe Merchant",
   "detailMerchantCategory": "Kategori Merchant",
   "detailMerchantCategoryCode": "Code Merchant Category",
@@ -149,10 +147,12 @@
   "formMonthlyGrossRevenue": "Gross Revenue",
   "formComparisonOfTransaction": "Comparison of Transaction",
   "formMerchantEmail": "Merchant Email",
+  "formIDNumberOrNIB": "ID Number/NIB",
   "formNIKNIB": "NIK/NIB",
   "formDateOfMerchantRelease": "Merchant Release",
   "formMDRPercentage": "MDR Percentage",
-  "formNMID": "NMID",
+  "formNMID": "NMID (National Merchant ID)",
+  "formTaxpayerIdentificationNumber": "Taxpayer Identification Number",
   "formAuthTokenURL": "Auth Token URL",
   "formPaymentNotifyURL": "Payment Notify URL",
   "formSecretKey": "Secret Key",

@@ -408,7 +408,7 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
 
             const payloadCreate: MerchantCreateQRISAcquirerRequest = {
                 // Merchant Data
-                merchantFunction: merchantFor.value,
+                // merchantFunction: merchantFor.value,
                 isIndividualBusiness: form.merchantType === 'individual',
                 merchantBrand: form.merchantBrand,
                 idType: form.identityNo,
@@ -418,8 +418,8 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
                 address: form.address,
                 addressProvince: TextGetter.getterString(form.province?.label),
                 addressCity: TextGetter.getterString(form.city?.label),
-                addressDistrict: TextGetter.getterString(form.district?.label),
-                addressVillage: TextGetter.getterString(form.village?.label),
+                // addressDistrict: TextGetter.getterString(form.district?.label),
+                // addressVillage: TextGetter.getterString(form.village?.label),
                 phoneNumber: onlyPhone,
                 countryCode: countryCode,
                 postalCode: form.postCode,
@@ -449,8 +449,8 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
                 merchantAddressCorrespondence: form.merchantAddressCorrespondence,
                 merchantAddressCorrespondenceProvince: TextGetter.getterString(form.province2?.label),
                 merchantAddressCorrespondenceCity: TextGetter.getterString(form.city2?.label),
-                merchantAddressCorrespondenceDistrict: TextGetter.getterString(form.district2?.label),
-                merchantAddressCorrespondenceVillage: TextGetter.getterString(form.village2?.label),
+                // merchantAddressCorrespondenceDistrict: TextGetter.getterString(form.district2?.label),
+                // merchantAddressCorrespondenceVillage: TextGetter.getterString(form.village2?.label),
                 merchantAddressCorrespondencePostalCode: form.postCode2,
                 merchantLocation: TextGetter.getterString(form.merchantLocation?.value),
                 merchantOtherLocation: form.anotherMerchantLocation,

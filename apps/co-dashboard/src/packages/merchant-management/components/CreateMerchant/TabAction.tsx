@@ -28,7 +28,7 @@ function TabAction(props: TabActionProps) {
       <Stepper
         nonLinear
         activeStep={activeStep}
-        sx={{ px: { xl: 10, md: 5, xs: 0 }, my: 2, mt: 6 }}
+        sx={{ px: { xl: 10, md: 5, xs: 0 }, my: 2, mt: 2 }}
       >
         {steps.map((label, index) => (
           <Step

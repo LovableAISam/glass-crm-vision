@@ -233,61 +233,61 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
   const { field: fieldNMID } = useController({
     name: 'nmid',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'nmid',
-      }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', {
+    //     fieldName: 'nmid',
+    //   }),
+    // },
   });
 
   const { field: fieldAuthTokenUrl } = useController({
     name: 'authTokenUrl',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'auth token url',
-      }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', {
+    //     fieldName: 'auth token url',
+    //   }),
+    // },
   });
 
   const { field: fieldPaymentNotifyUrl } = useController({
     name: 'paymentNotifyUrl',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'payment notify url',
-      }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', {
+    //     fieldName: 'payment notify url',
+    //   }),
+    // },
   });
 
   const { field: fieldSecretKey } = useController({
     name: 'secretKey',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'secret key',
-      }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', {
+    //     fieldName: 'secret key',
+    //   }),
+    // },
   });
 
   const { field: fieldClientId } = useController({
     name: 'clientId',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'client id',
-      }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', {
+    //     fieldName: 'client id',
+    //   }),
+    // },
   });
 
   const { field: fieldPublicKey } = useController({
     name: 'publicKey',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'public key',
-      }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', {
+    //     fieldName: 'public key',
+    //   }),
+    // },
   });
 
   const { field: fieldMerchantAddressCorrespondence } = useController({
@@ -323,21 +323,21 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
   const { field: fieldDistrict2 } = useController({
     name: 'district2',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'district',
-      }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', {
+    //     fieldName: 'district',
+    //   }),
+    // },
   });
 
   const { field: fieldVillage2 } = useController({
     name: 'village2',
     control,
-    rules: {
-      required: tForm('generalErrorRequired', {
-        fieldName: 'village',
-      }),
-    },
+    // rules: {
+    //   required: tForm('generalErrorRequired', {
+    //     fieldName: 'village',
+    //   }),
+    // },
   });
 
   const { field: fieldPostCode2 } = useController({
@@ -877,7 +877,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
           </Grid>
           <Grid item md={12} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
-              {tMerchant('formNIKNIB')}
+              {tMerchant('formIDNumberOrNIB')}
             </Typography>
             <TextField
               {...fieldNIKOrNIB}
@@ -887,7 +887,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
               inputProps={{ maxLength: 13 }}
               onKeyPress={handleKeyPress}
               placeholder={tForm('placeholderType', {
-                fieldName: 'nik / nib',
+                fieldName: 'id number / nib',
               })}
               sx={{
                 '& .MuiOutlinedInput-root': {
@@ -1141,7 +1141,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
               )}
             />
           </Grid>
-          <Grid item md={12} xs={12}>
+          <Grid item md={12} xs={12} hidden>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formDistrict')}
             </Typography>
@@ -1176,7 +1176,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
               )}
             />
           </Grid>
-          <Grid item md={12} xs={12}>
+          <Grid item md={12} xs={12} hidden>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formVillage')}
             </Typography>
@@ -1274,7 +1274,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
           )}
           <Grid item md={12} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
-              {tMerchant('formNPWP')}
+              {tMerchant('formTaxpayerIdentificationNumber')}
             </Typography>
             <TextField
               {...fieldNPWP}

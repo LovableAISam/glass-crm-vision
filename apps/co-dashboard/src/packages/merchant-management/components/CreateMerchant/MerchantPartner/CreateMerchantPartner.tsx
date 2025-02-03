@@ -272,7 +272,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
     <Box>
       <Stack direction="column" spacing={2}>
         <Grid container spacing={2} sx={{ pt: 1, width: 'fit-content' }}>
-          <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+          <Grid item md={12} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formMerchantName')}
             </Typography>
@@ -291,7 +291,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
               }}
             />
           </Grid>
-          <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+          <Grid item md={12} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formMerchantType')}
             </Typography>
@@ -317,7 +317,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
               )}
             />
           </Grid>
-          <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+          <Grid item md={12} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formMerchantCategory')}
             </Typography>
@@ -343,7 +343,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
               )}
             />
           </Grid>
-          <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+          <Grid item md={12} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formMerchantCategoryCode')}
             </Typography>
@@ -371,7 +371,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
           </Grid>
           {merchantDetail === null && !isUpdate && (
             <React.Fragment>
-              <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+              <Grid item md={12} xs={12}>
                 <Typography variant="subtitle2" gutterBottom>
                   {tMerchant('formEmail')}
                 </Typography>
@@ -391,7 +391,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
                   }}
                 />
               </Grid>
-              <Grid item md={6} style={{ paddingLeft: '0px' }}>
+              <Grid item md={6}>
                 <Stack direction="column" spacing={1} alignItems="flex-start">
                   <Typography variant="subtitle2">
                     {tMerchant('formPassword')}
@@ -442,7 +442,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
               </Grid>
             </React.Fragment>
           )}
-          <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+          <Grid item md={12} xs={12}>
             <Typography variant="subtitle2">
               {tMerchant('formPhoneNo')}
             </Typography>
@@ -459,7 +459,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
             />
           </Grid>
           {isUpdate && (
-            <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+            <Grid item md={12} xs={12}>
               <Typography variant="subtitle2" gutterBottom>
                 {tMerchant('formStatus')}
               </Typography>
@@ -488,7 +488,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
               />
             </Grid>
           )}
-          <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+          <Grid item md={12} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('formLogo')}
             </Typography>
@@ -527,7 +527,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
               </Card>
             </Box>
           </Grid>
-          <Grid item md={12} xs={12} style={{ paddingLeft: '0px' }}>
+          <Grid item md={12} xs={12}>
             <FormDatePicker
               {...fieldEffectiveDate}
               error={Boolean(errors.effectiveDate)}
