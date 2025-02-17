@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import ViewMerchantQrisAcquirerTab from './ViewMerchant/MerchantQRISAcquirer/ViewMerchantQrisAcquirerTab';
 import ViewMerchantAccountBindingTab from './ViewMerchant/MerchantAccountBinding/ViewMerchantAccountBindingTab';
+import ViewMerchantPartnerTab from './ViewMerchant/MerchantPartner/ViewMerchantPartnerTab';
 
 // Hooks & Utils
 import { useTranslation } from 'react-i18next';
@@ -28,7 +29,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
-import ViewMerchantPartnerTab from './ViewMerchant/MerchantPartner/ViewMerchantPartnerTab';
 
 type ViewMerchantModalProps = {
   isActive: boolean;
