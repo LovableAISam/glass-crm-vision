@@ -1,9 +1,9 @@
 // Core
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
-import ReCAPTCHA from "react-google-recaptcha";
+// import { useRouter } from 'next/router';
+// import ReCAPTCHA from "react-google-recaptcha";
 
 // Components
 import {
@@ -20,13 +20,18 @@ import { useController } from 'react-hook-form';
 import { TextValidation } from '@woi/core';
 
 const Login = () => {
-  const router = useRouter();
-  const { recaptchaRef, isVerified, formData, loadingSubmit, onSubmit, onChange } = useLogin();
-  const { locale } = router;
+  // const router = useRouter();
+  const {
+    // recaptchaRef,
+    // isVerified,
+    formData, loadingSubmit, onSubmit,
+    // onChange
+  } = useLogin();
+  // const { locale } = router;
   const { t: tAuth } = useTranslation('auth');
   const { t: tForm } = useTranslation('form');
   const { generateRoute } = useRouteRedirection();
-  const siteKey = process.env.NEXT_PUBLIC_SITE_KEY;
+  // const siteKey = process.env.NEXT_PUBLIC_SITE_KEY;
 
   const { control, formState: { errors } } = formData;
 
@@ -90,7 +95,7 @@ const Login = () => {
             </Typography>
           </Link>
         </Typography>
-        {siteKey && (
+        {/* {siteKey && (
           // @ts-ignore
           <ReCAPTCHA
             ref={recaptchaRef}
@@ -98,7 +103,7 @@ const Login = () => {
             onChange={onChange}
             hl={locale}
           />
-        )}
+        )} */}
       </Stack>
       <Button
         fullWidth
@@ -107,13 +112,13 @@ const Login = () => {
         sx={{ py: 1, px: 5, borderRadius: 2 }}
         loadingPosition="end"
         loading={loadingSubmit}
-        disabled={!isVerified}
+        // disabled={!isVerified}
         onClick={onSubmit}
       >
         <Typography variant="subtitle2">{tAuth('loginCTA')}</Typography>
       </Button>
     </Stack>
   );
-}
+};
 
 export default Login;
