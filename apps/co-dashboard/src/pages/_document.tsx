@@ -13,7 +13,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* Anda dapat menambahkan tag meta tambahan atau link di sini */}
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
