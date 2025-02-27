@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { useCommunityOwner } from "@src/shared/context/CommunityOwnerContext";
+import useRouteRedirection from "@src/shared/hooks/useRouteRedirection";
 
 import AuthContainer from '@src/shared/components/Container/AuthContainer';
 import Login from '@src/packages/auth/login/Login';
 
 const LoginPage = () => {
   const { t: tAuth } = useTranslation('auth');
+  const { coDetail } = useCommunityOwner();
+  const { onNavigate } = useRouteRedirection();
+
+  useEffect(() => {
+    if (!coDetail) {
+      onNavigate('/404');
+    }
+  }, []);
+
+  if (!coDetail) {
+    return <div />;
+  }
 
   return (
     <AuthContainer

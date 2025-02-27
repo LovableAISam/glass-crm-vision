@@ -217,6 +217,13 @@ export const apiCommunityOwnerDeactivate = '/admin/api/v1/community-owner/deacti
 export const apiCommunityOwnerPICLock = '/admin/api/v1/community-owner/pic-lock';
 
 /**
+ * Community Owner
+ * usage for community owner
+ * Contract: admin/communityOwner/*
+ */
+export const apiCommunityOwnerDetail = '/admin/api/v1/community-owner/detail';
+
+/**
  * CRUD Application
  * usage for CRUD application
  * Contract: admin/application/*

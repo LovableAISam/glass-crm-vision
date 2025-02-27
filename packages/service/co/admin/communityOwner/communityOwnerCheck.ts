@@ -1,4 +1,4 @@
-import { apiCommunityOwnerDetail } from '@woi/common/meta/apiPaths/coApiPaths';
+import { apiCommunityOwnerDetail } from '@woi/common/meta/apiPaths/principalApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 import { CommunityOwnerDetailData } from './communityOwnerDetail';
 import { constructUrlSearchParams } from '@woi/core/api';

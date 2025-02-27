@@ -1,6 +1,6 @@
 import { apiCommunityOwner } from '@woi/common/meta/apiPaths/principalApiPaths';
 import apiGet from '@woi/common/api/apiGet';
-import { CommunityOwnerStatusType } from './communityOwnerList';
+// import { CommunityOwnerStatusType } from './communityOwnerList';
 
 export interface CommunityOwnerAddress {
   address: string;
@@ -94,7 +94,7 @@ export interface CommunityOwnerDetailData {
   name: string;
   registrationNeedOtp: boolean;
   siupNo: string;
-  status: CommunityOwnerStatusType;
+  // status: CommunityOwnerStatusType;
   usersOTP: CommunityOwnerUserOTP[];
   usersPIC: CommunityOwnerUserPIC[];
 }

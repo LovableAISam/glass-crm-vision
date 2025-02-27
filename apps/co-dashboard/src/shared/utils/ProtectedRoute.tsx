@@ -12,7 +12,6 @@ type ProtectedRouteProps = {
 
 export const unprotectedRoutes = [
   '/login',
-  '/register',
   '/reset-password',
   '/forgot-password',
   '/expired-link',

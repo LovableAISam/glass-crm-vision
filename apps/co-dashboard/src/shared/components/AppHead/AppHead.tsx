@@ -7,17 +7,17 @@ import { useRouter } from 'next/router';
 
 const AppHead = () => {
   const { theme } = useGeneralInfoSpec();
-  const { coName } = useCommunityOwner();
+  const { coName, coDetail } = useCommunityOwner();
   const { asPath } = useRouter();
 
   return (
     <AppHeadComponent
-      title={`${coName.toUpperCase()} - CO Dashboard`}
+      title={`${coDetail ? `${coName.toUpperCase()} -` : ''} CO Dashboard`}
       color={theme.palette.primary.main}
       logo={<link rel="shortcut icon" href="/logo.png" />}
       asPath={asPath}
     />
-  )
-}
+  );
+};
 
 export default AppHead;

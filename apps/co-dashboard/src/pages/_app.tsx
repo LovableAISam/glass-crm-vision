@@ -186,8 +186,9 @@ App.getInitialProps = async (props: MyAppProps) => {
     }
   }
   if (ctx.asPath !== '/') {
+    const principalApi = process.env.NEXT_PUBLIC_BASE_URL_API_PRINCIPAL!;
     const { result, error } = await useCommunityOwnerCheckFetcher(
-      `${process.env.NEXT_PUBLIC_BASE_URL_API!}/${coName}`,
+      `${principalApi ? principalApi : 'https://mt-revamp-principal-api-dev.carteraph.com'}`,
       {
         code: coName,
         key: 'RhrWFbgYA9m96sqDdKmheUCuMjEmX7bu',
