@@ -12,7 +12,7 @@ const AppHead = () => {
 
   return (
     <AppHeadComponent
-      title={`${coDetail ? `${coName.toUpperCase()} -` : ''} CO Dashboard`}
+      title={`${coDetail || coName === 'co' ? `${coName.toUpperCase()} -` : ''} CO Dashboard`}
       color={theme.palette.primary.main}
       logo={<link rel="shortcut icon" href="/logo.png" />}
       asPath={asPath}

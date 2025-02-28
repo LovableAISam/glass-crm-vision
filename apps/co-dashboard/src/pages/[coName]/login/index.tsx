@@ -10,16 +10,16 @@ import Login from '@src/packages/auth/login/Login';
 
 const LoginPage = () => {
   const { t: tAuth } = useTranslation('auth');
-  const { coDetail } = useCommunityOwner();
+  const { coDetail, coName } = useCommunityOwner();
   const { onNavigate } = useRouteRedirection();
 
   useEffect(() => {
-    if (!coDetail) {
+    if (!coDetail && coName !== 'co') {
       onNavigate('/404');
     }
   }, []);
 
-  if (!coDetail) {
+  if (!coDetail && coName !== 'co') {
     return <div />;
   }
 
