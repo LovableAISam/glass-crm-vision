@@ -47,7 +47,7 @@ function StatusProgress(props: StatusProgressProps) {
     });
 
     if (confirmed) {
-      const { error, errorData } = await useApplicationProvisioningResumeFetcher(baseUrl, selectedData.communityOwnerId)
+      const { error, errorData } = await useApplicationProvisioningResumeFetcher(baseUrl, selectedData.id)
       if (!error) {
         enqueueSnackbar('Step successfully retry!', { variant: 'success' });
         setAnchorEl(null);
