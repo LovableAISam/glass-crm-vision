@@ -110,6 +110,9 @@ const AddPICModal = (props: AddPICModalProps) => {
   const { field: fieldActiveDate } = useController({
     name: 'activeDate',
     control,
+    rules: {
+      required: 'Effective date must be filled.',
+    }
   });
 
   const { field: fieldInActiveDate } = useController({
@@ -319,6 +322,8 @@ const AddPICModal = (props: AddPICModalProps) => {
                         borderRadius: 3,
                       }
                     }}
+                    error={Boolean(errors.activeDate)}
+                    helperText={errors.activeDate?.message}
                   />
                 </Stack>
               </Grid>
