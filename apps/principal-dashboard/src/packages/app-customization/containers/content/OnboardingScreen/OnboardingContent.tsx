@@ -55,6 +55,7 @@ function OnboardingContent(props: OnboardingContentProps) {
               <Typography variant="body2">{tAppCustomization('onboardingFormHeadline')}</Typography>
               <FormEditor
                 value={onBoardingScreen.title}
+                maxLength={30}
                 onChange={(value) => {
                   dispatch({
                     type: 'UPDATE_ONBOARDING_SCREEN',
@@ -72,6 +73,7 @@ function OnboardingContent(props: OnboardingContentProps) {
               <Typography variant="body2">{tAppCustomization('onboardingFormDescription')}</Typography>
               <FormEditor
                 value={onBoardingScreen.description}
+                maxLength={230}
                 onChange={(value) => {
                   dispatch({
                     type: 'UPDATE_ONBOARDING_SCREEN',
