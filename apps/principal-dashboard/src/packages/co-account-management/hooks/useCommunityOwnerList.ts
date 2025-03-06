@@ -52,8 +52,8 @@ function useCommunityOwnerList() {
   );
 
   const statusOptions: OptionMap<CommunityOwnerStatusType>[] = useMemo(() => {
-    if (!communityOwnerStatusList) return [];
-    return (Object.entries(communityOwnerStatusList).map(([key, value]) => ({
+    if (!communityOwnerStatusList?.result) return [];
+    return (Object.entries(communityOwnerStatusList?.result).map(([key, value]) => ({
       label: value,
       value: key as CommunityOwnerStatusType
     })));
