@@ -34,5 +34,6 @@ declare module '@woi/privilege' {
     | 'bank-account-summary'
     | 'activity-history'
     | 'balance-correction'
+    | 'fds-history'
     | 'p2p-outgoing-report';
 }

@@ -130,6 +130,24 @@ const adminMenu: MenuType[] = [
         menuLink: '/bank-account-summary',
         privilege: 'bank-account-summary',
       },
+      {
+        menuType: 'Submenu',
+        menuName: 'QRIS Report',
+        menuLink: '/qris-report',
+        privilege: 'default',
+      },
+      {
+        menuType: 'Submenu',
+        menuName: 'QRIS Settlement',
+        menuLink: '/qris-settlement',
+        privilege: 'default',
+      },
+      {
+        menuType: 'Submenu',
+        menuName: 'Direct Debit Settlement',
+        menuLink: '/direct-debit-settlement',
+        privilege: 'default',
+      },
     ],
   },
   {
@@ -169,6 +187,14 @@ const adminMenu: MenuType[] = [
         privilege: 'balance-correction',
       },
     ]
+  },
+  {
+    menuType: 'Menu',
+    menuName: 'FDS History',
+    menuIcon: 'SafetyCheck',
+    menuLink: '/fds-history',
+    // privilege: 'fds-history',
+    privilege: 'default',
   },
   {
     menuType: 'Menu',

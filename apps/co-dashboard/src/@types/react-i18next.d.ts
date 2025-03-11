@@ -26,6 +26,7 @@ import report from '../../../../packages/translation/en/report.json';
 import balanceCorrection from '../../../../packages/translation/en/balanceCorrection.json';
 import amlaHoliday from '../../../../packages/translation/en/amlaHoliday.json';
 import account from '../../../../packages/translation/en/account.json';
+import fDSHistory from '../../../../packages/translation/en/fDSHistory.json';
 
 interface TranslationResource {
   common: typeof common;
@@ -53,6 +54,7 @@ interface TranslationResource {
   balanceCorrection: typeof balanceCorrection;
   amlaHoliday: typeof amlaHoliday;
   account: typeof account;
+  fDSHistory: typeof fDSHistory;
 }
 
 // react-i18next versions lower than 11.11.0

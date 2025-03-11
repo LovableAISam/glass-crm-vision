@@ -1,0 +1,22 @@
+{
+  "pageTitleTitle": "FDS History",
+
+  "titleEmptyState": "FDS History",
+
+  "filterPhoneNumber": "Phone Number",
+  "typePhoneNumber": "type phone number",
+  "filterDate": "Date",
+  "typeDate": "type date",
+  "filterTransactionType": "Transaction Type",
+  "placeholderTransactionType": "transaction type",
+
+  "tableHeaderSender": "Sender",
+  "tableHeaderName": "Name",
+  "tableHeaderCreatedDate": "Created Date",
+  "tableHeaderRefId": "Ref ID",
+  "tableHeaderReceiver": "Receiver",
+  "tableHeaderAccountNo": "Account No",
+  "tableHeaderAmount": "Amount",
+  "tableHeaderPaymentMethod": "Payment Method",
+  "tableHeaderStatus": "Status"
+}

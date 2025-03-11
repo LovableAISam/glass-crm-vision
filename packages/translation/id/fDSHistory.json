@@ -1,0 +1,22 @@
+{
+  "pageTitleTitle": "Riwayat FDS",
+
+  "titleEmptyState": "FDS History",
+
+  "filterPhoneNumber": "Nomor Telepon",
+  "typePhoneNumber": "ketik nomor telepon",
+  "filterDate": "Tanggal",
+  "typeDate": "ketik tanggal",
+  "filterTransactionType": "Tipe Transaksi",
+  "placeholderTransactionType": "tipe transaksi",
+
+  "tableHeaderSender": "Pengirim",
+  "tableHeaderName": "Name",
+  "tableHeaderCreatedDate": "Tanggal Dibuat",
+  "tableHeaderRefId": "ID Ref",
+  "tableHeaderReceiver": "Penerima",
+  "tableHeaderAccountNo": "No Rekening",
+  "tableHeaderAmount": "Jumlah",
+  "tableHeaderPaymentMethod": "Cara Pembayaran",
+  "tableHeaderStatus": "Status"
+}

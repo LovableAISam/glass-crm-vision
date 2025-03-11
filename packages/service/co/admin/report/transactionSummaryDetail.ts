@@ -13,6 +13,16 @@ export interface DataTransactionSummary {
     referenceNumber: string,
     referralNumber: number,
     beneficiaryAccountNumber: string;
+    date: string,
+    transactionType: string,
+    drCr: string;
+    referenceNo: string,
+    orderId: string;
+    primaryIdentifier: string;
+    secondaryIdentifier: string;
+    tertiaryIdentifier: string;
+    bnisorc: string;
+    beneficiaryAccount: string;
 }
 
 export interface ResponseTransactionSummaryDetail {
