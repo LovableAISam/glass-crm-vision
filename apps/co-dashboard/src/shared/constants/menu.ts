@@ -13,14 +13,14 @@ export type MenuType = {
 
 // Admin Menu
 const adminMenu: MenuType[] = [
-  // {
-  //   menuType: 'Menu',
-  //   menuName: 'Merchant Management',
-  //   menuIcon: 'Storefront',
-  //   menuLink: '/merchant-management',
-  //   // privilege: 'merchant',
-  //   privilege: 'default',
-  // },
+  {
+    menuType: 'Menu',
+    menuName: 'Merchant Management',
+    menuIcon: 'Storefront',
+    menuLink: '/merchant-management',
+    // privilege: 'merchant',
+    privilege: 'default',
+  },
   {
     menuType: 'Menu',
     menuName: 'Member Management',
