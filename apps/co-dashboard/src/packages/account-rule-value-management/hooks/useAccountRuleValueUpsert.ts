@@ -33,6 +33,7 @@ export interface AccountRuleValueForm {
   valueUnregisterMember: number | null;
   currency: OptionMap<string> | null;
   effectiveDate: DatePeriod;
+  intervalTime: number | null;
 }
 
 const initialAccountRuleValueForm: AccountRuleValueForm = {
@@ -45,6 +46,7 @@ const initialAccountRuleValueForm: AccountRuleValueForm = {
     startDate: null,
     endDate: null,
   },
+  intervalTime: null
 };
 
 interface AccountRuleValueUpsertProps {
@@ -188,6 +190,7 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
           valueUnregisterMember: TextGetter.getterNumber(form.valueUnregisterMember),
           startDate: stringToDateFormat(form.effectiveDate.startDate),
           endDate: stringToDateFormat(form.effectiveDate.endDate),
+          intervalTime: TextGetter.getterNumber(form.intervalTime),
         });
       }
     } else {
@@ -209,6 +212,7 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
           valueUnregisterMember: TextGetter.getterNumber(form.valueUnregisterMember),
           startDate: stringToDateFormat(form.effectiveDate.startDate),
           endDate: stringToDateFormat(form.effectiveDate.endDate),
+          intervalTime: TextGetter.getterNumber(form.intervalTime),
         });
       }
     }
@@ -232,6 +236,7 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
             startDate: result.startDate ? new Date(result.startDate) : null,
             endDate: result.endDate ? new Date(result.endDate) : null
           });
+          setValue('intervalTime', result.intervalTime);
         }
       },
     }

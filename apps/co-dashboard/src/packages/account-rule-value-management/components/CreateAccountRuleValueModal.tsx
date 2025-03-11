@@ -48,11 +48,13 @@ const CreateAccountRuleValueModal = (
   const {
     formState: { errors },
     control,
+    getValues
   } = formData;
   const { t: tCommon } = useTranslation('common');
   const { t: tAccountRuleValue } = useTranslation('accountRuleValue');
   const { t: tForm } = useTranslation('form');
 
+  const accountRule = getValues('accountRuleId.label');
   const isUpdate = Boolean(selectedData);
 
   const { field: fieldAccountRuleId } = useController({
@@ -109,6 +111,19 @@ const CreateAccountRuleValueModal = (
       validate: value => {
         if (value.startDate === null || value.endDate === null)
           return tForm('generalErrorRequired', { fieldName: 'effective date' });
+      },
+    },
+  });
+
+  const { field: fieldInterval } = useController({
+    name: 'intervalTime',
+    control,
+    rules: {
+      validate: value => {
+        if (!value && accountRule === 'Fraud Detection System') {
+          return tForm('generalErrorRequired', { fieldName: 'interval' });
+        }
+        return undefined;
       },
     },
   });
@@ -242,6 +257,26 @@ const CreateAccountRuleValueModal = (
               helperText={errors.valueRegisterMember?.message}
             />
           </Grid>
+          {accountRule === 'Fraud Detection System' && (
+            <Grid item md={6} xs={12}>
+              <Typography variant="subtitle2" gutterBottom>
+                {tAccountRuleValue('formInterval')}
+              </Typography>
+              <TextField
+                {...fieldInterval}
+                fullWidth
+                placeholder={tAccountRuleValue('placeholderInterval')}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    borderRadius: 3,
+                  },
+                }}
+                InputProps={{ inputComponent: NumberFormat as any }}
+                error={Boolean(errors.intervalTime)}
+                helperText={errors.intervalTime?.message}
+              />
+            </Grid>
+          )}
           <Grid item md={12} xs={12}>
             <Typography variant="subtitle2" gutterBottom>
               {tAccountRuleValue('formCurrency')}

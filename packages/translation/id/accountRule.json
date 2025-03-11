@@ -18,5 +18,7 @@
 
   "formAccountRuleCode": "Kode Account Rule",
   "formAccountRuleName": "Nama Account Rule",
-  "formDescription": "Deskripsi"
+  "formDescription": "Deskripsi",
+  "formInterval": "Interval (Menit)",
+  "placeholderInterval": "The interval is in minutes"
 }

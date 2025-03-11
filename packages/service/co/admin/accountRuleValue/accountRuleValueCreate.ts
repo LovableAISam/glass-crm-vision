@@ -15,6 +15,7 @@ export interface AccountRuleValueCreateRequest extends DefaultRequest {
   currencyName: string;
   startDate: string;
   endDate: string;
+  intervalTime: number;
 }
 
 function useAccountRuleValueCreateFetcher(baseUrl: string, payload: AccountRuleValueCreateRequest) {

@@ -24,5 +24,7 @@
   "formForUnregisterMember": "For Basic Member",
   "formForRegisterMember": "For Verified Member",
   "formCurrency": "Currency",
-  "formEffectiveDate": "Effective Date"
+  "formEffectiveDate": "Effective Date",
+  "formInterval": "Interval (Minute)",
+  "placeholderInterval": "The interval is in minutes"
 }

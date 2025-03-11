@@ -13,6 +13,7 @@ export interface AccountRuleValueDetailData extends ResponseData {
   accountRuleSecureId: string;
   currencySecureId: string;
   currencyName: string;
+  intervalTime: number;
 }
 
 function useAccountRuleValueDetailFetcher(baseUrl: string, id: string) {

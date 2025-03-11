@@ -15,6 +15,7 @@ export interface AccountRuleValueUpdateRequest extends DefaultRequest {
   currencyName: string;
   startDate: string;
   endDate: string;
+  intervalTime: number;
 }
 
 function useAccountRuleValueUpdateFetcher(baseUrl: string, id: string, payload: AccountRuleValueUpdateRequest) {
