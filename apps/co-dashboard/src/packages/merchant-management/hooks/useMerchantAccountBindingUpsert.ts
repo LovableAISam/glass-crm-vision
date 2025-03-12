@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import { TextGetter } from "@woi/core";
 import { stringToDateFormat } from "@woi/core/utils/date/dateConvert";
 import { useCityListFetcher, useKecamatanListFetcher, useKelurahanListFetcher, useMerchantCategoryCodeListFetcher, useMerchantCategoryListFetcher, useMerchantLocationListFetcher, useMerchantQRTypeListFetcher, useMerchantTypeListFetcher, useMerchantUpdateQRISAcquirerFetcher, useProvinceListFetcher, userMerchantCreateQRISAcquirerFetcher } from "@woi/service/co";
+import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 
 // Types & Consts
 import { DatePeriod } from "@woi/core/utils/date/types";
@@ -20,7 +21,6 @@ import { BankStatus } from "@woi/service/principal/admin/bank/bankList";
 import { MerchantCreateQRISAcquirerRequest } from "@woi/service/co/merchant/merchantCreateQRISAcquirer";
 import { MerchantCategoryCodeRequest } from "@woi/service/co/merchant/merchantCategoryListCode";
 import { MerchantUpdateQRISAcquirerRequest } from "@woi/service/co/merchant/merchantUpdateQRISAcquirer";
-import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 
 export interface MerchantForm {
     // Merchant Data

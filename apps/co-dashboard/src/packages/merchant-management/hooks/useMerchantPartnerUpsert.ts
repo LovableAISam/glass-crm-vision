@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import useBaseUrl from "@src/shared/hooks/useBaseUrl";
 import { useConfirmationDialog } from "@woi/web-component";
 import { useTranslation } from "react-i18next";
+import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 
 // Types & Consts
 import { OptionMap } from "@woi/option";
@@ -20,7 +21,6 @@ import { MerchantDataList } from "@woi/service/co/merchant/merchantList";
 import { MerchantDetail } from "@woi/service/co/merchant/merchantDetail";
 import { MerchantCreateRequest } from "@woi/service/co/merchant/merchantCreate";
 import { MerchantUpdateRequest } from "@woi/service/co/merchant/merchantpdate";
-import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 
 export interface MerchantForm {
     merchantName: string;
