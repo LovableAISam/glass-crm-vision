@@ -82,6 +82,7 @@
   "identityDataFormCoName": "CO Name",
   "identityDataFormEffectiveDate": "Effective Date",
   "identityDataFormSIUPNo": "SIUP No",
+  "identityDataFormBusinessLicenseNo": "Business License Number",
   "identityDataFormEmail": "Email",
   "identityDataFormBackLogo": "Bank Logo",
   "identityDataFormBackgroupCard": "Background Card",

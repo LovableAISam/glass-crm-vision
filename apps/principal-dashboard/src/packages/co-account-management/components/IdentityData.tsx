@@ -232,7 +232,7 @@ function IdentityData(props: CreateCOModalContentProps) {
         </Grid>
         <Grid item md={6} xs={12}>
           <Stack direction="column" spacing={1}>
-            <Typography variant="subtitle2">{tCO('identityDataFormSIUPNo')}</Typography>
+            <Typography variant="subtitle2">{tCO('identityDataFormBusinessLicenseNo')}</Typography>
             <TextField
               {...fieldSiupNo}
               fullWidth
