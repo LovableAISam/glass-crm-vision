@@ -14,7 +14,7 @@ import {
   useAccountHistoryPrintFetcher,
   useMerchantAccountHistoryFetcher,
   useRefundReasonListFetcher,
-  useQrTypeListFetcher,
+  useMerchantQRTypeListFetcher,
 } from '@woi/service/co';
 import {
   AccountHistoryDetailData,
@@ -132,7 +132,7 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
   const { data: qrTypeData } = useQuery(
     ['qris-type-list'],
     async () =>
-      useQrTypeListFetcher(baseUrl),
+      useMerchantQRTypeListFetcher(baseUrl),
     { refetchOnWindowFocus: false },
   );
 

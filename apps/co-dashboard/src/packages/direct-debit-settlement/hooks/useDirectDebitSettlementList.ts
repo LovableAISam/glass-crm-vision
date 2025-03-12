@@ -1,11 +1,10 @@
 // Cores
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 // Hooks & Utils
 import {
   useDirectDebitSettlementFetcher,
-  useMerchantCriteriaListFetcher,
   useDirectDebitSettlementExportFetcher,
 } from '@woi/service/co';
 import useBaseUrl from '@src/shared/hooks/useBaseUrl';
@@ -79,30 +78,10 @@ function useDirectDebitSettlementList(props: TransactionSummaryProps) {
 
   const { handleSubmit } = formData;
 
-  //Get data for Merchant Criteria dropdown
-  const { data: MerchantCriteriaListTypeData } = useQuery(
-    ['merchant-criteria-type-list'],
-    async () => useMerchantCriteriaListFetcher(baseUrl),
-    { refetchOnWindowFocus: false },
-  ); 
-  
   const statusOptions: OptionMap<string>[] = [
     { label: 'Paid', value: 'paid' },
     { label: 'Not Paid', value: 'not paid' },
   ];
-
-  const merchantCriteriaTypeOptions = useMemo(() => {
-    if (
-      !MerchantCriteriaListTypeData ||
-      !Array.isArray(MerchantCriteriaListTypeData.result)
-    )
-      return [];
-    return MerchantCriteriaListTypeData.result.map(key => ({
-      label:
-        key.code === '' ? key.definition : `${key.definition} (${key.code})`,
-      value: key.id,
-    }));
-  }, [MerchantCriteriaListTypeData]);
 
   const directDebitSettlementPayload: DirectDebitSettlementRequest = {
     startAt: stringToDateFormat(debouncedFilter.endAt.startDate),
@@ -218,7 +197,6 @@ function useDirectDebitSettlementList(props: TransactionSummaryProps) {
     handleSort,
     qrisReportData: qrisReportData?.result?.data || [],
     qrisReportStatus,
-    merchantCriteriaTypeOptions,
     handleDeleteFilter,
     handleExport,
     fetchTransactionList: () => {

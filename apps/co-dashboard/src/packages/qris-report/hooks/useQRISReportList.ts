@@ -7,13 +7,13 @@ import {
   useQRISReportListFetcher,
   useKycListFetcher,
   useMerchantCriteriaListFetcher,
-  useQrTypeListFetcher,
-  useQrisTypeListFetcher,
-  useQrLocationListFetcher,
+  useMerchantQRTypeListFetcher,
+  useMerchantLocationListFetcher,
   useMerchantCategoryCodeListFetcher,
   useQRISReportExportFetcher,
 } from '@woi/service/co';
 import useBaseUrl from '@src/shared/hooks/useBaseUrl';
+import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 import useDebounce from '@woi/common/hooks/useDebounce';
 import {
   calculateDateRangeDays,
@@ -87,6 +87,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   const [direction, setDirection] = useState<'desc' | 'asc'>('desc');
   const [filterForm, setFilterForm] = useState<FilterForm>(initialFilterForm);
   const { baseUrl } = useBaseUrl();
+  const { baseUrlPrincipal } = useBaseUrlPrincipal();
   const debouncedFilter = useDebounce(filterForm, 300);
   const [isLoadingDownload, setIsLoadingDownload] = useState<boolean>(false);
 
@@ -114,7 +115,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for Merchant Criteria dropdown
   const { data: MerchantCriteriaListTypeData } = useQuery(
     ['merchant-criteria-type-list'],
-    async () => useMerchantCriteriaListFetcher(baseUrl),
+    async () => useMerchantCriteriaListFetcher(baseUrlPrincipal),
     { refetchOnWindowFocus: false },
   );
 
@@ -134,7 +135,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for QR Type dropdown
   const { data: QrListTypeData } = useQuery(
     ['qr-type-list'],
-    async () => useQrTypeListFetcher(baseUrl),
+    async () => useMerchantQRTypeListFetcher(baseUrl),
     { refetchOnWindowFocus: false },
   );
 
@@ -156,7 +157,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for QRIS Type dropdown
   const { data: QrisListTypeData } = useQuery(
     ['qris-type-list'],
-    async () => useQrisTypeListFetcher(baseUrl),
+    async () => useMerchantQRTypeListFetcher(baseUrl),
     { refetchOnWindowFocus: false },
   );
 
@@ -179,7 +180,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for QR Location Type dropdown
   const { data: QrLocationListTypeData } = useQuery(
     ['qr-location-type-list'],
-    async () => useQrLocationListFetcher(baseUrl),
+    async () => useMerchantLocationListFetcher(baseUrlPrincipal),
     { refetchOnWindowFocus: false },
   );
 
@@ -206,7 +207,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
 
   const { data: MerchantCategoryCodeRequest } = useQuery(
     ['merchant-category-code-list'],
-    async () => useMerchantCategoryCodeListFetcher(baseUrl, payload),
+    async () => useMerchantCategoryCodeListFetcher(baseUrlPrincipal, payload),
     { refetchOnWindowFocus: false },
   );
 

@@ -623,95 +623,77 @@ export const apiApprovalLayerList = '/admin/api/v1/approval-layer/list';
  * usage for Create QR
  * Contract: merchant/Create-QR
  */
-export const apiCreateQR = '/merchant/api/v1/merchant/qr/dynamic';
+export const apiCreateQR = '/api/v1/merchant/qr/dynamic';
 
 /**
  * QR Dynamic Status
  * usage for QR Dynamic Status
  * Contract: merchant/QRDynamic/Status
  */
-export const apiQRDynamicStatus = '/merchant/api/v1/merchant/qr/dynamic-status';
+export const apiQRDynamicStatus = '/api/v1/merchant/qr/dynamic-status';
 
 /**
  * QR Dynamic Update
  * usage for QR Dynamic Update
  * Contract: merchant/QRDynamic/Update
  */
-export const apiQRDynamicUpdate = '/merchant/api/v1/merchant/qr-dynamic-update-status';
+export const apiQRDynamicUpdate = '/api/v1/merchant/qr-dynamic-update-status';
 
 /**
  * Merchant Detail
  * usage for Merchant Detail
  * Contract: merchant/Merchant-Detail
  */
-export const apiMerchantDetail = '/merchant/api/v1/merchant/detail';
-
-/**
- * Merchant Type List
- * usage for Merchant Type List
- * Contract: merchant/Merchant/Type/Get-List
- */
-export const apiMerchantTypeList = '/merchant/api/v1/merchant/type/get-list';
-
-/**
- * Merchant Category List
- * usage for Merchant Category List
- * Contract: merchant/Merchant/Category/Get-List
- */
-export const apiMerchantCategoryList =
-  '/merchant/api/v1/merchant/criteria/get-list';
+export const apiMerchantDetail = '/api/v1/merchant/detail';
 
 /**
  * Merchant Category List
  * usage for Merchant Category List
  * Contract: merchant/Merchant/Category-Code/Get-List
  */
-export const apiMerchantCategoryCodeList =
-  '/merchant/api/v1/merchant/category-code/get-list';
+export const apiMerchantCategoryCodeList = '/api/v1/merchant/category-code/get-list';
 
 /**
  * Merchant Profile
  * usage for Merchant Profile
  * Contract: merchant/Merchant-Profile
  */
-export const apiMerchantProfile = '/merchant/api/v1/merchant/profile';
+export const apiMerchantProfile = '/api/v1/merchant/profile';
 
 /**
  * Merchant Create
  * usage for Merchant Create
  * Contract: admin/Merchant-create
  */
-export const apiMerchantCreate = '/merchant/api/v1/merchant/create';
+export const apiMerchantCreate = '/api/v1/merchant/create';
 
 /**
  * List Merchant
  * usage for List Merchant
  * Contract: merchant/Merchant/get-list
  */
-export const apiMerchantList = '/merchant/api/v1/merchant/get-list';
+export const apiMerchantList = '/api/v1/merchant/get-list';
 
 /**
  * List Merchant Transaction History
  * usage for List Merchant Transaction History
  * Contract: merchant/Merchant/bookledger
  */
-export const apiMerchantTransactionHistory =
-  '/report/api/v1/bookledger/merchant';
+export const apiMerchantTransactionHistory = '/report/api/v1/bookledger/merchant';
 
 /**
  * List Merchant Get List Type
  * usage for List Merchant Get List Type
  * Contract: merchant/Merchant/bookledger
  */
-export const apiMerchantGetListType = '/merchant/api/v1/merchant/type/get-list';
+export const apiMerchantGetListType = '/api/v1/merchant/type/get-list';
 
 /**
  * List Merchant Transaction History Export
  * usage for List Merchant Transaction History Export
  * Contract: merchant/Merchant/bookledger/merchant
  */
-export const apiMerchantTransactionHistoryExport =
-  '/report/api/v1/bookledger/download-merchant';
+export const apiMerchantTransactionHistoryExport = '/report/api/v1/bookledger/download-merchant';
 
 /**
  * List Merchant User List
@@ -776,8 +758,7 @@ export const apiMerchantBalanceInquiry = '/report/api/v1/balanceinquiry';
  * usage for Merchant Fee Rate Type List
  * Contract: merchant/api/v1/cashout/fee-rate-type/get-list
  */
-export const apiMerchantFeeRateType =
-  '/merchant/api/v1/cashout/fee-rate-type/get-list';
+export const apiMerchantFeeRateType = '/merchant/api/v1/cashout/fee-rate-type/get-list';
 
 /**
  * Merchant Cashout Inquiry
@@ -884,29 +865,28 @@ export const apiKycType = '/kyc/api/v1/premium-member/city-id';
  * usage for Qris Report Dropdown List
  * Contract: admin/merchantCriteriaType/*
  */
-export const apiMerchantCriteriaType =
-  '/merchant/api/v1/merchant/criteria/get-list';
+export const apiMerchantCriteriaType = '/api/v1/merchant/criteria/get-list';
 
 /**
- * QRIS Report
- * usage for Qris Report Dropdown List
- * Contract: admin/qrType/*
+ * Merchant Category List
+ * usage for Merchant Category List
+ * Contract: merchant/Merchant/Category/Get-List
  */
-export const apiQrType = '/merchant/api/v1/merchant/qr-type';
+export const apiMerchantCategoryList = '/api/v1/merchant/criteria/get-list';
 
 /**
  * QRIS Report
  * usage for Qris Report Dropdown List
  * Contract: admin/qrisType/*
  */
-export const apiQrisType = '/merchant/api/v1/merchant/qris-type';
+export const apiQrisType = '/api/v1/merchant/qris-type';
 
 /**
- * QRIS Report
- * usage for Qris Report Dropdown List
- * Contract: admin/qrLocationType/*
+ * Merchant Location List
+ * usage for Merchant Location List
+ * Contract: merchant/Merchant/location-list
  */
-export const apiQrLocationType = '/merchant/api/v1/merchant/location-list';
+export const apiMerchantLocationList = '/api/v1/merchant/location-list';
 
 /**
  * Qris Report
@@ -935,30 +915,21 @@ export const apiQRISSettlementDetail =
  * usage for Merchant QR Type
  * Contract: merchant/Merchant/QR/Get-Type
  */
-export const apiMerchantQRType = '/merchant/api/v1/merchant/qr-type';
-
-/**
- * Merchant Location List
- * usage for Merchant Location List
- * Contract: merchant/Merchant/location-list
- */
-export const apiMerchantLocationList =
-  '/merchant/api/v1/merchant/location-list';
+export const apiMerchantQRType = '/api/v1/merchant/qr-type';
 
 /**
  * Merchant Function List
  * usage for Merchant Function List
  * Contract: merchant/Merchant/Function-list
  */
-export const apiMerchantFunctionList =
-  '/merchant/api/v1/merchant/function-list';
+export const apiMerchantFunctionList = '/api/v1/merchant/function-list';
 
 /**
  * Refund Reason List
  * usage for Account Profile dropdown refund reason Function List
  * Contract: merchant/Merchant/Function-list
  */
-export const apiRefundReason = '/merchant/api/v1/merchant/refund-reason';
+export const apiRefundReason = '/api/v1/merchant/refund-reason';
 
 /**
  * Refund
@@ -980,7 +951,7 @@ export const apiMerchantAccountHistoryPrint =
  * usage for Show QR Generate Account Profile
  * Contract: merchant/Merchant/Function-list
  */
-export const apiQrGenerate = '/merchant/api/v1/merchant/qr/static';
+export const apiQrGenerate = '/api/v1/merchant/qr/static';
 
 /**
  * Kecamatan

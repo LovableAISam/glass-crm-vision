@@ -20,6 +20,7 @@ import { MerchantDataList } from "@woi/service/co/merchant/merchantList";
 import { MerchantDetail } from "@woi/service/co/merchant/merchantDetail";
 import { MerchantCreateRequest } from "@woi/service/co/merchant/merchantCreate";
 import { MerchantUpdateRequest } from "@woi/service/co/merchant/merchantpdate";
+import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 
 export interface MerchantForm {
     merchantName: string;
@@ -75,6 +76,7 @@ function useMerchantPartnerUpsert(props: UseMerchantUpsertProps) {
     const { setSelectEdit, onHide, isUpdate, merchantDetail, fetchMerchantList } = props;
 
     const { baseUrl } = useBaseUrl();
+    const { baseUrlPrincipal } = useBaseUrlPrincipal();
     const { enqueueSnackbar } = useSnackbar();
     const { getConfirmation } = useConfirmationDialog();
     const { t: tCommon } = useTranslation('common');
@@ -96,7 +98,7 @@ function useMerchantPartnerUpsert(props: UseMerchantUpsertProps) {
     const [merchantCategoryCodeOptions, setMerchantCategoryCodeOptions] = useState<OptionMap<string>[]>([{ label: '', value: '' }]);
 
     const fetchMerchantType = async () => {
-        const { result, error } = await useMerchantTypeListFetcher(baseUrl);
+        const { result, error } = await useMerchantTypeListFetcher(baseUrlPrincipal);
 
         if (result && !error) {
             setMerchantTypeOptions(result.map(data => ({
@@ -107,7 +109,7 @@ function useMerchantPartnerUpsert(props: UseMerchantUpsertProps) {
     };
 
     const fetchMerchantCategory = async () => {
-        const { result, error } = await useMerchantCategoryListFetcher(baseUrl);
+        const { result, error } = await useMerchantCategoryListFetcher(baseUrlPrincipal);
 
         if (result && !error) {
             setMerchantCategoryOptions(result.map(data => ({
@@ -119,7 +121,7 @@ function useMerchantPartnerUpsert(props: UseMerchantUpsertProps) {
     };
 
     const fetchMerchantCategoryCode = async () => {
-        const { result, error } = await useMerchantCategoryCodeListFetcher(baseUrl, {
+        const { result, error } = await useMerchantCategoryCodeListFetcher(baseUrlPrincipal, {
             pageNumber: 0,
             pageSize: 1000,
             description: '',

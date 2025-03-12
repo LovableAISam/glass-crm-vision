@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 
 // Hooks & Utils
 import useBaseUrl from '@src/shared/hooks/useBaseUrl';
+import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 import useDebounce from "@woi/common/hooks/useDebounce";
 import { reverseDirection } from "@woi/core";
 import { LONG_DATE_TIME_FORMAT_BE } from "@woi/core/utils/date/constants";
@@ -49,6 +50,7 @@ const initialFeeSummary: QRISSettlementFilter = {
 
 function useQRISSettlementList() {
   const { baseUrl } = useBaseUrl();
+  const { baseUrlPrincipal } = useBaseUrlPrincipal();
   const { enqueueSnackbar } = useSnackbar();
   const { t: tCommon } = useTranslation('common');
 
@@ -89,7 +91,7 @@ function useQRISSettlementList() {
 
   const { data: merchantCategoryCodeListData } = useQuery(
     ['merchant-category-code-list'],
-    async () => useMerchantCategoryCodeListFetcher(baseUrl, {
+    async () => useMerchantCategoryCodeListFetcher(baseUrlPrincipal, {
       pageSize: 100,
       pageNumber: 0,
     }),

@@ -193,7 +193,6 @@ export { default as useQRDynamicUpdateFetcher } from './merchant/merchantQRDynam
 
 export { default as useRefundReasonListFetcher } from './admin/refundReason/refundResonList';
 export { default as useTransactionRefundFetcher } from './admin/refundReason/transactionRefund';
-export { default as useQrTypeListFetcher } from './admin/qrType/qrTypeList';
 export { default as useKecamatanListFetcher } from './admin/kecamatan/kecamatanList';
 export { default as useKelurahanListFetcher } from './admin/kelurahan/kelurahanList';
 
@@ -205,8 +204,6 @@ export { default as useDirectDebitSettlementExportFetcher } from './admin/report
 export { default as useMerchantCriteriaListFetcher } from './admin/merchantCriteriaType/merchatCriteriaTypeList';
 export { default as useQRISReportListFetcher } from './admin/report/qrisReport';
 export { default as useKycListFetcher } from './admin/kycType/kycTypeList';
-export { default as useQrisTypeListFetcher } from './admin/qrType/qrTypeList';
-export { default as useQrLocationListFetcher } from './admin/qrLocationType/qrLocationTypeList';
 export { default as useQRISReportExportFetcher } from './admin/report/qrisReportExport';
 export { default as useQRISSettlementExportFetcher } from './admin/report/qrisSettlementExport';
 export { default as useQRISSettlementFetcher } from './admin/report/qrisSettlement';
