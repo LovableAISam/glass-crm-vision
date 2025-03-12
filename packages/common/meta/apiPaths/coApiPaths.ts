@@ -390,8 +390,7 @@ export const apiKycPremiumMemberSetDttot = '/kyc/api/v1/premium-member/set-dttot
  * usage for CRUD Premium Member History Detail
  * Contract: kyc/apiKycPremiumMemberHistoryDetail/*
  */
-export const apiKycPremiumMemberHistoryDetail =
-  '/kyc/api/v1/premium-member-history/detail';
+export const apiKycPremiumMemberHistoryDetail = '/kyc/api/v1/premium-member-history/detail';
 
 /**
  * CRUD Approval Layer 
@@ -608,8 +607,7 @@ export const apiSystemParameter = '/admin/api/v1/system-parameter';
  * usage for CRUD Premium Member Detail
  * Contract: kyc/apiKycPremiumMemberDetail/*
  */
-export const apiKycPremiumMemberDetail =
-  '/kyc/api/v1/premium-member-history/detail/member';
+export const apiKycPremiumMemberDetail = '/kyc/api/v1/premium-member-history/detail/member';
 
 /**
  * Approval Layer List
@@ -644,14 +642,7 @@ export const apiQRDynamicUpdate = '/api/v1/merchant/qr-dynamic-update-status';
  * usage for Merchant Detail
  * Contract: merchant/Merchant-Detail
  */
-export const apiMerchantDetail = '/api/v1/merchant/detail';
-
-/**
- * Merchant Category List
- * usage for Merchant Category List
- * Contract: merchant/Merchant/Category-Code/Get-List
- */
-export const apiMerchantCategoryCodeList = '/api/v1/merchant/category-code/get-list';
+export const apiMerchantDetail = '/merchant/api/v1/merchant/detail';
 
 /**
  * Merchant Profile
@@ -680,13 +671,6 @@ export const apiMerchantList = '/api/v1/merchant/get-list';
  * Contract: merchant/Merchant/bookledger
  */
 export const apiMerchantTransactionHistory = '/report/api/v1/bookledger/merchant';
-
-/**
- * List Merchant Get List Type
- * usage for List Merchant Get List Type
- * Contract: merchant/Merchant/bookledger
- */
-export const apiMerchantGetListType = '/api/v1/merchant/type/get-list';
 
 /**
  * List Merchant Transaction History Export
@@ -735,16 +719,14 @@ export const apiMerchantAccountHistory = '/report/api/v1/accounthistory';
  * usage for Merchant Account History Detail
  * Contract: report/api/v1/report/accounthistory/detail
  */
-export const apiMerchantAccountHistoryDetail =
-  '/report/api/v1/report/accounthistory/detail';
+export const apiMerchantAccountHistoryDetail = '/report/api/v1/report/accounthistory/detail';
 
 /**
  * Merchant Account History Export
  * usage for Merchant Account History Export
  * Contract: report/api/v1/report/accounthistory/download
  */
-export const apiMerchantAccountHistoryExport =
-  '/report/api/v1/accounthistory/download';
+export const apiMerchantAccountHistoryExport = '/report/api/v1/accounthistory/download';
 
 /**
  * Merchant Balance Inquiry
@@ -835,16 +817,14 @@ export const apiBulkTopUpList = '/admin/api/v1/get-bulk-topup-list';
  * usage for download bulk top up
  * Contract: admin/DownloadBulkTopUpList
  */
-export const apiDownloadBulkTopUpList =
-  '/admin/api/v1/download-bulk-topup-list';
+export const apiDownloadBulkTopUpList = '/admin/api/v1/download-bulk-topup-list';
 
 /**
  * Member Summary Header List
  * usage for member summary
  * Contract: admin/MemberSummaryList
  */
-export const apiMemberSummaryList =
-  '/report/api/v1/report/membersummary/header';
+export const apiMemberSummaryList = '/report/api/v1/report/membersummary/header';
 
 /**
  * QRIS Report
@@ -859,34 +839,6 @@ export const apiQRISReport = '/report/api/v1/report/qrisReport';
  * Contract: admin/kycType/*
  */
 export const apiKycType = '/kyc/api/v1/premium-member/city-id';
-
-/**
- * QRIS Report
- * usage for Qris Report Dropdown List
- * Contract: admin/merchantCriteriaType/*
- */
-export const apiMerchantCriteriaType = '/api/v1/merchant/criteria/get-list';
-
-/**
- * Merchant Category List
- * usage for Merchant Category List
- * Contract: merchant/Merchant/Category/Get-List
- */
-export const apiMerchantCategoryList = '/api/v1/merchant/criteria/get-list';
-
-/**
- * QRIS Report
- * usage for Qris Report Dropdown List
- * Contract: admin/qrisType/*
- */
-export const apiQrisType = '/api/v1/merchant/qris-type';
-
-/**
- * Merchant Location List
- * usage for Merchant Location List
- * Contract: merchant/Merchant/location-list
- */
-export const apiMerchantLocationList = '/api/v1/merchant/location-list';
 
 /**
  * Qris Report
@@ -907,22 +859,7 @@ export const apiQRISSettlement = '/report/api/v1/report/qrisSettelement';
  * usage for QRIS Settlement Detail
  * Contract: admin/reportQRISSettlementDetail
  */
-export const apiQRISSettlementDetail =
-  '/report/api/v1/report/qrisSettelementDetail';
-
-/**
- * Merchant QR Type
- * usage for Merchant QR Type
- * Contract: merchant/Merchant/QR/Get-Type
- */
-export const apiMerchantQRType = '/api/v1/merchant/qr-type';
-
-/**
- * Merchant Function List
- * usage for Merchant Function List
- * Contract: merchant/Merchant/Function-list
- */
-export const apiMerchantFunctionList = '/api/v1/merchant/function-list';
+export const apiQRISSettlementDetail = '/report/api/v1/report/qrisSettelementDetail';
 
 /**
  * Refund Reason List
@@ -943,8 +880,7 @@ export const apiTransactionRefund = '/merchant/api/v1/transaction/refund';
  * usage for Merchant Account History Print
  * Contract: report/api/v1/accounthistory/download-receipt
  */
-export const apiMerchantAccountHistoryPrint =
-  '/report/api/v1/accounthistory/download-receipt';
+export const apiMerchantAccountHistoryPrint = '/report/api/v1/accounthistory/download-receipt';
 
 /**
  * QR Generator
@@ -980,13 +916,63 @@ export const apiDownloadQRISSettlementExport =
  * usage for detail Direct Debit Settlement
  * Contract: report/diretctDebitSettlement
  */
-export const apiDirectDebitSettlementDetail =
-  '/report/api/v1/report/direct-debit-settlement';
+export const apiDirectDebitSettlementDetail = '/report/api/v1/report/direct-debit-settlement';
 
 /**
  * Detail Direct Debit Settlement Export
  * usage for detail Direct Debit Settlement Export
  * Contract: report/diretctDebitSettlement
  */
-export const apiDirectDebitSettlementExport =
-  '/report/api/v1/report/direct-debit-settlement-download';
+export const apiDirectDebitSettlementExport = '/report/api/v1/report/direct-debit-settlement-download';
+
+
+
+// Merchant Diferent API (do not using /co/)
+/**
+ * Merchant Function List
+ * usage for Merchant Function List
+ * Contract: merchant/Merchant/Function-list
+ */
+export const apiMerchantFunctionList = '/api/v1/merchant/function-list';
+
+/**
+ * List Merchant Get List Type
+ * usage for List Merchant Get List Type
+ * Contract: merchant/Merchant/bookledger
+ */
+export const apiMerchantGetListType = '/api/v1/merchant/type/get-list';
+
+/**
+ * Merchant Category List
+ * usage for Merchant Category List
+ * Contract: merchant/Merchant/Category/Get-List
+ */
+export const apiMerchantCategoryList = '/api/v1/merchant/criteria/get-list';
+
+/**
+ * QRIS Report
+ * usage for Qris Report Dropdown List
+ * Contract: admin/merchantCriteriaType/*
+ */
+export const apiMerchantCriteriaType = '/api/v1/merchant/criteria/get-list';
+
+/**
+ * Merchant Category List
+ * usage for Merchant Category List
+ * Contract: merchant/Merchant/Category-Code/Get-List
+ */
+export const apiMerchantCategoryCodeList = '/api/v1/merchant/category-code/get-list';
+
+/**
+ * Merchant Location List
+ * usage for Merchant Location List
+ * Contract: merchant/Merchant/location-list
+ */
+export const apiMerchantLocationList = '/api/v1/merchant/location-list';
+
+/**
+ * Merchant QR Type
+ * usage for Merchant QR Type
+ * Contract: merchant/Merchant/QR/Get-Type
+ */
+export const apiMerchantQRType = '/api/v1/merchant/qris-type';
