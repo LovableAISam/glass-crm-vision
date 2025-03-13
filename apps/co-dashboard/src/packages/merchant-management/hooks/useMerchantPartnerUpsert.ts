@@ -7,7 +7,6 @@ import { useForm } from 'react-hook-form';
 import useBaseUrl from "@src/shared/hooks/useBaseUrl";
 import { useConfirmationDialog } from "@woi/web-component";
 import { useTranslation } from "react-i18next";
-import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 
 // Types & Consts
 import { OptionMap } from "@woi/option";
@@ -76,7 +75,6 @@ function useMerchantPartnerUpsert(props: UseMerchantUpsertProps) {
     const { setSelectEdit, onHide, isUpdate, merchantDetail, fetchMerchantList } = props;
 
     const { baseUrl } = useBaseUrl();
-    const { baseUrlPrincipal } = useBaseUrlPrincipal();
     const { enqueueSnackbar } = useSnackbar();
     const { getConfirmation } = useConfirmationDialog();
     const { t: tCommon } = useTranslation('common');
@@ -98,7 +96,7 @@ function useMerchantPartnerUpsert(props: UseMerchantUpsertProps) {
     const [merchantCategoryCodeOptions, setMerchantCategoryCodeOptions] = useState<OptionMap<string>[]>([{ label: '', value: '' }]);
 
     const fetchMerchantType = async () => {
-        const { result, error } = await useMerchantTypeListFetcher(baseUrlPrincipal);
+        const { result, error } = await useMerchantTypeListFetcher(baseUrl);
 
         if (result && !error) {
             setMerchantTypeOptions(result.map(data => ({
@@ -109,7 +107,7 @@ function useMerchantPartnerUpsert(props: UseMerchantUpsertProps) {
     };
 
     const fetchMerchantCategory = async () => {
-        const { result, error } = await useMerchantCategoryListFetcher(baseUrlPrincipal);
+        const { result, error } = await useMerchantCategoryListFetcher(baseUrl);
 
         if (result && !error) {
             setMerchantCategoryOptions(result.map(data => ({
@@ -121,7 +119,7 @@ function useMerchantPartnerUpsert(props: UseMerchantUpsertProps) {
     };
 
     const fetchMerchantCategoryCode = async () => {
-        const { result, error } = await useMerchantCategoryCodeListFetcher(baseUrlPrincipal, {
+        const { result, error } = await useMerchantCategoryCodeListFetcher(baseUrl, {
             pageNumber: 0,
             pageSize: 1000,
             description: '',

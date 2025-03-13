@@ -925,54 +925,51 @@ export const apiDirectDebitSettlementDetail = '/report/api/v1/report/direct-debi
  */
 export const apiDirectDebitSettlementExport = '/report/api/v1/report/direct-debit-settlement-download';
 
-
-
-// Merchant Diferent API (do not using /co/)
 /**
  * Merchant Function List
  * usage for Merchant Function List
  * Contract: merchant/Merchant/Function-list
  */
-export const apiMerchantFunctionList = '/api/v1/merchant/function-list';
+export const apiMerchantFunctionList = '/merchant/api/v1/merchant/function-list';
 
 /**
  * List Merchant Get List Type
  * usage for List Merchant Get List Type
  * Contract: merchant/Merchant/bookledger
  */
-export const apiMerchantGetListType = '/api/v1/merchant/type/get-list';
+export const apiMerchantGetListType = '/merchant/api/v1/merchant/type/get-list';
 
 /**
  * Merchant Category List
  * usage for Merchant Category List
  * Contract: merchant/Merchant/Category/Get-List
  */
-export const apiMerchantCategoryList = '/api/v1/merchant/criteria/get-list';
+export const apiMerchantCategoryList = '/merchant/api/v1/merchant/criteria/get-list';
 
 /**
  * QRIS Report
  * usage for Qris Report Dropdown List
  * Contract: admin/merchantCriteriaType/*
  */
-export const apiMerchantCriteriaType = '/api/v1/merchant/criteria/get-list';
+export const apiMerchantCriteriaType = '/merchant/api/v1/merchant/criteria/get-list';
 
 /**
  * Merchant Category List
  * usage for Merchant Category List
  * Contract: merchant/Merchant/Category-Code/Get-List
  */
-export const apiMerchantCategoryCodeList = '/api/v1/merchant/category-code/get-list';
+export const apiMerchantCategoryCodeList = '/merchant/api/v1/merchant/category-code/get-list';
 
 /**
  * Merchant Location List
  * usage for Merchant Location List
  * Contract: merchant/Merchant/location-list
  */
-export const apiMerchantLocationList = '/api/v1/merchant/location-list';
+export const apiMerchantLocationList = '/merchant/api/v1/merchant/location-list';
 
 /**
  * Merchant QR Type
  * usage for Merchant QR Type
  * Contract: merchant/Merchant/QR/Get-Type
  */
-export const apiMerchantQRType = '/api/v1/merchant/qris-type';
+export const apiMerchantQRType = '/merchant/api/v1/merchant/qris-type';

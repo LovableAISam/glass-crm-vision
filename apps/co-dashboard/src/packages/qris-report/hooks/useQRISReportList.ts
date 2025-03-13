@@ -13,7 +13,6 @@ import {
   useQRISReportExportFetcher,
 } from '@woi/service/co';
 import useBaseUrl from '@src/shared/hooks/useBaseUrl';
-import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 import useDebounce from '@woi/common/hooks/useDebounce';
 import {
   calculateDateRangeDays,
@@ -87,7 +86,6 @@ function useQRISReportList(props: TransactionSummaryProps) {
   const [direction, setDirection] = useState<'desc' | 'asc'>('desc');
   const [filterForm, setFilterForm] = useState<FilterForm>(initialFilterForm);
   const { baseUrl } = useBaseUrl();
-  const { baseUrlPrincipal } = useBaseUrlPrincipal();
   const debouncedFilter = useDebounce(filterForm, 300);
   const [isLoadingDownload, setIsLoadingDownload] = useState<boolean>(false);
 
@@ -115,7 +113,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for Merchant Criteria dropdown
   const { data: MerchantCriteriaListTypeData } = useQuery(
     ['merchant-criteria-type-list'],
-    async () => useMerchantCriteriaListFetcher(baseUrlPrincipal),
+    async () => useMerchantCriteriaListFetcher(baseUrl),
     { refetchOnWindowFocus: false },
   );
 
@@ -180,7 +178,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for QR Location Type dropdown
   const { data: QrLocationListTypeData } = useQuery(
     ['qr-location-type-list'],
-    async () => useMerchantLocationListFetcher(baseUrlPrincipal),
+    async () => useMerchantLocationListFetcher(baseUrl),
     { refetchOnWindowFocus: false },
   );
 
@@ -207,7 +205,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
 
   const { data: MerchantCategoryCodeRequest } = useQuery(
     ['merchant-category-code-list'],
-    async () => useMerchantCategoryCodeListFetcher(baseUrlPrincipal, payload),
+    async () => useMerchantCategoryCodeListFetcher(baseUrl, payload),
     { refetchOnWindowFocus: false },
   );
 

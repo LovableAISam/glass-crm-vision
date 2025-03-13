@@ -17,7 +17,6 @@ import {
 import { useTranslation } from 'react-i18next';
 import CreateMerchantModalContent from './CreateMerchant/CreateMerchantModalContent';
 import { useMerchantFunctionListFetcher } from '@woi/service/co';
-import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 
 // Types & Consts
 import { MerchantDetail } from '@woi/service/co/merchant/merchantDetail';
@@ -26,6 +25,7 @@ import { OptionMap } from '@woi/option';
 
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
+import useBaseUrl from "@src/shared/hooks/useBaseUrl";
 
 type CreateMerchantModalProps = {
   isActive: boolean;
@@ -47,7 +47,7 @@ const CreateMerchantModal = (props: CreateMerchantModalProps) => {
   } = props;
 
   const isUpdate = Boolean(selectEdit);
-  const { baseUrlPrincipal } = useBaseUrlPrincipal();
+  const { baseUrl } = useBaseUrl();
   const { t: tMerchant } = useTranslation('merchant');
   const { t: tForm } = useTranslation('form');
 
@@ -57,7 +57,7 @@ const CreateMerchantModal = (props: CreateMerchantModalProps) => {
   const [merchantFor, setMerchantFor] = useState<{ label: string; value: string; }>({ label: '', value: '' });
 
   const fetchMerchantFunctionList = async () => {
-    const { result, error } = await useMerchantFunctionListFetcher(baseUrlPrincipal);
+    const { result, error } = await useMerchantFunctionListFetcher(baseUrl);
 
     if (result && !error) {
       const merchantForList = result.merchantfunctionList.map(data => ({

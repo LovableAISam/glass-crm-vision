@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 // Hooks & Utils
 import { useSnackbar } from "notistack";
 import useBaseUrl from "@src/shared/hooks/useBaseUrl";
-import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 import { useMerchantDetailFetcher, useMerchantListFetcher, useQrGeneratorFetcher } from "@woi/service/co";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import useDebounce from "@woi/common/hooks/useDebounce";
@@ -49,7 +48,6 @@ type useMerchantListProps = {
 function useMerchantList(props: useMerchantListProps) {
     const { showModalView, showModalCreate } = props;
     const { baseUrl } = useBaseUrl();
-    const { baseUrlPrincipal } = useBaseUrlPrincipal();
     const { enqueueSnackbar } = useSnackbar();
     const queryClient = useQueryClient();
 
@@ -95,7 +93,7 @@ function useMerchantList(props: useMerchantListProps) {
         refetch: refetchMerchantList,
     } = useQuery(
         ['merchant-list', merchantListPayload],
-        async () => useMerchantListFetcher(baseUrlPrincipal, merchantListPayload),
+        async () => useMerchantListFetcher(baseUrl, merchantListPayload),
         {
             refetchOnWindowFocus: false,
             onSuccess: response => {

@@ -10,7 +10,6 @@ import { useTranslation } from "react-i18next";
 import { TextGetter } from "@woi/core";
 import { stringToDateFormat } from "@woi/core/utils/date/dateConvert";
 import { useCityListFetcher, useKecamatanListFetcher, useKelurahanListFetcher, useMerchantCategoryCodeListFetcher, useMerchantCategoryListFetcher, useMerchantLocationListFetcher, useMerchantQRTypeListFetcher, useMerchantTypeListFetcher, useMerchantUpdateQRISAcquirerFetcher, useProvinceListFetcher, userMerchantCreateQRISAcquirerFetcher } from "@woi/service/co";
-import useBaseUrlPrincipal from "@src/shared/hooks/useBaseUrlPrincipal";
 
 // Types & Consts
 import { DatePeriod } from "@woi/core/utils/date/types";
@@ -116,7 +115,6 @@ function useMerchantAccountBindingUpsert(props: UseMerchantBindingUpsertProps) {
         handleComplete, merchantFor, setActiveStep } = props;
 
     const { baseUrl } = useBaseUrl();
-    const { baseUrlPrincipal } = useBaseUrlPrincipal();
     const { enqueueSnackbar } = useSnackbar();
     const { getConfirmation } = useConfirmationDialog();
     const { t: tCommon } = useTranslation('common');
@@ -249,7 +247,7 @@ function useMerchantAccountBindingUpsert(props: UseMerchantBindingUpsertProps) {
     };
 
     const fetchMerchantTypeList = async () => {
-        const { result, error } = await useMerchantTypeListFetcher(baseUrlPrincipal);
+        const { result, error } = await useMerchantTypeListFetcher(baseUrl);
 
         if (result && !error) {
             setMerchantTypeOptions(result.map(data => ({
@@ -260,7 +258,7 @@ function useMerchantAccountBindingUpsert(props: UseMerchantBindingUpsertProps) {
     };
 
     const fetchMerchantCriteriaList = async () => {
-        const { result, error } = await useMerchantCategoryListFetcher(baseUrlPrincipal);
+        const { result, error } = await useMerchantCategoryListFetcher(baseUrl);
 
         if (result && !error) {
             setMerchantCriteriaOptions(result.map(data => ({
@@ -276,7 +274,7 @@ function useMerchantAccountBindingUpsert(props: UseMerchantBindingUpsertProps) {
             pageNumber: 0,
             pageSize: 100,
         };
-        const { result, error } = await useMerchantCategoryCodeListFetcher(baseUrlPrincipal, payloadMerchantCategory);
+        const { result, error } = await useMerchantCategoryCodeListFetcher(baseUrl, payloadMerchantCategory);
 
         if (result && !error) {
             setMerchantCategoryOptions(result.mccList.map(data => ({
@@ -288,7 +286,7 @@ function useMerchantAccountBindingUpsert(props: UseMerchantBindingUpsertProps) {
     };
 
     const fetchMerchantLocationList = async () => {
-        const { result, error } = await useMerchantLocationListFetcher(baseUrlPrincipal);
+        const { result, error } = await useMerchantLocationListFetcher(baseUrl);
 
         if (result && !error) {
             setMerchantLocationOptions(result.merchantLocationList.map(data => ({
