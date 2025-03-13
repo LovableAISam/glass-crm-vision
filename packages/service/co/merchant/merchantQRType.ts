@@ -3,7 +3,7 @@ import { apiMerchantQRType } from '@woi/common/meta/apiPaths/coApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 
 interface ResultData {
-    qrType: string[];
+    qrisType: string[];
 }
 
 function useMerchantQRTypeListFetcher(baseUrl: string) {

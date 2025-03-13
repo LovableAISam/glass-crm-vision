@@ -141,12 +141,12 @@ function useQRISReportList(props: TransactionSummaryProps) {
     const defaultOptions: OptionMap<string>[] = [];
     if (
       !QrListTypeData ||
-      !Array.isArray(QrListTypeData?.result?.qrType) ||
-      !QrListTypeData?.result?.qrType?.length
+      !Array.isArray(QrListTypeData?.result?.qrisType) ||
+      !QrListTypeData?.result?.qrisType?.length
     ) {
       return defaultOptions;
     }
-    return QrListTypeData?.result?.qrType?.map(qrType => ({
+    return QrListTypeData?.result?.qrisType?.map(qrType => ({
       label: qrType,
       value: qrType,
     }));
@@ -163,13 +163,13 @@ function useQRISReportList(props: TransactionSummaryProps) {
     const defaultOptions: OptionMap<string>[] = [];
     if (
       !QrisListTypeData ||
-      !Array.isArray(QrisListTypeData?.result?.qrType) ||
-      !QrisListTypeData?.result?.qrType.length
+      !Array.isArray(QrisListTypeData?.result?.qrisType) ||
+      !QrisListTypeData?.result?.qrisType.length
     ) {
       return defaultOptions;
     }
 
-    return QrisListTypeData?.result?.qrType?.map(qrisType => ({
+    return QrisListTypeData?.result?.qrisType?.map(qrisType => ({
       label: qrisType,
       value: qrisType,
     }));

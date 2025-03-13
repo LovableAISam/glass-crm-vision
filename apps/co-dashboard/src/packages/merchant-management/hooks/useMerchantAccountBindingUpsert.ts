@@ -239,7 +239,7 @@ function useMerchantAccountBindingUpsert(props: UseMerchantBindingUpsertProps) {
     const fetchMerchantQRType = async () => {
         const { result, error } = await useMerchantQRTypeListFetcher(baseUrl);
         if (result && !error) {
-            setQRTypeOptions(result.qrType.map(data => ({
+            setQRTypeOptions(result.qrisType.map(data => ({
                 label: data,
                 value: data,
             })));
