@@ -621,21 +621,21 @@ export const apiApprovalLayerList = '/admin/api/v1/approval-layer/list';
  * usage for Create QR
  * Contract: merchant/Create-QR
  */
-export const apiCreateQR = '/api/v1/merchant/qr/dynamic';
+export const apiCreateQR = '/merchant/api/v1/merchant/qr/dynamic';
 
 /**
  * QR Dynamic Status
  * usage for QR Dynamic Status
  * Contract: merchant/QRDynamic/Status
  */
-export const apiQRDynamicStatus = '/api/v1/merchant/qr/dynamic-status';
+export const apiQRDynamicStatus = '/merchant/api/v1/merchant/qr/dynamic-status';
 
 /**
  * QR Dynamic Update
  * usage for QR Dynamic Update
  * Contract: merchant/QRDynamic/Update
  */
-export const apiQRDynamicUpdate = '/api/v1/merchant/qr-dynamic-update-status';
+export const apiQRDynamicUpdate = '/merchant/api/v1/merchant/qr-dynamic-update-status';
 
 /**
  * Merchant Detail
@@ -649,21 +649,21 @@ export const apiMerchantDetail = '/merchant/api/v1/merchant/detail';
  * usage for Merchant Profile
  * Contract: merchant/Merchant-Profile
  */
-export const apiMerchantProfile = '/api/v1/merchant/profile';
+export const apiMerchantProfile = '/merchant/api/v1/merchant/profile';
 
 /**
  * Merchant Create
  * usage for Merchant Create
  * Contract: admin/Merchant-create
  */
-export const apiMerchantCreate = '/api/v1/merchant/create';
+export const apiMerchantCreate = '/merchant/api/v1/merchant/create';
 
 /**
  * List Merchant
  * usage for List Merchant
  * Contract: merchant/Merchant/get-list
  */
-export const apiMerchantList = '/api/v1/merchant/get-list';
+export const apiMerchantList = '/merchant/api/v1/merchant/get-list';
 
 /**
  * List Merchant Transaction History
@@ -866,7 +866,7 @@ export const apiQRISSettlementDetail = '/report/api/v1/report/qrisSettelementDet
  * usage for Account Profile dropdown refund reason Function List
  * Contract: merchant/Merchant/Function-list
  */
-export const apiRefundReason = '/api/v1/merchant/refund-reason';
+export const apiRefundReason = '/merchant/api/v1/merchant/refund-reason';
 
 /**
  * Refund
@@ -887,7 +887,7 @@ export const apiMerchantAccountHistoryPrint = '/report/api/v1/accounthistory/dow
  * usage for Show QR Generate Account Profile
  * Contract: merchant/Merchant/Function-list
  */
-export const apiQrGenerate = '/api/v1/merchant/qr/static';
+export const apiQrGenerate = '/merchant/api/v1/merchant/qr/static';
 
 /**
  * Kecamatan
@@ -908,8 +908,7 @@ export const apiKelurahan = '/admin/api/v1/kelurahan';
  * usage for Export QRIS Settlement
  * Contract: report/qrisSettlement/export
  */
-export const apiDownloadQRISSettlementExport =
-  '/report/api/v1/report/qrisSettelement/download';
+export const apiDownloadQRISSettlementExport = '/report/api/v1/report/qrisSettelement/download';
 
 /**
  * Detail Direct Debit Settlement
