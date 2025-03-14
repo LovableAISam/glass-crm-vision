@@ -2,7 +2,7 @@ import { constructUrlSearchParams, DefaultQueryPageRequest, ResponseData, Result
 import { apiCommunityOwner } from '@woi/common/meta/apiPaths/principalApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 
-export type CommunityOwnerStatusType = 'ACTIVE' | 'ERROR' | 'INACTIVE' | 'PENDING';
+export type CommunityOwnerStatusType = 'ACTIVE' | 'ERROR' | 'INACTIVE' | 'PENDING' | 'ACTIVATED';
 
 export interface CommunityOwnerData extends ResponseData {
   name: string;

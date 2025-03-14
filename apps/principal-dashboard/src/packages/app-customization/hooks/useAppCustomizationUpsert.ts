@@ -13,7 +13,7 @@ export interface AppCustomizationForm {
 
 const initialAppCustomizationForm: AppCustomizationForm = {
   co: null,
-}
+};
 
 interface AppCustomizationUpsertProps {
   onHide: () => void;
@@ -44,14 +44,15 @@ function useAppCustomizationUpsert(props: AppCustomizationUpsertProps) {
     if (confirmed) {
       onHide();
     }
-  }
+  };
 
   const { data: coData } = useQuery(
     ['co-list'],
     async () => await useCommunityOwnerListFetcher(baseUrl, {
       page: 0,
-      limit: 1000, 
-      hideAppCustom: true
+      limit: 1000,
+      hideAppCustom: true,
+      status: ['ACTIVATED']
     }),
     { refetchOnWindowFocus: false }
   );
@@ -61,14 +62,14 @@ function useAppCustomizationUpsert(props: AppCustomizationUpsertProps) {
     return (coData.result?.data || []).map(data => ({
       label: data.name,
       value: data.id,
-    }))
-  }, [coData])
+    }));
+  }, [coData]);
 
   const handleUpsert = handleSubmit(async (form) => {
     if (form.co) {
-      onNavigate({ pathname: `/app-customization/create/${form.co.value}` })
+      onNavigate({ pathname: `/app-customization/create/${form.co.value}` });
     }
-  })
+  });
 
   return {
     coOptions,
@@ -76,7 +77,7 @@ function useAppCustomizationUpsert(props: AppCustomizationUpsertProps) {
     loading,
     handleUpsert,
     handleCancel,
-  }
+  };
 }
 
 export default useAppCustomizationUpsert;
