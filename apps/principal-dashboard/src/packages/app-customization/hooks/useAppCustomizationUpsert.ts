@@ -50,7 +50,8 @@ function useAppCustomizationUpsert(props: AppCustomizationUpsertProps) {
     ['co-list'],
     async () => await useCommunityOwnerListFetcher(baseUrl, {
       page: 0,
-      limit: 1000,
+      limit: 1000, 
+      hideAppCustom: true
     }),
     { refetchOnWindowFocus: false }
   );

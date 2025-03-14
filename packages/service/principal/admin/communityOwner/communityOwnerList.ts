@@ -20,6 +20,7 @@ export interface CommunityOwnerListRequest extends DefaultQueryPageRequest {
   'inactive-date'?: string;
   name?: string;
   status?: CommunityOwnerStatusType[];
+  hideAppCustom?: boolean;
 }
 
 function useCommunityOwnerListFetcher(baseUrl: string, payload: CommunityOwnerListRequest) {
