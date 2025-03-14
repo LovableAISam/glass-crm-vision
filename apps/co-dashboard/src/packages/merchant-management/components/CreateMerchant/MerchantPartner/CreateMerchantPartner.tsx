@@ -452,7 +452,7 @@ const CreateMerchantPartner = (props: CreateMerchantModalContentProps) => {
               helperText={errors.phoneNumber?.message}
               textFieldProps={{
                 disableFormatting: true,
-                onlyCountries: ['ID'],
+                onlyCountries: ['PH'],
                 inputProps: { maxLength: 12 },
                 disabled: !!merchantDetail,
               }}

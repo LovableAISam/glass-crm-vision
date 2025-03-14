@@ -813,7 +813,7 @@ const MerchantData = (props: AccountBindingContentProps) => {
               error={Boolean(errors.phoneNumber)}
               helperText={errors.phoneNumber?.message}
               textFieldProps={{
-                onlyCountries: ['ID'],
+                onlyCountries: ['PH'],
                 inputProps: { maxLength: 14 },
                 // disabled: !!merchantDetail,
               }}

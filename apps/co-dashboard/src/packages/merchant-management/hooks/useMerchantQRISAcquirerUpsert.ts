@@ -622,19 +622,9 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
             setValue('expiredDate', new Date(merchantDetail.passportExpiryDate));
             setValue('dateOfBirth', new Date(merchantDetail.birthDate));
             setValue('address', merchantDetail.address);
-            setValue(
-                'phoneNumber',
-                `${merchantDetail.countryCode.slice(0, 1) === '+'
-                    ? merchantDetail.countryCode
-                    : `+${merchantDetail.countryCode}`
-                } ${merchantDetail.phoneNumber.slice(
-                    0,
-                    3,
-                )} ${merchantDetail.phoneNumber.slice(
-                    3,
-                    7,
-                )} ${merchantDetail.phoneNumber.slice(7)}`,
-            );
+            setValue('phoneNumber', `${merchantDetail.countryCode.slice(0, 1) === '+'
+                ? merchantDetail.countryCode
+                : `+${merchantDetail.countryCode}`} ${merchantDetail.phoneNumber.slice(0, 3,)} ${merchantDetail.phoneNumber.slice(3, 7,)} ${merchantDetail.phoneNumber.slice(7)}`);
             setValue('postCode', merchantDetail.postalCode);
             setValue('province.label', merchantDetail.addressProvince);
             setValue('city.label', merchantDetail.addressCity);

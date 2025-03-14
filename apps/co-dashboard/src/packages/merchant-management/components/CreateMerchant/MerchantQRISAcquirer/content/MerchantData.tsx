@@ -532,7 +532,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
             <PhoneInput
               {...fieldPhoneNumber}
               textFieldProps={{
-                onlyCountries: ['ID'],
+                onlyCountries: ['PH'],
                 inputProps: { maxLength: 14 },
                 // disabled: !!merchantDetail,
               }}

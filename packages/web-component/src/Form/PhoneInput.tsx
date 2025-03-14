@@ -23,7 +23,7 @@ const PhoneInput = React.forwardRef((props: PasswordInputProps, ref: any) => {
       {...textFieldProps}
       onChange={onChange}
       fullWidth
-      defaultCountry="ID"
+      defaultCountry="PH"
       sx={{
         '& .MuiOutlinedInput-root': {
           borderRadius: 3,
