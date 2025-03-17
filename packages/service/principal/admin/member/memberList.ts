@@ -2,7 +2,13 @@ import { constructUrlSearchParams, DefaultQueryPageRequest, ResponseData, Result
 import { apiMember } from '@woi/common/meta/apiPaths/principalApiPaths';
 import apiGet from '@woi/common/api/apiGet';
 
-type MemberStatus = 'REGISTERED' | 'UNREGISTERED';
+export type MemberStatus = 'REGISTERED' | 'UNREGISTERED' |'LOCK' | 'ACTIVE' | any;
+
+export type MemberVybeStatus = 'LITE' | 'REGULAR' | 'PRO' | any;
+
+export type UpgradeStatus = 'UPGRADE' | 'NOT_UPGRADE' | any;
+
+export type LoyaltyStatus = 'NOT_REGISTERED' | 'REGISTERED' | any;
 
 export interface MemberData extends ResponseData {
   coId: string;

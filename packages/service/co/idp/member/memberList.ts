@@ -40,6 +40,7 @@ export interface MemberData extends ResponseData {
   isLocked: boolean;
   modifiedDate: string;
   referralCode: string;
+  coId: string;
   status: UpgradeStatus;
 }
 

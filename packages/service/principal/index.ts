@@ -114,3 +114,4 @@ export { default as useKycPremiumMemberHistoryListFetcher } from './kyc/premiumM
 export { default as useKycPremiumMemberDownloadFetcher } from './kyc/premiumMember/premiumMemberHistoryDownload';
 export { default as useKecamatanListFetcher } from './admin/kecamatan/kecamatanList';
 export { default as useKelurahanListFetcher } from './admin/kelurahan/kelurahanList';
+export { default as useMemberDetailFetcher } from './admin/member/memberDetail';

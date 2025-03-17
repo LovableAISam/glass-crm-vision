@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 
 // Hooks
 import useBaseUrl from "@src/shared/hooks/useBaseUrl";
-import { useKycPremiumDetailMemberFetcher, useMemberActivationFetcher, useMemberDetailFetcher } from "@woi/service/co";
+import { useKycPremiumDetailMemberFetcher, useMemberActivationFetcher } from "@woi/service/co";
 import { useConfirmationDialog } from "@woi/web-component";
 import { useSnackbar } from 'notistack';
 import { useTranslation } from "react-i18next";
-import { useCityListFetcher, useCountryListFetcher, useProvinceListFetcher } from "@woi/service/principal";
+import { useCityListFetcher, useCountryListFetcher, useMemberDetailFetcher, useProvinceListFetcher } from "@woi/service/principal";
 
 // Const & Types
 import { CityListResponse } from "@woi/service/co/admin/city/cityList";
@@ -121,6 +121,7 @@ function useMemberUpsert(props: MemberUpsertProps) {
     const { result, error } = await useMemberDetailFetcher(baseUrl, {
       memberSecureId: memberData.id,
       phoneNumber: memberData.phoneNumber,
+      coSecureId: memberData.coId
     });
 
     if (result && !error) {

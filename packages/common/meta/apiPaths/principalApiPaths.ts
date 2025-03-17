@@ -334,3 +334,10 @@ export const apiKecamatan = '/admin/api/v1/kecamatan';
  * Contract: admin/kelurahan/*
  */
 export const apiKelurahan = '/admin/api/v1/kelurahan';
+
+/**
+ * Member Detail
+ * usage for member detail
+ * Contract: admin/member/memberDetail
+ */
+export const apiMemberDetail = '/admin/api/v1/member/details';
