@@ -70,10 +70,24 @@ export interface TransactionHistoryData extends ResponseData {
   type: string;
   method: string;
   transactionId: string;
-  description: string;
-  amount: number;
-  balance: number;
   dbCr: string;
+  account: string;
+  date: string;
+  amount: number;
+  transactionType: TransactionHistoryType | null;
+  transactionCategory: TransactionHistoryCategory | null;
+  transactionMethod: TransactionHistoryMethod | null;
+  status: TransactionHistoryStatus;
+  referenceId: string;
+  description: string;
+  successDate: string;
+  vaDest: string;
+  transfer: TransactionHistoryTransfer | null;
+  deposit: TransactionHistoryDeposit | null;
+  withdraw: TransactionHistoryWithdraw | null;
+  isDebit: boolean;
+  balance: number;
+  activityId: string;
 
 }
 

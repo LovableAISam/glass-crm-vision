@@ -22,6 +22,7 @@ import content from '../../../../packages/translation/en/content.json';
 import layeringApproval from '../../../../packages/translation/en/layeringApproval.json';
 import kyc from '../../../../packages/translation/en/kyc.json';
 import activityMember from '../../../../packages/translation/en/activityMember.json';
+import report from '../../../../packages/translation/en/report.json';
 
 interface TranslationResource {
   common: typeof common;
@@ -45,6 +46,7 @@ interface TranslationResource {
   layeringApproval: typeof layeringApproval;
   kyc: typeof kyc;
   activityMember: typeof activityMember;
+  report: typeof report;
 }
 
 // react-i18next versions lower than 11.11.0

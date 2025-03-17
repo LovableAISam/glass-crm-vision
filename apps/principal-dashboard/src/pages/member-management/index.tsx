@@ -14,7 +14,7 @@ const MemberManagementPage = () => (
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale || 'en', ['common', 'member', 'kyc', 'form'])),
+      ...(await serverSideTranslations(locale || 'en', ['common', 'member', 'kyc', 'form', 'report'])),
     },
   }
 }

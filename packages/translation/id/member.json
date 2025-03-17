@@ -19,6 +19,10 @@
   "tableActionView": "Lihat & Kelola",
   "statusRegistered": "Sudah Terdaftar",
   "statusUnregistered": "Tidak Terdaftar",
+  "statusUnregister": "Tidak Terdaftar",
+  "statusWaitingToReview": "Menunggu Review",
+  "statusClosed": "Tertutup",
+  "detailStatusClosed": "Tertutup",
   "statusActive": "Aktif",
   "statusLock": "Terkunci",
   "vybeStatusLite": "Lite",
@@ -36,5 +40,23 @@
   "detailActionLock": "Kunci Member",
   "detailActionUnLock": "Buka Kunci Member",
   "detailStatusLocked": "Terkunci",
-  "detailStatusActive": "Aktif"
+  "detailStatusActive": "Aktif",
+
+  "filterRegistrationDate": "Tanggal Registrasi",
+  "statusInactive": "Tidak Aktif",
+  "detailTitleDetail": "Detail Member",
+  "emptyMemberTransactionHistoryDescription": "Member belum memiliki riwayat transaksi",
+  "buttonChangeAddress": "Ubah Alamat",
+
+  "addressInformationTitle": "Informasi Alamat",
+  "domicileAddressTitle": "Alamat Domisili",
+  "modalUpdateAddress": "Ubah Alamat",
+  "formCountry": "Negara",
+  "formProvince": "Propinsi",
+  "formCity": "Kab/Kota",
+  "formSubDistrict": "Kecamatan",
+  "formUrbanVillage": "Desa/Kelurahan",
+  "formPostalCode": "Kode Pos",
+  "formAddress": "Alamat",
+  "labelCheckboxAddress": "Alamat domisili sama dengan alamat identitas"
 }

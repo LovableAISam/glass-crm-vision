@@ -320,3 +320,17 @@ export const apiKycPremiumMemberHistory = '/kyc/api/v1/premium-member-history';
  * Contract: kyc/premiumMember/*
  */
 export const apiKycPremiumMemberHistoryExportToXLS = '/kyc/api/v1/premium-member-history/export-to-xls';
+
+/**
+ * Kecamatan
+ * usage for kecamatan
+ * Contract: admin/kecamatan/*
+ */
+export const apiKecamatan = '/admin/api/v1/kecamatan';
+
+/**
+ * Kelurahan
+ * usage for kelurahan
+ * Contract: admin/kelurahan/*
+ */
+export const apiKelurahan = '/admin/api/v1/kelurahan';

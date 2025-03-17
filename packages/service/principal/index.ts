@@ -112,3 +112,5 @@ export { default as useApprovalLayerMenuDeleteFetcher } from './admin/approvalLa
 export { default as useKycPremiumMemberDetailFetcher } from './kyc/premiumMember/premiumMemberDetail';
 export { default as useKycPremiumMemberHistoryListFetcher } from './kyc/premiumMember/premiumMemberHistoryList';
 export { default as useKycPremiumMemberDownloadFetcher } from './kyc/premiumMember/premiumMemberHistoryDownload';
+export { default as useKecamatanListFetcher } from './admin/kecamatan/kecamatanList';
+export { default as useKelurahanListFetcher } from './admin/kelurahan/kelurahanList';

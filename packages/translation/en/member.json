@@ -19,6 +19,10 @@
   "tableActionView": "View & Manage",
   "statusRegistered": "Registered",
   "statusUnregistered": "Unregistered",
+  "statusUnregister": "Unregister",
+  "statusWaitingToReview": "Waiting To Review",
+  "detailStatusClosed": "Closed",
+  "statusClosed": "Closed",
   "statusActive": "Active",
   "statusLock": "Lock",
   "vybeStatusLite": "Lite",
@@ -36,5 +40,23 @@
   "detailActionLock": "Lock Member",
   "detailActionUnLock": "Unlock Member",
   "detailStatusLocked": "Locked",
-  "detailStatusActive": "Active"
+  "detailStatusActive": "Active",
+
+  "filterRegistrationDate": "Registration Date",
+  "statusInactive": "Inactive",
+  "detailTitleDetail": "Member Details",
+  "emptyMemberTransactionHistoryDescription": "The member does not have any transaction history yet.",
+  "buttonChangeAddress": "Change Address",
+
+  "addressInformationTitle": "Address Information",
+  "domicileAddressTitle": "Domicile Address",
+  "modalUpdateAddress": "Update Address",
+  "formCountry": "Country",
+  "formProvince": "Province",
+  "formCity": "City",
+  "formSubDistrict": "Sub District",
+  "formUrbanVillage": "Urban Village",
+  "formPostalCode": "Postal Code",
+  "formAddress": "Address",
+  "labelCheckboxAddress": "Domicile address same as identity address"
 }

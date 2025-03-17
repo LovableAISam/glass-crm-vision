@@ -12,61 +12,69 @@ import {
   Tab,
   Box,
 } from '@mui/material';
-import { Button, Token, useConfirmationDialog } from '@woi/web-component';
+import { Button, Token } from '@woi/web-component';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import FolderSharedIcon from '@mui/icons-material/FolderShared';
 import ViewManageMemberTab from './ViewManageMamber/ViewManageMemberTab';
-import { useSnackbar } from 'notistack';
+import { MemberData } from '@woi/service/co/idp/member/memberList';
 
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
+import useMemberUpsert from '../hooks/useMemberUpsert';
 import { useTranslation } from 'react-i18next';
+import useModal from '@woi/common/hooks/useModal';
+import UpdateMemberAddressModal from './UpdateMemberAddressModal';
 
 type ViewManageMemberModalProps = {
-  isActive: boolean;
+  isActiveView: boolean;
   onHide: () => void;
-}
+  selectedData: MemberData;
+  fetchMemberList: () => void;
+};
 
 const ViewManageMemberModal = (props: ViewManageMemberModalProps) => {
-  const {
-    isActive,
-    onHide,
-  } = props;
-  const [activeTab, setActiveTab] = useState<number>(0);
-  const { getConfirmation } = useConfirmationDialog();
-  const { enqueueSnackbar } = useSnackbar();
   const { t: tMember } = useTranslation('member');
   const { t: tKYC } = useTranslation('kyc');
-  const { t: tCommon } = useTranslation('common');
 
-  const handleLock = async () => {
-    const confirmed = await getConfirmation({
-      title: tCommon('confirmationLockTitle', { text: 'Member' }),
-      message: tCommon('confirmationLockDescription', { text: 'Member' }),
-      primaryText: tCommon('confirmationLockYes'),
-      secondaryText: tCommon('confirmationLockNo'),
-    });
+  const { isActiveView, onHide, selectedData, fetchMemberList } = props;
+  const [activeTab, setActiveTab] = useState<number>(0);
+  const [isActive, showModal, hideModal] = useModal();
 
-    if (confirmed) {
-      enqueueSnackbar(tCommon('successLock', { text: 'Member' }), { variant: 'success' });
-      onHide();
-    }
-  }
+  const {
+    memberDetail,
+    memberKYCDetail,
+    handleLockUnlock,
+    listProvinceResidence,
+    listProvinceDomicile,
+    listCityResidence,
+    listCityDomicile,
+    listCountryResidence,
+    listCountryDomicile,
+    fetchMemberKYCHistoryDetail,
+  } = useMemberUpsert({
+    selectedData,
+    onHide,
+    fetchMemberList,
+  });
 
   return (
     <Dialog
-      open={isActive}
+      open={isActiveView}
       onClose={onHide}
       sx={{
         '& .MuiDialog-paper': {
           borderRadius: 5,
-        }
+        },
       }}
       maxWidth="xl"
       fullWidth
     >
       <DialogTitle>
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Stack
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           <Typography variant="h5">{tMember('detailTitle')}</Typography>
           <IconButton onClick={onHide}>
             <CloseIcon />
@@ -75,36 +83,82 @@ const ViewManageMemberModal = (props: ViewManageMemberModalProps) => {
       </DialogTitle>
       <DialogContent>
         <Grid container spacing={2} sx={{ pt: 1 }}>
-          <Grid item md={4} xs={12}>
+          <Grid item md={12 / 3} xs={12}>
             <Card sx={{ borderRadius: 4, p: 2 }}>
               <Stack direction="column" spacing={2}>
-                <Typography variant="body2" color={Token.color.greyscaleGreyDarkest}>{tMember('detailPhoneNumber')}</Typography>
-                <Typography variant="subtitle2" sx={{ py: 0.8 }}>081287654321</Typography>
+                <Typography
+                  variant="body2"
+                  color={Token.color.greyscaleGreyDarkest}
+                >
+                  {tMember('detailMemberName')}
+                </Typography>
+                <Typography variant="subtitle2" sx={{ py: 0.8 }}>
+                  {memberDetail?.name}
+                </Typography>
               </Stack>
             </Card>
           </Grid>
-          <Grid item md={4} xs={12}>
+          <Grid item md={12 / 3} xs={12}>
             <Card sx={{ borderRadius: 4, p: 2 }}>
               <Stack direction="column" spacing={2}>
-                <Typography variant="body2" color={Token.color.greyscaleGreyDarkest}>{tMember('detailMemberName')}</Typography>
-                <Typography variant="subtitle2" sx={{ py: 0.8 }}>Mukhtar Fauzi Dharmawanto</Typography>
+                <Typography
+                  variant="body2"
+                  color={Token.color.greyscaleGreyDarkest}
+                >
+                  {tMember('detailPhoneNumber')}
+                </Typography>
+                <Typography variant="subtitle2" sx={{ py: 0.8 }}>
+                  {memberDetail?.phoneNumber}
+                </Typography>
               </Stack>
             </Card>
           </Grid>
-          <Grid item md={4} xs={12}>
+          <Grid item md={12 / 3} xs={12}>
             <Card sx={{ borderRadius: 4, p: 2 }}>
               <Stack direction="column" spacing={2}>
-                <Typography variant="body2" color={Token.color.greyscaleGreyDarkest}>{tMember('detailMemberStatus')}</Typography>
-                <Stack direction="row" justifyContent="space-between" alignItems="center">
-                  <Typography variant="subtitle2">{tMember('detailStatusActive')}</Typography>
-                  <Button variant="outlined" sx={{ borderRadius: 2 }} onClick={handleLock}>
-                    {tMember('detailActionLock')}
+                <Typography
+                  variant="body2"
+                  color={Token.color.greyscaleGreyDarkest}
+                >
+                  {tMember('detailMemberStatus')}
+                </Typography>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Typography
+                    variant="subtitle2"
+                    color={
+                      memberDetail?.activationStatus === 'ACTIVE'
+                        ? Token.color.greenDark
+                        : Token.color.redDark
+                    }
+                  >
+                    {memberDetail?.activationStatus === 'ACTIVE'
+                      ? tMember('detailStatusActive')
+                      : memberDetail?.activationStatus === 'LOCK'
+                      ? tMember('detailStatusLocked')
+                      : tMember('detailStatusClosed')}
+                  </Typography>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    sx={{ py: 1, borderRadius: 2 }}
+                    onClick={handleLockUnlock}
+                    disabled={memberDetail?.activationStatus === 'CLOSED'}
+                  >
+                    {memberDetail?.activationStatus === 'LOCK'
+                      ? tMember('detailActionUnLock')
+                      : tMember('detailActionLock')}
                   </Button>
                 </Stack>
               </Stack>
             </Card>
           </Grid>
-          <Box sx={{ width: '100%', bgcolor: 'background.paper', mt: 2, px: 2 }}>
+          <Box
+            sx={{ width: '100%', bgcolor: 'background.paper', mt: 2, px: 2 }}
+          >
             <Tabs
               value={activeTab}
               onChange={(_, value) => setActiveTab(value)}
@@ -113,30 +167,58 @@ const ViewManageMemberModal = (props: ViewManageMemberModalProps) => {
               sx={{ mb: 2 }}
             >
               <Tab
-                label={(
+                label={
                   <Stack direction="row" spacing={1} alignItems="center">
                     <FolderSharedIcon />
                     {/** @ts-ignore */}
-                    <Typography variant="subtitle3">{tKYC('detailTabAccountInformation')}</Typography>
+                    <Typography variant="subtitle3">
+                      {tKYC('detailTabAccountInformation')}
+                    </Typography>
                   </Stack>
-                )}
+                }
               />
-              <Tab
-                label={(
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <PersonOutlineIcon />
-                    {/** @ts-ignore */}
-                    <Typography variant="subtitle3">{tKYC('detailTabPersonalDataKYC')}</Typography>
-                  </Stack>
-                )}
-              />
+              {memberDetail?.upgradeStatus === 'REGISTERED' && (
+                <Tab
+                  label={
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <PersonOutlineIcon />
+                      {/** @ts-ignore */}
+                      <Typography variant="subtitle3">
+                        {tKYC('detailTabPersonalDataKYC')}
+                      </Typography>
+                    </Stack>
+                  }
+                />
+              )}
             </Tabs>
-            <ViewManageMemberTab activeTab={activeTab} />
+            <ViewManageMemberTab
+              activeTab={activeTab}
+              memberDetail={memberDetail}
+              memberKYCDetail={memberKYCDetail}
+              listProvinceResidence={listProvinceResidence}
+              listProvinceDomicile={listProvinceDomicile}
+              listCityResidence={listCityResidence}
+              listCityDomicile={listCityDomicile}
+              listCountryDomicile={listCountryDomicile}
+              listCountryResidence={listCountryResidence}
+              showModalUpdate={showModal}
+              selectedData={selectedData}
+            />
           </Box>
         </Grid>
       </DialogContent>
+
+      {isActive && (
+        <UpdateMemberAddressModal
+          isActive={isActive}
+          onHide={hideModal}
+          memberKYCDetail={memberKYCDetail}
+          selectedData={selectedData}
+          fetchMemberKYCHistoryDetail={fetchMemberKYCHistoryDetail}
+        />
+      )}
     </Dialog>
-  )
-}
+  );
+};
 
 export default ViewManageMemberModal;

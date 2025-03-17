@@ -1,5 +1,5 @@
 // Cores
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { batch, DateConvert } from '@woi/core';
 
 // Components
@@ -12,10 +12,10 @@ import ViewManageMemberModal from './components/ViewManageMemberModal';
 import useModal from '@woi/common/hooks/useModal';
 import useMemberList, { StatusType } from './hooks/useMemberList';
 import { useTranslation } from 'react-i18next';
+import { MemberData } from "@woi/service/co/idp/member/memberList";
 
 // Types & Consts
 import { Column } from 'react-table';
-import { MemberData } from '@woi/service/principal/admin/member/memberList';
 import { LONG_DATE_TIME_FORMAT } from '@woi/core/utils/date/constants';
 import { OptionMap } from '../content-management/hooks/useContentManagementUpsert';
 
@@ -32,69 +32,141 @@ const MemberManagementList = () => {
     handleSort,
     memberData,
     memberStatus,
+    fetchMemberList,
   } = useMemberList();
   const [isActive, showModal, hideModal] = useModal();
   const { t: tCommon } = useTranslation('common');
   const { t: tMember } = useTranslation('member');
   const { t: tForm } = useTranslation('form');
+  const [selectedData, setSelectedData] = useState<MemberData | null>(null);
 
-  const columns: Array<Column<MemberData & { action: string }>> = useMemo(
+  const renderCell = ({ value, row }: { value: any; row: any; }) => (
+    <Typography
+      variant="inherit"
+      key="name"
+      sx={{
+        color:
+          row.original.activationStatus === 'LOCK'
+            ? Token.color.greyscaleGreyDarkest
+            : Token.color.primaryBlack,
+      }}
+    >
+      {value}
+    </Typography>
+  );
+
+  const columns: Array<Column<MemberData & { action: string; }>> = useMemo(
     () => [
-      {
-        Header: tMember('tableHeaderCO'),
-        accessor: 'coName',
-        Cell: ({ value, row }) => (
-          <Stack direction="row" spacing={1} alignItems="center" key="coName">
-            <Typography variant="inherit" sx={{ color: row.original.isLocked ? Token.color.greyscaleGreyDarkest : Token.color.primaryBlack }}>{value}</Typography>
-            {row.original.isLocked && (
-              <LockIcon fontSize="small" sx={{ color: Token.color.greyscaleGreyDarkest }} />
-            )}
-          </Stack>
-        )
-      },
       {
         Header: tMember('tableHeaderPhoneNumber'),
         accessor: 'phoneNumber',
         Cell: ({ value, row }) => (
-          <Typography variant="inherit" key="phoneNumber" sx={{ color: row.original.isLocked ? Token.color.greyscaleGreyDarkest : Token.color.primaryBlack }}>{value}</Typography>
-        )
+          <Stack
+            direction="row"
+            spacing={1}
+            alignItems="center"
+            key="phoneNumber"
+          >
+            <Typography
+              variant="inherit"
+              sx={{
+                color:
+                  row.original.activationStatus === 'LOCK'
+                    ? Token.color.greyscaleGreyDarkest
+                    : Token.color.primaryBlack,
+              }}
+            >
+              {value}
+            </Typography>
+            {row.original.activationStatus === 'LOCK' && (
+              <LockIcon
+                fontSize="small"
+                sx={{ color: Token.color.greyscaleGreyDarkest }}
+              />
+            )}
+          </Stack>
+        ),
       },
       {
         Header: tMember('tableHeaderMemberName'),
         accessor: 'name',
-        Cell: ({ value, row }) => (
-          <Typography variant="inherit" key="name" sx={{ color: row.original.isLocked ? Token.color.greyscaleGreyDarkest : Token.color.primaryBlack }}>{value}</Typography>
-        )
+        Cell: ({ value, row }) => renderCell({ value, row }),
       },
       {
         Header: tMember('tableHeaderStatus'),
+        accessor: 'activationStatus',
+        Cell: ({ value }) => {
+          if (value === 'ACTIVE')
+            return (
+              <Typography variant="inherit">
+                {tMember('statusActive')}
+              </Typography>
+            );
+          if (value === 'LOCK')
+            return (
+              <Typography variant="inherit">{tMember('statusLock')}</Typography>
+            );
+          if (value === 'CLOSED')
+            return (
+              <Typography variant="inherit">{tMember('statusClosed')}</Typography>
+            );
+          return <Typography variant="inherit">-</Typography>;
+        },
+      },
+      {
+        Header: tMember('tableHeaderUpgradeStatus'),
         accessor: 'status',
         Cell: ({ value }) => {
-          if (value === 'REGISTERED') return <Typography variant="inherit" color={Token.color.greenDark}>{tMember('statusRegistered')}</Typography>
-          if (value === 'UNREGISTERED') return <Typography variant="inherit" color={Token.color.orangeDark}>{tMember('statusUnregistered')}</Typography>
-          return <Typography variant="inherit">-</Typography>
-        }
+          if (value === 'UNREGISTER')
+            return (
+              <Typography variant="inherit">
+                {tMember('statusUnregister')}
+              </Typography>
+            );
+          if (value === 'REGISTERED')
+            return (
+              <Typography variant="inherit">
+                {tMember('statusRegistered')}
+              </Typography>
+            );
+          if (value === 'WAITING_TO_REVIEW')
+            return (
+              <Typography variant="inherit">
+                {tMember('statusWaitingToReview')}
+              </Typography>
+            );
+          return <Typography variant="inherit">-</Typography>;
+        },
       },
       {
         Header: tMember('tableHeaderRegistrationDate'),
         accessor: 'createdDate',
-        Cell: ({ row, value }) => (
-          <Typography variant="inherit" key="createdDate" sx={{ color: row.original.isLocked ? Token.color.greyscaleGreyDarkest : Token.color.primaryBlack }}>{DateConvert.stringToDateFormat(value, LONG_DATE_TIME_FORMAT)}</Typography>
-        )
+        Cell: ({ row, value }) =>
+          renderCell({
+            value: DateConvert.stringToDateFormat(value, LONG_DATE_TIME_FORMAT),
+            row,
+          }),
       },
       {
         Header: tCommon('tableHeaderAction'),
         accessor: 'action',
-        Cell: () => (
+        Cell: ({ row }) => (
           <Stack direction="row" spacing={2} key="memberAction">
-            <Button variant="text" size="small" onClick={showModal}>
+            <Button
+              variant="text"
+              size="small"
+              onClick={() => {
+                setSelectedData(row.original);
+                showModal();
+              }}
+            >
               {tMember('tableActionView')}
             </Button>
           </Stack>
-        )
+        ),
       },
     ],
-    [showModal]
+    [showModal],
   );
 
   return (
@@ -315,7 +387,14 @@ const MemberManagementList = () => {
           </Card>
         )}
       </Stack>
-      <ViewManageMemberModal isActive={isActive} onHide={hideModal} />
+      {selectedData && isActive && (
+        <ViewManageMemberModal
+          isActiveView={isActive}
+          onHide={hideModal}
+          selectedData={selectedData}
+          fetchMemberList={fetchMemberList}
+        />
+      )}
     </Stack>
   )
 }

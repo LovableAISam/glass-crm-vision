@@ -33,6 +33,14 @@ export interface MemberData extends ResponseData {
   gcmId: string;
   balance: number;
   isAccountNonExpired: boolean;
+  activeDate: string;
+  enable: boolean;
+  id: string;
+  inactiveDate: string;
+  isLocked: boolean;
+  modifiedDate: string;
+  referralCode: string;
+  status: UpgradeStatus;
 }
 
 interface MemberListResponse extends ResultData<MemberData[]> { }
