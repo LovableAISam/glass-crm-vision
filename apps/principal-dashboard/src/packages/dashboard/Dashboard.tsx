@@ -1,7 +1,8 @@
 import React from 'react';
-import { Stack, Typography, Card, Divider, Box, List, Avatar, ListItemButton, Button, useTheme } from '@mui/material';
+import { Stack, Typography, Card, Divider, Box, List, Avatar, ListItemButton, Button, useTheme, Grid } from '@mui/material';
 import { FormDatePicker, Token } from '@woi/web-component';
 import Image from 'next/image';
+import { useTranslation } from "react-i18next";
 
 // Asset
 import Merchant1 from 'asset/images/merchant-1.png';
@@ -9,6 +10,8 @@ import Merchant2 from 'asset/images/merchant-2.png';
 import Merchant3 from 'asset/images/merchant-3.png';
 import Merchant4 from 'asset/images/merchant-4.png';
 import Merchant5 from 'asset/images/merchant-5.png';
+import NotFoundImage from 'asset/images/not-found-co.svg';
+import LogoImage from 'asset/images/logo.svg';
 
 // Icon
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
@@ -25,6 +28,33 @@ import EditIcon from '@mui/icons-material/Edit';
 
 const Dashboard = () => {
   const theme = useTheme();
+  const { t: tCommon } = useTranslation('common');
+
+  return (
+    <Grid container component="main" mt={24}>
+      <Stack
+        justifyContent="center"
+        alignItems="center"
+        sx={{ width: '100%', height: '100%' }}
+      >
+        <Stack direction="row" spacing={3} alignItems="center">
+          <Image src={LogoImage} width={50} height={50} />
+          <Typography variant="h3">{tCommon('appName')}</Typography>
+        </Stack>
+        <Image src={NotFoundImage} />
+        <Stack spacing={1} sx={{ mt: 2 }}>
+          <Typography
+            variant="body1"
+            align="center"
+            color={Token.color.greyscaleGreyDarkest}
+            sx={{ mb: 2 }}
+          >
+            Select menu from the menu panel.
+          </Typography>
+        </Stack>
+      </Stack>
+    </Grid>
+  );
 
   return (
     <Stack direction="column" spacing={2} sx={{ pb: 3 }}>

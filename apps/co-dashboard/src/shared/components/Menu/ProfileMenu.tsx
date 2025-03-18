@@ -75,12 +75,12 @@ const ProfileMenu = () => {
           type: 'set-last-opened-tab',
           payload: {
             lastOpenedTabs: [
-              {
-                menuType: 'Menu',
-                menuName: 'Dashboard Home',
-                menuIcon: 'Home',
-                menuLink: '/',
-              },
+              // {
+              //   menuType: 'Menu',
+              //   menuName: 'Dashboard Home',
+              //   menuIcon: 'Home',
+              //   menuLink: '/',
+              // },
             ],
           },
         });

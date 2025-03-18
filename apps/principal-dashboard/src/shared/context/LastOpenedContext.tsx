@@ -13,27 +13,27 @@ type LastOpenedAction =
     type: 'set-last-opened-tab';
     payload: {
       lastOpenedTabs: MenuType[];
-    }
-  }
+    };
+  };
 
 function specReducer(state: LastOpenedData, action: LastOpenedAction): LastOpenedData {
   if (action.type === 'set-last-opened-tab') {
     return {
       ...state,
       lastOpenedTabs: action.payload.lastOpenedTabs,
-    }
+    };
   }
   return state;
 }
 
 const initialState: LastOpenedData = {
   lastOpenedTabs: [
-    {
-      menuType: 'Menu',
-      menuName: 'Dashboard Home',
-      menuIcon: 'Home',
-      menuLink: '/',
-    },
+    // {
+    //   menuType: 'Menu',
+    //   menuName: 'Dashboard Home',
+    //   menuIcon: 'Home',
+    //   menuLink: '/',
+    // },
   ],
 };
 
@@ -53,7 +53,7 @@ export const LastOpenedProvider = (props: React.PropsWithChildren<{
       </LastOpenedDispatch.Provider>
     </LastOpened.Provider>
   );
-}
+};
 
 export function useLastOpenedSpec() {
   return React.useContext(LastOpened);

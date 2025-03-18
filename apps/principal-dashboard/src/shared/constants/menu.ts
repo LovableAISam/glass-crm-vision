@@ -13,13 +13,13 @@ export type MenuType = {
 
 // Admin Menu
 const adminMenu: MenuType[] = [
-  {
-    menuType: 'Menu',
-    menuName: 'Dashboard Home',
-    menuIcon: 'Home',
-    menuLink: '/',
-    privilege: 'default',
-  },
+  // {
+  //   menuType: 'Menu',
+  //   menuName: 'Dashboard Home',
+  //   menuIcon: 'Home',
+  //   menuLink: '/',
+  //   privilege: 'default',
+  // },
   {
     menuType: 'Menu',
     menuName: 'Bank Management',
