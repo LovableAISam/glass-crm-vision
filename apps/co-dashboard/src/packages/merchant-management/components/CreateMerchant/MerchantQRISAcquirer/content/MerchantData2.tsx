@@ -1284,7 +1284,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
               inputProps={{ maxLength: 30 }}
               onKeyPress={handleKeyPress}
               placeholder={tForm('placeholderType', {
-                fieldName: 'npwp',
+                fieldName: 'taxpayer identification number',
               })}
               sx={{
                 '& .MuiOutlinedInput-root': {
