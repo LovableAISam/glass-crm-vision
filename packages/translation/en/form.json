@@ -23,7 +23,7 @@
   "generalErrorContainsSpecialChars": "At least 1 symbols.",
   "generalErrorContainsNumber": "At least 1 number.",
   "generalErrorMissMatching": "{{fieldName}} doesn’t match. Please re-check",
-  "generalErrorFormat": "Format {{fieldName}} tidak sesuai.",
+  "generalErrorFormat": "The format of {{fieldName}} is incorrect.",
 
   "errorEmpty": "{{fieldName}} must be filled at least 1",
 
