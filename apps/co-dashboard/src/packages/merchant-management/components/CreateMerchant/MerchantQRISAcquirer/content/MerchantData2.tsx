@@ -54,7 +54,8 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
     completed,
     setActiveStep,
     validateForm,
-    fetchProvinceList
+    fetchProvinceList,
+    fetchMerchantCriteriaList
   } = props;
 
   const { t: tCommon } = useTranslation('common');
@@ -678,7 +679,14 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
             </Typography>
             <Autocomplete
               {...fieldMerchantType2}
-              onChange={(_, value) => fieldMerchantType2.onChange(value)}
+              onChange={(_, value) => {
+                fieldMerchantType2.onChange(value);
+                if (value === null) {
+                  setValue('merchantCriteria', null);
+                } else {
+                  fetchMerchantCriteriaList(value.value);
+                }
+              }}
               options={merchantTypeOptions}
               fullWidth
               getOptionLabel={option => option.label}
@@ -730,11 +738,12 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
               }}
               options={merchantCriteriaOptions}
               fullWidth
+              disabled={watch('merchantType2') === null}
               getOptionLabel={option => option.label}
               renderInput={params => (
                 <TextField
                   {...params}
-                  placeholder={tForm('placeholderSelect', {
+                  placeholder={watch('merchantType2') === null ? 'Please select a merchant type first.' : tForm('placeholderSelect', {
                     fieldName: 'merchant criteria',
                   })}
                   sx={{

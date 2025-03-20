@@ -320,8 +320,8 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
         }
     };
 
-    const fetchMerchantCriteriaList = async () => {
-        const { result, error } = await useMerchantCategoryListFetcher(baseUrl);
+    const fetchMerchantCriteriaList = async (value: string) => {
+        const { result, error } = await useMerchantCategoryListFetcher(baseUrl, { qrTypeId: value });
 
         if (result && !error) {
             setMerchantCriteriaOptions(result.map(data => ({
@@ -607,7 +607,7 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
         fetchProvinceList('c727a474-0ffc-4497-9b2c-6c7f291895bc');
         fetchMerchantQRType();
         fetchMerchantTypeList();
-        fetchMerchantCriteriaList();
+        // fetchMerchantCriteriaList();
         fetchMerchantCategoryList();
         fetchMerchantLocationList();
     }, []);
@@ -736,7 +736,8 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
         villageOptions,
         doubleAuthorize,
         setDoubleAuthorize,
-        fetchProvinceList
+        fetchProvinceList,
+        fetchMerchantCriteriaList
     };
 }
 

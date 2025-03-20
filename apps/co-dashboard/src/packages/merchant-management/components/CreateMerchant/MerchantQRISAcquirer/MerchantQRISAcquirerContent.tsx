@@ -38,7 +38,7 @@ export type QRISAcquirerContentProps = {
   setDoubleAuthorize: Dispatch<SetStateAction<boolean>>;
   handleBack: () => void;
   handleNext: () => void;
-
+  fetchMerchantCriteriaList: (value: string) => void;
   merchantDetail: MerchantDetail | null;
   validateForm: (callback: () => void) => void;
   activeStep: number;
