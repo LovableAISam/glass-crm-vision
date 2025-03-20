@@ -135,22 +135,24 @@ const MenuNested = (menu: MenuType) => {
             noHover
           >
             {menuIcon && (
-              <StyledListItemIcon
-                sx={{
-                  minWidth: 0,
-                  pr: 1.5,
-                  color: 'inherit',
-                }}
-              >
-                {typeof menuIcon === 'string'
-                  ? // @ts-ignore
-                  React.createElement(Icons[menuIcon])
-                  : menuIcon}
-              </StyledListItemIcon>
+              <Stack width='100%' display='contents'>
+                <StyledListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    pr: 1.5,
+                    color: 'inherit',
+                  }}
+                >
+                  {typeof menuIcon === 'string'
+                    ? // @ts-ignore
+                    React.createElement(Icons[menuIcon])
+                    : menuIcon}
+                </StyledListItemIcon>
+                <StyledListItemText>
+                  <Typography variant="body2">{menuName}</Typography>
+                </StyledListItemText>
+              </Stack>
             )}
-            <StyledListItemText>
-              <Typography variant="body2">{menuName}</Typography>
-            </StyledListItemText>
             {open ? (
               <ExpandLess fontSize="inherit" />
             ) : (
@@ -176,16 +178,18 @@ const MenuNested = (menu: MenuType) => {
         noHover
       >
         {menuIcon && (
-          <StyledListItemIcon sx={{ minWidth: 0, pr: 1.5, color: 'inherit' }}>
-            {typeof menuIcon === 'string'
-              ? // @ts-ignore
-              React.createElement(Icons[menuIcon])
-              : menuIcon}
-          </StyledListItemIcon>
+          <Stack width='100%' display='contents'>
+            <StyledListItemIcon sx={{ minWidth: 0, color: 'inherit' }}>
+              {typeof menuIcon === 'string'
+                ? // @ts-ignore
+                React.createElement(Icons[menuIcon])
+                : menuIcon}
+            </StyledListItemIcon>
+            <StyledListItemText sx={{ pl: 1.5 }}>
+              <Typography variant="body2">{menuName}</Typography>
+            </StyledListItemText>
+          </Stack>
         )}
-        <StyledListItemText>
-          <Typography variant="body2">{menuName}</Typography>
-        </StyledListItemText>
       </StyledListItemButton>
     );
   }
@@ -215,9 +219,12 @@ const MenuNested = (menu: MenuType) => {
 
 const ResponsiveDrawer = (props: Props) => {
   const { window, children } = props;
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { prefixText } = useRouterWithPrefix();
   const { t: tCommon } = useTranslation('common');
+
+  const isMerchant = router.asPath.includes('/merchant/');
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -231,16 +238,14 @@ const ResponsiveDrawer = (props: Props) => {
         elevation={0}
         sx={{ p: 2 }}
         style={{
+          // @ts-ignore
           position: 'sticky',
           top: 0,
           zIndex: 5,
         }}
       >
         <Stack direction="row" justifyContent="center">
-          <Link
-            href={`/${prefixText}`}
-            style={{ textDecoration: 'none', color: Token.color.primaryBlack }}
-          >
+          <Link href={`/${prefixText}${isMerchant ? '/merchant' : ''}`}>
             <Stack direction="row" spacing={1} alignItems="center">
               <LogoItem width={50} height={50} />
               <Typography variant="h4">{tCommon('appName')}</Typography>
@@ -250,8 +255,8 @@ const ResponsiveDrawer = (props: Props) => {
       </Card>
       <List sx={{ px: 2 }}>
         <Stack direction="column" spacing={1}>
-          {menuLists.map((menu, key) => (
-            <MenuNested key={menu.menuName + key} {...menu} />
+          {menuLists.map(menu => (
+            <MenuNested key={menu.menuName} {...menu} />
           ))}
         </Stack>
       </List>

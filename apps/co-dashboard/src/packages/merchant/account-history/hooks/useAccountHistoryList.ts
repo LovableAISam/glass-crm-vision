@@ -138,7 +138,7 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
 
   const qrTypeOptions: OptionMap<string>[] = useMemo(() => {
     if (!qrTypeData?.result) return backupTransactionType;
-    return qrTypeData.result?.qrisType.map(key => ({
+    return qrTypeData.result?.qrType.map(key => ({
       label: key,
       value: key,
     }));

@@ -7,7 +7,7 @@ import {
   useQRISReportListFetcher,
   useKycListFetcher,
   useMerchantCriteriaListFetcher,
-  useMerchantQRTypeListFetcher,
+  useMerchantQRISTypeListFetcher,
   useMerchantLocationListFetcher,
   useMerchantCategoryCodeListFetcher,
   useQRISReportExportFetcher,
@@ -133,7 +133,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for QR Type dropdown
   const { data: QrListTypeData } = useQuery(
     ['qr-type-list'],
-    async () => useMerchantQRTypeListFetcher(baseUrl),
+    async () => useMerchantQRISTypeListFetcher(baseUrl),
     { refetchOnWindowFocus: false },
   );
 
@@ -155,7 +155,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for QRIS Type dropdown
   const { data: QrisListTypeData } = useQuery(
     ['qris-type-list'],
-    async () => useMerchantQRTypeListFetcher(baseUrl),
+    async () => useMerchantQRISTypeListFetcher(baseUrl),
     { refetchOnWindowFocus: false },
   );
 

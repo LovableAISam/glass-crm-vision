@@ -971,4 +971,11 @@ export const apiMerchantLocationList = '/merchant/api/v1/merchant/location-list'
  * usage for Merchant QR Type
  * Contract: merchant/Merchant/QR/Get-Type
  */
-export const apiMerchantQRType = '/merchant/api/v1/merchant/qris-type';
+export const apiMerchantQRISType = '/merchant/api/v1/merchant/qris-type';
+
+/**
+ * Merchant QR Type
+ * usage for Merchant QR Type
+ * Contract: merchant/Merchant/QR/Get-Type
+ */
+export const apiMerchantQRType = '/merchant/api/v1/merchant/qr-type';

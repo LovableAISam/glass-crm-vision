@@ -182,6 +182,7 @@ export { default as useCreateQrTypeListFetcher } from './merchant/merchantCreate
 
 export { default as userMerchantCreateQRISAcquirerFetcher } from './merchant/merchantCreateQRISAcquirer';
 export { default as useMerchantQRTypeListFetcher } from './merchant/merchantQRType';
+export { default as useMerchantQRISTypeListFetcher } from './merchant/merchantQRISType';
 export { default as useMerchantLocationListFetcher } from './merchant/merchantLocationList';
 export { default as useMerchantFunctionListFetcher } from './merchant/merchantFunctionList';
 export { default as useMerchantCreateUser } from './merchant/merchantCreateUser';

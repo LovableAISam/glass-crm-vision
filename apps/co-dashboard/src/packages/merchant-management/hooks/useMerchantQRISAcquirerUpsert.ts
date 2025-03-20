@@ -302,7 +302,7 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
     const fetchMerchantQRType = async () => {
         const { result, error } = await useMerchantQRTypeListFetcher(baseUrl);
         if (result && !error) {
-            setQRTypeOptions(result.qrisType.map(data => ({
+            setQRTypeOptions(result.qrType.map(data => ({
                 label: data,
                 value: data,
             })));

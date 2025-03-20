@@ -233,11 +233,11 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
   const { field: fieldNMID } = useController({
     name: 'nmid',
     control,
-    // rules: {
-    //   required: tForm('generalErrorRequired', {
-    //     fieldName: 'nmid',
-    //   }),
-    // },
+    rules: {
+      required: tForm('generalErrorRequired', {
+        fieldName: 'nmid',
+      }),
+    },
   });
 
   const { field: fieldAuthTokenUrl } = useController({
