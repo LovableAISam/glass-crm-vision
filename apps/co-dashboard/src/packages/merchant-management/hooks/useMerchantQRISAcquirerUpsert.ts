@@ -309,7 +309,7 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
         }
     };
 
-    const fetchMerchantTypeList = async () => {
+    const fetchMerchantTypeList = async (isFetchCriteria?: Boolean) => {
         const { result, error } = await useMerchantTypeListFetcher(baseUrl);
 
         if (result && !error) {
@@ -317,6 +317,13 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
                 label: data.type,
                 value: data.id,
             })));
+            
+            if (isFetchCriteria && merchantDetail) {
+                const valueMerchantType = result.find(data => data.type === merchantDetail?.merchantType)?.id;
+                if (valueMerchantType) {
+                    fetchMerchantCriteriaList(valueMerchantType);
+                }
+            }
         }
     };
 
@@ -607,10 +614,15 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
         fetchProvinceList('c727a474-0ffc-4497-9b2c-6c7f291895bc');
         fetchMerchantQRType();
         fetchMerchantTypeList();
-        // fetchMerchantCriteriaList();
         fetchMerchantCategoryList();
         fetchMerchantLocationList();
     }, []);
+
+    useEffect(() => {
+        if (merchantDetail) {
+            fetchMerchantTypeList(true);
+        }
+    }, [merchantDetail]);
 
     useEffect(() => {
         if (isUpdate && merchantDetail) {
