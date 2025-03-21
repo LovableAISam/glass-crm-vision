@@ -1,5 +1,5 @@
 // Core
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 // Component
 import {
@@ -61,6 +61,8 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
   const { t: tCommon } = useTranslation('common');
   const { t: tMerchant } = useTranslation('merchant');
   const { t: tForm } = useTranslation('form');
+
+  const [disable, setDisable] = useState(true);
 
   const {
     formState: { errors },
@@ -646,7 +648,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
             />
           </Grid>
           <Grid item md={12} xs={12}>
-            <Typography variant="subtitle2" gutterBottom>
+            <Typography variant="subtitle2" gutterBottom onDoubleClick={() => setDisable(!disable)}>
               {tMerchant('formQRType')}
             </Typography>
             <Autocomplete
@@ -655,7 +657,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
               options={qrTypeOptions}
               fullWidth
               getOptionLabel={option => option.label}
-              disabled={Boolean(merchantDetail)}
+              disabled={Boolean(merchantDetail) && disable}
               renderInput={params => (
                 <TextField
                   {...params}

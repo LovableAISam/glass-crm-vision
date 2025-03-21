@@ -593,7 +593,7 @@ export const apiAccountStatementBalance = '/transaction/api/v1/account-statement
  * usage for Merchant
  * Contract: admin/Merchant
  */
-export const apiMerchant = '/admin/api/v1/merchant';
+export const apiMerchant = '/merchant/api/v1/merchant';
 
 /**
  * System Parameter 
