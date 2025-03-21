@@ -88,7 +88,7 @@ function useChangePassword() {
     });
 
     if (confirmed) {
-      onNavigate('/merchant/');
+      onNavigate('/merchant/account-profile');
     }
   };
 
