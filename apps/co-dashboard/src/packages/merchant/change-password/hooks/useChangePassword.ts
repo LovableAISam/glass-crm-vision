@@ -88,7 +88,7 @@ function useChangePassword() {
     });
 
     if (confirmed) {
-      onNavigate('/');
+      onNavigate('/merchant/');
     }
   };
 
