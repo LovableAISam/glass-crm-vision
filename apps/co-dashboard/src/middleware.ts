@@ -10,6 +10,7 @@ export async function middleware(req: NextRequest) {
 
   const isMerchant = pathname.includes('/merchant/');
   const prefixUrl = isMerchant ? `${pathname.split('/').filter(url => url).shift()}/merchant` : pathname.split('/').filter(url => url).shift();
+  const prefixName = prefixUrl?.split('/')[0];
   const cookies = req.cookies;
   const accessToken = isMerchant ? cookies.get(ckMerchantAccessToken) : cookies.get(ckAccessToken);
 
@@ -29,7 +30,7 @@ export async function middleware(req: NextRequest) {
 
   // Handle protected routes and authentication
   const isLoginPage = (pathname === `/${prefixUrl}/login`) || (pathname === `/${prefixUrl}/login/`);
-  // const isDashboardMerchant = (pathname === `/${prefixUrl}/`) || (pathname === `/${prefixUrl}/`);
+  const isDashboardMerchant = pathname === `/${prefixName}/merchant/`;
 
   const isUnprotectedRoute = unprotectedRoutes.some(route => pathname.includes(route));
   const pathnameTrim = pathname.substring(0, pathname.length - 1);
@@ -53,9 +54,9 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  // if (isDashboardMerchant && isAccessToken) {
-  //   return NextResponse.redirect(new URL(`/${prefixUrl}/account-profile`, req.url));
-  // }
+  if (isDashboardMerchant && isAccessToken) {
+    return NextResponse.redirect(new URL(`/${prefixUrl}/account-profile`, req.url));
+  }
 
   // Bypass all the conditions & continue
   // Continue to access the index & show 'Community Owner Not Found'
