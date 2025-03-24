@@ -50,10 +50,11 @@ interface UserUpsertProps {
   selectedData: UserData | null;
   onHide: () => void;
   fetchUserList: () => void;
+  roleOptions: OptionMap<string>[];
 }
 
 function useUserUpsert(props: UserUpsertProps) {
-  const { selectedData, onHide, fetchUserList } = props;
+  const { selectedData, onHide, fetchUserList, roleOptions } = props;
   const isUpdate = Boolean(selectedData);
   const { enqueueSnackbar } = useSnackbar();
   const { getConfirmation } = useConfirmationDialog();
@@ -242,12 +243,10 @@ function useUserUpsert(props: UserUpsertProps) {
 
     const { result, error } = userDetailResponse;
 
-    let menuList: OptionMap<string>[] = [];
-
     if (result && !error) {
       setValue('name', result.name);
       setValue('description', result.description);
-      const selectedRole = menuList.find(menu => menu.value === result.roleId);
+      const selectedRole = roleOptions.find(menu => menu.value === result.roleId);
       if (selectedRole) {
         setValue('role', selectedRole);
       }
@@ -274,7 +273,7 @@ function useUserUpsert(props: UserUpsertProps) {
     handleActivateDeactivate,
     handleCancel,
     handleLockUnlock,
-    setValue
+    setValue,
   };
 }
 

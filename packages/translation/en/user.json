@@ -26,8 +26,8 @@
   "tableHeaderDescription": "Description",
   "tableHeaderPassword": "Password",
 
-  "modalCreateTitle": "User Details",
-  "modalUpdateTitle": "Add New User",
+  "modalUpdateTitle": "User Details",
+  "modalCreateTitle": "Add New User",
 
   "detailEmail": "Email",
   "detailUsername": "Username",

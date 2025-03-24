@@ -46,11 +46,11 @@ const CreateUserModal = (props: CreateUserModalProps) => {
     handleCancel,
     handleLockUnlock,
     setValue,
-  } = useUserUpsert({ selectedData, onHide, fetchUserList });
+  } = useUserUpsert({ selectedData, onHide, fetchUserList, roleOptions });
   const {
     getValues,
     formState: { errors },
-    control,
+    control
   } = formData;
   const { t: tCommon } = useTranslation('common');
   const { t: tUser } = useTranslation('user');
@@ -325,27 +325,29 @@ const CreateUserModal = (props: CreateUserModalProps) => {
                   disabled
                 />
               </Grid>
-              <Grid item md={4} xs={12} display="none">
-                <Card
-                  variant="elevation"
-                  sx={{ p: 2, borderRadius: 3, height: 100 }}
-                >
-                  <Stack direction="column" spacing={2}>
-                    <Typography variant="body2">
-                      {tUser('detailEmail')}
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      {fieldUserEmail.value}
-                    </Typography>
-                  </Stack>
-                </Card>
-              </Grid>
-              <Grid item md={4} xs={12} display="none">
-                {renderUserStatus()}
-              </Grid>
-              <Grid item md={4} xs={12} display="none">
-                {renderAccountStatus()}
-              </Grid>
+              <React.Fragment>
+                <Grid item md={4} xs={12} display="none">
+                  <Card
+                    variant="elevation"
+                    sx={{ p: 2, borderRadius: 3, height: 100 }}
+                  >
+                    <Stack direction="column" spacing={2}>
+                      <Typography variant="body2">
+                        {tUser('detailEmail')}
+                      </Typography>
+                      <Typography variant="subtitle2">
+                        {fieldUserEmail.value}
+                      </Typography>
+                    </Stack>
+                  </Card>
+                </Grid>
+                <Grid item md={4} xs={12} display="none">
+                  {renderUserStatus()}
+                </Grid>
+                <Grid item md={4} xs={12} display="none">
+                  {renderAccountStatus()}
+                </Grid>
+              </React.Fragment>
             </React.Fragment>
           ) : (
             <React.Fragment>
