@@ -29,7 +29,7 @@ export async function middleware(req: NextRequest) {
 
   // Handle protected routes and authentication
   const isLoginPage = (pathname === `/${prefixUrl}/login`) || (pathname === `/${prefixUrl}/login/`);
-  const isDashboardMerchant = (pathname === `/${prefixUrl}/`) || (pathname === `/${prefixUrl}/`);
+  // const isDashboardMerchant = (pathname === `/${prefixUrl}/`) || (pathname === `/${prefixUrl}/`);
 
   const isUnprotectedRoute = unprotectedRoutes.some(route => pathname.includes(route));
   const pathnameTrim = pathname.substring(0, pathname.length - 1);
@@ -53,9 +53,9 @@ export async function middleware(req: NextRequest) {
     }
   }
 
-  if (isDashboardMerchant && isAccessToken) {
-    return NextResponse.redirect(new URL(`/${prefixUrl}/account-profile`, req.url));
-  }
+  // if (isDashboardMerchant && isAccessToken) {
+  //   return NextResponse.redirect(new URL(`/${prefixUrl}/account-profile`, req.url));
+  // }
 
   // Bypass all the conditions & continue
   // Continue to access the index & show 'Community Owner Not Found'
