@@ -831,7 +831,8 @@ export const apiMemberSummaryList = '/report/api/v1/report/membersummary/header'
  * usage for QRIS Report
  * Contract: report/qrisReport
  */
-export const apiQRISReport = '/report/api/v1/report/qrisReport';
+// export const apiQRISReport = '/report/api/v1/report/qrisReport';
+export const apiQRISReport = '/report/v1/report/qrisReport';
 
 /**
  * QRIS Report

@@ -73,7 +73,7 @@ export interface ResponseDataQRISReport {
   totalPages: number;
 }
 
-function useQRISSettlementFetcher(baseUrl: string, payload: QRISReportRequest) {
+function useQRISReportListFetcher(baseUrl: string, payload: QRISReportRequest) {
   const request: Record<string, any> = {};
   for (const [key, value] of Object.entries(payload)) {
     if (value !== '' && value.length !== 0) {
@@ -88,4 +88,4 @@ function useQRISSettlementFetcher(baseUrl: string, payload: QRISReportRequest) {
   });
 }
 
-export default useQRISSettlementFetcher;
+export default useQRISReportListFetcher;

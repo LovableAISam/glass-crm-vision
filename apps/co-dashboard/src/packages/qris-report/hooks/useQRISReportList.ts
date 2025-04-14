@@ -29,6 +29,7 @@ import { PaginationData } from '@woi/core/api';
 import { OptionMap } from '@woi/option';
 import { DatePeriod } from '@woi/core/utils/date/types';
 import { LONG_DATE_TIME_FORMAT_BE } from '@woi/core/utils/date/constants';
+import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 
 type FilterForm = {
   endAt: DatePeriod;
@@ -86,6 +87,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   const [direction, setDirection] = useState<'desc' | 'asc'>('desc');
   const [filterForm, setFilterForm] = useState<FilterForm>(initialFilterForm);
   const { baseUrl } = useBaseUrl();
+  const { baseMobileUrl } = useBaseMobileUrl();
   const debouncedFilter = useDebounce(filterForm, 300);
   const [isLoadingDownload, setIsLoadingDownload] = useState<boolean>(false);
 
@@ -248,7 +250,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
     refetch: refetchQRISReport,
   } = useQuery(
     ['transaction-list', qrisReportPayload],
-    async () => useQRISReportListFetcher(baseUrl, qrisReportPayload),
+    async () => useQRISReportListFetcher(baseMobileUrl, qrisReportPayload),
     {
       refetchOnWindowFocus: false,
       onSuccess: response => {
