@@ -839,7 +839,7 @@ export const apiQRISReport = '/report/v1/report/qrisReport';
  * usage for Qris Report Dropdown List
  * Contract: admin/kycType/*
  */
-export const apiKycType = '/kyc/api/v1/premium-member/city-id';
+export const apiKycType = '/admin/api/v1/city/city-list';
 
 /**
  * Qris Report
