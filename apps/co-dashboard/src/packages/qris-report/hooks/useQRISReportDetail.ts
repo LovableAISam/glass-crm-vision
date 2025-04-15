@@ -27,7 +27,7 @@ function useQRISReportDetail(props: QRISReportDetailsProps) {
   const { baseUrl } = useBaseUrl();
 
   const qrisReportDetailPayload: ResponseDataQRISReport = {
-    id: selectedData.transactionNo,
+    id: selectedData.transactionNumber,
     data: [],
     currentPage: 0,
     totalElements: 0,

@@ -130,7 +130,7 @@ const QRISReportList = () => {
     },
   });
 
-  const columns: Array<Column<QRISReport & { action: string }>> = useMemo(
+  const columns: Array<Column<QRISReport & { action: string; }>> = useMemo(
     () => [
       {
         Header: tReport('tableHeaderDate'),
