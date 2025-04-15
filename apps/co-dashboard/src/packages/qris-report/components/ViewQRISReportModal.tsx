@@ -25,11 +25,11 @@ import { useRouter } from 'next/router';
 import { Column } from 'react-table';
 import { LONG_DATE_TIME_FORMAT } from '@woi/core/utils/date/constants';
 import { QRISReport } from '@woi/service/co/admin/report/qrisReport';
+import { QRISReportData } from "@woi/service/co/admin/report/qrisReportDetail";
 
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
 import DownloadIcon from '@mui/icons-material/Download';
-import { QRISReportData } from "@woi/service/co/admin/report/qrisReportDetail";
 
 type ViewQRISReportModalProps = {
   isActive: boolean;
