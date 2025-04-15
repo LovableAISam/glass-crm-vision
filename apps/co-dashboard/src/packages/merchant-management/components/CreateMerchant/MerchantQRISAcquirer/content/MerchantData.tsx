@@ -7,6 +7,7 @@ import {
   Box,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   Grid,
   Radio,
   RadioGroup,
@@ -84,7 +85,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', {
-        fieldName: 'identity no',
+        fieldName: 'Identity No',
       }),
     },
   });
@@ -94,7 +95,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', {
-        fieldName: 'identity number',
+        fieldName: 'Identity number',
       }),
     },
   });
@@ -293,28 +294,36 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
               <Typography variant="subtitle2" gutterBottom>
                 {tMerchant('formIdentityNo')}
               </Typography>
-              <RadioGroup
-                {...fieldIdentityNo}
-                onClick={value => {
-                  fieldIdentityNo.onChange(value);
-                  fieldIdentityNumber.onChange('');
-                  clearErrors();
-                }}
-                row
-                aria-labelledby="demo-controlled-radio-buttons-group"
-                name="controlled-radio-buttons-group"
+              <FormControl
+                component="fieldset"
+                error={!!errors.identityNo} // pastikan `errors.identityType` sesuai dengan nama field di form
               >
-                <FormControlLabel
-                  value="KTP"
-                  control={<Radio />}
-                  label={tMerchant('optionIdentityCard')}
-                />
-                <FormControlLabel
-                  value="Passport"
-                  control={<Radio />}
-                  label={tMerchant('optionPassport')}
-                />
-              </RadioGroup>
+                <RadioGroup
+                  {...fieldIdentityNo}
+                  onClick={value => {
+                    fieldIdentityNo.onChange(value);
+                    fieldIdentityNumber.onChange('');
+                    clearErrors();
+                  }}
+                  row
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  name="controlled-radio-buttons-group"
+                >
+                  <FormControlLabel
+                    value="identityCard"
+                    control={<Radio />}
+                    label={tMerchant('optionIdentityCard')}
+                  />
+                  <FormControlLabel
+                    value="Passport"
+                    control={<Radio />}
+                    label={tMerchant('optionPassport')}
+                  />
+                </RadioGroup>
+                {errors.identityNo && (
+                  <FormHelperText>{errors.identityNo.message}</FormHelperText>
+                )}
+              </FormControl>
             </FormControl>
           </Grid>
           <Grid item md={12} xs={12}>
@@ -326,6 +335,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
               error={Boolean(errors.identityNumber)}
               helperText={errors.identityNumber?.message}
               fullWidth
+              inputProps={{ maxLength: 16 }}
               onKeyPress={watch().identityNo === 'Passport' ? handleKeyPressPassport : handleKeyPress}
               placeholder={tForm('placeholderType', {
                 fieldName: 'identity number',
