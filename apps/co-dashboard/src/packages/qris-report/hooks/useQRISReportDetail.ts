@@ -8,8 +8,9 @@ import { reverseDirection } from '@woi/core';
 
 // Types & Consts
 import { TransactionHistoryData } from '@woi/service/co/transaction/transactionHistory/transactionHistoryList';
-import { QRISReport, QRISReportRequest } from '@woi/service/co/admin/report/qrisReport';
+import { QRISReport } from '@woi/service/co/admin/report/qrisReport';
 import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
+import { QRISReportDetailRequest } from "@woi/service/co/admin/report/qrisReportDetail";
 
 type QRISReportDetailsProps = {
   selectedData: QRISReport;
@@ -21,7 +22,7 @@ function useQRISReportDetail(props: QRISReportDetailsProps) {
   const [direction, setDirection] = useState<'desc' | 'asc'>('desc');
   const { baseMobileUrl } = useBaseMobileUrl();
 
-  const qrisReportDetailPayload: QRISReportRequest = {
+  const qrisReportDetailPayload: QRISReportDetailRequest = {
     transactionId: selectedData.transactionNumber,
   };
 

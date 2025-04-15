@@ -50,11 +50,11 @@ export interface QRISReportResponse {
     traceNumber: string;
 }
 
-export interface QRISReportRequest {
+export interface QRISReportDetailRequest {
     transactionId?: string;
 }
 
-function useQRISReportFetcher(baseUrl: string, payload: QRISReportRequest) {
+function useQRISReportFetcher(baseUrl: string, payload: QRISReportDetailRequest) {
     return apiGet<QRISReportResponse>({
         baseUrl,
         path: `${apiQRISReportAllTransaction}`,
