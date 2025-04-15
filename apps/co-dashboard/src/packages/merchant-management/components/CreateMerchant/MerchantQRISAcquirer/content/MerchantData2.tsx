@@ -1324,16 +1324,19 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
                   value="STATIC"
                   control={<Radio />}
                   label={tMerchant('labelStatic')}
+                  disabled
                 />
                 <FormControlLabel
                   value="FIXED"
                   control={<Radio />}
                   label={tMerchant('labelFix')}
+                  disabled
                 />
                 <FormControlLabel
                   value="PERCENTAGE"
                   control={<Radio />}
                   label={tMerchant('labelPercentage')}
+                  disabled
                 />
               </RadioGroup>
             </FormControl>
