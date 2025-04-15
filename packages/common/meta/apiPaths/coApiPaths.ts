@@ -575,6 +575,13 @@ export const apiDownloadTransactionP2POutgoingSummaryExport = '/admin/api/v1/rep
 export const apiTransactionSummary = '/admin/api/v1/report/alltransaction';
 
 /**
+ * Transaction Summary 
+ * usage for Transaction Summary
+ * Contract: report/allTransaction
+ */
+export const apiQRISReportAllTransaction = '/report/v1/report/qrisReport/alltransaction';
+
+/**
  * Transaction P2pOutgoing Summary 
  * usage for Transaction P2pOutgoing Summary
  * Contract: report/allTransactionP2pOutgoing

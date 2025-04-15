@@ -209,3 +209,4 @@ export { default as useQRISReportExportFetcher } from './admin/report/qrisReport
 export { default as useQRISSettlementExportFetcher } from './admin/report/qrisSettlementExport';
 export { default as useQRISSettlementFetcher } from './admin/report/qrisSettlement';
 export { default as useQRISSettelementDetailExportFetcher } from './admin/report/qrisSettelementDetailExport';
+export { default as useQRISReportFetcher } from './admin/report/qrisReportDetail';

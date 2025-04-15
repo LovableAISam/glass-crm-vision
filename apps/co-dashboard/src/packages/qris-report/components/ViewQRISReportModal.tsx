@@ -24,13 +24,12 @@ import useQRISReportDetail from '../hooks/useQRISReportDetail';
 import { useRouter } from 'next/router';
 import { Column } from 'react-table';
 import { LONG_DATE_TIME_FORMAT } from '@woi/core/utils/date/constants';
-//import { TransactionSummaryData } from '@woi/service/co/transaction/transactionSummary/transactionSummaryList';
-import { DataTransactionSummary } from '@woi/service/co/admin/report/transactionSummaryDetail';
 import { QRISReport } from '@woi/service/co/admin/report/qrisReport';
 
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
 import DownloadIcon from '@mui/icons-material/Download';
+import { QRISReportData } from "@woi/service/co/admin/report/qrisReportDetail";
 
 type ViewQRISReportModalProps = {
   isActive: boolean;
@@ -75,7 +74,7 @@ const ViewQRISReportModal = (props: ViewQRISReportModalProps) => {
     return typeMapping[transactionType] || transactionType;
   };
 
-  const columns: Array<Column<DataTransactionSummary>> = useMemo(
+  const columns: Array<Column<QRISReportData>> = useMemo(
     () => [
       {
         Header: tReport('tableHeaderDate'),
@@ -514,9 +513,10 @@ const ViewQRISReportModal = (props: ViewQRISReportModalProps) => {
             qrisReportDetailData.length === 0 && (
               <EmptyList
                 title={tCommon('tableEmptyTitle')}
-                description={tCommon('tableEmptyDescription', {
-                  text: 'activity history request',
-                })}
+                // description={tCommon('tableEmptyDescription', {
+                //   text: 'activity history request',
+                // })}
+                description=''
               />
             )}
           {qrisReportDetailStatus === 'success' &&
@@ -535,16 +535,19 @@ const ViewQRISReportModal = (props: ViewQRISReportModalProps) => {
               </Card>
             )}
         </Stack>
-        <Stack>
-          <Stack
-            direction="row"
-            spacing={3}
-            justifyContent="flex-end"
-            alignItems="center"
-          >
-            {/** @ts-ignore */}
-            <Typography variant="subtitle3">{tCommon('exportAs')}</Typography>
-            {/* {fileFormats.map(option => (
+
+        {qrisReportDetailStatus === 'success' &&
+          qrisReportDetailData.length > 0 && (
+            <Stack>
+              <Stack
+                direction="row"
+                spacing={3}
+                justifyContent="flex-end"
+                alignItems="center"
+              >
+                {/** @ts-ignore */}
+                <Typography variant="subtitle3">{tCommon('exportAs')}</Typography>
+                {/* {fileFormats.map(option => (
               <Grid key={option.name}>
                 <FormControlLabel
                   control={
@@ -560,30 +563,31 @@ const ViewQRISReportModal = (props: ViewQRISReportModalProps) => {
                 />
               </Grid>
             ))} */}
-            <Button
-              variant="outlined"
-              startIcon={<DownloadIcon />}
-              sx={{ borderRadius: 2 }}
-              //onClick={handleExport}
-              //disabled={isLoadingDownload}
-              //loading={isLoadingDownload}
-              loadingPosition="start"
-            >
-              {tCommon('actionDownload')}
-            </Button>
-          </Stack>
+                <Button
+                  variant="outlined"
+                  startIcon={<DownloadIcon />}
+                  sx={{ borderRadius: 2 }}
+                  //onClick={handleExport}
+                  //disabled={isLoadingDownload}
+                  //loading={isLoadingDownload}
+                  loadingPosition="start"
+                >
+                  {tCommon('actionDownload')}
+                </Button>
+              </Stack>
 
-          <Typography
-            variant="caption"
-            textAlign="end"
-            sx={{ mt: '0px !important' }}
-            //color={errors.effectiveDate ? Token.color.redDark : 'initial'}
-          >
-            {/* {errors.effectiveDate
+              <Typography
+                variant="caption"
+                textAlign="end"
+                sx={{ mt: '0px !important' }}
+              //color={errors.effectiveDate ? Token.color.redDark : 'initial'}
+              >
+                {/* {errors.effectiveDate
               ? errors.effectiveDate?.message
               : tCommon('labelMaxDownload')} */}
-          </Typography>
-        </Stack>
+              </Typography>
+            </Stack>
+          )}
       </DialogContent>
     </Dialog>
   );

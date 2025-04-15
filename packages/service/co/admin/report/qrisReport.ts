@@ -18,18 +18,19 @@ export type TransactionType =
   | 'PAYBILLS_ECPAY';
 
 export interface QRISReportRequest extends DefaultQueryPageRequest {
-  startAt?: string;
-  endAt?: string;
-  size?: number;
-  transactionType?: string[];
-  qrType?: string[];
-  qrisType?: string[];
-  qrisLocation?: string[];
-  kycLocation?: string[];
-  merchantCategoryCode?: string[];
-  merchantCriteria?: string[];
-  merchantName?: string;
-  status?: string;
+  transactionId: string;
+  // startAt?: string;
+  // endAt?: string;
+  // size?: number;
+  // transactionType?: string[];
+  // qrType?: string[];
+  // qrisType?: string[];
+  // qrisLocation?: string[];
+  // kycLocation?: string[];
+  // merchantCategoryCode?: string[];
+  // merchantCriteria?: string[];
+  // merchantName?: string;
+  // status?: string;
 }
 
 export interface QRISReport extends ResponseData {
