@@ -56,6 +56,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
     control,
     setValue,
     clearErrors,
+    watch
   } = formData;
 
   const { field: fieldMerchantType } = useController({
@@ -197,6 +198,34 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
     }
   };
 
+  const handleKeyPressPassport = (event: any) => {
+    const input = event.target as HTMLInputElement;
+    const isLetter = /^[a-zA-Z]$/.test(event.key);
+    const isDigit = /^[0-9]$/.test(event.key);
+    const start = input.selectionStart ?? 0;
+    const end = input.selectionEnd ?? 0;
+    const currentValue = input.value;
+    const newLength = currentValue.length - (end - start) + 1; // menghitung panjang setelah karakter baru ditambahkan
+    if (newLength > 10) {
+      event.preventDefault();
+      return;
+    }
+    if (isDigit) {
+      return; // angka diterima langsung
+    }
+    if (isLetter) {
+      event.preventDefault(); // cegah input asli
+      const upperChar = event.key.toUpperCase();
+
+      input.value = currentValue.slice(0, start) + upperChar + currentValue.slice(end);
+      setTimeout(() => {
+        input.setSelectionRange(start + 1, start + 1);
+      });
+      return;
+    }
+    event.preventDefault();
+  };
+
   useEffect(() => {
     if (merchantDetail) {
       fetchProvinceList('c727a474-0ffc-4497-9b2c-6c7f291895bc', true);
@@ -268,6 +297,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
                 {...fieldIdentityNo}
                 onClick={value => {
                   fieldIdentityNo.onChange(value);
+                  fieldIdentityNumber.onChange('');
                   clearErrors();
                 }}
                 row
@@ -296,8 +326,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
               error={Boolean(errors.identityNumber)}
               helperText={errors.identityNumber?.message}
               fullWidth
-              inputProps={{ maxLength: 16 }}
-              onKeyPress={handleKeyPress}
+              onKeyPress={watch().identityNo === 'Passport' ? handleKeyPressPassport : handleKeyPress}
               placeholder={tForm('placeholderType', {
                 fieldName: 'identity number',
               })}
