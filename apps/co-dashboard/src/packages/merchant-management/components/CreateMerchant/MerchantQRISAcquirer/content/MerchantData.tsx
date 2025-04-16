@@ -310,7 +310,7 @@ const MerchantData = (props: QRISAcquirerContentProps) => {
                   name="controlled-radio-buttons-group"
                 >
                   <FormControlLabel
-                    value="identityCard"
+                    value="KTP"
                     control={<Radio />}
                     label={tMerchant('optionIdentityCard')}
                   />

@@ -92,7 +92,7 @@ const initialMerchantForm: MerchantForm = {
     merchantType: 'individual',
     merchantBrand: '',
     identityNumber: '',
-    identityNo: '',
+    identityNo: 'KTP',
     expiredDate: null,
     dateOfBirth: null,
     address: '',
