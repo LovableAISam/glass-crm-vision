@@ -235,6 +235,7 @@ const CreateAccountRuleValueModal = (
               InputProps={{ inputComponent: NumberFormat as any }}
               error={Boolean(errors.valueUnregisterMember)}
               helperText={errors.valueUnregisterMember?.message}
+              disabled
             />
           </Grid>
           <Grid item md={6} xs={12}>
@@ -255,6 +256,7 @@ const CreateAccountRuleValueModal = (
               InputProps={{ inputComponent: NumberFormat as any }}
               error={Boolean(errors.valueRegisterMember)}
               helperText={errors.valueRegisterMember?.message}
+              disabled
             />
           </Grid>
           {accountRule === 'Fraud Detection System' && (
@@ -274,6 +276,7 @@ const CreateAccountRuleValueModal = (
                 InputProps={{ inputComponent: NumberFormat as any }}
                 error={Boolean(errors.intervalTime)}
                 helperText={errors.intervalTime?.message}
+                disabled
               />
             </Grid>
           )}
@@ -321,11 +324,12 @@ const CreateAccountRuleValueModal = (
               }}
               error={Boolean(errors.effectiveDate)}
               helperText={errors.effectiveDate?.message}
+              disabled
             />
           </Grid>
         </Grid>
       </DialogContent>
-      <DialogActions>
+      <DialogActions sx={{ display: 'none' }}>
         <Stack
           direction="row"
           alignItems="center"
