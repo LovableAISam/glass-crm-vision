@@ -693,7 +693,7 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
             setValue('website', merchantDetail.webSite);
             setValue('effectiveDate', {
                 startDate: new Date(merchantDetail.effectiveDateFrom),
-                endDate: new Date(merchantDetail.effectiveDateFrom),
+                endDate: new Date(merchantDetail.effectiveDateTo),
             });
             setValue('province2.label', merchantDetail.merchantAddressCorrespondenceProvince);
             setValue('city2.label', merchantDetail.merchantAddressCorrespondenceCity);
