@@ -307,7 +307,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
     } else {
       setIsLoadingDownload(true);
       const { result, error, errorData } = await useQRISReportExportFetcher(
-        baseUrl,
+        baseMobileUrl,
         {
           startDate: stringToDateFormat(effectiveDate.startDate),
           endDate: stringToDateFormat(effectiveDate.endDate),

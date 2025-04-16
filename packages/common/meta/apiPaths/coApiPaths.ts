@@ -853,7 +853,7 @@ export const apiKycType = '/admin/api/v1/city/city-list';
  * usage for Qris export List
  * Contract: admin/qrisReport/*
  */
-export const apiQRISExport = '/report/api/v1/report/qrisReport/download';
+export const apiQRISExport = '/report/v1/report/qrisReport/download';
 
 /**
  * QRIS Settlement
