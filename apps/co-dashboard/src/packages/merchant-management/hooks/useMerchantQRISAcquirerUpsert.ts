@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from "react-i18next";
 import { TextGetter } from "@woi/core";
 import { stringToDateFormat } from "@woi/core/utils/date/dateConvert";
-import { useCityListFetcher, useKecamatanListFetcher, useKelurahanListFetcher, useMerchantCategoryCodeListFetcher, useMerchantCategoryListFetcher, useMerchantLocationListFetcher, useMerchantQRTypeListFetcher, useMerchantTypeListFetcher, useMerchantUpdateQRISAcquirerFetcher, useProvinceListFetcher, userMerchantCreateQRISAcquirerFetcher } from "@woi/service/co";
+import { useCityListFetcher, useKecamatanListFetcher, useKelurahanListFetcher, useMerchantCategoryCodeListFetcher, useMerchantCategoryListFetcher, useMerchantLocationListFetcher, useMerchantQRISTypeListFetcher, useMerchantTypeListFetcher, useMerchantUpdateQRISAcquirerFetcher, useProvinceListFetcher, userMerchantCreateQRISAcquirerFetcher } from "@woi/service/co";
 
 // Types & Consts
 import { DatePeriod } from "@woi/core/utils/date/types";
@@ -300,9 +300,9 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
     };
 
     const fetchMerchantQRType = async () => {
-        const { result, error } = await useMerchantQRTypeListFetcher(baseUrl);
+        const { result, error } = await useMerchantQRISTypeListFetcher(baseUrl);
         if (result && !error) {
-            setQRTypeOptions(result.qrType.map(data => ({
+            setQRTypeOptions(result.qrisType.map(data => ({
                 label: data,
                 value: data,
             })));
@@ -317,7 +317,7 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
                 label: data.type,
                 value: data.id,
             })));
-            
+
             if (isFetchCriteria && merchantDetail) {
                 const valueMerchantType = result.find(data => data.type === merchantDetail?.merchantType)?.id;
                 if (valueMerchantType) {
