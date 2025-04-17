@@ -11,6 +11,7 @@ import {
   useMerchantLocationListFetcher,
   useMerchantCategoryCodeListFetcher,
   useQRISReportExportFetcher,
+  useMerchantQRTypeListFetcher,
 } from '@woi/service/co';
 import useBaseUrl from '@src/shared/hooks/useBaseUrl';
 import useDebounce from '@woi/common/hooks/useDebounce';
@@ -135,7 +136,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
   //Get data for QR Type dropdown
   const { data: QrListTypeData } = useQuery(
     ['qr-type-list'],
-    async () => useMerchantQRISTypeListFetcher(baseUrl),
+    async () => useMerchantQRTypeListFetcher(baseUrl),
     { refetchOnWindowFocus: false },
   );
 
@@ -143,12 +144,12 @@ function useQRISReportList(props: TransactionSummaryProps) {
     const defaultOptions: OptionMap<string>[] = [];
     if (
       !QrListTypeData ||
-      !Array.isArray(QrListTypeData?.result?.qrisType) ||
-      !QrListTypeData?.result?.qrisType?.length
+      !Array.isArray(QrListTypeData?.result?.qrType) ||
+      !QrListTypeData?.result?.qrType?.length
     ) {
       return defaultOptions;
     }
-    return QrListTypeData?.result?.qrisType?.map(qrType => ({
+    return QrListTypeData?.result?.qrType?.map(qrType => ({
       label: qrType,
       value: qrType,
     }));
