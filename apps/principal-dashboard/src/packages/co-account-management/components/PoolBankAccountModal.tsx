@@ -143,7 +143,7 @@ const PoolBankAccountModal = (props: PoolBankAccountModalProps) => {
           {isOnlyMain && (
             <Grid item md={12} xs={12}>
               <Card elevation={0} sx={{ p: 2, borderRadius: 3, mb: 1, backgroundColor: theme.palette.secondary.main }}>
-                <Typography variant="body2">{tCO('poolBankAccountDisclaimer')}</Typography>
+                <Typography variant="body2">{tCO('poolBankAccountDisclaimer')} <b>{tCO('poolBankAccountDisclaimer2')}</b> {tCO('poolBankAccountDisclaimer3')}</Typography>
               </Card>
             </Grid>
           )}
