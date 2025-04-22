@@ -138,11 +138,11 @@ function MerchantData(props: ViewMerchantQrisAcquirerTabProps) {
         Header: tMerchant('transactionHistoryTableHeaderMDR'),
         accessor: 'mdr',
       },
-      {
-        Header: tMerchant('transactionHistoryTableHeaderTips'),
-        accessor: 'tips',
-        Cell: ({ value }) => <PriceCell value={value} router={router} />,
-      },
+      // {
+      //   Header: tMerchant('transactionHistoryTableHeaderTips'),
+      //   accessor: 'tips',
+      //   Cell: ({ value }) => <PriceCell value={value} router={router} />,
+      // },
       {
         Header: tMerchant('transactionHistoryTableHeaderDebitCredit'),
         accessor: 'transactionCategory',
