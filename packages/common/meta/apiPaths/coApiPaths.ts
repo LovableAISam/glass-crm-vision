@@ -860,7 +860,7 @@ export const apiQRISExport = '/report/v1/report/qrisReport/download';
  * usage for QRIS Settlement
  * Contract: admin/reportQRISSettlement
  */
-export const apiQRISSettlement = '/report/api/v1/report/qrisSettelement';
+export const apiQRISSettlement = '/report/v1/report/qrisSettelement';
 
 /**
  * QRIS Settlement Detail
@@ -916,7 +916,7 @@ export const apiKelurahan = '/admin/api/v1/kelurahan';
  * usage for Export QRIS Settlement
  * Contract: report/qrisSettlement/export
  */
-export const apiDownloadQRISSettlementExport = '/report/api/v1/report/qrisSettelement/download';
+export const apiDownloadQRISSettlementExport = '/report/v1/report/qrisSettelement/download';
 
 /**
  * Detail Direct Debit Settlement

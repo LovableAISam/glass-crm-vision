@@ -12,6 +12,7 @@ import { useQRISSettlementExportFetcher, useMerchantCategoryCodeListFetcher, use
 import { useSnackbar } from "notistack";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 
 // Types & Consts
 import { PaginationData } from "@woi/core/api";
@@ -49,6 +50,7 @@ const initialFeeSummary: QRISSettlementFilter = {
 
 function useQRISSettlementList() {
   const { baseUrl } = useBaseUrl();
+  const { baseMobileUrl } = useBaseMobileUrl();
   const { enqueueSnackbar } = useSnackbar();
   const { t: tCommon } = useTranslation('common');
 
@@ -126,7 +128,7 @@ function useQRISSettlementList() {
     refetch: refetchQRISSettlement
   } = useQuery(
     ['qris-settlement', qrisSettlementPayload],
-    async () => useQRISSettlementFetcher(baseUrl, qrisSettlementPayload),
+    async () => useQRISSettlementFetcher(baseMobileUrl, qrisSettlementPayload),
     {
       refetchOnWindowFocus: false,
       onSuccess: (response) => {
@@ -180,7 +182,7 @@ function useQRISSettlementList() {
       enqueueSnackbar(tCommon('labelMaxCountDownloadExceed'), { variant: 'error' });
     } else {
       setIsLoadingDownload(true);
-      const { result, error, errorData } = await useQRISSettlementExportFetcher(baseUrl, {
+      const { result, error, errorData } = await useQRISSettlementExportFetcher(baseMobileUrl, {
         startAt: stringToDateFormat(debouncedFilter.activeDate.startDate),
         endAt: stringToDateFormat(debouncedFilter.activeDate.endDate),
         size: pagination.limit,
