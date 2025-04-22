@@ -34,6 +34,7 @@ import { LONG_DATE_TIME_FORMAT_BE } from '@woi/core/utils/date/constants';
 import { DatePeriod } from '@woi/core/utils/date/types';
 import { getJwtData } from "@woi/core/utils/jwt/jwt";
 import { OptionMap } from '@woi/option';
+import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 
 export interface AccountHistoryFilter {
   effectiveDate: DatePeriod;
@@ -69,6 +70,7 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
   const { showModalDetail } = props;
 
   const { baseUrl } = useBaseUrl();
+  const { baseMobileUrl } = useBaseMobileUrl();
   const { enqueueSnackbar } = useSnackbar();
   const { merchantCode } = useCommunityOwner();
 
@@ -173,7 +175,7 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
   const { data: accountHistoryResult, status: accountHistoryStatus } = useQuery(
     ['transaction-list', accountHistoryPayload],
     async () =>
-      useMerchantAccountHistoryFetcher(baseUrl, accountHistoryPayload),
+      useMerchantAccountHistoryFetcher(baseMobileUrl, accountHistoryPayload),
     {
       refetchOnWindowFocus: false,
       onSuccess: response => {
@@ -204,10 +206,7 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
       id: id,
     };
     setLoading(true);
-    const detailResponse = await useAccountHistoryDetailFetcher(
-      baseUrl,
-      accountHistoryDetailPayload,
-    );
+    const detailResponse = await useAccountHistoryDetailFetcher(baseMobileUrl, accountHistoryDetailPayload);
     const { result: resultDetail, error: errorDetail } = detailResponse;
     if (resultDetail?.details) {
       showModalDetail();
@@ -219,8 +218,7 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
   };
 
   const fetchAccountHistoryPrint = async (data: MerchantAccountHistory) => {
-    const { result, error, errorData } = await useAccountHistoryPrintFetcher(
-      baseUrl,
+    const { result, error, errorData } = await useAccountHistoryPrintFetcher(baseMobileUrl,
       {
         account_history_id: data.id,
         referral_number: data.referenceNumber,

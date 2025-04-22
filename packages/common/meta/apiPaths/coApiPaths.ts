@@ -717,23 +717,23 @@ export const apiMerchantUserUpdate = '/merchant/api/v1/user/update';
 /**
  * Merchant Account History
  * usage for Merchant Account History
- * Contract: report/api/v1/report/accounthistory
+ * Contract: report/v1/report/accounthistory
  */
-export const apiMerchantAccountHistory = '/report/api/v1/accounthistory';
+export const apiMerchantAccountHistory = '/report/v1/report/accounthistory';
 
 /**
  * Merchant Account History Detail
  * usage for Merchant Account History Detail
- * Contract: report/api/v1/report/accounthistory/detail
+ * Contract: report/v1/report/accounthistory/detail
  */
-export const apiMerchantAccountHistoryDetail = '/report/api/v1/report/accounthistory/detail';
+export const apiMerchantAccountHistoryDetail = '/report/v1/report/accounthistory/detail';
 
 /**
  * Merchant Account History Export
  * usage for Merchant Account History Export
- * Contract: report/api/v1/report/accounthistory/download
+ * Contract: report/v1/report/accounthistory/download
  */
-export const apiMerchantAccountHistoryExport = '/report/api/v1/accounthistory/download';
+export const apiMerchantAccountHistoryExport = '/report/v1/report/accounthistory/download';
 
 /**
  * Merchant Balance Inquiry
@@ -768,14 +768,14 @@ export const apiMerchantCashoutPayment = '/merchant/api/v1/cashout/payment';
  * usage for FDSHistory
  * Contract: report/fds-history/*
  */
-export const apiFDSHistory = '/report/api/v1/fraud-detection-system/get';
+export const apiFDSHistory = '/report/v1/fraud-detection-system/get';
 
 /**
  * Export FDS History
  * usage for Export FDS History
  * Contract: report/FDSHistory/download
  */
-export const apiDownloadFDSHistory = '/report/api/v1/report/fds/download';
+export const apiDownloadFDSHistory = '/report/v1/report/fds/download';
 
 /**
  * Filter Fee Rate Type
@@ -886,9 +886,9 @@ export const apiTransactionRefund = '/merchant/api/v1/transaction/refund';
 /**
  * Merchant Account History Print
  * usage for Merchant Account History Print
- * Contract: report/api/v1/accounthistory/download-receipt
+ * Contract: report/v1/report/accounthistory/download-receipt
  */
-export const apiMerchantAccountHistoryPrint = '/report/api/v1/accounthistory/download-receipt';
+export const apiMerchantAccountHistoryPrint = '/report/v1/report/accounthistory/download-receipt';
 
 /**
  * QR Generator

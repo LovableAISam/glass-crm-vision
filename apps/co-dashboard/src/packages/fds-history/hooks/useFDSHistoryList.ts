@@ -18,6 +18,7 @@ import { LONG_DATE_TIME_FORMAT_BE } from "@woi/core/utils/date/constants";
 import { DatePeriod } from "@woi/core/utils/date/types";
 import { OptionMap } from "@woi/option";
 import { FDSHistory, FDSHistoryRequest } from "@woi/service/co/admin/fDSHistory/fDSHistoryList";
+import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 
 type FilterForm = {
   phoneNumber: string;
@@ -53,6 +54,7 @@ function useFDSHistoryList(props: FDSHistoryListProp) {
   const { formatOption } = props;
 
   const { baseUrl } = useBaseUrl();
+  const { baseMobileUrl } = useBaseMobileUrl();
   const { enqueueSnackbar } = useSnackbar();
   const { t: tCommon } = useTranslation('common');
 
@@ -107,7 +109,7 @@ function useFDSHistoryList(props: FDSHistoryListProp) {
     status: fDSStatus,
   } = useQuery(
     ['fds-history-list', fDSHistoryPayload],
-    async () => useFDSHistoryListFetcher(baseUrl, fDSHistoryPayload),
+    async () => useFDSHistoryListFetcher(baseMobileUrl, fDSHistoryPayload),
     {
       refetchOnWindowFocus: false,
       onSuccess: (response) => {
@@ -146,7 +148,7 @@ function useFDSHistoryList(props: FDSHistoryListProp) {
       enqueueSnackbar(tCommon('labelMaxCountDownloadExceed'), { variant: 'error' });
     } else {
       setIsLoadingDownload(true);
-      const { result, error, errorData } = await useFDSHistoryExportFetcher(baseUrl, {
+      const { result, error, errorData } = await useFDSHistoryExportFetcher(baseMobileUrl, {
         account: debouncedFilter.phoneNumber,
         startDate: stringToDateFormat(effectiveDate.startDate),
         endDate: stringToDateFormat(effectiveDate.endDate),
