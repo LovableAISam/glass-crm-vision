@@ -9,10 +9,9 @@ interface TransactionHistoryExportResponseData {
 interface TransactionHistoryExportResponse extends TransactionHistoryExportResponseData { }
 
 export interface MerchantTransactionHistoryExportRequest extends DefaultQueryPageRequest {
-  createdFrom?: string;
-  createdTo?: string;
   merchantCode?: string;
-  sort?: string;
+  'Start Date'?: string;
+  'End Date'?: string;
   fileExtension?: string;
 }
 

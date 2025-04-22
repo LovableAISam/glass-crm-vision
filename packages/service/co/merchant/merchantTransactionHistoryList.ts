@@ -52,10 +52,9 @@ interface TransactionHistoryListResponse extends DefaultResponseTransactionsPagi
 }
 
 export interface MerchantTransactionHistoryListRequest extends DefaultQueryPageRequest {
-  'End Date'?: string;
   'merchant code'?: string;
-  size?: number;
   'Start Date'?: string;
+  'End Date'?: string;
 }
 
 function useMerchantTransactionHistoryListFetcher(baseUrl: string, payload: MerchantTransactionHistoryListRequest) {

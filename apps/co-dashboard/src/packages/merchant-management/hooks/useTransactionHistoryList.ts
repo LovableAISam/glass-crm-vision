@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 // Hooks & Utils
-import useBaseUrl from "@src/shared/hooks/useBaseUrl";
 import useDebounce from "@woi/common/hooks/useDebounce";
 import { reverseDirection } from "@woi/core";
 import { calculateDateRangeDays, stringToDateFormat } from "@woi/core/utils/date/dateConvert";
@@ -20,6 +19,7 @@ import { useTranslation } from "react-i18next";
 import { PaginationData } from "@woi/core/api";
 import { LONG_DATE_TIME_FORMAT_BE } from "@woi/core/utils/date/constants";
 import { DatePeriod } from "@woi/core/utils/date/types";
+import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 
 export interface MemberHistoryTransaction {
   effectiveDate: DatePeriod;
@@ -45,7 +45,7 @@ function useTransactionHistoryList(props: TransactionHistoryListProps) {
   });
   const { handleSubmit, getValues } = formData;
 
-  const { baseUrl } = useBaseUrl();
+  const { baseMobileUrl } = useBaseMobileUrl();
   const { enqueueSnackbar } = useSnackbar();
   const { t: tCommon } = useTranslation('common');
 
@@ -62,12 +62,12 @@ function useTransactionHistoryList(props: TransactionHistoryListProps) {
   const [isLoadingDownload, setIsLoadingDownload] = useState<boolean>(false);
 
   const transactionHistoryPayload: MerchantTransactionHistoryListRequest = {
+    'merchant code': merchantCode,
     'Start Date': stringToDateFormat(debouncedFilter.startDate),
     'End Date': stringToDateFormat(debouncedFilter.endDate),
     page: pagination.currentPage,
-    size: pagination.limit,
+    limit: pagination.limit,
     sort: sortBy ? `${sortBy}:${direction}` : '',
-    'merchant code': merchantCode
   };
 
   const {
@@ -75,7 +75,7 @@ function useTransactionHistoryList(props: TransactionHistoryListProps) {
     status: transactionHistoryStatus,
   } = useQuery(
     ['merchant-trasaction-history', transactionHistoryPayload],
-    async () => useMerchantTransactionHistoryListFetcher(baseUrl, transactionHistoryPayload),
+    async () => useMerchantTransactionHistoryListFetcher(baseMobileUrl, transactionHistoryPayload),
     {
       enabled: Boolean(merchantCode) && !(calculateDateRangeDays(getValues('effectiveDate.startDate'), getValues('effectiveDate.endDate')) > 730),
       refetchOnWindowFocus: false,
@@ -115,12 +115,12 @@ function useTransactionHistoryList(props: TransactionHistoryListProps) {
       enqueueSnackbar(tCommon('labelMaxCountDownloadExceed'), { variant: 'error' });
     } else {
       setIsLoadingDownload(true);
-      const { result, error, errorData } = await useMerchantTransactionHistoryExport(baseUrl, {
+      const { result, error, errorData } = await useMerchantTransactionHistoryExport(baseMobileUrl, {
         merchantCode: merchantCode,
         page: pagination.currentPage,
         sort: sortBy ? `${sortBy}:${direction}` : '',
-        createdFrom: stringToDateFormat(effectiveDate.startDate),
-        createdTo: stringToDateFormat(effectiveDate.endDate),
+        'Start Date': stringToDateFormat(effectiveDate.startDate),
+        'End Date': stringToDateFormat(effectiveDate.endDate),
         fileExtension: selectedOption
       });
 
