@@ -135,7 +135,7 @@ const AccountHistoryList = () => {
           accessor: 'phoneNumber',
           Cell: ({ value }) => (
             <Typography variant="inherit" >
-              {value ? value : '-'}
+              {value === null ? '-' : value}
             </Typography>
           ),
         },
@@ -144,7 +144,7 @@ const AccountHistoryList = () => {
           accessor: 'destination',
           Cell: ({ value }) => (
             <Typography variant="inherit" >
-              {value ? value : '-'}
+              {value === null ? '-' : value}
             </Typography>
           ),
         },
@@ -153,7 +153,7 @@ const AccountHistoryList = () => {
           accessor: 'issuer',
           Cell: ({ value }) => (
             <Typography variant="inherit" >
-              {value ? value : '-'}
+              {value === null ? '-' : value}
             </Typography>
           ),
         },
@@ -167,7 +167,7 @@ const AccountHistoryList = () => {
           accessor: 'mdr',
           Cell: ({ value }) => (
             <Typography variant="inherit" >
-              {value ? value : '-'}
+              {value === null ? '-' : value}
             </Typography>
           ),
         },
@@ -176,7 +176,7 @@ const AccountHistoryList = () => {
           accessor: 'tips',
           Cell: ({ value }) => (
             <Typography variant="inherit" >
-              {value ? value : '-'}
+              {value === null ? '-' : value}
             </Typography>
           ),
         },
@@ -194,7 +194,7 @@ const AccountHistoryList = () => {
           accessor: 'currency',
           Cell: ({ value }) => (
             <Typography variant="inherit" >
-              {value ? value : '-'}
+              {value === null ? '-' : value}
             </Typography>
           ),
         },
@@ -208,7 +208,7 @@ const AccountHistoryList = () => {
           accessor: 'rrn',
           Cell: ({ value }) => (
             <Typography variant="inherit" >
-              {value ? value : '-'}
+              {value === null ? '-' : value}
             </Typography>
           ),
         },
@@ -278,7 +278,7 @@ const AccountHistoryList = () => {
         accessor: 'phoneNumber',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -287,7 +287,7 @@ const AccountHistoryList = () => {
         accessor: 'destination',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -301,7 +301,7 @@ const AccountHistoryList = () => {
         accessor: 'coFee',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -310,7 +310,7 @@ const AccountHistoryList = () => {
         accessor: 'feeChargedMember',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -319,7 +319,7 @@ const AccountHistoryList = () => {
         accessor: 'feeChargedMerchant',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -343,7 +343,7 @@ const AccountHistoryList = () => {
         accessor: 'debitCredit',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -352,7 +352,7 @@ const AccountHistoryList = () => {
         accessor: 'currency',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -361,7 +361,7 @@ const AccountHistoryList = () => {
         accessor: 'referenceNumber',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -370,7 +370,7 @@ const AccountHistoryList = () => {
         accessor: 'partnerReferenceNumber',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
@@ -379,7 +379,7 @@ const AccountHistoryList = () => {
         accessor: 'status',
         Cell: ({ value }) => (
           <Typography variant="inherit" >
-            {value ? value : '-'}
+            {value === null ? '-' : value}
           </Typography>
         ),
       },
