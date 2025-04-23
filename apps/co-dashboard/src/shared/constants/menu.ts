@@ -142,12 +142,12 @@ const adminMenu: MenuType[] = [
         menuLink: '/qris-settlement',
         privilege: 'default',
       },
-      {
-        menuType: 'Submenu',
-        menuName: 'Direct Debit Settlement',
-        menuLink: '/direct-debit-settlement',
-        privilege: 'default',
-      },
+      // {
+      //   menuType: 'Submenu',
+      //   menuName: 'Direct Debit Settlement',
+      //   menuLink: '/direct-debit-settlement',
+      //   privilege: 'default',
+      // },
     ],
   },
   {

@@ -26,6 +26,7 @@ import {
 } from '@woi/service/co/merchant/merchantAccountHistoryList';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
+import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 
 // Types & Consts
 import { ckMerchantAccessToken } from "@woi/common/meta/cookieKeys";
@@ -34,7 +35,6 @@ import { LONG_DATE_TIME_FORMAT_BE } from '@woi/core/utils/date/constants';
 import { DatePeriod } from '@woi/core/utils/date/types';
 import { getJwtData } from "@woi/core/utils/jwt/jwt";
 import { OptionMap } from '@woi/option';
-import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 
 export interface AccountHistoryFilter {
   effectiveDate: DatePeriod;
