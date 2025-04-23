@@ -736,11 +736,18 @@ export const apiMerchantAccountHistoryDetail = '/report/v1/report/accounthistory
 export const apiMerchantAccountHistoryExport = '/report/v1/report/accounthistory/download';
 
 /**
+ * Merchant Account History Print
+ * usage for Merchant Account History Print
+ * Contract: report/v1/report/accounthistory/download-receipt
+ */
+export const apiMerchantAccountHistoryPrint = '/report/v1/report/accounthistory/download-receipt';
+
+/**
  * Merchant Balance Inquiry
  * usage for Merchant Balance Inquiry
  * Contract: report/api/v1/balanceinquiry
  */
-export const apiMerchantBalanceInquiry = '/report/api/v1/balanceinquiry';
+export const apiMerchantBalanceInquiry = '/report/v1/balanceinquiry';
 
 /**
  * Merchant Fee Rate Type List
@@ -881,14 +888,7 @@ export const apiRefundReason = '/merchant/api/v1/merchant/refund-reason';
  * usage for Post refund
  * Contract: merchant/Merchant/Function-list
  */
-export const apiTransactionRefund = '/merchant/api/v1/transaction/refund';
-
-/**
- * Merchant Account History Print
- * usage for Merchant Account History Print
- * Contract: report/v1/report/accounthistory/download-receipt
- */
-export const apiMerchantAccountHistoryPrint = '/report/v1/report/accounthistory/download-receipt';
+export const apiTransactionRefund = '/transaction-qris/api/v1/qris/merchant/refund';
 
 /**
  * QR Generator

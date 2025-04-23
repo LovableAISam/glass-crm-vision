@@ -13,7 +13,7 @@ export interface TransactionRefundRequest {
   inputReason: string;
   password: string;
   referenceNumber: string;
-  refundReasonId: string;
+  refundReason: string;
   transactionId: string;
 }
 

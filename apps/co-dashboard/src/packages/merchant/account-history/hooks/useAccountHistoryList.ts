@@ -243,7 +243,7 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
   const handleExport = handleSubmit(async form => {
     const { effectiveDate } = form;
     const { result, error, errorData } = await useAccountHistoryExportFetcher(
-      baseUrl,
+      baseMobileUrl,
       {
         merchantCode: merchantCode,
         'End Date': stringToDateFormat(effectiveDate.endDate),

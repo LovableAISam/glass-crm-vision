@@ -20,8 +20,8 @@ import { TextGetter, TextValidation } from "@woi/core";
 import { useTranslation } from 'react-i18next';
 import { useTransactionRefundFetcher } from '@woi/service/co';
 import { useSnackbar } from 'notistack';
-import useBaseUrl from '@src/shared/hooks/useBaseUrl';
 import { useController, useForm } from "react-hook-form";
+import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 
 // Types
 import { OptionMap } from "@woi/option";
@@ -58,7 +58,7 @@ const ViewAccountRefundDetailModal = ({
   const { t: tForm } = useTranslation('form');
   const { t: tAccount } = useTranslation('account');
 
-  const { baseUrl } = useBaseUrl();
+  const { baseMobileUrl } = useBaseMobileUrl();
   const { enqueueSnackbar } = useSnackbar();
 
   const [loading, setLoading] = useState(false);
@@ -119,14 +119,14 @@ const ViewAccountRefundDetailModal = ({
     const payload = {
       transactionId: selectData?.id || '',
       referenceNumber: selectData?.referenceNumber || '',
-      refundReasonId: TextGetter.getterString(form.selectReason?.value),
+      refundReason: TextGetter.getterString(form.selectReason?.value),
       inputReason: valueLabelReason === 'Input reasons' ? form.inputOther : '',
       password: form.password,
     };
 
     try {
       setLoading(true);
-      const { result, errorData } = await useTransactionRefundFetcher(baseUrl, payload);
+      const { result, errorData } = await useTransactionRefundFetcher(baseMobileUrl, payload);
       setLoading(false);
       const message = result?.description || errorData?.status?.text || errorData?.status?.message || errorData?.responseMessage || 'Something went wrong';
 

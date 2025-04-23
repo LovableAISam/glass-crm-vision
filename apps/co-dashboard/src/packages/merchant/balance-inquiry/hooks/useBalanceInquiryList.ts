@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 // Hooks & Utils
-import useBaseUrl from '@src/shared/hooks/useBaseUrl';
+import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
 import { reverseDirection } from "@woi/core";
 import { useBalanceInquiryFetcher } from "@woi/service/co";
 import { useCommunityOwner } from "@src/shared/context/CommunityOwnerContext";
@@ -14,7 +14,7 @@ import { BalanceInquiryData, BalanceInquiryRequest } from "@woi/service/co/merch
 
 
 function useBalanceInquiryList() {
-  const { baseUrl } = useBaseUrl();
+  const { baseMobileUrl } = useBaseMobileUrl();
   const { merchantCode } = useCommunityOwner();
 
   const [pagination, setPagination] = useState<PaginationData>({
@@ -38,7 +38,7 @@ function useBalanceInquiryList() {
     status: balanceInquiryStatus,
   } = useQuery(
     ['balance-inquiry', payload],
-    async () => useBalanceInquiryFetcher(baseUrl, payload),
+    async () => useBalanceInquiryFetcher(baseMobileUrl, payload),
     {
       refetchOnWindowFocus: false,
       onSuccess: (response) => {
