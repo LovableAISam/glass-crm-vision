@@ -680,6 +680,13 @@ export const apiMerchantList = '/merchant/api/v1/merchant/get-list';
 export const apiMerchantTransactionHistory = '/report/v1/bookledger/merchant';
 
 /**
+ * List Merchant Transaction History
+ * usage for List Merchant Transaction History
+ * Contract: merchant/Merchant/bookledger
+ */
+export const apiMerchantTransactionHistoryDetail = '/report/v1/bookledger/merchant/detail';
+
+/**
  * List Merchant Transaction History Export
  * usage for List Merchant Transaction History Export
  * Contract: merchant/Merchant/bookledger/merchant
@@ -888,7 +895,7 @@ export const apiRefundReason = '/merchant/api/v1/merchant/refund-reason';
  * usage for Post refund
  * Contract: merchant/Merchant/Function-list
  */
-export const apiTransactionRefund = '/transaction-qris/api/v1/qris/merchant/refund';
+export const apiTransactionRefund = '/merchant/api/v1/merchant/qris/refund';
 
 /**
  * QR Generator
