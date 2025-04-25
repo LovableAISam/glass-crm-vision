@@ -100,7 +100,7 @@ function useFDSHistoryList(props: FDSHistoryListProp) {
     phoneNumber: debouncedFilter.phoneNumber,
     startAt: stringToDateFormat(debouncedFilter.activeDate.startDate),
     endAt: stringToDateFormat(debouncedFilter.activeDate.endDate),
-    transactionType: debouncedFilter.transactionType.map(data => data.value),
+    transactionType: debouncedFilter.transactionType.map(data => data.label),
     sort: sortBy ? `${sortBy}:${direction}` : '',
   };
 
