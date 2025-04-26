@@ -153,7 +153,7 @@ function useFDSHistoryList(props: FDSHistoryListProp) {
         startDate: stringToDateFormat(effectiveDate.startDate),
         endDate: stringToDateFormat(effectiveDate.endDate),
         sort: sortBy ? `${sortBy}:${direction}` : '',
-        transactionType: debouncedFilter.transactionType.map(data => data.value),
+        transactionType: debouncedFilter.transactionType.map(data => data.label),
         format: formatOption,
       });
       if (result && !error) {
