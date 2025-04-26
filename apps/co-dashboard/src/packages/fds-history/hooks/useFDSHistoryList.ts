@@ -81,7 +81,8 @@ function useFDSHistoryList(props: FDSHistoryListProp) {
     async () => useTransactionTypeListFetcher(baseUrl, {
       limit: 100,
       page: 0,
-      sort: 'name:asc'
+      sort: 'name:asc',
+      target: 'FDS'
     }),
     { refetchOnWindowFocus: false }
   );

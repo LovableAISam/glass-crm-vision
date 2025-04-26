@@ -13,7 +13,7 @@ interface TransactionTypeListResponse extends ResultData<TransactionTypeData[]> 
 export interface TransactionTypeListRequest extends DefaultQueryPageRequest {
   code?: string;
   name?: string;
-  target?: 'EMAIL' | 'SMS' | 'EXCLUDE_USED_TRANSACTION_TYPE' | 'ONLY_CREATED_IN_ACCOUNT_RULE_VALUES';
+  target?: 'EMAIL' | 'SMS' | 'FDS' | 'EXCLUDE_USED_TRANSACTION_TYPE' | 'ONLY_CREATED_IN_ACCOUNT_RULE_VALUES';
 }
 
 function useTransactionTypeListFetcher(baseUrl: string, payload: TransactionTypeListRequest) {
