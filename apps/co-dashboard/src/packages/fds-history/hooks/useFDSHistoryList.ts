@@ -162,7 +162,7 @@ function useFDSHistoryList(props: FDSHistoryListProp) {
         link.href = result.url;
         link.click();
       } else {
-        enqueueSnackbar(errorData?.details?.[0] || 'Download fee summary failed!', { variant: 'error' });
+        enqueueSnackbar(errorData?.details?.[0] || 'Download fds history failed!', { variant: 'error' });
       }
       setIsLoadingDownload(false);
     }
