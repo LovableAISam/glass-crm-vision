@@ -190,5 +190,7 @@
   "formChannelID": "Channel ID",
   "formFee": "Fee",
   "formMerchantAddress": "Merchant Address",
-  "formPostalCode": "Postal Code"
+  "formPostalCode": "Postal Code",
+
+  "detailTransactionDetail": "Transaction Detail"
 }

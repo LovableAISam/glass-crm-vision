@@ -7,8 +7,10 @@ import useDebounce from "@woi/common/hooks/useDebounce";
 import { reverseDirection } from "@woi/core";
 import { calculateDateRangeDays, stringToDateFormat } from "@woi/core/utils/date/dateConvert";
 import {
+  useMerchantTransactionHistoryDetailFetcher,
   useMerchantTransactionHistoryExport,
   useMerchantTransactionHistoryListFetcher,
+  useMerchantTransactionHistoryPrint,
 } from "@woi/service/co";
 import { MerchantTransactionHistoryData, MerchantTransactionHistoryListRequest } from "@woi/service/co/merchant/merchantTransactionHistoryList";
 import { useSnackbar } from "notistack";
@@ -20,6 +22,7 @@ import { PaginationData } from "@woi/core/api";
 import { LONG_DATE_TIME_FORMAT_BE } from "@woi/core/utils/date/constants";
 import { DatePeriod } from "@woi/core/utils/date/types";
 import useBaseMobileUrl from "@src/shared/hooks/useBaseUrlMobile";
+import useModal from "@woi/common/hooks/useModal";
 
 export interface MemberHistoryTransaction {
   effectiveDate: DatePeriod;
@@ -48,6 +51,7 @@ function useTransactionHistoryList(props: TransactionHistoryListProps) {
   const { baseMobileUrl } = useBaseMobileUrl();
   const { enqueueSnackbar } = useSnackbar();
   const { t: tCommon } = useTranslation('common');
+  const [isActiveDetailTrx, showModalDetailTrx, hideModalDetailTrx] = useModal();
 
   const [pagination, setPagination] = useState<PaginationData>({
     currentPage: 0,
@@ -58,8 +62,8 @@ function useTransactionHistoryList(props: TransactionHistoryListProps) {
   const [sortBy, setSortBy] = useState<keyof MerchantTransactionHistoryData>();
   const [direction, setDirection] = useState<"desc" | "asc">("desc");
   const debouncedFilter = useDebounce(getValues('effectiveDate'), 300);
-
   const [isLoadingDownload, setIsLoadingDownload] = useState<boolean>(false);
+  const [detailTrx, setDetailTrx] = useState<MerchantTransactionHistoryData | null>(null);
 
   const transactionHistoryPayload: MerchantTransactionHistoryListRequest = {
     'merchant code': merchantCode,
@@ -100,9 +104,34 @@ function useTransactionHistoryList(props: TransactionHistoryListProps) {
     }
   );
 
+  const fetchTransactionMerchantDetail = async (id: string) => {
+    const { result, error } = await useMerchantTransactionHistoryDetailFetcher(baseMobileUrl, { id });
+    if (result && !error) {
+      setDetailTrx(result);
+      showModalDetailTrx();
+    } else {
+      enqueueSnackbar(error?.message || `Get Detail Merchant failed!`, { variant: 'error' });
+    }
+  };
+
   const handleSort = (columnId: keyof MerchantTransactionHistoryData) => {
     setSortBy(columnId);
     setDirection(oldDirection => reverseDirection(oldDirection));
+  };
+
+  const handlePrint = async (id: string) => {
+    setIsLoadingDownload(true);
+    const { result, error, errorData } = await useMerchantTransactionHistoryPrint(baseMobileUrl, { id: id });
+
+    if (result && !error) {
+      let link = document.createElement("a");
+      link.download = `export-merchant-transaction-history-${stringToDateFormat(new Date(), LONG_DATE_TIME_FORMAT_BE)}.xls`;
+      link.href = result.url;
+      link.click();
+    } else {
+      enqueueSnackbar(errorData?.details?.[0] || 'Download transaction history failed!', { variant: 'error' });
+    }
+    setIsLoadingDownload(false);
   };
 
   const handleExport = handleSubmit(async (form) => {
@@ -146,7 +175,14 @@ function useTransactionHistoryList(props: TransactionHistoryListProps) {
     transactionHistoryData: transactionHistoryData?.result?.transactions || [],
     transactionHistoryStatus,
     formData,
-    isLoadingDownload
+    isLoadingDownload,
+    fetchTransactionMerchantDetail,
+    detailTrx,
+    isActiveDetailTrx,
+    hideModalDetailTrx,
+    showModalDetailTrx,
+    handlePrint,
+    setDetailTrx
   };
 }
 

@@ -162,6 +162,8 @@ export { default as useKycPremiumDetailMemberFetcher } from './kyc/premiumMember
 export { default as useKYCUpdateAddressFetcher } from './kyc/premiumMember/premiumUpdateAddress';
 export { default as useMerchantTransactionHistoryListFetcher } from './merchant/merchantTransactionHistoryList';
 export { default as useMerchantTransactionHistoryExport } from './merchant/merchantTransactionHistoryExport';
+export { default as useMerchantTransactionHistoryDetailFetcher } from './merchant/merchantTransactionHistoryDetail';
+export { default as useMerchantTransactionHistoryPrint } from './merchant/merchantTransactionHistoryPrint';
 export { default as useMerchantTypeListFetcher } from './merchant/merchantTypeList';
 export { default as useMerchantCategoryListFetcher } from './merchant/merchantCategoryList';
 export { default as useMerchantCategoryCodeListFetcher } from './merchant/merchantCategoryListCode';

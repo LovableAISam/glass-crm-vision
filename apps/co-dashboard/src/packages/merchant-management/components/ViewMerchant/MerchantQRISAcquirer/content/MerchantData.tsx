@@ -42,6 +42,7 @@ import { Column } from 'react-table';
 // Asset
 import DownloadIcon from '@mui/icons-material/Download';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import DetailTransactionQRISAcquirer from "./DetailTransactionQrisAcquirer";
 
 function MerchantData(props: ViewMerchantQrisAcquirerTabProps) {
   const { merchantDetail, qrContent } = props;
@@ -66,6 +67,13 @@ function MerchantData(props: ViewMerchantQrisAcquirerTabProps) {
     transactionHistoryStatus,
     formData,
     isLoadingDownload,
+    // fetchTransactionMerchantDetail,
+    detailTrx,
+    hideModalDetailTrx,
+    isActiveDetailTrx,
+    showModalDetailTrx,
+    handlePrint,
+    setDetailTrx
   } = useTransactionHistoryList({
     merchantCode: merchantDetail?.merchantCode,
     selectedOption,
@@ -167,15 +175,19 @@ function MerchantData(props: ViewMerchantQrisAcquirerTabProps) {
       {
         Header: tMerchant('transactionHistoryTableHeaderAction'),
         accessor: 'action',
-        Cell: () => (
+        Cell: ({ row }) => (
           <Stack direction="row" spacing={2} key="merchantAction">
-            <Button variant="text" size="small">
+            <Button variant="text" size="small" onClick={() => handlePrint(row.original.id)}>
               {tCommon('tableActionPrint')}
             </Button>
             <Box>
               <Divider orientation="vertical" />
             </Box>
-            <Button variant="text" size="small">
+            <Button variant="text" size="small" onClick={() => {
+              // fetchTransactionMerchantDetail(row.id);
+              setDetailTrx(row.original);
+              showModalDetailTrx();
+            }}>
               {tCommon('tableActionDetail')}
             </Button>
           </Stack>
@@ -500,6 +512,14 @@ function MerchantData(props: ViewMerchantQrisAcquirerTabProps) {
         selectedFile={null}
         qrData={qrContent}
       />
+
+      {detailTrx &&
+        <DetailTransactionQRISAcquirer
+          isActive={isActiveDetailTrx}
+          onHide={hideModalDetailTrx}
+          historyDetail={detailTrx}
+        />
+      }
     </Stack>
   );
 }

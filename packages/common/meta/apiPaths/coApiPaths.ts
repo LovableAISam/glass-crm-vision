@@ -684,7 +684,14 @@ export const apiMerchantTransactionHistory = '/report/v1/bookledger/merchant';
  * usage for List Merchant Transaction History
  * Contract: merchant/Merchant/bookledger
  */
-export const apiMerchantTransactionHistoryDetail = '/report/v1/bookledger/merchant/detail';
+export const apiMerchantTransactionHistoryDetail = '/report/v1/bookledger/merchant/get-merchant-bookledger';
+
+/**
+ * List Merchant Transaction History
+ * usage for List Merchant Transaction History
+ * Contract: merchant/Merchant/bookledger
+ */
+export const apiMerchantTransactionHistoryPrint= '/report/v1/bookledger/merchant/download-receipt';
 
 /**
  * List Merchant Transaction History Export

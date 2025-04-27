@@ -29,7 +29,6 @@
   "logoEmpty": "No Logo",
   "logoInfo": "<ul><li>Format image is png, jpeg, or jpg</li><li>Minimum size is 200px x 200px</li><li>Maximum file size is 2MB</li></ul>",
 
-
   "detailMerchantType": "Merchant Type",
   "detailMerchantCategory": "Merchant Category",
   "detailMerchantCategoryCode": "Merchant Category Code",
@@ -207,5 +206,7 @@
   "formChannelID": "Channel ID",
   "formFee": "Fee",
   "formMerchantAddress": "Merchant Address",
-  "formPostalCode": "Postal Code"
+  "formPostalCode": "Postal Code",
+
+  "detailTransactionDetail": "Transaction Detail"
 }
