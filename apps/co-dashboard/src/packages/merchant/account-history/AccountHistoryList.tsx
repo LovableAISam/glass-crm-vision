@@ -245,22 +245,22 @@ const AccountHistoryList = () => {
               <Button
                 variant="text"
                 size="small"
-                onClick={() => {
-                  fetchAccountHistoryDetail(row.original.id);
-                }}
+                onClick={() => fetchAccountHistoryDetail(row.original.id)}
               >
                 {tCommon('tableActionDetail')}
               </Button>
-              <Button
-                variant="text"
-                size="small"
-                onClick={() => {
-                  setSelectData(row.original);
-                  showModalRefund();
-                }}
-              >
-                {tCommon('tableActionRefund')}
-              </Button>
+              {new Date() <= new Date(new Date(row.original.date).setDate(new Date(row.original.date).getDate() + 1)) && (
+                <Button
+                  variant="text"
+                  size="small"
+                  onClick={() => {
+                    setSelectData(row.original);
+                    showModalRefund();
+                  }}
+                >
+                  {tCommon('tableActionRefund')}
+                </Button>
+              )}
             </Stack>
           ),
         },
