@@ -35,6 +35,7 @@ type ViewAccountHistoryDetailModalProps = {
   onHide: () => void;
   refundReasonOptions: OptionMap<string>[];
   selectData: MerchantAccountHistory | null;
+  fetchAccountHistory: () => void;
 };
 
 export interface RefundForm {
@@ -53,7 +54,8 @@ const ViewAccountRefundDetailModal = ({
   isActive,
   onHide,
   refundReasonOptions,
-  selectData
+  selectData,
+  fetchAccountHistory
 }: ViewAccountHistoryDetailModalProps) => {
   const { t: tForm } = useTranslation('form');
   const { t: tAccount } = useTranslation('account');
@@ -130,8 +132,9 @@ const ViewAccountRefundDetailModal = ({
       setLoading(false);
       const message = result?.description || errorData?.status?.text || errorData?.status?.message || errorData?.responseMessage || 'Something went wrong';
 
-      if (result?.code === 'QRRFN000' || result?.code === 'MPMRFN000') {
+      if (result?.responseCode === 'QRRFN000' || result?.responseCode === 'MPMRFN000') {
         onHide();
+        fetchAccountHistory();
         enqueueSnackbar(message, { variant: 'success' });
       } else {
         enqueueSnackbar(message, { variant: 'error' });

@@ -71,7 +71,8 @@ const AccountHistoryList = () => {
     fetchAccountHistoryDetail,
     merchantCode,
     selectData,
-    setSelectData
+    setSelectData,
+    fetchAccountHistory
   } = useAccountHistoryList({ showModalDetail });
   const { t: tCommon } = useTranslation('common');
   const { t: tAccount } = useTranslation('account');
@@ -714,6 +715,7 @@ const AccountHistoryList = () => {
           onHide={hideModalRefund}
           refundReasonOptions={refundReasonTypeOptions}
           selectData={selectData}
+          fetchAccountHistory={fetchAccountHistory}
         />
       )}
     </Stack>

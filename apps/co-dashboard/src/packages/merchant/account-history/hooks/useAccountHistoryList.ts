@@ -172,32 +172,35 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
     sort: sortBy ? `${sortBy}:${direction}` : '',
   };
 
-  const { data: accountHistoryResult, status: accountHistoryStatus } = useQuery(
-    ['transaction-list', accountHistoryPayload],
-    async () =>
-      useMerchantAccountHistoryFetcher(baseMobileUrl, accountHistoryPayload),
-    {
-      refetchOnWindowFocus: false,
-      onSuccess: response => {
-        const result = response.result;
-        if (result && result.data && !response.error) {
+  const {
+    data: accountHistoryResult,
+    status: accountHistoryStatus,
+    refetch: refetchAccountHistory } = useQuery(
+      ['transaction-list', accountHistoryPayload],
+      async () =>
+        useMerchantAccountHistoryFetcher(baseMobileUrl, accountHistoryPayload),
+      {
+        refetchOnWindowFocus: false,
+        onSuccess: response => {
+          const result = response.result;
+          if (result && result.data && !response.error) {
+            setPagination(oldPagination => ({
+              ...oldPagination,
+              totalPages: Math.ceil(result.totalPages),
+              totalElements: result.totalElements,
+            }));
+          }
+        },
+        onError: () => {
           setPagination(oldPagination => ({
             ...oldPagination,
-            totalPages: Math.ceil(result.totalPages),
-            totalElements: result.totalElements,
+            totalPages: 0,
+            currentPage: 0,
+            totalElements: 0,
           }));
-        }
+        },
       },
-      onError: () => {
-        setPagination(oldPagination => ({
-          ...oldPagination,
-          totalPages: 0,
-          currentPage: 0,
-          totalElements: 0,
-        }));
-      },
-    },
-  );
+    );
 
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
@@ -296,7 +299,10 @@ function useAccountHistoryList(props: AccountHistoryListProps) {
     fetchAccountHistoryPrint,
     fetchAccountHistoryDetail,
     setSelectData,
-    selectData
+    selectData,
+    fetchAccountHistory: () => {
+      refetchAccountHistory();
+    },
   };
 };
 

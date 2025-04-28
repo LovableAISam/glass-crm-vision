@@ -5,7 +5,7 @@ export interface TransactionRefundResponse {
   failure: boolean;
   transactionId: string;
   referenceNumber: string;
-  code: string;
+  responseCode: string;
   description: string;
 }
 
