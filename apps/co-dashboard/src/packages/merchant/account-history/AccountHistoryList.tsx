@@ -249,7 +249,7 @@ const AccountHistoryList = () => {
               >
                 {tCommon('tableActionDetail')}
               </Button>
-              {new Date() <= new Date(new Date(row.original.date).setDate(new Date(row.original.date).getDate() + 1)) && (
+              {new Date() <= new Date(new Date(row.original.date).setDate(new Date(row.original.date).getDate() + 1)) || row.original.status !== "REFUNDED" && (
                 <Button
                   variant="text"
                   size="small"
