@@ -37,8 +37,8 @@ export interface KycPermiumIdentityCard extends ResponseData {
   // cityId: string;
   // expiryDate: string;
   // identityCardUrl: string;
-  // kecamatanId: string;
-  // kelurahanId: string;
+  kecamatanId: string;
+  kelurahanId: string;
   // memberId: string;
   // number: string;
   // postalCode: string;
@@ -57,7 +57,7 @@ export interface KycPermiumIdentityCard extends ResponseData {
   provinceId: string;
   cityId: string;
   barangay: string;
-  postalCode: number;
+  postalCode: string;
   identityCardUrl: string;
   id: string;
 
@@ -66,8 +66,8 @@ export interface KycPermiumIdentityCard extends ResponseData {
 export interface KycPermiumMemberResidence extends ResponseData {
   // address: string;
   // cityId: string;
-  // kecamatanId: string;
-  // kelurahanId: string;
+  kecamatanId: string;
+  kelurahanId: string;
   // memberId: string;
   // postalCode: string;
   // provinceId: string;
@@ -86,13 +86,13 @@ export interface KycPermiumMemberResidence extends ResponseData {
 }
 
 export interface KycPermiumMember extends ResponseData {
-  // bloodType: string;
+  bloodType: string;
   // createdBy: string;
   // dateOfBirth: string;
-  // fullName: string;
+  fullName: string;
   // gender: string;
   // isDttot: boolean;
-  // isResidenceSameWithIdentityCard: boolean;
+  isResidenceSameWithIdentityCard: boolean;
   // maritalStatus: string;
   // memberId: string;
   // modifiedBy: string;
