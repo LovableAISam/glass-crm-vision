@@ -355,7 +355,7 @@ export const apiSettingUploadTemporaryImage = '/setting/api/v1/upload/temporary/
  * usage for CRUD Premium Member
  * Contract: kyc/premiumMember/*
  */
-export const apiKycPremiumMember = '/kyc/api/v1/premium-member';
+export const apiKycPremiumMember = '/idp/api/v1/member/kyc/details';
 
 /**
  * CRUD Premium Member History

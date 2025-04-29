@@ -62,11 +62,11 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataGender')}
             </Typography>
             <Typography variant="subtitle2">
-              {
-                customerProfile?.gender?.find(
-                  item => item.genderCode === memberKYCDetail?.premiumMember?.gender,
-                )?.genderDescription
-                || '-'}
+              {/* {customerProfile?.gender?.find(
+                item => item.genderCode === memberKYCDetail?.premiumMember?.gender,
+              )?.genderDescription
+                || '-'} */}
+              {memberKYCDetail?.premiumMember?.gender}
             </Typography>
             <Divider />
           </Stack>
