@@ -130,12 +130,16 @@ const ViewAccountRefundDetailModal = ({
       setLoading(true);
       const { result, errorData } = await useTransactionRefundFetcher(baseUrl, payload);
       setLoading(false);
-      const message = result?.responseMessage || result?.message ||result?.description || errorData?.status?.text || errorData?.status?.message || errorData?.responseMessage || 'Something went wrong';
+      const message = result?.responseMessage || result?.message || errorData?.message ||result?.description || errorData?.status?.text || errorData?.status?.message || errorData?.responseMessage || 'Something went wrong';
 
       if (result?.responseCode === 'QRRFN000' || result?.responseCode === 'MPMRFN000') {
         onHide();
         fetchAccountHistory();
         enqueueSnackbar(message, { variant: 'success' });
+        // @ts-ignore
+      } else if (errorData?.errorCode === '243') {
+        onHide();
+        enqueueSnackbar(message, { variant: 'error' });
       } else {
         enqueueSnackbar(message, { variant: 'error' });
       }

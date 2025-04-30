@@ -9,6 +9,7 @@ export interface TransactionRefundResponse {
   description: string;
   responseMessage: string;
   message: string;
+  errorCode: string;
 }
 
 export interface TransactionRefundRequest {
