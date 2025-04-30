@@ -496,7 +496,7 @@ const MemberManagementList = () => {
                 />
               </Stack>
             </Grid>
-            <Grid item xl={12} md={6} xs={12}>
+            <Grid item xl={3} md={6} xs={12}>
               <FormDatePicker
                 value={filterForm.activeDate}
                 onChange={value => {
