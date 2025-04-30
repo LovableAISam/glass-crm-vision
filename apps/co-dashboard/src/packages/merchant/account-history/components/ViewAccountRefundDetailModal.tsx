@@ -130,7 +130,7 @@ const ViewAccountRefundDetailModal = ({
       setLoading(true);
       const { result, errorData } = await useTransactionRefundFetcher(baseUrl, payload);
       setLoading(false);
-      const message = result?.responseMessage || result?.description || errorData?.status?.text || errorData?.status?.message || errorData?.responseMessage || 'Something went wrong';
+      const message = result?.responseMessage || result?.message ||result?.description || errorData?.status?.text || errorData?.status?.message || errorData?.responseMessage || 'Something went wrong';
 
       if (result?.responseCode === 'QRRFN000' || result?.responseCode === 'MPMRFN000') {
         onHide();

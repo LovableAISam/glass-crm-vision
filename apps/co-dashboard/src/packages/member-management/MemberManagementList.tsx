@@ -346,7 +346,7 @@ const MemberManagementList = () => {
         </Stack>
         <Card sx={{ p: 3, borderRadius: 4 }}>
           <Grid container spacing={2}>
-            <Grid item xl={3} md={6} xs={12}>
+            <Grid item xl={4} md={6} xs={12}>
               <Stack direction="column" spacing={1}>
                 <Typography variant="subtitle2">
                   {tMember('filterPhoneNumber')}
@@ -379,7 +379,7 @@ const MemberManagementList = () => {
                 />
               </Stack>
             </Grid>
-            <Grid item xl={3} md={6} xs={12}>
+            <Grid item xl={4} md={6} xs={12}>
               <Stack direction="column" spacing={1}>
                 <Typography variant="subtitle2">
                   {tMember('filterMemberName')}
@@ -412,7 +412,7 @@ const MemberManagementList = () => {
                 />
               </Stack>
             </Grid>
-            <Grid item xl={3} md={6} xs={12}>
+            <Grid item xl={4} md={6} xs={12}>
               <Stack direction="column" spacing={1}>
                 <Typography variant="subtitle2">
                   {tMember('filterStatus')}
@@ -454,7 +454,7 @@ const MemberManagementList = () => {
                 />
               </Stack>
             </Grid>
-            <Grid item xl={3} md={6} xs={12}>
+            <Grid item xl={4} md={6} xs={12}>
               <Stack direction="column" spacing={1}>
                 <Typography variant="subtitle2">
                   {tMember('filterUpgradeStatus')}
@@ -496,7 +496,7 @@ const MemberManagementList = () => {
                 />
               </Stack>
             </Grid>
-            <Grid item xl={3} md={6} xs={12}>
+            <Grid item xl={4} md={6} xs={12}>
               <FormDatePicker
                 value={filterForm.activeDate}
                 onChange={value => {

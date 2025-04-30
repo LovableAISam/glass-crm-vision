@@ -8,6 +8,7 @@ export interface TransactionRefundResponse {
   responseCode: string;
   description: string;
   responseMessage: string;
+  message: string;
 }
 
 export interface TransactionRefundRequest {
