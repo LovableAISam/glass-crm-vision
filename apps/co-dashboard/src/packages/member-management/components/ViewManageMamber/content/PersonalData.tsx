@@ -6,14 +6,16 @@ import { useTranslation } from 'react-i18next';
 import { UploadDocumentData } from "@woi/uploadDocument";
 import useModal from "@woi/common/hooks/useModal";
 import ImageUpload from "@src/shared/components/FormUpload/ImageUpload";
+import { DateConvert } from "@woi/core";
+import { LONG_DATE_TIME_FORMAT_BE } from "@woi/core/utils/date/constants";
 
 function PersonalData(props: ViewManageMemberTabProps) {
   const {
     memberDetail,
     memberKYCDetail,
     listCountryResidence,
-    listCityResidence,
-    customerProfile
+    // listCityResidence,
+    // customerProfile
   } = props;
   const { t: tKYC } = useTranslation('kyc');
 
@@ -121,7 +123,13 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataTransactionDate')}
             </Typography>
             <Typography variant="subtitle2">
-              -
+              {memberDetail?.vybeMember === "PRO"
+                ? memberKYCDetail?.premiumMember.transactionDate
+                  ? DateConvert.stringToDateFormat(
+                    memberKYCDetail?.premiumMember.transactionDate,
+                    LONG_DATE_TIME_FORMAT_BE,
+                  ) : '-'
+                : '-'}
             </Typography>
             <Divider />
           </Stack>
@@ -194,11 +202,12 @@ function PersonalData(props: ViewManageMemberTabProps) {
           <Stack direction="column" spacing={2}>
             <Typography variant="body2">{tKYC('personalDataCity')}</Typography>
             <Typography variant="subtitle2">
-              {
+              {/* {
                 listCityResidence?.find(
                   item => item.code === memberKYCDetail?.memberResidence.cityId,
                 )?.name
-                || '-'}
+                || '-'} */}
+              {memberKYCDetail?.memberResidence.cityId}
             </Typography>
             <Divider />
           </Stack>
@@ -247,11 +256,12 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataSourceIncome')}
             </Typography>
             <Typography variant="subtitle2">
-              {
+              {/* {
                 customerProfile?.sourceOfFunds?.find(
                   item => item.sourceOfFundsCode === memberKYCDetail?.premiumMember?.sourceOfFunds,
                 )?.sourceOfFundsDescription
-                || '-'}
+                || '-'} */}
+              {memberKYCDetail?.premiumMember?.sourceOfFunds}
             </Typography>
             <Divider />
           </Stack>
@@ -282,11 +292,12 @@ function PersonalData(props: ViewManageMemberTabProps) {
               {tKYC('personalDataIndustry')}
             </Typography>
             <Typography variant="subtitle2">
-              {
+              {/* {
                 customerProfile?.natureOfBusiness?.find(
                   item => item.natureOfBusinessCode === memberKYCDetail?.premiumMember?.natureOfWork,
                 )?.natureOfBusinessDescription
-                || '-'}
+                || '-'} */}
+              {memberKYCDetail?.premiumMember?.natureOfWork}
             </Typography>
             <Divider />
           </Stack>

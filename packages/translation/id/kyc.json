@@ -11,6 +11,7 @@
   "statusApproved": "Disetujui",
   "statusRejected": "Ditolak",
   "statusNotUpgrade": "Belum Diupgrade",
+  "statusUpgrade": "Upgrade",
   "filterPhoneNumber": "Nomor Telepon",
   "placeholderTypePhoneNumber": "ketik nomor telepon",
   "filterMemberName": "Nama Member",

@@ -93,6 +93,7 @@ export interface KycPermiumMember extends ResponseData {
   // gender: string;
   // isDttot: boolean;
   isResidenceSameWithIdentityCard: boolean;
+  transactionDate: string;
   // maritalStatus: string;
   // memberId: string;
   // modifiedBy: string;

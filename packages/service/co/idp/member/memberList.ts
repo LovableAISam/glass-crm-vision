@@ -6,7 +6,7 @@ export type MemberStatus = 'LOCK' | 'ACTIVE' | any;
 
 export type MemberVybeStatus = 'LITE' | 'REGULAR' | 'PRO' | any;
 
-export type UpgradeStatus = 'UPGRADE' | 'NOT_UPGRADE' | any;
+export type UpgradeStatus = 'UPGRADE' | 'NOT_UPGRADE' | 'VERIFIED' | any;
 
 export type LoyaltyStatus = 'NOT_REGISTERED' | 'REGISTERED' | any;
 

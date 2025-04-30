@@ -163,6 +163,15 @@ const MemberManagementList = () => {
                 {tKYC('statusRegistered')}
               </Typography>
             );
+          } else if (value === 'UPGRADE') {
+            componentToRender = (
+              <Typography
+                variant="inherit"
+                key="status"
+              >
+                {tKYC('statusUpgrade')}
+              </Typography>
+            );
           } else if (value === 'NOT_UPGRADE') {
             componentToRender = (
               <Typography
@@ -190,6 +199,16 @@ const MemberManagementList = () => {
                 key="status"
               >
                 {tKYC('statusRejected')}
+              </Typography>
+            );
+          } else if (value === 'VERIFIED') {
+            componentToRender = (
+              <Typography
+                variant="inherit"
+                color={Token.color.orangeDark}
+                key="status"
+              >
+                {tKYC('statusVerified')}
               </Typography>
             );
           } else {
