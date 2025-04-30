@@ -7,6 +7,7 @@ export interface TransactionRefundResponse {
   referenceNumber: string;
   responseCode: string;
   description: string;
+  responseMessage: string;
 }
 
 export interface TransactionRefundRequest {
