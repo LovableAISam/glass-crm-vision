@@ -19,7 +19,7 @@ import {
   calculateDateRangeDays,
   stringToDateFormat,
 } from '@woi/core/utils/date/dateConvert';
-import { QRISReportRequest } from '@woi/service/co/admin/report/qrisReport';
+import { QRISReport, QRISReportRequest } from '@woi/service/co/admin/report/qrisReport';
 import { batch, reverseDirection } from '@woi/core';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -84,7 +84,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
     totalPages: 0,
     totalElements: 0,
   });
-  const [sortBy, setSortBy] = useState<keyof QRISReportRequest>();
+  const [sortBy, setSortBy] = useState<keyof QRISReport>();
   const [direction, setDirection] = useState<'desc' | 'asc'>('desc');
   const [filterForm, setFilterForm] = useState<FilterForm>(initialFilterForm);
   const { baseUrl } = useBaseUrl();
@@ -225,12 +225,21 @@ function useQRISReportList(props: TransactionSummaryProps) {
     }));
   }, [MerchantCategoryCodeRequest]);
 
+  const getSortPayload = (paramSortBy: keyof QRISReport) => {
+      switch (paramSortBy) {
+        case 'date':
+          return 'dateTime';
+        default:
+          return paramSortBy;
+      }
+    };
+
   const qrisReportPayload: QRISReportRequest = {
     startAt: stringToDateFormat(debouncedFilter.endAt.startDate),
     endAt: stringToDateFormat(debouncedFilter.endAt.endDate),
     size: pagination.limit,
     page: pagination.currentPage,
-    sort: sortBy ? `${sortBy}:${direction}` : '',
+    sort: sortBy ? `${getSortPayload(sortBy)}:${direction}` : '',
     transactionType: debouncedFilter.transactionType.map(data => data.value),
     qrType: debouncedFilter.qrType.map(data => data.value),
     qrisType: debouncedFilter.qrisType.map(data => data.value),
@@ -288,7 +297,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
     });
   };
 
-  const handleSort = (columnId: keyof QRISReportRequest) => {
+  const handleSort = (columnId: keyof QRISReport) => {
     setSortBy(columnId);
     setDirection(oldDirection => reverseDirection(oldDirection));
   };
