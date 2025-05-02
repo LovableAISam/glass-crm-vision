@@ -24,8 +24,8 @@ import { useController, useForm } from "react-hook-form";
 import useBaseUrl from "@src/shared/hooks/useBaseUrl";
 
 // Types
-import { OptionMap } from "@woi/option";
 import { MerchantAccountHistory } from "@woi/service/co/merchant/merchantAccountHistoryList";
+import { OptionMap } from "@woi/option";
 
 // Icons
 import CloseIcon from '@mui/icons-material/Close';
