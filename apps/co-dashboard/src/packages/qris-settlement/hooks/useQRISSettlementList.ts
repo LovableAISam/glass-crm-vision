@@ -111,12 +111,25 @@ function useQRISSettlementList() {
     { label: 'Not Paid', value: 'not paid' },
   ];
 
+  const getSortPayload = (paramSortBy: keyof QRISSettlement) => {
+    switch (paramSortBy) {
+      case 'feeIssuerPercentage':
+        return 'feeIssuingPercentage';
+      case 'feeIssuerAmount':
+        return 'feeIssuingAmount';
+      case 'status':
+        return 'paidStatus';
+      default:
+        return paramSortBy;
+    }
+  };
+
   const qrisSettlementPayload: QRISSettlementRequest = {
     startAt: stringToDateFormat(debouncedFilter.activeDate.startDate),
     endAt: stringToDateFormat(debouncedFilter.activeDate.endDate),
     size: pagination.limit,
     page: pagination.currentPage,
-    sort: sortBy ? `${sortBy}:${direction}` : '',
+    sort: sortBy ? `${getSortPayload(sortBy)}:${direction}` : '',
     merchantName: debouncedFilter.merchant,
     mcc: debouncedFilter.mcc.map(data => data.value),
     status: debouncedFilter.status.map(data => data.value),
@@ -187,7 +200,7 @@ function useQRISSettlementList() {
         endAt: stringToDateFormat(debouncedFilter.activeDate.endDate),
         size: pagination.limit,
         page: pagination.currentPage,
-        sort: sortBy ? `${sortBy}:${direction}` : '',
+        sort: sortBy ? `${getSortPayload(sortBy)}:${direction}` : '',
         merchantName: debouncedFilter.merchant,
         mcc: debouncedFilter.mcc.map(data => data.value),
         status: debouncedFilter.status.map(data => data.value),

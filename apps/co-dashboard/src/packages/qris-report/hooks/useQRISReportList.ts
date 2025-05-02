@@ -226,13 +226,13 @@ function useQRISReportList(props: TransactionSummaryProps) {
   }, [MerchantCategoryCodeRequest]);
 
   const getSortPayload = (paramSortBy: keyof QRISReport) => {
-      switch (paramSortBy) {
-        case 'date':
-          return 'dateTime';
-        default:
-          return paramSortBy;
-      }
-    };
+    switch (paramSortBy) {
+      case 'date':
+        return 'dateTime';
+      default:
+        return paramSortBy;
+    }
+  };
 
   const qrisReportPayload: QRISReportRequest = {
     startAt: stringToDateFormat(debouncedFilter.endAt.startDate),
@@ -322,7 +322,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
           startDate: stringToDateFormat(effectiveDate.startDate),
           endDate: stringToDateFormat(effectiveDate.endDate),
           format: formatOption,
-          sort: sortBy ? `${sortBy}:${direction}` : '',
+          sort: sortBy ? `${getSortPayload(sortBy)}:${direction}` : '',
           merchantName: debouncedFilter.merchantName
             ? debouncedFilter.merchantName
             : '',
