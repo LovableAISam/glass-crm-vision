@@ -102,7 +102,7 @@ const initialMerchantForm: MerchantForm = {
     village: null,
     phoneNumber: '',
     postCode: '',
-    isQrisTag51: false,
+    isQrisTag51: true,
 
     // Merchant Data 2
     merchantCompleteName: '',
@@ -435,7 +435,8 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
                 merchantCompleteName: form.merchantCompleteName,
                 merchantShortName: form.merchantShortName,
                 password: form.password,
-                isQrisTag51: form.isQrisTag51,
+                // isQrisTag51: form.isQrisTag51,
+                isQrisTag51: true,
                 qrType: TextGetter.getterString(form.qrType?.value),
                 merchantCategory: TextGetter.getterString(form.merchantCriteria?.value),
                 merchantType: TextGetter.getterString(form.merchantType2?.value),
@@ -514,7 +515,8 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
                 merchantCompleteName: form.merchantCompleteName,
                 merchantShortName: form.merchantShortName,
                 password: form.password,
-                isQrisTag51: form.isQrisTag51,
+                // isQrisTag51: form.isQrisTag51,
+                isQrisTag51: true,
                 qrType: TextGetter.getterString(form.qrType?.value),
                 merchantCategory: TextGetter.getterString(form.merchantCriteria?.value),
                 merchantType: TextGetter.getterString(form.merchantType2?.value),

@@ -631,7 +631,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
               helperText={errors.password?.message}
             />
           </Grid>
-          <Grid item md={12} xs={12}>
+          <Grid item md={12} xs={12} hidden>
             <Typography variant="subtitle2" gutterBottom>
               {tMerchant('detailIsQrisTag51')}
             </Typography>
