@@ -213,7 +213,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', {
-        fieldName: 'nik / nib',
+        fieldName: 'ID Number/NIB',
       }),
     },
   });
