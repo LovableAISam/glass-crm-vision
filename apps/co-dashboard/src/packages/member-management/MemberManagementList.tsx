@@ -484,7 +484,7 @@ const MemberManagementList = () => {
                     renderInput(
                       params,
                       tForm('placeholderSelect', {
-                        fieldName: 'member vybe status',
+                        fieldName: 'member status',
                       }),
                     )
                   }

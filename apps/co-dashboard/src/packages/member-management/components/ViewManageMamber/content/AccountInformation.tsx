@@ -252,7 +252,7 @@ function AccountInformation(props: ViewManageMemberTabProps) {
                   variant="body2"
                   color={Token.color.greyscaleGreyDarkest}
                 >
-                  {tKYC('accountInformationVYBEMember')}
+                  {tKYC('accountInformationMemberType')}
                 </Typography>
                 <Typography variant="subtitle2">
                   {capitalizeWords(memberDetail?.vybeMember || '')}
