@@ -386,7 +386,7 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
     control,
     rules: {
       required: tForm('generalErrorRequired', {
-        fieldName: 'npwp',
+        fieldName: 'TIN',
       }),
     },
   });
