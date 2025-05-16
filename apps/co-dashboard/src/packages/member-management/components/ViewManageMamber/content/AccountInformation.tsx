@@ -32,6 +32,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { useSnackbar } from 'notistack';
 import { calculateDateRangeDays } from '@woi/core/utils/date/dateConvert';
+import { MemberTransactionHistoryData } from '@woi/service/co/transaction/transactionHistory/memberTransactionHistoryList';
 
 // Types & Consts
 import { Column } from 'react-table';
@@ -40,7 +41,6 @@ import {
   LONG_DATE_FORMAT,
   LONG_DATE_TIME_FORMAT,
 } from '@woi/core/utils/date/constants';
-import { MemberTransactionHistoryData } from '@woi/service/co/transaction/transactionHistory/memberTransactionHistoryList';
 import { fileFormats } from '@woi/service/co/transaction/transactionHistory/memberTransactionHistoryExport';
 
 function AccountInformation(props: ViewManageMemberTabProps) {
