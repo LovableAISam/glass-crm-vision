@@ -7,7 +7,7 @@ import MerchantData2 from './content/MerchantData2';
 import SettlementInformation from './content/SettlementInformation';
 
 // Hooks & Utils
-import useMerchantQRISAcquirerUpsert from '@src/packages/merchant-management/hooks/useMerchantQRISAcquirerUpsert';
+import useMerchantQRISAcquirerUpsert, { OptionMapCriteria } from '@src/packages/merchant-management/hooks/useMerchantQRISAcquirerUpsert';
 import { UseFormReturn } from 'react-hook-form';
 
 // Types & Consts
@@ -31,7 +31,7 @@ export type QRISAcquirerContentProps = {
   villageOptions: OptionMap<string>[];
   qrTypeOptions: OptionMap<string>[];
   merchantTypeOptions: OptionMap<string>[];
-  merchantCriteriaOptions: OptionMap<string>[];
+  merchantCriteriaOptions: OptionMapCriteria<string>[];
   merchantCategoryOptions: OptionMap<string>[];
   merchantLocationOptions: OptionMap<string>[];
   doubleAuthorize: boolean;

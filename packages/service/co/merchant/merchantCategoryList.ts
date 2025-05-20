@@ -6,6 +6,8 @@ export interface MerchantCategoryList {
     id: string;
     definition: string;
     code: string;
+    mdrMinimum: number
+    mdrUpper: number
 }
 
 export interface MerchantCategoryRequest {

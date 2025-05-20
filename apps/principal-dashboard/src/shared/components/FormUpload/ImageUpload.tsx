@@ -137,13 +137,13 @@ function ImageUpload(props: ImageUploadProps) {
     if (typeof onChange === 'function') {
       onChange(selectedFile);
     }
-  }, [selectedFile, onChange]); // Menambahkan onChange ke dependency array
+  }, [selectedFile]); // Menambahkan onChange ke dependency array
 
   useEffect(() => {
     if (typeof onChangeImage === 'function') {
       onChangeImage(selectedImage);
     }
-  }, [selectedImage, onChangeImage]); // Menambahkan onChangeImage ke dependency array
+  }, [selectedImage]); // Menambahkan onChangeImage ke dependency array
 
   const handleView = (_localSelectedImage: string) => { // Mengganti nama parameter untuk menghindari konflik
     if (typeof onView !== 'function') return;

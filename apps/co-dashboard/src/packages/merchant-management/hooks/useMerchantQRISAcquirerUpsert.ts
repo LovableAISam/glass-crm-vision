@@ -168,6 +168,12 @@ type UseMerchantUpsertProps = {
     handleComplete: (step: number) => void;
 };
 
+export interface OptionMapCriteria<T> {
+    label: string;
+    value: T;
+    mdr: number;
+}
+
 function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
     const { setSelectEdit, onHide, isUpdate, merchantDetail, fetchMerchantList, activeStep,
         handleComplete, merchantFor, setActiveStep } = props;
@@ -185,7 +191,7 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
     const [qrTypeOptions, setQRTypeOptions] = useState<OptionMap<string>[]>([]);
     const [doubleAuthorize, setDoubleAuthorize] = useState<boolean>(false);
     const [merchantTypeOptions, setMerchantTypeOptions] = useState<OptionMap<string>[]>([]);
-    const [merchantCriteriaOptions, setMerchantCriteriaOptions] = useState<OptionMap<string>[]>([]);
+    const [merchantCriteriaOptions, setMerchantCriteriaOptions] = useState<OptionMapCriteria<string>[]>([]);
     const [merchantCategoryOptions, setMerchantCategoryOptions] = useState<OptionMap<string>[]>([]);
     const [merchantLocationOptions, setMerchantLocationOptions] = useState<OptionMap<string>[]>([]);
 
@@ -334,6 +340,7 @@ function useMerchantQRISAcquirerUpsert(props: UseMerchantUpsertProps) {
             setMerchantCriteriaOptions(result.map(data => ({
                 label: data.code !== '' ? `${data.definition} (${data.code})` : `${data.definition}`,
                 value: data.id,
+                mdr: data.mdrUpper
             })));
         }
     };

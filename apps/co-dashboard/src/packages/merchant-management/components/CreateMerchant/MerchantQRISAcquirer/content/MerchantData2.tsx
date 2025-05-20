@@ -717,26 +717,8 @@ const MerchantData2 = (props: QRISAcquirerContentProps) => {
               {...fieldMerchantCriteria}
               onChange={(_, value) => {
                 fieldMerchantCriteria.onChange(value);
-                switch (value?.label) {
-                  case 'Usaha Mikro (UMI)':
-                    fieldMDRPercentage.onChange(0.3);
-                    break;
-                  case 'Usaha Kecil (UKE)':
-                  case 'Usaha Menengah (UME)':
-                  case 'Usaha Besar (UBE)':
-                  case 'Usaha Reguler (URE)':
-                    fieldMDRPercentage.onChange(0.7);
-                    break;
-                  case 'Layanan Pendidikan':
-                    fieldMDRPercentage.onChange(0.6);
-                    break;
-                  case 'SPBU, BLU dan PSO':
-                    fieldMDRPercentage.onChange(0.4);
-                    break;
-                  default:
-                    fieldMDRPercentage.onChange(0);
-                    break;
-                }
+                // @ts-ignore
+                fieldMDRPercentage.onChange(value.mdr);
               }}
               options={merchantCriteriaOptions}
               fullWidth

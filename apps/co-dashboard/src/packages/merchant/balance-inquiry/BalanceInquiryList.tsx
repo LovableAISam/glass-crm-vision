@@ -17,6 +17,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import useBalanceInquiryList from './hooks/useBalanceInquiryList';
 import { DateConvert, PriceConverter } from '@woi/core';
+import { format } from 'date-fns-tz';
 
 // Types & Consts
 import { LONG_DATE_TIME_FORMAT } from '@woi/core/utils/date/constants';
@@ -38,7 +39,7 @@ const BalanceInquiryList = () => {
   const { t: tCommon } = useTranslation('common');
   const { t: tAccount } = useTranslation('account');
 
-  const columns: Array<Column<BalanceInquiryData & { action: string }>> =
+  const columns: Array<Column<BalanceInquiryData & { action: string; }>> =
     useMemo(
       () => [
         {
@@ -105,12 +106,14 @@ const BalanceInquiryList = () => {
                     {tAccount('detailDate')}
                   </Typography>
                   <Typography variant="subtitle2" sx={{ py: 0.8 }}>
-                    {balanceInquiryHeader?.inquiryTime
+                    {/* {balanceInquiryHeader?.inquiryTime
                       ? DateConvert.stringToDateFormat(
                           balanceInquiryHeader?.inquiryTime,
                           LONG_DATE_TIME_FORMAT,
                         )
-                      : '-'}
+                      : '-'} */}
+                    {/* Directly show time without convert to GMT+8 again */}
+                    {format(new Date(balanceInquiryHeader?.inquiryTime), LONG_DATE_TIME_FORMAT)}
                   </Typography>
                 </Stack>
               </Grid>
