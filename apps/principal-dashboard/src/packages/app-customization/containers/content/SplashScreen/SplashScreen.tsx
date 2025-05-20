@@ -38,7 +38,7 @@ function SplashScreen(props: AppCustomizationContentProps) {
             {tCommon('actionNext')}
           </Button>
         </Stack>
-      )
+      );
     }
 
     return (
@@ -62,8 +62,8 @@ function SplashScreen(props: AppCustomizationContentProps) {
           {tCommon('actionSave')}
         </Button>
       </Stack>
-    )
-  }
+    );
+  };
 
   return (
     <Box>
@@ -87,8 +87,10 @@ function SplashScreen(props: AppCustomizationContentProps) {
                     payload: {
                       selectedFile: file,
                     }
-                  })
+                  });
                 }}
+                minWidth={1080}
+                minHeight={2280}
                 onChangeImage={(file) => dispatch({
                   type: 'SET_SPLASH_SCREEN',
                   payload: {
@@ -118,7 +120,7 @@ function SplashScreen(props: AppCustomizationContentProps) {
       </Grid>
       {renderAction()}
     </Box>
-  )
+  );
 }
 
 export default SplashScreen;
