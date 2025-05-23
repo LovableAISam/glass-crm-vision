@@ -32,6 +32,12 @@ import { OptionMap } from '@woi/option';
 import { DatePeriod } from '@woi/core/utils/date/types';
 import { LONG_DATE_TIME_FORMAT_BE } from '@woi/core/utils/date/constants';
 
+export interface OptionMerchantCriteria<T> {
+  label: string;
+  value: T;
+  code: string;
+}
+
 type FilterForm = {
   endAt: DatePeriod;
   transactionType: OptionMap<string>[];
@@ -40,7 +46,7 @@ type FilterForm = {
   qrisLocation: OptionMap<string>[];
   kycLocation: OptionMap<string>[];
   merchantCategoryCode: OptionMap<string>[];
-  merchantCriteria: OptionMap<string>[];
+  merchantCriteria: OptionMerchantCriteria<string>[];
   merchantName: string;
 };
 
@@ -127,9 +133,9 @@ function useQRISReportList(props: TransactionSummaryProps) {
     )
       return [];
     return MerchantCriteriaListTypeData.result.map(key => ({
-      label:
-        key.code === '' ? key.definition : `${key.definition} (${key.code})`,
-      value: key.code,
+      label: key.code === '' ? key.definition : `${key.definition} (${key.code})`,
+      value: key.id,
+      code: key.code
     }));
   }, [MerchantCriteriaListTypeData]);
 
@@ -248,7 +254,7 @@ function useQRISReportList(props: TransactionSummaryProps) {
     merchantCategoryCode: debouncedFilter.merchantCategoryCode.map(
       data => data.value,
     ),
-    merchantCriteria: debouncedFilter.merchantCriteria.map(data => data.value),
+    merchantCriteria: debouncedFilter.merchantCriteria.map(data => data.code),
     merchantName: debouncedFilter.merchantName
       ? debouncedFilter.merchantName
       : '',

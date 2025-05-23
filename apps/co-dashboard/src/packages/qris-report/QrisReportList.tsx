@@ -31,7 +31,7 @@ import { OptionMap } from '@woi/option';
 
 // Hooks & Utils
 import useModal from '@woi/common/hooks/useModal';
-import useQRISReportList from './hooks/useQRISReportList';
+import useQRISReportList, { OptionMerchantCriteria } from './hooks/useQRISReportList';
 import { batch, DateConvert, fileFormats } from '@woi/core';
 import { useTranslation } from 'react-i18next';
 
@@ -682,7 +682,7 @@ const QRISReportList = () => {
                       }));
                       setFilterForm(oldForm => ({
                         ...oldForm,
-                        merchantCriteria: value as OptionMap<string>[],
+                        merchantCriteria: value as OptionMerchantCriteria<string>[],
                       }));
                     });
                   }}
