@@ -53,16 +53,16 @@ function useMemberList() {
   const upgrageStatusOptions = <OptionMap<UpgradeStatus>[]>([
     {
       label: tMember('upgradeStatusUpgrade'),
-      value: 'UPGRADE',
+      value: 'UPGRADE, REGISTERED',
     },
     {
       label: tMember('upgradeStatusNotUpgrade'),
       value: 'NOT_UPGRADE',
     },
-    {
-      label: tMember('upgradeStatusWaitingToReview'),
-      value: 'WAITING_TO_REVIEW',
-    },
+    // {
+    //   label: tMember('upgradeStatusWaitingToReview'),
+    //   value: 'WAITING_TO_REVIEW',
+    // },
   ]);
 
   const statusOptions = <OptionMap<MemberStatus>[]>([
