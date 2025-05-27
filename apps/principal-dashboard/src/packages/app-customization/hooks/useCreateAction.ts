@@ -6,7 +6,7 @@ import { useSnackbar } from "notistack";
 import { useAppCustomization } from "../context/AppCustomizationContext";
 import { useApplicationFetcher, useApplicationUpdateFetcher } from "@woi/service/principal";
 import useBaseUrl from "@src/shared/hooks/useBaseUrl";
-import { useRouter } from "next/router";
+import useRouteRedirection from "@src/shared/hooks/useRouteRedirection";
 
 // Types & Consts
 import { AppCustomizationContentProps } from "../containers/AppCustomizationContent";
@@ -16,8 +16,8 @@ import { ApplicationCreateRequest } from "@woi/service/principal/admin/applicati
 import { ApplicationUpdateRequest } from "@woi/service/principal/admin/application/applicationUpdate";
 
 function useCreateAction(props: AppCustomizationContentProps) {
-  const router = useRouter();
   const { coId, applicationId } = props;
+  const { onNavigate } = useRouteRedirection();
   const { enqueueSnackbar } = useSnackbar();
   const [appCustomizationSpec] = useAppCustomization();
   const contextRef = useRef(appCustomizationSpec);
@@ -39,7 +39,7 @@ function useCreateAction(props: AppCustomizationContentProps) {
           enqueueSnackbar("App Customization successfully added!", {
             variant: "success",
           });
-          router.back();
+          onNavigate('/app-customization');
         } else {
           enqueueSnackbar(errorData?.details?.[0] || "App Customization failed!", { variant: "error" });
         }
@@ -62,7 +62,7 @@ function useCreateAction(props: AppCustomizationContentProps) {
           enqueueSnackbar("App Customization successfully updated!", {
             variant: "success",
           });
-          router.back();
+          onNavigate('/app-customization');
         } else {
           enqueueSnackbar(errorData?.details?.[0] || "App Customization failed!", { variant: "error" });
         }
