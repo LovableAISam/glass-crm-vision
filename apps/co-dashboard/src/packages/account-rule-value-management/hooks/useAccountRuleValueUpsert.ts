@@ -31,6 +31,7 @@ export interface AccountRuleValueForm {
   transactionType: OptionMap<string> | null;
   valueRegisterMember: number | null;
   valueUnregisterMember: number | null;
+  valueProMember: number | null;
   currency: OptionMap<string> | null;
   effectiveDate: DatePeriod;
   intervalTime: number | null;
@@ -41,6 +42,7 @@ const initialAccountRuleValueForm: AccountRuleValueForm = {
   transactionType: null,
   valueRegisterMember: null,
   valueUnregisterMember: null,
+  valueProMember: null,
   currency: null,
   effectiveDate: {
     startDate: null,
@@ -188,6 +190,7 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
           transactionTypeName: TextGetter.getterString(form.transactionType?.label),
           valueRegisterMember: TextGetter.getterNumber(form.valueRegisterMember),
           valueUnregisterMember: TextGetter.getterNumber(form.valueUnregisterMember),
+          valueProMember: TextGetter.getterNumber(form.valueProMember),
           startDate: stringToDateFormat(form.effectiveDate.startDate),
           endDate: stringToDateFormat(form.effectiveDate.endDate),
           intervalTime: TextGetter.getterNumber(form.intervalTime),
@@ -210,6 +213,7 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
           transactionTypeName: TextGetter.getterString(form.transactionType?.label),
           valueRegisterMember: TextGetter.getterNumber(form.valueRegisterMember),
           valueUnregisterMember: TextGetter.getterNumber(form.valueUnregisterMember),
+          valueProMember: TextGetter.getterNumber(form.valueProMember),
           startDate: stringToDateFormat(form.effectiveDate.startDate),
           endDate: stringToDateFormat(form.effectiveDate.endDate),
           intervalTime: TextGetter.getterNumber(form.intervalTime),
@@ -230,6 +234,7 @@ function useAccountRuleValueUpsert(props: AccountRuleValueUpsertProps) {
           setValue('accountRuleId', { label: result.accountRuleName, value: result.accountRuleSecureId });
           setValue('valueRegisterMember', result.valueRegisterMember);
           setValue('valueUnregisterMember', result.valueUnregisterMember);
+          setValue('valueProMember', result.valueProMember);
           setValue('transactionType', { label: result.transactionTypeName, value: result.transactionTypeSecureId });
           setValue('currency', { label: result.currencyName, value: result.currencySecureId });
           setValue('effectiveDate', {

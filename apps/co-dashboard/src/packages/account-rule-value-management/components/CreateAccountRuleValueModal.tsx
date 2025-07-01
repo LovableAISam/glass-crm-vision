@@ -80,7 +80,7 @@ const CreateAccountRuleValueModal = (
     control,
     rules: {
       required: tForm('generalErrorRequired', {
-        fieldName: 'value basic member',
+        fieldName: 'value lite member',
       }),
     },
   });
@@ -90,7 +90,17 @@ const CreateAccountRuleValueModal = (
     control,
     rules: {
       required: tForm('generalErrorRequired', {
-        fieldName: 'value verified member',
+        fieldName: 'value regular member',
+      }),
+    },
+  });
+
+  const { field: fieldValueProMember } = useController({
+    name: 'valueProMember',
+    control,
+    rules: {
+      required: tForm('generalErrorRequired', {
+        fieldName: 'value pro member',
       }),
     },
   });
@@ -225,7 +235,7 @@ const CreateAccountRuleValueModal = (
               {...fieldValueUnregisterMember}
               fullWidth
               placeholder={tForm('placeholderType', {
-                fieldName: 'for basic member',
+                fieldName: 'for lite member',
               })}
               sx={{
                 '& .MuiOutlinedInput-root': {
@@ -246,7 +256,7 @@ const CreateAccountRuleValueModal = (
               {...fieldValueRegisterMember}
               fullWidth
               placeholder={tForm('placeholderType', {
-                fieldName: 'for verified member',
+                fieldName: 'for regular member',
               })}
               sx={{
                 '& .MuiOutlinedInput-root': {
@@ -256,6 +266,27 @@ const CreateAccountRuleValueModal = (
               InputProps={{ inputComponent: NumberFormat as any }}
               error={Boolean(errors.valueRegisterMember)}
               helperText={errors.valueRegisterMember?.message}
+              disabled
+            />
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <Typography variant="subtitle2" gutterBottom>
+              {tAccountRuleValue('formForProMember')}
+            </Typography>
+            <TextField
+              {...fieldValueProMember}
+              fullWidth
+              placeholder={tForm('placeholderType', {
+                fieldName: 'for pro member',
+              })}
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  borderRadius: 3,
+                },
+              }}
+              InputProps={{ inputComponent: NumberFormat as any }}
+              error={Boolean(errors.valueProMember)}
+              helperText={errors.valueProMember?.message}
               disabled
             />
           </Grid>

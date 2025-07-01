@@ -21,8 +21,9 @@
   "formValue": "Nilai",
   "formForRegisteredMember": "Untuk Anggota Terdaftar",
   "formForUnregisteredMember": "Untuk Anggota Tidak Terdaftar",
-  "formForUnregisterMember": "Untuk Anggota Basic",
-  "formForRegisterMember": "Untuk Anggota Verified",
+  "formForUnregisterMember": "Untuk Anggota Lite",
+  "formForRegisterMember": "Untuk Anggota Reguler",
+  "formForProMember": "Untuk Anggota Pro",
   "formCurrency": "Mata Uang",
   "formEffectiveDate": "Tanggal Berlaku"
 }

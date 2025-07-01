@@ -7,6 +7,7 @@ export interface AccountRuleValueDetailData extends ResponseData {
   transactionTypeSecureId: string;
   valueRegisterMember: number;
   valueUnregisterMember: number;
+  valueProMember: number;
   startDate: string;
   endDate: string;
   accountRuleName: string;
