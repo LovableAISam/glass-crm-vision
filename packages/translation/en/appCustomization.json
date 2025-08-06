@@ -56,7 +56,7 @@
   "onboardingPlaceholderNextButton": "Next Button",
 
   "splashScreenTitle": "Splash Screen",
-  "splashScreenInfo": "<ul><li>Splash screen will display your main brand logo</li><li>Format image .jpg .jpeg .png and minimum size is 1080 x 2280 px.</li></ul>",
+  "splashScreenInfo": "<ul><li>Splash screen will display your main brand logo</li><li>Format image .jpg .jpeg .png and minimum size is 1080 x 1080 px.</li></ul>",
   "splashScreenPreview": "Splash Preview",
 
   "confirmationTitle": "App Customization Confirmation",

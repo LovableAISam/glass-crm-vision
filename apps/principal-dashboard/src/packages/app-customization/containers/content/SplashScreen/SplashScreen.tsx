@@ -90,7 +90,7 @@ function SplashScreen(props: AppCustomizationContentProps) {
                   });
                 }}
                 minWidth={1080}
-                minHeight={2280}
+                minHeight={1080}
                 onChangeImage={(file) => dispatch({
                   type: 'SET_SPLASH_SCREEN',
                   payload: {

@@ -56,7 +56,7 @@
   "onboardingPlaceholderNextButton": "Tombol Next",
 
   "splashScreenTitle": "Splash Screen",
-  "splashScreenInfo": "<ul><li>Splash Screen akan menampilkan logo merek utama Anda</li><li>Format gambar .jpg .jpeg .png dan ukuran minimum 1080 x 2280 px.</li></ul>",
+  "splashScreenInfo": "<ul><li>Splash Screen akan menampilkan logo merek utama Anda</li><li>Format gambar .jpg .jpeg .png dan ukuran minimum 1080 x 1080 px.</li></ul>",
   "splashScreenPreview": "Preview Splash",
 
   "confirmationTitle": "Konfirmasi App Customization",
