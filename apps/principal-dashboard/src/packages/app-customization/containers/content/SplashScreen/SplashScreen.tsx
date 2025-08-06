@@ -1,10 +1,13 @@
+// Core
 import React from 'react';
 
+// Components
 import { Stack, Typography, Card, Box, Grid, useTheme } from '@mui/material';
 import { ImagePreview, Button } from '@woi/web-component';
 import { AppCustomizationContentProps } from '../../AppCustomizationContent';
 import ImageUpload from '@src/shared/components/FormUpload/ImageUpload';
 
+// Hooks
 import { useAppCustomization } from '../../../context/AppCustomizationContext';
 import { useTranslation } from 'react-i18next';
 
